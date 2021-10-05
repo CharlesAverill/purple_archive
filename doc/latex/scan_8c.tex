@@ -1,0 +1,51 @@
+\hypertarget{scan_8c}{}\doxysection{src/scan.c File Reference}
+\label{scan_8c}\index{src/scan.c@{src/scan.c}}
+
+
+Lexical Scanner logic.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}data\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static char \mbox{\hyperlink{scan_8c_aba19733986b2193569abfcc4951d480f}{next}} (void)
+\item 
+static void \mbox{\hyperlink{scan_8c_aa675e2a79ca95a2b6861a587655eef81}{put\+\_\+back\+\_\+into\+\_\+stream}} (char c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Lexical Scanner logic. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+05-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{scan_8c_aba19733986b2193569abfcc4951d480f}\label{scan_8c_aba19733986b2193569abfcc4951d480f}} 
+\index{scan.c@{scan.c}!next@{next}}
+\index{next@{next}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily static char next (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+Next valid character from input\+\_\+file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{scan_8c_aa675e2a79ca95a2b6861a587655eef81}\label{scan_8c_aa675e2a79ca95a2b6861a587655eef81}} 
+\index{scan.c@{scan.c}!put\_back\_into\_stream@{put\_back\_into\_stream}}
+\index{put\_back\_into\_stream@{put\_back\_into\_stream}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{put\_back\_into\_stream()}{put\_back\_into\_stream()}}
+{\footnotesize\ttfamily static void put\+\_\+back\+\_\+into\+\_\+stream (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Define the character to be put back into the input stream 
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to be put back \\
+\hline
+\end{DoxyParams}
