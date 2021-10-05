@@ -1,4 +1,4 @@
-!!!
+<!--
 /*! \mainpage My Personal Index Page
  *
  * \section intro_sec Introduction
@@ -11,7 +11,7 @@
  *
  * etc...
  */
-!!!
+-->
 
 
 # Purple
