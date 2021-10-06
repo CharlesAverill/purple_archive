@@ -18,7 +18,8 @@ typedef enum Token_Type {
     T_MINUS,
     T_STAR,
     T_SLASH,
-    T_INTLIT /**Integer literal*/
+    /**Integer literal*/
+    T_INTLIT
 } Token_Type;
 
 /**
@@ -26,8 +27,10 @@ typedef enum Token_Type {
  * @brief A structure to hold token information
  */
 typedef struct token {
-    Token_Type _token; /**The token's type*/
-    int value; /**If an integer literal, the token's value*/
+    /**The token's type*/
+    Token_Type _token;
+    /**If an integer literal, the token's value*/
+    int value;
 } token;
 
 /**
@@ -35,10 +38,14 @@ typedef struct token {
  * @brief This structure is used to build the AST for parsing
  */
 typedef struct AST_Node {
-    Token_Type ttype; /**The Token_Type of the given token*/
-    struct AST_Node *left; /**The left child of the AST Node*/
-    struct AST_Node *right; /**The right child of the AST Node*/
-    int value; /**If the AST Node contains an int, this field holds its value*/
+    /**The Token_Type of the given token*/
+    Token_Type ttype;
+    /**The left child of the AST Node*/
+    struct AST_Node *left;
+    /**The right child of the AST Node*/
+    struct AST_Node *right;
+    /**If the AST Node contains an int, this field holds its value*/
+    int value;
 } AST_Node;
 
 /**
