@@ -9,19 +9,22 @@
 #define DEFINITIONS_H
 
 // Token structure
-typedef struct token {
+struct token {
     int _token;
     int value;
-} token;
+};
 
 // Token types
 enum {
     // Arithmetic
-    T_ADD,
-    T_SUB,
-    T_MUL,
-    T_DIV,
-    T_INT
-}
+    T_PLUS,
+    T_MINUS,
+    T_STAR,
+    T_SLASH,
+    T_INTLIT
+};
+
+// List of printable tokens
+static char *token_strings[] = {"+", "-", "*", "/", "integer literal"};
 
 #endif
