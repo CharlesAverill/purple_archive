@@ -45,3 +45,18 @@ static void put_back_into_stream(char c)
 {
     put_back = c;
 }
+
+/**
+ * Skip whitespace tokens
+ * @return  Next non-whitespace token
+ */
+static char skip(void){
+    char c;
+
+    // Get next character until not hit space, tab, newline, carriage return, form feed
+    do {
+        c = next();
+    } while(c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == "\f");
+
+    return c;
+}
