@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token_0',['token',['../definitions_8h.html#a771467edb1f9006944af9d56a7668da7',1,'definitions.h']]]
+  ['ast_5fnode_0',['AST_Node',['../definitions_8h.html#a6ee7975d5cc932491493b322a370a212',1,'definitions.h']]]
 ];

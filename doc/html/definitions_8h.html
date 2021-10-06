@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">definitions.h File Reference</div></div>
@@ -83,20 +84,34 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoken.html">token</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure to hold token information.  <a href="structtoken.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html">AST_Node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure is used to build the AST for parsing.  <a href="structAST__Node.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a9b892f38b792556cb5c7f029cb8865cd"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a9b892f38b792556cb5c7f029cb8865cd">Token_Type</a></td></tr>
+<tr class="separator:a9b892f38b792556cb5c7f029cb8865cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c94155c8332a7db21b9e4ba41e8cd86"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structtoken.html">token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a2c94155c8332a7db21b9e4ba41e8cd86">token</a></td></tr>
+<tr class="separator:a2c94155c8332a7db21b9e4ba41e8cd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ee7975d5cc932491493b322a370a212"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAST__Node.html">AST_Node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a6ee7975d5cc932491493b322a370a212">AST_Node</a></td></tr>
+<tr class="separator:a6ee7975d5cc932491493b322a370a212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="definitions_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2">T_PLUS</a>
-, <a class="el" href="definitions_8h.html#a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4">T_MINUS</a>
-, <a class="el" href="definitions_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672">T_STAR</a>
-, <a class="el" href="definitions_8h.html#a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a">T_SLASH</a>
+<tr class="memitem:a2e66bade4cb6bda81365ca377d98b805"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> { <br />
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2">T_PLUS</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4">T_MINUS</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672">T_STAR</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a">T_SLASH</a>
 , <br />
-&#160;&#160;<a class="el" href="definitions_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46">T_INTLIT</a>
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46">T_INTLIT</a>
 <br />
  }</td></tr>
-<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a2e66bade4cb6bda81365ca377d98b805"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum contains the various kinds of permitted tokens.  <a href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">More...</a><br /></td></tr>
+<tr class="separator:a2e66bade4cb6bda81365ca377d98b805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -107,24 +122,69 @@ Variables</h2></td></tr>
 <div class="textblock"><p >Relevant definitions. </p>
 <dl class="section author"><dt>Author</dt><dd>CharlesAverill </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>05-Oct-2021 </dd></dl>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a06fc87d81c62e9abb8790b6e5713c55b" name="a06fc87d81c62e9abb8790b6e5713c55b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06fc87d81c62e9abb8790b6e5713c55b">&#9670;&nbsp;</a></span>anonymous enum</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a6ee7975d5cc932491493b322a370a212" name="a6ee7975d5cc932491493b322a370a212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ee7975d5cc932491493b322a370a212">&#9670;&nbsp;</a></span>AST_Node</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">anonymous enum</td>
+          <td class="memname">typedef struct <a class="el" href="structAST__Node.html">AST_Node</a> <a class="el" href="structAST__Node.html">AST_Node</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c94155c8332a7db21b9e4ba41e8cd86" name="a2c94155c8332a7db21b9e4ba41e8cd86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c94155c8332a7db21b9e4ba41e8cd86">&#9670;&nbsp;</a></span>token</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAST__Node.html#a10fdcd68b9140de3a6c2ee0e9c10e3b7">AST_Node::ttype</a> The <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> of the given <a class="el" href="structtoken.html">token</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b892f38b792556cb5c7f029cb8865cd" name="a9b892f38b792556cb5c7f029cb8865cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b892f38b792556cb5c7f029cb8865cd">&#9670;&nbsp;</a></span>Token_Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a2e66bade4cb6bda81365ca377d98b805" name="a2e66bade4cb6bda81365ca377d98b805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e66bade4cb6bda81365ca377d98b805">&#9670;&nbsp;</a></span>Token_Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This enum contains the various kinds of permitted tokens. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2" name="a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2"></a>T_PLUS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4" name="a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4"></a>T_MINUS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672" name="a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672"></a>T_STAR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a" name="a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a"></a>T_SLASH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46" name="a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46"></a>T_INTLIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2" name="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2"></a>T_PLUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4" name="a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4"></a>T_MINUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672" name="a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672"></a>T_STAR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a" name="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a"></a>T_SLASH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46" name="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46"></a>T_INTLIT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -149,6 +209,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >List of printable tokens </p>
 
 </div>
 </div>

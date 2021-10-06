@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['token_0',['token',['../structtoken.html',1,'']]]
+  ['ast_5fnode_0',['AST_Node',['../structAST__Node.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Purple: token Struct Reference</title>
+<title>Purple: AST_Node Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,48 +65,80 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structtoken-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">token Struct Reference</div></div>
+<a href="structAST__Node-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">AST_Node Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A structure to hold token information.  
- <a href="structtoken.html#details">More...</a></p>
+<p>This structure is used to build the AST for parsing.  
+ <a href="structAST__Node.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="definitions_8h_source.html">definitions.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a70a84af0938d09e699d4e9f6a708a4d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoken.html#a70a84af0938d09e699d4e9f6a708a4d7">_token</a></td></tr>
-<tr class="separator:a70a84af0938d09e699d4e9f6a708a4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e1604c6941ff51d782b681a3e4e313c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoken.html#a8e1604c6941ff51d782b681a3e4e313c">value</a></td></tr>
-<tr class="separator:a8e1604c6941ff51d782b681a3e4e313c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10fdcd68b9140de3a6c2ee0e9c10e3b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html#a10fdcd68b9140de3a6c2ee0e9c10e3b7">ttype</a></td></tr>
+<tr class="separator:a10fdcd68b9140de3a6c2ee0e9c10e3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe36c18b59c78413f0be425b87fa751"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html#aabe36c18b59c78413f0be425b87fa751">left</a></td></tr>
+<tr class="separator:aabe36c18b59c78413f0be425b87fa751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673b94630eaeac8e44b221fec58cbded"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html#a673b94630eaeac8e44b221fec58cbded">right</a></td></tr>
+<tr class="separator:a673b94630eaeac8e44b221fec58cbded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad069e95d3dc2e199e2e3ffd392df7344"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html#ad069e95d3dc2e199e2e3ffd392df7344">value</a></td></tr>
+<tr class="separator:ad069e95d3dc2e199e2e3ffd392df7344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A structure to hold token information. </p>
+<div class="textblock"><p >This structure is used to build the AST for parsing. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a70a84af0938d09e699d4e9f6a708a4d7" name="a70a84af0938d09e699d4e9f6a708a4d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70a84af0938d09e699d4e9f6a708a4d7">&#9670;&nbsp;</a></span>_token</h2>
+<a id="aabe36c18b59c78413f0be425b87fa751" name="aabe36c18b59c78413f0be425b87fa751"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabe36c18b59c78413f0be425b87fa751">&#9670;&nbsp;</a></span>left</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> token::_token</td>
+          <td class="memname">struct <a class="el" href="structAST__Node.html">AST_Node</a>* AST_Node::left</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8e1604c6941ff51d782b681a3e4e313c" name="a8e1604c6941ff51d782b681a3e4e313c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e1604c6941ff51d782b681a3e4e313c">&#9670;&nbsp;</a></span>value</h2>
+<a id="a673b94630eaeac8e44b221fec58cbded" name="a673b94630eaeac8e44b221fec58cbded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673b94630eaeac8e44b221fec58cbded">&#9670;&nbsp;</a></span>right</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int token::value</td>
+          <td class="memname">struct <a class="el" href="structAST__Node.html">AST_Node</a>* AST_Node::right</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10fdcd68b9140de3a6c2ee0e9c10e3b7" name="a10fdcd68b9140de3a6c2ee0e9c10e3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10fdcd68b9140de3a6c2ee0e9c10e3b7">&#9670;&nbsp;</a></span>ttype</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> AST_Node::ttype</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad069e95d3dc2e199e2e3ffd392df7344" name="ad069e95d3dc2e199e2e3ffd392df7344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad069e95d3dc2e199e2e3ffd392df7344">&#9670;&nbsp;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AST_Node::value</td>
         </tr>
       </table>
 </div><div class="memdoc">

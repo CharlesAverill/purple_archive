@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['extern_5f_0',['extern_',['../data_8h.html#a7e774264afdce4a653327473a9563e4d',1,'extern_():&#160;data.h'],['../purple_8c.html#a7e774264afdce4a653327473a9563e4d',1,'extern_():&#160;purple.c']]]
+  ['data_2eh_0',['data.h',['../data_8h.html',1,'']]],
+  ['definitions_2eh_1',['definitions.h',['../definitions_8h.html',1,'']]]
 ];

@@ -9,19 +9,30 @@ Relevant definitions.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structtoken}{token}}
+\begin{DoxyCompactList}\small\item\em A structure to hold token information. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}}
+\begin{DoxyCompactList}\small\item\em This structure is used to build the AST for parsing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \mbox{\hyperlink{definitions_8h_a9b892f38b792556cb5c7f029cb8865cd}{Token\+\_\+\+Type}}
+\item 
+typedef struct \mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{definitions_8h_a2c94155c8332a7db21b9e4ba41e8cd86}{token}}
+\item 
+typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\+\_\+\+Node}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum \{ \newline
-\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}{T\+\_\+\+PLUS}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}{T\+\_\+\+MINUS}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}{T\+\_\+\+STAR}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
+enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}{T\+\_\+\+PLUS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}{T\+\_\+\+MINUS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}{T\+\_\+\+STAR}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,29 +51,56 @@ Charles\+Averill
 \end{DoxyDate}
 
 
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{definitions_8h_a6ee7975d5cc932491493b322a370a212}\label{definitions_8h_a6ee7975d5cc932491493b322a370a212}} 
+\index{definitions.h@{definitions.h}!AST\_Node@{AST\_Node}}
+\index{AST\_Node@{AST\_Node}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{AST\_Node}{AST\_Node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}}}
+
+\mbox{\Hypertarget{definitions_8h_a2c94155c8332a7db21b9e4ba41e8cd86}\label{definitions_8h_a2c94155c8332a7db21b9e4ba41e8cd86}} 
+\index{definitions.h@{definitions.h}!token@{token}}
+\index{token@{token}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{token}{token}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{AST\+\_\+\+Node\+::ttype}} The \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} of the given \mbox{\hyperlink{structtoken}{token}}}
+
+\mbox{\Hypertarget{definitions_8h_a9b892f38b792556cb5c7f029cb8865cd}\label{definitions_8h_a9b892f38b792556cb5c7f029cb8865cd}} 
+\index{definitions.h@{definitions.h}!Token\_Type@{Token\_Type}}
+\index{Token\_Type@{Token\_Type}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Token\_Type}{Token\_Type}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}
+
+
+
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
-\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
-{\footnotesize\ttfamily anonymous enum}
+\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}} 
+\index{definitions.h@{definitions.h}!Token\_Type@{Token\_Type}}
+\index{Token\_Type@{Token\_Type}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Token\_Type}{Token\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}
+
+
+
+This enum contains the various kinds of permitted tokens. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PLUS@{T\_PLUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PLUS@{T\_PLUS}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PLUS@{T\_PLUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PLUS@{T\_PLUS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}} 
 T\+\_\+\+PLUS&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_MINUS@{T\_MINUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_MINUS@{T\_MINUS}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_MINUS@{T\_MINUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_MINUS@{T\_MINUS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}} 
 T\+\_\+\+MINUS&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_STAR@{T\_STAR}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_STAR@{T\_STAR}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_STAR@{T\_STAR}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_STAR@{T\_STAR}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}} 
 T\+\_\+\+STAR&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SLASH@{T\_SLASH}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SLASH@{T\_SLASH}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SLASH@{T\_SLASH}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SLASH@{T\_SLASH}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}} 
 T\+\_\+\+SLASH&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INTLIT@{T\_INTLIT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INTLIT@{T\_INTLIT}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INTLIT@{T\_INTLIT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INTLIT@{T\_INTLIT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}} 
 T\+\_\+\+INTLIT&\\
 \hline
 
@@ -76,3 +114,4 @@ T\+\_\+\+INTLIT&\\
 \doxysubsubsection{\texorpdfstring{token\_strings}{token\_strings}}
 {\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]} = \{\char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
 
+List of printable tokens 
