@@ -1,3 +1,0 @@
-/home/charlesaverill/purple/build/CMakeFiles/rebuild_cache.dir
-/home/charlesaverill/purple/build/CMakeFiles/purple.dir
-/home/charlesaverill/purple/build/CMakeFiles/edit_cache.dir

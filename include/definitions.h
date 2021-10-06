@@ -39,7 +39,7 @@ typedef struct token {
  * @var AST_Node::value If the AST Node contains an int, this field holds its value
  */
 typedef struct AST_Node {
-    Token_Type ttype;
+    Token_Type ttype; /**The Token_Type of the given token*/
     struct AST_Node *left;
     struct AST_Node *right;
     int value;

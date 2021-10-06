@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/purple.dir/src/purple.c.o CMakeFiles/purple.dir/src/scan.c.o  -o ../bin/purple 
