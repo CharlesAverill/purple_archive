@@ -16,6 +16,8 @@ static char \mbox{\hyperlink{scan_8c_aba19733986b2193569abfcc4951d480f}{next}} (
 static void \mbox{\hyperlink{scan_8c_aa675e2a79ca95a2b6861a587655eef81}{put\+\_\+back\+\_\+into\+\_\+stream}} (char c)
 \item 
 static char \mbox{\hyperlink{scan_8c_ae1cbaaa04222c8794e6fb52ab9a0078d}{skip}} (void)
+\item 
+int \mbox{\hyperlink{scan_8c_ad92e6905738891696232b05133dbf8fc}{scan}} (\mbox{\hyperlink{structtoken}{token}} $\ast$t)
 \end{DoxyCompactItemize}
 
 
@@ -37,7 +39,7 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
 {\footnotesize\ttfamily static char next (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\begin{DoxyReturn}{Returns}
+Get next valid character from input\+\_\+file \begin{DoxyReturn}{Returns}
 Next valid character from input\+\_\+file 
 \end{DoxyReturn}
 \mbox{\Hypertarget{scan_8c_aa675e2a79ca95a2b6861a587655eef81}\label{scan_8c_aa675e2a79ca95a2b6861a587655eef81}} 
@@ -51,6 +53,20 @@ Define the character to be put back into the input stream
 {\em c} & Character to be put back \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{scan_8c_ad92e6905738891696232b05133dbf8fc}\label{scan_8c_ad92e6905738891696232b05133dbf8fc}} 
+\index{scan.c@{scan.c}!scan@{scan}}
+\index{scan@{scan}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily int scan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoken}{token}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Scan and fill the next token 
+\begin{DoxyParams}{Parameters}
+{\em t} & token to be filled \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if valid token returned, 0 if no tokens left 
+\end{DoxyReturn}
 \mbox{\Hypertarget{scan_8c_ae1cbaaa04222c8794e6fb52ab9a0078d}\label{scan_8c_ae1cbaaa04222c8794e6fb52ab9a0078d}} 
 \index{scan.c@{scan.c}!skip@{skip}}
 \index{skip@{skip}!scan.c@{scan.c}}
