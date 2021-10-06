@@ -1,11 +1,9 @@
- /**
- * @Author: CharlesAverill
- * @Date:   05-Oct-2021
- * @Filename: data.h
- * @Last modified by:   CharlesAverill
- * @Last modified time: 05-Oct-2021
- * @Description: Important project-wide variables
- */
+/**
+ * @file
+ * @author CharlesAverill
+ * @date   05-Oct-2021
+ * @brief Important project-wide variables
+*/
 
 #ifndef DATA_H
 #define DATA_H
