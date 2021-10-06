@@ -38,7 +38,7 @@ static void usage(char *program_name) { fprintf(stderr, "Usage: %s <input_file>\
  */
 static void scan_file()
 {
-    struct token T;
+    token T;
 
     while (scan(&T)) {
         printf("Token %s", token_strings[T._token]);

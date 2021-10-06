@@ -107,7 +107,7 @@ static int scanint(char c)
  * @param  t               token to be filled
  * @return   1 if valid token returned, 0 if no tokens left
  */
-int scan(struct token *t)
+int scan(token *t)
 {
     char c;
 
