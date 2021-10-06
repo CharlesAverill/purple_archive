@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extern_5f_0',['extern_',['../data_8h.html#a7e774264afdce4a653327473a9563e4d',1,'extern_():&#160;data.h'],['../purple_8c.html#a7e774264afdce4a653327473a9563e4d',1,'extern_():&#160;purple.c']]]
+  ['line_5fnumber_0',['line_number',['../data_8h.html#af070dd74ead4061e635552fc76842f0b',1,'data.h']]]
 ];
