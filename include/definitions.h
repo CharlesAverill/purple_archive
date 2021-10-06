@@ -38,7 +38,7 @@ typedef struct token {
  * @brief This structure is used to build the AST for parsing
  */
 typedef struct AST_Node {
-    /**The Token_Type of the given token*/
+    /**@brief The Token_Type of the given token*/
     Token_Type ttype;
     /**The left child of the AST Node*/
     struct AST_Node *left;
