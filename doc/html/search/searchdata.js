@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "_deilnprstv",
   1: "t",
   2: "dirs",
-  3: "np",
+  3: "nps",
   4: "_ilpv",
   5: "t",
   6: "t",
