@@ -1,14 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "_deilnprstv",
+  0: "_acdefhilmnprstuv",
   1: "t",
-  2: "dirs",
-  3: "nps",
-  4: "_ilpv",
+  2: "cdfiprs",
+  3: "imnpsu",
+  4: "_filptv",
   5: "t",
-  6: "t",
-  7: "e",
-  8: "p"
+  6: "acdehps",
+  7: "p"
 };
 
 var indexSectionNames =
@@ -18,10 +17,9 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs",
-  6: "enumvalues",
-  7: "defines",
-  8: "pages"
+  5: "enumvalues",
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -31,9 +29,8 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Typedefs",
-  6: "Enumerator",
-  7: "Macros",
-  8: "Pages"
+  5: "Enumerator",
+  6: "Macros",
+  7: "Pages"
 };
 

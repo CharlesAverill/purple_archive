@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../structtoken.html#a8e1604c6941ff51d782b681a3e4e313c',1,'token']]]
+  ['next_0',['next',['../scan_8c.html#aba19733986b2193569abfcc4951d480f',1,'scan.c']]]
 ];

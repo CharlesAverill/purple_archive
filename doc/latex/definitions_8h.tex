@@ -10,22 +10,22 @@ Relevant definitions.
 \item 
 struct \mbox{\hyperlink{structtoken}{token}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct \mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \{ \newline
-\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6f6b49afa37488c1b026c68e01784000}{T\+\_\+\+ADD}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba263598a04dc6b929165b0aae6672599d}{T\+\_\+\+SUB}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bac5cfdc1436850d17ade84535d49e691c}{T\+\_\+\+MUL}}
-, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba4258358e78b8a083e17005efb73eac6e}{T\+\_\+\+DIV}}
+\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}{T\+\_\+\+PLUS}}
+, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}{T\+\_\+\+MINUS}}
+, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}{T\+\_\+\+STAR}}
+, \mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baa30cbb0eb56b7263a35f9d6643e12c83}{T\+\_\+\+INT}}
+\mbox{\hyperlink{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
  \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
@@ -40,39 +40,39 @@ Charles\+Averill
 \end{DoxyDate}
 
 
-\doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{definitions_8h_a771467edb1f9006944af9d56a7668da7}\label{definitions_8h_a771467edb1f9006944af9d56a7668da7}} 
-\index{definitions.h@{definitions.h}!token@{token}}
-\index{token@{token}!definitions.h@{definitions.h}}
-\doxysubsubsection{\texorpdfstring{token}{token}}
-{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{structtoken}{token}}}
-
-
-
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55b}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55b}} 
 \doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
 {\footnotesize\ttfamily anonymous enum}
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_ADD@{T\_ADD}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_ADD@{T\_ADD}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6f6b49afa37488c1b026c68e01784000}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6f6b49afa37488c1b026c68e01784000}} 
-T\+\_\+\+ADD&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PLUS@{T\_PLUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PLUS@{T\_PLUS}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bad7d408f184b5312670748bbddf0077d2}} 
+T\+\_\+\+PLUS&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SUB@{T\_SUB}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SUB@{T\_SUB}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba263598a04dc6b929165b0aae6672599d}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba263598a04dc6b929165b0aae6672599d}} 
-T\+\_\+\+SUB&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_MINUS@{T\_MINUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_MINUS@{T\_MINUS}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baeabbf9419f82ec47ab35d6931784dfb4}} 
+T\+\_\+\+MINUS&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_MUL@{T\_MUL}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_MUL@{T\_MUL}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bac5cfdc1436850d17ade84535d49e691c}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bac5cfdc1436850d17ade84535d49e691c}} 
-T\+\_\+\+MUL&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_STAR@{T\_STAR}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_STAR@{T\_STAR}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba6fad6b41ffee1efe0dfc7b12a19c0672}} 
+T\+\_\+\+STAR&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_DIV@{T\_DIV}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_DIV@{T\_DIV}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba4258358e78b8a083e17005efb73eac6e}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55ba4258358e78b8a083e17005efb73eac6e}} 
-T\+\_\+\+DIV&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SLASH@{T\_SLASH}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SLASH@{T\_SLASH}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baab6fe980d9e636005e0c90080985645a}} 
+T\+\_\+\+SLASH&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INT@{T\_INT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INT@{T\_INT}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baa30cbb0eb56b7263a35f9d6643e12c83}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55baa30cbb0eb56b7263a35f9d6643e12c83}} 
-T\+\_\+\+INT&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INTLIT@{T\_INTLIT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INTLIT@{T\_INTLIT}}}\mbox{\Hypertarget{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}\label{definitions_8h_a06fc87d81c62e9abb8790b6e5713c55bae16663241ea972e7426274c0bc7c5d46}} 
+T\+\_\+\+INTLIT&\\
 \hline
 
 \end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}\label{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}} 
+\index{definitions.h@{definitions.h}!token\_strings@{token\_strings}}
+\index{token\_strings@{token\_strings}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{token\_strings}{token\_strings}}
+{\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]} = \{\char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+
