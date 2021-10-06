@@ -11,6 +11,7 @@
 #include "definitions.h"
 
 /**
+ * Get next valid character from input_file
  * @return  Next valid character from input_file
  */
 static char next(void)
@@ -59,4 +60,13 @@ static char skip(void){
     } while(c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == "\f");
 
     return c;
+}
+
+/**
+ * Scan and fill the next token
+ * @param  t               token to be filled
+ * @return   1 if valid token returned, 0 if no tokens left
+ */
+int scan(token *t){
+
 }
