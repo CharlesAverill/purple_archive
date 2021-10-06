@@ -1,8 +1,8 @@
 /**
- * \file
- * \author CharlesAverill
- * \date   05-Oct-2021
- * \brief Relevant definitions
+ * @file
+ * @author CharlesAverill
+ * @date   05-Oct-2021
+ * @brief Relevant definitions
  */
 
 #ifndef DEFINITIONS_H
