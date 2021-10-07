@@ -7,17 +7,36 @@
 
 #include "parse.h"
 
+/**A Global Token that persists through recursion calls*/
+static token GToken;
+
+/**
+ * Determine the precedence of a provided operator, with syntax checking
+ * @param  ttype           The token type of the operator
+ * @return   An integer defining the precedence of the given operator
+ */
+static int operator_precedence(Token_Type ttype){
+    int prec = token_precedence[ttype];
+    
+    if(prec == 0){
+        fprintf(stderr, "Syntax error on line %d, token %d\n", D_LINE_NUMBER, ttype);
+        exit(1);
+    }
+    
+    return prec;
+}
+
 /**
  * Build a terminal AST Node for a given token, exit if not a valid primary token
  * @param  t               The token to check and build
  * @return   An AST Node built from the provided token, or an error if the token is non-terminal
  */
-static AST_Node *build_terminal_node(token t)
+static AST_Node *build_terminal_node()
 {
     AST_Node *out;
 
-    if (t._token == T_INTLIT) {
-        out = make_ast_leaf(T_INTLIT, t.value);
+    if (GToken._token == T_INTLIT) {
+        out = make_ast_leaf(T_INTLIT, GToken.value);
     } else {
         fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
         exit(1);
@@ -27,44 +46,48 @@ static AST_Node *build_terminal_node(token t)
 }
 
 /**
- * Given an initial token, recursively parse binary expressions into an AST
- * @param  t               The current token to be parsed
+ * Given the precedence of the previous token, recursively parse binary expressions into an AST
+ * @param  previous_token_precedence          The current token to be parsed
  * @return   An AST or AST Subtree of the binary expressions in D_INPUT_FILE
  */
-AST_Node *parse_binary_expression(token t)
+static AST_Node *parse_binary_expression(int previous_token_precedence)
 {
-    AST_Node *out;
     AST_Node *left;
     AST_Node *right;
-    Token_Type ttype;
 
-    // Get the intlit on the left
-    left = build_terminal_node(t);
-
-    // Scan the next token
-    scan(&t);
+    // Get the intlit on the left and scan the next token
+    left = build_terminal_node(GToken);
+    scan(&GToken);
 
     // Check for EOF
-    if (t._token == T_EOF) {
+    Token_Type current_ttype = GToken._token;
+    if (current_ttype == T_EOF) {
         return left;
     }
-
-    // This token should be an operator, so store its value
-    ttype = t._token;
-
-    // Scan the next token
-    scan(&t);
-
-    // Recursively build the right AST subtree
-    right = parse_binary_expression(t);
-
-    // Build and return the output node
-    out = make_ast_node(ttype, left, right, 0);
-    return out;
+    
+    // While current token has greater precedence than previous token
+    while(operator_precedence(current_ttype) > previous_token_precedence){
+        // Scan the next token
+        scan(&GToken);
+        
+        // Recursively build the right AST subtree
+        right = parse_binary_expression(token_precedence[current_ttype]);
+        
+        // Join right subtree with current left subtree
+        left = make_ast_node(current_ttype, left, right, 0);
+        
+        // Update current_ttype and check for EOF
+        current_ttype = GToken._token;
+        if(current_ttype == T_EOF){
+            break;
+        }
+    }
+    
+    return left;
 }
 
 /**
- * Interprets a given AST Node *without* operator precedence. Will print intermediate steps if D_DEBUG is 1
+ * Interprets a given AST Node with operator precedence. Will print intermediate steps if D_DEBUG is 1
  * @param  n               AST Node to interpret
  * @return   The interpreted value of the AST Node
  */
@@ -105,4 +128,15 @@ int interpret_AST(AST_Node *n)
         fprintf(stderr, "Unknown operator with ttype %d\n", n->ttype);
         exit(1);
     }
+}
+
+
+
+void parse_input_file(void){
+    token initial_token;
+    AST_Node *AST_root;
+
+    scan(&GToken);
+    AST_root = parse_binary_expression(0);
+    printf("Result: %d\n", interpret_AST(AST_root));
 }

@@ -25,7 +25,7 @@
  */
 static void init(void)
 {
-    D_DEBUG = 1;
+    D_DEBUG = 0;
     D_LINE_NUMBER = 1;
     D_PUT_BACK = '\n';
 }
@@ -69,13 +69,8 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
         return 1;
     }
-
-    token initial_token;
-    AST_Node *AST_root;
-
-    scan(&initial_token);
-    AST_root = parse_binary_expression(initial_token);
-    printf("%d\n", interpret_AST(AST_root));
+    
+    parse_input_file();
 
     return 0;
 }

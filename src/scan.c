@@ -109,14 +109,16 @@ int scan(token *t)
 
     // Fill token
     t->value = 0;
+	if(c == EOF || c == 255){
+		t->_token = T_EOF;
+		return 0;
+	}
+
     switch (c) {
-    case EOF:
-        t->_token = T_EOF;
-        return 0;
-    case '+':
+	case '+':
         t->_token = T_PLUS;
         break;
-    case '-':
+	case '-':
         t->_token = T_MINUS;
         break;
     case '*':
@@ -131,6 +133,7 @@ int scan(token *t)
             t->value = scanint(c);
             t->_token = T_INTLIT;
         } else {
+	    printf("%c %d\n", c, c);
             fprintf(stderr, "Unrecognized character %c on line %d\n", c, D_LINE_NUMBER);
             exit(1);
         }
