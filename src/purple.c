@@ -10,21 +10,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Undef extern_ to transfer ownership to purple.c
+/**Define, then undef extern_ to transfer ownership to purple.c*/
 #define extern_
 #include "data.h"
 #undef extern_
 
 #include "definitions.h"
 #include "scan.h"
+#include "tree.h"
+#include "parse.h"
 
 /**
  * Initialize compiler values
  */
 static void init(void)
 {
-    line_number = 1;
-    put_back = '\n';
+    D_DEBUG = 1;
+    D_LINE_NUMBER = 1;
+    D_PUT_BACK = '\n';
 }
 
 /**
@@ -34,7 +37,7 @@ static void init(void)
 static void usage(char *program_name) { fprintf(stderr, "Usage: %s <input_file>\n", program_name); }
 
 /**
- * Scan input_file and print out tokens and their details
+ * Scan D_INPUT_FILE and print out tokens and their details
  */
 static void scan_file()
 {
@@ -59,13 +62,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    input_file = fopen(argv[1], "r");
-    if (input_file == NULL) {
+    init();
+
+    D_INPUT_FILE = fopen(argv[1], "r");
+    if (D_INPUT_FILE == NULL) {
         fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
         return 1;
     }
 
-    scan_file();
+    token initial_token;
+    AST_Node *AST_root;
+
+    scan(&initial_token);
+    AST_root = parse_binary_expression(initial_token);
+    printf("%d\n", interpret_AST(AST_root));
 
     return 0;
 }

@@ -5,18 +5,11 @@
  * @brief Lexical Scanner logic
 */
 
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "data.h"
-#include "definitions.h"
 #include "scan.h"
 
 /**
- * Get next valid character from input_file
- * @return  Next valid character from input_file
+ * Get next valid character from D_INPUT_FILE
+ * @return  Next valid character from D_INPUT_FILE
  */
 static char next(void)
 {
@@ -25,18 +18,18 @@ static char next(void)
     char c;
 
     // If we have to put a character back into the stream
-    if (put_back) {
-        c = put_back;
-        put_back = 0;
+    if (D_PUT_BACK) {
+        c = D_PUT_BACK;
+        D_PUT_BACK = 0;
         return c;
     }
 
     // Get next character from file
-    c = fgetc(input_file);
+    c = fgetc(D_INPUT_FILE);
 
     // Check line increment
     if (c == '\n') {
-        line_number++;
+        D_LINE_NUMBER++;
     }
 
     return c;
@@ -46,7 +39,7 @@ static char next(void)
  * Define the character to be put back into the input stream
  * @param c  Character to be put back
  */
-static void put_back_into_stream(char c) { put_back = c; }
+static void D_PUT_BACK_into_stream(char c) { D_PUT_BACK = c; }
 
 /**
  * Skip whitespace tokens
@@ -82,7 +75,7 @@ static int index_of(char *s, int c)
 }
 
 /**
- * Scan and return integer literal from input_file
+ * Scan and return integer literal from D_INPUT_FILE
  * @param  c               Current character
  * @return   Next scanned integer literal
  */
@@ -97,7 +90,7 @@ static int scanint(char c)
     }
 
     // Loop has terminated at a non-integer value, so put it back
-    put_back_into_stream(c);
+    D_PUT_BACK_into_stream(c);
 
     return val;
 }
@@ -115,8 +108,10 @@ int scan(token *t)
     c = skip();
 
     // Fill token
+    t->value = 0;
     switch (c) {
     case EOF:
+        t->_token = T_EOF;
         return 0;
     case '+':
         t->_token = T_PLUS;
@@ -136,7 +131,7 @@ int scan(token *t)
             t->value = scanint(c);
             t->_token = T_INTLIT;
         } else {
-            fprintf(stderr, "Unrecognized character %c on line %d\n", c, line_number);
+            fprintf(stderr, "Unrecognized character %c on line %d\n", c, D_LINE_NUMBER);
             exit(1);
         }
     }

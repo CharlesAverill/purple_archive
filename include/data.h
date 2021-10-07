@@ -8,16 +8,21 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include <stdio.h>
+
 /**extern_ will be undefined in purple.c, causing purple.c to "own" these variables*/
 #ifndef extern_
-    #define extern_ extern
+#define extern_ extern
 #endif
 
 /**Current line number of the Scanner*/
-extern_ int line_number;
+extern_ int D_LINE_NUMBER;
 /**If defined, this character will be put back into the input stream*/
-extern_ char put_back;
+extern_ char D_PUT_BACK;
 /**The pointer to the open filestream for the Scanner*/
-extern_ FILE *input_file;
+extern_ FILE *D_INPUT_FILE;
+
+/**Activates debug behavior*/
+extern_ int D_DEBUG;
 
 #endif
