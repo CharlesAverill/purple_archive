@@ -32,12 +32,12 @@ static int operator_precedence(Token_Type ttype)
  * @param  t               The token to check and build
  * @return   An AST Node built from the provided token, or an error if the token is non-terminal
  */
-static AST_Node *build_terminal_node()
+static AST_Node *build_terminal_node(token t)
 {
     AST_Node *out;
 
-    if (GToken._token == T_INTLIT) {
-        out = make_ast_leaf(T_INTLIT, GToken.value);
+    if (t._token == T_INTLIT) {
+        out = make_ast_leaf(T_INTLIT, t.value);
     } else {
         fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
         exit(1);
@@ -48,7 +48,7 @@ static AST_Node *build_terminal_node()
 
 /**
  * Given the precedence of the previous token, recursively parse binary expressions into an AST
- * @param  previous_token_precedence          The current token to be parsed
+ * @param  previous_token_precedence          The integer precedence value of the previous token
  * @return   An AST or AST Subtree of the binary expressions in D_INPUT_FILE
  */
 static AST_Node *parse_binary_expression(int previous_token_precedence)
