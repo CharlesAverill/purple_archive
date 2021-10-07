@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['left_0',['left',['../structAST__Node.html#aabe36c18b59c78413f0be425b87fa751',1,'AST_Node']]]
+  ['gtoken_0',['GToken',['../parse_8c.html#af0b79f23ba5e6c5f14de80e2d4377402',1,'parse.c']]]
 ];

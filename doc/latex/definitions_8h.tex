@@ -37,7 +37,9 @@ enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}EOF\char`\"{}, \char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}
+static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\+\_\+precedence}} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -113,10 +115,40 @@ T\+\_\+\+INTLIT&Integer literal \\
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}\label{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}} 
+\mbox{\Hypertarget{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}\label{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}} 
+\index{definitions.h@{definitions.h}!token\_precedence@{token\_precedence}}
+\index{token\_precedence@{token\_precedence}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{token\_precedence}{token\_precedence}}
+{\footnotesize\ttfamily int token\+\_\+precedence\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    10,}
+\DoxyCodeLine{    10,}
+\DoxyCodeLine{    20,}
+\DoxyCodeLine{    20,}
+\DoxyCodeLine{    0}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Token precedence values \mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}\label{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}} 
 \index{definitions.h@{definitions.h}!token\_strings@{token\_strings}}
 \index{token\_strings@{token\_strings}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{token\_strings}{token\_strings}}
-{\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]} = \{\char`\"{}EOF\char`\"{}, \char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
 
-List of printable tokens 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}EOF"{}}, }
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}+"{}}, }
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}-\/"{}}, }
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}*"{}}, }
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}/"{}}, }
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}integer literal"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Token string equivalents 
