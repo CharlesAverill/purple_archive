@@ -27,26 +27,12 @@ typedef enum Token_Type {
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {
-    "EOF", 
-    "+", 
-    "-", 
-    "*", 
-    "/", 
-    "integer literal"
-};
+static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal"};
 
 /**
  * Token precedence values
  */
-static int token_precedence[] = {
-    0,
-    10,
-    10,
-    20,
-    20,
-    0
-};
+static int token_precedence[] = {0, 10, 10, 20, 20, 0};
 
 /**
  * @struct token

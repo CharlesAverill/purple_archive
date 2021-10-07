@@ -15,14 +15,15 @@ static token GToken;
  * @param  ttype           The token type of the operator
  * @return   An integer defining the precedence of the given operator
  */
-static int operator_precedence(Token_Type ttype){
+static int operator_precedence(Token_Type ttype)
+{
     int prec = token_precedence[ttype];
-    
-    if(prec == 0){
+
+    if (prec == 0) {
         fprintf(stderr, "Syntax error on line %d, token %d\n", D_LINE_NUMBER, ttype);
         exit(1);
     }
-    
+
     return prec;
 }
 
@@ -64,25 +65,25 @@ static AST_Node *parse_binary_expression(int previous_token_precedence)
     if (current_ttype == T_EOF) {
         return left;
     }
-    
+
     // While current token has greater precedence than previous token
-    while(operator_precedence(current_ttype) > previous_token_precedence){
+    while (operator_precedence(current_ttype) > previous_token_precedence) {
         // Scan the next token
         scan(&GToken);
-        
+
         // Recursively build the right AST subtree
         right = parse_binary_expression(token_precedence[current_ttype]);
-        
+
         // Join right subtree with current left subtree
         left = make_ast_node(current_ttype, left, right, 0);
-        
+
         // Update current_ttype and check for EOF
         current_ttype = GToken._token;
-        if(current_ttype == T_EOF){
+        if (current_ttype == T_EOF) {
             break;
         }
     }
-    
+
     return left;
 }
 
@@ -130,9 +131,11 @@ int interpret_AST(AST_Node *n)
     }
 }
 
-
-
-void parse_input_file(void){
+/**
+ * Starts parsing D_INPUT_FILE
+ */
+void parse_input_file(void)
+{
     token initial_token;
     AST_Node *AST_root;
 
