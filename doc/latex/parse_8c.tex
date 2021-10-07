@@ -11,7 +11,7 @@ Expression parsing logic.
 \item 
 static int \mbox{\hyperlink{parse_8c_a654a9ec72e6c1e531ed04a23c28856c9}{operator\+\_\+precedence}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype)
 \item 
-static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8c_a8874062d7a8a2c5e6250975f3f53e516}{build\+\_\+terminal\+\_\+node}} ()
+static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}{build\+\_\+terminal\+\_\+node}} (\mbox{\hyperlink{structtoken}{token}} t)
 \item 
 static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8c_a9c1c559251b2f70f5ae3f4180e134979}{parse\+\_\+binary\+\_\+expression}} (int previous\+\_\+token\+\_\+precedence)
 \item 
@@ -38,11 +38,11 @@ charlesaverill
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{parse_8c_a8874062d7a8a2c5e6250975f3f53e516}\label{parse_8c_a8874062d7a8a2c5e6250975f3f53e516}} 
+\mbox{\Hypertarget{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}\label{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}} 
 \index{parse.c@{parse.c}!build\_terminal\_node@{build\_terminal\_node}}
 \index{build\_terminal\_node@{build\_terminal\_node}!parse.c@{parse.c}}
 \doxysubsubsection{\texorpdfstring{build\_terminal\_node()}{build\_terminal\_node()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ build\+\_\+terminal\+\_\+node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ build\+\_\+terminal\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoken}{token}}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Build a terminal AST Node for a given token, exit if not a valid primary token 
 \begin{DoxyParams}{Parameters}
@@ -88,7 +88,7 @@ An integer defining the precedence of the given operator
 
 Given the precedence of the previous token, recursively parse binary expressions into an AST 
 \begin{DoxyParams}{Parameters}
-{\em previous\+\_\+token\+\_\+precedence} & The current token to be parsed \\
+{\em previous\+\_\+token\+\_\+precedence} & The integer precedence value of the previous token \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
