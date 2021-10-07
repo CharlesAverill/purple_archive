@@ -1,8 +1,24 @@
-/** \mainpage Purple Docs
+/**
+ * @file
+ * @brief Documentation Homepage
  *
- * \section Introduction
+ * @mainpage Purple Docs
  *
- * Purple is a simple compiled language
+ * @section Introduction
+ *
+ * Purple is a simple compiled language. Right now it supports basic arithmetic parsing.
+ *
+ * @section Installation
  *
  * View the source <a href="https://github.com/CharlesAverill/Purple" target="_blank">here</a>.
+ *
+ * Purple may be built with cmake:
+ * ```bash
+ * mkdir build && cd build
+ * cmake ..
+ * make
+ * cd ..
+ *
+ * bin/purple example_file.prp
+ * ```
 */
