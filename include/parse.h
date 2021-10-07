@@ -10,5 +10,5 @@
 #include "scan.h"
 #include "tree.h"
 
-AST_Node *parse_binary_expression(token t);
+void parse_input_file(void);
 int interpret_AST(AST_Node *n);
