@@ -116,9 +116,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> []</td></tr>
+<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> [] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td></tr>
 <tr class="separator:aac4b727eb90bfc1375ac629aa9e69398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeafee1d3efeb28aee6fb93819aba2a6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6">token_precedence</a> []</td></tr>
+<tr class="memitem:aaeafee1d3efeb28aee6fb93819aba2a6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6">token_precedence</a> [] = {0, 10, 10, 20, 20, 0}</td></tr>
 <tr class="separator:aaeafee1d3efeb28aee6fb93819aba2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -205,7 +205,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int token_precedence[]</td>
+          <td class="memname">int token_precedence[] = {0, 10, 10, 20, 20, 0}</td>
         </tr>
       </table>
   </td>
@@ -214,15 +214,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    0,</div>
-<div class="line">    10,</div>
-<div class="line">    10,</div>
-<div class="line">    20,</div>
-<div class="line">    20,</div>
-<div class="line">    0</div>
-<div class="line">}</div>
-</div><!-- fragment --><p >Token precedence values </p>
+<p >Token precedence values </p>
 
 </div>
 </div>
@@ -236,7 +228,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char* token_strings[]</td>
+          <td class="memname">char* token_strings[] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td>
         </tr>
       </table>
   </td>
@@ -245,15 +237,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    <span class="stringliteral">&quot;EOF&quot;</span>, </div>
-<div class="line">    <span class="stringliteral">&quot;+&quot;</span>, </div>
-<div class="line">    <span class="stringliteral">&quot;-&quot;</span>, </div>
-<div class="line">    <span class="stringliteral">&quot;*&quot;</span>, </div>
-<div class="line">    <span class="stringliteral">&quot;/&quot;</span>, </div>
-<div class="line">    <span class="stringliteral">&quot;integer literal&quot;</span></div>
-<div class="line">}</div>
-</div><!-- fragment --><p >Token string equivalents </p>
+<p >Token string equivalents </p>
 
 </div>
 </div>
