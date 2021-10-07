@@ -63,6 +63,11 @@ AST_Node *parse_binary_expression(token t)
     return out;
 }
 
+/**
+ * Interprets a given AST Node *without* operator precedence. Will print intermediate steps if D_DEBUG is 1
+ * @param  n               AST Node to interpret
+ * @return   The interpreted value of the AST Node
+ */
 int interpret_AST(AST_Node *n)
 {
     int left;
