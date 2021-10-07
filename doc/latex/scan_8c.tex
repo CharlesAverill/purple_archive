@@ -5,19 +5,13 @@
 Lexical Scanner logic.  
 
 
-{\ttfamily \#include $<$ctype.\+h$>$}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 static char \mbox{\hyperlink{scan_8c_aba19733986b2193569abfcc4951d480f}{next}} (void)
 \item 
-static void \mbox{\hyperlink{scan_8c_aa675e2a79ca95a2b6861a587655eef81}{put\+\_\+back\+\_\+into\+\_\+stream}} (char c)
+static void \mbox{\hyperlink{scan_8c_afe08adf54c0720dda42d616dbb2af21f}{D\+\_\+\+PUT\+\_\+\+BACK\+\_\+into\+\_\+stream}} (char c)
 \item 
 static char \mbox{\hyperlink{scan_8c_ae1cbaaa04222c8794e6fb52ab9a0078d}{skip}} (void)
 \item 
@@ -41,6 +35,17 @@ Charles\+Averill
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{scan_8c_afe08adf54c0720dda42d616dbb2af21f}\label{scan_8c_afe08adf54c0720dda42d616dbb2af21f}} 
+\index{scan.c@{scan.c}!D\_PUT\_BACK\_into\_stream@{D\_PUT\_BACK\_into\_stream}}
+\index{D\_PUT\_BACK\_into\_stream@{D\_PUT\_BACK\_into\_stream}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{D\_PUT\_BACK\_into\_stream()}{D\_PUT\_BACK\_into\_stream()}}
+{\footnotesize\ttfamily static void D\+\_\+\+PUT\+\_\+\+BACK\+\_\+into\+\_\+stream (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Define the character to be put back into the input stream 
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to be put back \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{scan_8c_afe176fe0d1142633375951f2e45831bc}\label{scan_8c_afe176fe0d1142633375951f2e45831bc}} 
 \index{scan.c@{scan.c}!index\_of@{index\_of}}
 \index{index\_of@{index\_of}!scan.c@{scan.c}}
@@ -63,20 +68,9 @@ Index of c in s if s contains c, else -\/1
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
 {\footnotesize\ttfamily static char next (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Get next valid character from input\+\_\+file \begin{DoxyReturn}{Returns}
-Next valid character from input\+\_\+file 
+Get next valid character from D\+\_\+\+INPUT\+\_\+\+FILE \begin{DoxyReturn}{Returns}
+Next valid character from D\+\_\+\+INPUT\+\_\+\+FILE 
 \end{DoxyReturn}
-\mbox{\Hypertarget{scan_8c_aa675e2a79ca95a2b6861a587655eef81}\label{scan_8c_aa675e2a79ca95a2b6861a587655eef81}} 
-\index{scan.c@{scan.c}!put\_back\_into\_stream@{put\_back\_into\_stream}}
-\index{put\_back\_into\_stream@{put\_back\_into\_stream}!scan.c@{scan.c}}
-\doxysubsubsection{\texorpdfstring{put\_back\_into\_stream()}{put\_back\_into\_stream()}}
-{\footnotesize\ttfamily static void put\+\_\+back\+\_\+into\+\_\+stream (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-Define the character to be put back into the input stream 
-\begin{DoxyParams}{Parameters}
-{\em c} & Character to be put back \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{scan_8c_ad92e6905738891696232b05133dbf8fc}\label{scan_8c_ad92e6905738891696232b05133dbf8fc}} 
 \index{scan.c@{scan.c}!scan@{scan}}
 \index{scan@{scan}!scan.c@{scan.c}}
@@ -97,7 +91,7 @@ Scan and fill the next token
 \doxysubsubsection{\texorpdfstring{scanint()}{scanint()}}
 {\footnotesize\ttfamily static int scanint (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Scan and return integer literal from input\+\_\+file 
+Scan and return integer literal from D\+\_\+\+INPUT\+\_\+\+FILE 
 \begin{DoxyParams}{Parameters}
 {\em c} & Current character \\
 \hline

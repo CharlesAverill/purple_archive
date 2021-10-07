@@ -1,0 +1,65 @@
+\hypertarget{parse_8c}{}\doxysection{src/parse.c File Reference}
+\label{parse_8c}\index{src/parse.c@{src/parse.c}}
+
+
+Expression parsing logic.  
+
+
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}{build\+\_\+terminal\+\_\+node}} (\mbox{\hyperlink{structtoken}{token}} t)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8c_ac02a8eabfe3cf3809a226bde948f508f}{parse\+\_\+binary\+\_\+expression}} (\mbox{\hyperlink{structtoken}{token}} t)
+\item 
+int \mbox{\hyperlink{parse_8c_a7f290684512e2d39d1307a0d6fca65fc}{interpret\+\_\+\+AST}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Expression parsing logic. 
+
+\begin{DoxyAuthor}{Author}
+charlesaverill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}\label{parse_8c_ad8c90be3bb2b9cf6fe22ebcaa82217a4}} 
+\index{parse.c@{parse.c}!build\_terminal\_node@{build\_terminal\_node}}
+\index{build\_terminal\_node@{build\_terminal\_node}!parse.c@{parse.c}}
+\doxysubsubsection{\texorpdfstring{build\_terminal\_node()}{build\_terminal\_node()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ build\+\_\+terminal\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoken}{token}}}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Build a terminal AST Node for a given token, exit if not a valid primary token 
+\begin{DoxyParams}{Parameters}
+{\em t} & The token to check and build \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An AST Node built from the provided token, or an error if the token is non-\/terminal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{parse_8c_a7f290684512e2d39d1307a0d6fca65fc}\label{parse_8c_a7f290684512e2d39d1307a0d6fca65fc}} 
+\index{parse.c@{parse.c}!interpret\_AST@{interpret\_AST}}
+\index{interpret\_AST@{interpret\_AST}!parse.c@{parse.c}}
+\doxysubsubsection{\texorpdfstring{interpret\_AST()}{interpret\_AST()}}
+{\footnotesize\ttfamily int interpret\+\_\+\+AST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{parse_8c_ac02a8eabfe3cf3809a226bde948f508f}\label{parse_8c_ac02a8eabfe3cf3809a226bde948f508f}} 
+\index{parse.c@{parse.c}!parse\_binary\_expression@{parse\_binary\_expression}}
+\index{parse\_binary\_expression@{parse\_binary\_expression}!parse.c@{parse.c}}
+\doxysubsubsection{\texorpdfstring{parse\_binary\_expression()}{parse\_binary\_expression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+binary\+\_\+expression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoken}{token}}}]{t }\end{DoxyParamCaption})}
+
+Given an initial token, recursively parse binary expressions into an AST 
+\begin{DoxyParams}{Parameters}
+{\em t} & The current token to be parsed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An AST or AST Subtree of the binary expressions in D\+\_\+\+INPUT\+\_\+\+FILE 
+\end{DoxyReturn}

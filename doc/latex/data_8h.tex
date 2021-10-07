@@ -5,6 +5,7 @@
 Important project-\/wide variables.  
 
 
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,11 +14,13 @@ Important project-\/wide variables.
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int \mbox{\hyperlink{data_8h_af070dd74ead4061e635552fc76842f0b}{line\+\_\+number}}
+\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int \mbox{\hyperlink{data_8h_afc1d3028da9120ed3a87cb08c86a20c2}{D\+\_\+\+LINE\+\_\+\+NUMBER}}
 \item 
-\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} char \mbox{\hyperlink{data_8h_a5b44459fb7b633468e125d48b6e065c0}{put\+\_\+back}}
+\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} char \mbox{\hyperlink{data_8h_aecfb2e5af0488a83da058ff5cc29d822}{D\+\_\+\+PUT\+\_\+\+BACK}}
 \item 
-\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} FILE $\ast$ \mbox{\hyperlink{data_8h_a24e0b025cfd780ef4080b2b28b90a644}{input\+\_\+file}}
+\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} FILE $\ast$ \mbox{\hyperlink{data_8h_a923af85a91125df76be177e4f52adeee}{D\+\_\+\+INPUT\+\_\+\+FILE}}
+\item 
+\mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int \mbox{\hyperlink{data_8h_a05f52f3601bd5b29b20cf4fa58f3ba1f}{D\+\_\+\+DEBUG}}
 \end{DoxyCompactItemize}
 
 
@@ -42,22 +45,28 @@ Charles\+Averill
 extern\+\_\+ will be undefined in \mbox{\hyperlink{purple_8c}{purple.\+c}}, causing \mbox{\hyperlink{purple_8c}{purple.\+c}} to \char`\"{}own\char`\"{} these variables 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{data_8h_a24e0b025cfd780ef4080b2b28b90a644}\label{data_8h_a24e0b025cfd780ef4080b2b28b90a644}} 
-\index{data.h@{data.h}!input\_file@{input\_file}}
-\index{input\_file@{input\_file}!data.h@{data.h}}
-\doxysubsubsection{\texorpdfstring{input\_file}{input\_file}}
-{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} FILE$\ast$ input\+\_\+file}
+\mbox{\Hypertarget{data_8h_a05f52f3601bd5b29b20cf4fa58f3ba1f}\label{data_8h_a05f52f3601bd5b29b20cf4fa58f3ba1f}} 
+\index{data.h@{data.h}!D\_DEBUG@{D\_DEBUG}}
+\index{D\_DEBUG@{D\_DEBUG}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{D\_DEBUG}{D\_DEBUG}}
+{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int D\+\_\+\+DEBUG}
 
-The pointer to the open filestream for the Scanner \mbox{\Hypertarget{data_8h_af070dd74ead4061e635552fc76842f0b}\label{data_8h_af070dd74ead4061e635552fc76842f0b}} 
-\index{data.h@{data.h}!line\_number@{line\_number}}
-\index{line\_number@{line\_number}!data.h@{data.h}}
-\doxysubsubsection{\texorpdfstring{line\_number}{line\_number}}
-{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int line\+\_\+number}
+Activates debug behavior \mbox{\Hypertarget{data_8h_a923af85a91125df76be177e4f52adeee}\label{data_8h_a923af85a91125df76be177e4f52adeee}} 
+\index{data.h@{data.h}!D\_INPUT\_FILE@{D\_INPUT\_FILE}}
+\index{D\_INPUT\_FILE@{D\_INPUT\_FILE}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{D\_INPUT\_FILE}{D\_INPUT\_FILE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} FILE$\ast$ D\+\_\+\+INPUT\+\_\+\+FILE}
 
-Current line number of the Scanner \mbox{\Hypertarget{data_8h_a5b44459fb7b633468e125d48b6e065c0}\label{data_8h_a5b44459fb7b633468e125d48b6e065c0}} 
-\index{data.h@{data.h}!put\_back@{put\_back}}
-\index{put\_back@{put\_back}!data.h@{data.h}}
-\doxysubsubsection{\texorpdfstring{put\_back}{put\_back}}
-{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} char put\+\_\+back}
+The pointer to the open filestream for the Scanner \mbox{\Hypertarget{data_8h_afc1d3028da9120ed3a87cb08c86a20c2}\label{data_8h_afc1d3028da9120ed3a87cb08c86a20c2}} 
+\index{data.h@{data.h}!D\_LINE\_NUMBER@{D\_LINE\_NUMBER}}
+\index{D\_LINE\_NUMBER@{D\_LINE\_NUMBER}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{D\_LINE\_NUMBER}{D\_LINE\_NUMBER}}
+{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} int D\+\_\+\+LINE\+\_\+\+NUMBER}
+
+Current line number of the Scanner \mbox{\Hypertarget{data_8h_aecfb2e5af0488a83da058ff5cc29d822}\label{data_8h_aecfb2e5af0488a83da058ff5cc29d822}} 
+\index{data.h@{data.h}!D\_PUT\_BACK@{D\_PUT\_BACK}}
+\index{D\_PUT\_BACK@{D\_PUT\_BACK}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{D\_PUT\_BACK}{D\_PUT\_BACK}}
+{\footnotesize\ttfamily \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}} char D\+\_\+\+PUT\+\_\+\+BACK}
 
 If defined, this character will be put back into the input stream 

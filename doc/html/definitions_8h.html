@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Relevant definitions.  
+<p>Relevant project-wide definitions.  
 <a href="#details">More...</a></p>
 
 <p><a href="definitions_8h_source.html">Go to the source code of this file.</a></p>
@@ -102,12 +102,13 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a2e66bade4cb6bda81365ca377d98b805"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> { <br />
-&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2">T_PLUS</a>
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455">T_EOF</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2">T_PLUS</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4">T_MINUS</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672">T_STAR</a>
-, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a">T_SLASH</a>
 , <br />
-&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46">T_INTLIT</a>
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a">T_SLASH</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46">T_INTLIT</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a2e66bade4cb6bda81365ca377d98b805"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum contains the various kinds of permitted tokens.  <a href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">More...</a><br /></td></tr>
@@ -115,11 +116,11 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> [] = {&quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td></tr>
+<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> [] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td></tr>
 <tr class="separator:aac4b727eb90bfc1375ac629aa9e69398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Relevant definitions. </p>
+<div class="textblock"><p >Relevant project-wide definitions. </p>
 <dl class="section author"><dt>Author</dt><dd>CharlesAverill </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>05-Oct-2021 </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
@@ -180,7 +181,8 @@ Variables</h2></td></tr>
 
 <p>This enum contains the various kinds of permitted tokens. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2" name="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2"></a>T_PLUS&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455" name="a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455"></a>T_EOF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2" name="a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2"></a>T_PLUS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4" name="a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4"></a>T_MINUS&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672" name="a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672"></a>T_STAR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a" name="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a"></a>T_SLASH&#160;</td><td class="fielddoc"></td></tr>
@@ -201,7 +203,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char* token_strings[] = {&quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td>
+          <td class="memname">char* token_strings[] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td>
         </tr>
       </table>
   </td>

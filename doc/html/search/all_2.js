@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['data_2eh_0',['data.h',['../data_8h.html',1,'']]],
-  ['definitions_2eh_1',['definitions.h',['../definitions_8h.html',1,'']]]
+  ['build_5fterminal_5fnode_0',['build_terminal_node',['../parse_8c.html#ad8c90be3bb2b9cf6fe22ebcaa82217a4',1,'parse.c']]]
 ];

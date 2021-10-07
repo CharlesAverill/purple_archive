@@ -2,7 +2,7 @@
 \label{definitions_8h}\index{include/definitions.h@{include/definitions.h}}
 
 
-Relevant definitions.  
+Relevant project-\/wide definitions.  
 
 
 \doxysubsection*{Classes}
@@ -25,23 +25,24 @@ typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperl
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \{ \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}{T\+\_\+\+PLUS}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455}{T\+\_\+\+EOF}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}{T\+\_\+\+PLUS}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}{T\+\_\+\+MINUS}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}{T\+\_\+\+STAR}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
  \}
 \begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}
+static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}EOF\char`\"{}, \char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Relevant definitions. 
+Relevant project-\/wide definitions. 
 
 \begin{DoxyAuthor}{Author}
 Charles\+Averill 
@@ -84,6 +85,10 @@ Charles\+Averill
 This enum contains the various kinds of permitted tokens. 
 
 \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_EOF@{T\_EOF}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_EOF@{T\_EOF}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455}} 
+T\+\_\+\+EOF&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PLUS@{T\_PLUS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PLUS@{T\_PLUS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}} 
 T\+\_\+\+PLUS&\\
 \hline
@@ -112,6 +117,6 @@ T\+\_\+\+INTLIT&Integer literal \\
 \index{definitions.h@{definitions.h}!token\_strings@{token\_strings}}
 \index{token\_strings@{token\_strings}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{token\_strings}{token\_strings}}
-{\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]} = \{\char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily char$\ast$ token\+\_\+strings\mbox{[}$\,$\mbox{]} = \{\char`\"{}EOF\char`\"{}, \char`\"{}+\char`\"{}, \char`\"{}-\/\char`\"{}, \char`\"{}$\ast$\char`\"{}, \char`\"{}/\char`\"{}, \char`\"{}integer literal\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
 
 List of printable tokens 

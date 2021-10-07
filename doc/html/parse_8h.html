@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Purple: include/scan.h File Reference</title>
+<title>Purple: include/parse.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,53 +69,71 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">scan.h File Reference</div></div>
+  <div class="headertitle"><div class="title">parse.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Lexical Scanner function headers.  
+<p>Expression parsing headers.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;ctype.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="definitions_8h_source.html">definitions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="scan_8h_source.html">scan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tree_8h_source.html">tree.h</a>&quot;</code><br />
 </div>
-<p><a href="scan_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="parse_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6252179230f8804c22ab8d8f701aab86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scan_8h.html#a6252179230f8804c22ab8d8f701aab86">scan</a> (struct <a class="el" href="structtoken.html">token</a> *t)</td></tr>
-<tr class="separator:a6252179230f8804c22ab8d8f701aab86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac02a8eabfe3cf3809a226bde948f508f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#ac02a8eabfe3cf3809a226bde948f508f">parse_binary_expression</a> (<a class="el" href="structtoken.html">token</a> t)</td></tr>
+<tr class="separator:ac02a8eabfe3cf3809a226bde948f508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f290684512e2d39d1307a0d6fca65fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#a7f290684512e2d39d1307a0d6fca65fc">interpret_AST</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
+<tr class="separator:a7f290684512e2d39d1307a0d6fca65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Lexical Scanner function headers. </p>
-<dl class="section author"><dt>Author</dt><dd>CharlesAverill </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>05-Oct-2021 </dd></dl>
+<div class="textblock"><p >Expression parsing headers. </p>
+<dl class="section author"><dt>Author</dt><dd>charlesaverill </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>06-Oct-2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6252179230f8804c22ab8d8f701aab86" name="a6252179230f8804c22ab8d8f701aab86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6252179230f8804c22ab8d8f701aab86">&#9670;&nbsp;</a></span>scan()</h2>
+<a id="a7f290684512e2d39d1307a0d6fca65fc" name="a7f290684512e2d39d1307a0d6fca65fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f290684512e2d39d1307a0d6fca65fc">&#9670;&nbsp;</a></span>interpret_AST()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int scan </td>
+          <td class="memname">int interpret_AST </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoken.html">token</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac02a8eabfe3cf3809a226bde948f508f" name="ac02a8eabfe3cf3809a226bde948f508f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac02a8eabfe3cf3809a226bde948f508f">&#9670;&nbsp;</a></span>parse_binary_expression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAST__Node.html">AST_Node</a> * parse_binary_expression </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtoken.html">token</a>&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Scan and fill the next token </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Given an initial token, recursively parse binary expressions into an AST </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td>token to be filled </td></tr>
+    <tr><td class="paramname">t</td><td>The current token to be parsed </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if valid token returned, 0 if no tokens left </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An AST or AST Subtree of the binary expressions in D_INPUT_FILE </dd></dl>
 
 </div>
 </div>

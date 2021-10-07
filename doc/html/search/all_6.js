@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../purple_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'purple.c']]]
+  ['left_0',['left',['../structAST__Node.html#aabe36c18b59c78413f0be425b87fa751',1,'AST_Node']]]
 ];

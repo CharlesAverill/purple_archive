@@ -12,6 +12,8 @@ Main compiler script.
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tree.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,7 +50,7 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{extern\_}{extern\_}}
 {\footnotesize\ttfamily \#define extern\+\_\+}
 
-
+Define, then undef extern\+\_\+ to transfer ownership to \mbox{\hyperlink{purple_8c}{purple.\+c}} 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{purple_8c_a17fb021b480a1f220d2579807fa2e398}\label{purple_8c_a17fb021b480a1f220d2579807fa2e398}} 
@@ -69,7 +71,7 @@ Main compiler function \mbox{\Hypertarget{purple_8c_ac9296af10705be57e5c3bd3b7be
 \doxysubsubsection{\texorpdfstring{scan\_file()}{scan\_file()}}
 {\footnotesize\ttfamily static void scan\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Scan input\+\_\+file and print out tokens and their details \mbox{\Hypertarget{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}\label{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}} 
+Scan D\+\_\+\+INPUT\+\_\+\+FILE and print out tokens and their details \mbox{\Hypertarget{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}\label{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}} 
 \index{purple.c@{purple.c}!usage@{usage}}
 \index{usage@{usage}!purple.c@{purple.c}}
 \doxysubsubsection{\texorpdfstring{usage()}{usage()}}
