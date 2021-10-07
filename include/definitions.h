@@ -2,7 +2,7 @@
  * @file
  * @author CharlesAverill
  * @date   05-Oct-2021
- * @brief Relevant definitions
+ * @brief Relevant project-wide definitions
  */
 
 #ifndef DEFINITIONS_H
@@ -13,6 +13,8 @@
  * @brief This enum contains the various kinds of permitted tokens
  */
 typedef enum Token_Type {
+    // File IO
+    T_EOF,
     // Arithmetic
     T_PLUS,
     T_MINUS,
@@ -51,6 +53,6 @@ typedef struct AST_Node {
 /**
  * List of printable tokens
  */
-static char *token_strings[] = {"+", "-", "*", "/", "integer literal"};
+static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal"};
 
 #endif
