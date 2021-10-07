@@ -81,8 +81,8 @@ int interpret_AST(AST_Node *n)
         right = interpret_AST(n->right);
     }
 
-    if(D_DEBUG){
-        if(n->ttype == T_INTLIT){
+    if (D_DEBUG) {
+        if (n->ttype == T_INTLIT) {
             printf("int %d\n", n->value);
         } else {
             printf("%d %s %d\n", left, token_strings[n->ttype], right);
@@ -90,19 +90,19 @@ int interpret_AST(AST_Node *n)
     }
 
     // Compute expression value without precedence
-    switch(n->ttype){
-        case T_PLUS:
-            return left + right;
-        case T_MINUS:
-            return left - right;
-        case T_STAR:
-            return left * right;
-        case T_SLASH:
-            return left / right;
-        case T_INTLIT:
-            return n->value;
-        default:
-            fprintf(stderr, "Unknown operator with ttype %d\n", n->ttype);
-            exit(1);
+    switch (n->ttype) {
+    case T_PLUS:
+        return left + right;
+    case T_MINUS:
+        return left - right;
+    case T_STAR:
+        return left * right;
+    case T_SLASH:
+        return left / right;
+    case T_INTLIT:
+        return n->value;
+    default:
+        fprintf(stderr, "Unknown operator with ttype %d\n", n->ttype);
+        exit(1);
     }
 }

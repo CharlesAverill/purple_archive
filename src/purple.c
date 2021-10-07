@@ -16,9 +16,9 @@
 #undef extern_
 
 #include "definitions.h"
+#include "parse.h"
 #include "scan.h"
 #include "tree.h"
-#include "parse.h"
 
 /**
  * Initialize compiler values
