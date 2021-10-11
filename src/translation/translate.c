@@ -14,7 +14,7 @@ void print_registers(void){
 }
 
 static void initialize_translator(void){
-    current_asm_mode = X86;
+    current_asm_mode = MIPS;
     
     switch(current_asm_mode){
     case X86:
@@ -28,6 +28,18 @@ static void initialize_translator(void){
         generators.sub = x86_sub;
         generators.mul = x86_mul;
         generators.div = x86_div;
+        break;
+    case MIPS:
+        generators.preamble = mips_preamble;
+        generators.postamble = mips_postamble;
+            
+        generators.load = mips_load;
+        generators.print_int = mips_print_int;
+        
+        generators.add = mips_add;
+        generators.sub = mips_sub;
+        generators.mul = mips_mul;
+        generators.div = mips_div;
         break;
     default:
         fprintf(stderr, "Error choosing an assembly mode\n");

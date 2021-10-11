@@ -1,41 +1,21 @@
-	.text
-.LC0:
-	.string	"%d\n"
-print_int:
-	pushq	%rbp
-	movq	%rsp, %rbp
-	subq	$16, %rsp
-	movl	%edi, -4(%rbp)
-	movl	-4(%rbp), %eax
-	movl	%eax, %esi
-	leaq	.LC0(%rip), %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	nop
-	leave
-	ret
+.data
 
-	.globl	main
-	.type	main, @function
+.text
 main:
-	pushq	%rbp
-	movq	%rsp, %rbp
+	li	$t0, 2
+	li	$t1, 3
+	li	$t2, 5
+	mult	$t1, $t2
+	mflo	$t2
+	add	$t0, $t0, $t2
+	li	$t1, 8
+	li	$t2, 3
+	div	$t1, $t2
+	mflo	$t2
+	sub	$t0, $t0, $t2
+	li	$v0, 1
+	add	$a0, $t0, $zero
+	syscall
 
-	movq	$2, %r8
-	movq	$3, %r9
-	movq	$5, %r10
-	imulq	%r9, %r10
-	addq	%r8, %r10
-	movq	$8, %r8
-	movq	$3, %r9
-	movq	%r8, %rax
-	cqo
-	idivq	%r9
-	movq	%rax, %r8
-	subq	%r8, %r10
-	movq	%r10, %rdi
-	call	print_int
-
-	movl	$0, %eax
-	popq	%rbp
-	ret
+li $v0, 10
+syscall

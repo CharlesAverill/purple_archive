@@ -9,6 +9,7 @@
 #include "tree.h"
 
 #include "translation/x86.h"
+#include "translation/mips.h"
 
 #define n_registers 4
 
@@ -23,10 +24,11 @@ static char *registers[n_registers] = {"r0", "r1", "r2", "r3"};
 /**Enum defining supported assembly modes*/
 typedef enum Assembly_Mode {
     X86,
+    MIPS,
 } Assembly_Mode;
 
 /**Names of supported assembly modes*/
-static char *asm_mode_names[] = {"x86"};
+static char *asm_mode_names[] = {"x86", "MIPS"};
 
 /**Assembly mode to use during compilation*/
 static Assembly_Mode current_asm_mode = -1;
