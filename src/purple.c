@@ -18,6 +18,7 @@
 #include "definitions.h"
 #include "parse.h"
 #include "scan.h"
+#include "translation/translate.h"
 #include "tree.h"
 
 /**
@@ -70,7 +71,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    parse_input_file();
+    AST_Node *ast = parse_input_file();
+    generate_pir(ast);
 
     return 0;
 }

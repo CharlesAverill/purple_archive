@@ -10,5 +10,4 @@
 #include "scan.h"
 #include "tree.h"
 
-void parse_input_file(void);
-int interpret_AST(AST_Node *n);
+AST_Node *parse_input_file(void);

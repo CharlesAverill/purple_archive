@@ -2,7 +2,7 @@
  * @file
  * @author CharlesAverill
  * @date   05-Oct-2021
- * @brief Lexical Scanner logic
+ * @brief Functions for lexical scanning from D_INPUT_FILE
 */
 
 #include "scan.h"

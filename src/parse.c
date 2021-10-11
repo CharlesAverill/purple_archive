@@ -2,7 +2,7 @@
  * @file
  * @author charlesaverill
  * @date   06-Oct-2021
- * @brief Expression parsing logic
+ * @brief Function for parsing expressions into ASTs
 */
 
 #include "parse.h"
@@ -134,12 +134,13 @@ int interpret_AST(AST_Node *n)
 /**
  * Starts parsing D_INPUT_FILE
  */
-void parse_input_file(void)
+AST_Node *parse_input_file(void)
 {
     token initial_token;
     AST_Node *AST_root;
 
     scan(&GToken);
     AST_root = parse_binary_expression(0);
-    printf("Result: %d\n", interpret_AST(AST_root));
+    
+    return AST_root;
 }
