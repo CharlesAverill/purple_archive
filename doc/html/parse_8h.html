@@ -84,8 +84,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac02a8eabfe3cf3809a226bde948f508f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#ac02a8eabfe3cf3809a226bde948f508f">parse_binary_expression</a> (<a class="el" href="structtoken.html">token</a> t)</td></tr>
-<tr class="separator:ac02a8eabfe3cf3809a226bde948f508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c0114ce448eaa4184782cc8c56accc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#aa4c0114ce448eaa4184782cc8c56accc">parse_input_file</a> (void)</td></tr>
+<tr class="separator:aa4c0114ce448eaa4184782cc8c56accc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f290684512e2d39d1307a0d6fca65fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#a7f290684512e2d39d1307a0d6fca65fc">interpret_AST</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
 <tr class="separator:a7f290684512e2d39d1307a0d6fca65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -109,7 +109,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Interprets a given AST Node <em>without</em> operator precedence. Will print intermediate steps if D_DEBUG is 1 </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Interprets a given AST Node with operator precedence. Will print intermediate steps if D_DEBUG is 1 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>AST Node to interpret </td></tr>
   </table>
@@ -119,28 +119,22 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac02a8eabfe3cf3809a226bde948f508f" name="ac02a8eabfe3cf3809a226bde948f508f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac02a8eabfe3cf3809a226bde948f508f">&#9670;&nbsp;</a></span>parse_binary_expression()</h2>
+<a id="aa4c0114ce448eaa4184782cc8c56accc" name="aa4c0114ce448eaa4184782cc8c56accc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c0114ce448eaa4184782cc8c56accc">&#9670;&nbsp;</a></span>parse_input_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structAST__Node.html">AST_Node</a> * parse_binary_expression </td>
+          <td class="memname">void parse_input_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoken.html">token</a>&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Given an initial token, recursively parse binary expressions into an AST </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>The current token to be parsed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An AST or AST Subtree of the binary expressions in D_INPUT_FILE </dd></dl>
+<p >Starts parsing D_INPUT_FILE </p>
 
 </div>
 </div>

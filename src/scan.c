@@ -2,7 +2,7 @@
  * @file
  * @author CharlesAverill
  * @date   05-Oct-2021
- * @brief Lexical Scanner logic
+ * @brief Functions for lexical scanning from D_INPUT_FILE
 */
 
 #include "scan.h"
@@ -39,7 +39,7 @@ static char next(void)
  * Define the character to be put back into the input stream
  * @param c  Character to be put back
  */
-static void D_PUT_BACK_into_stream(char c) { D_PUT_BACK = c; }
+static void put_back_into_stream(char c) { D_PUT_BACK = c; }
 
 /**
  * Skip whitespace tokens
@@ -74,6 +74,42 @@ static int index_of(char *s, int c)
     }
 }
 
+static int scan_identifier(char c, char *buf, int character_limit){
+    int i = 0;
+    
+    // Identifiers permit alphanumeric characters and underscores
+    while(isalpha(c) || isdigit(c) || c == '_'){
+        if(i == character_limit - 1){
+            fprintf(stderr, "Identifier too long on line %d\n", D_LINE_NUMBER);
+            exit(1);
+        } else if(i < character_limit - 1){
+            buf[i++] = c;
+        }
+        
+        c = next();
+    }
+    
+    // Invalid character was reached
+    put_back_into_stream(c);
+    
+    // Null-terminate buffer
+    buf[i] = '\0';
+    
+    return i;
+}
+
+static Token_Type string_to_keyword(char *str){
+    switch(str[0]){
+        case 'p':
+            if(!strcmp(str, "print")){
+                return T_PRINT;
+            }
+            break;
+    }
+    
+    return -1;
+}
+
 /**
  * Scan and return integer literal from D_INPUT_FILE
  * @param  c               Current character
@@ -90,7 +126,7 @@ static int scanint(char c)
     }
 
     // Loop has terminated at a non-integer value, so put it back
-    D_PUT_BACK_into_stream(c);
+    put_back_into_stream(c);
 
     return val;
 }
@@ -109,16 +145,16 @@ int scan(token *t)
 
     // Fill token
     t->value = 0;
-	if(c == EOF || c == 255){
-		t->_token = T_EOF;
-		return 0;
-	}
+    if (c == EOF || c == 255) {
+        t->_token = T_EOF;
+        return 0;
+    }
 
     switch (c) {
-	case '+':
+    case '+':
         t->_token = T_PLUS;
         break;
-	case '-':
+    case '-':
         t->_token = T_MINUS;
         break;
     case '*':
@@ -127,13 +163,27 @@ int scan(token *t)
     case '/':
         t->_token = T_SLASH;
         break;
+    case ';':
+        t->_token = T_SEMICOLON;
+        break;
     default:
         // Check if c is an integer
         if (isdigit(c)) {
             t->value = scanint(c);
             t->_token = T_INTLIT;
+        // Check if c is an identifier
+        } else if(isalpha(c) || c == '_'){
+            scan_identifier(c, D_IDENTIFIER_BUFFER, D_MAX_IDENTIFIER_LENGTH);
+            
+            Token_Type ttype = string_to_keyword(D_IDENTIFIER_BUFFER);
+            if(ttype != -1){
+                t->_token = ttype;
+                break;
+            }
+            
+            fprintf(stderr, "Unrecognized symbol %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
+            exit(1);
         } else {
-	    printf("%c %d\n", c, c);
             fprintf(stderr, "Unrecognized character %c on line %d\n", c, D_LINE_NUMBER);
             exit(1);
         }

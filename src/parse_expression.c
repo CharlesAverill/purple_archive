@@ -2,10 +2,27 @@
  * @file
  * @author charlesaverill
  * @date   06-Oct-2021
- * @brief Expression parsing logic
+ * @brief Function for parsing expressions into ASTs
 */
 
 #include "parse.h"
+
+/**
+ * Determine the precedence of a provided operator, with syntax checking
+ * @param  ttype           The token type of the operator
+ * @return   An integer defining the precedence of the given operator
+ */
+static int operator_precedence(Token_Type ttype)
+{
+    int prec = token_precedence[ttype];
+
+    if (prec == 0) {
+        fprintf(stderr, "Syntax error on line %d, token %d\n", D_LINE_NUMBER, ttype);
+        exit(1);
+    }
+
+    return prec;
+}
 
 /**
  * Build a terminal AST Node for a given token, exit if not a valid primary token
@@ -27,44 +44,48 @@ static AST_Node *build_terminal_node(token t)
 }
 
 /**
- * Given an initial token, recursively parse binary expressions into an AST
- * @param  t               The current token to be parsed
+ * Given the precedence of the previous token, recursively parse binary expressions into an AST
+ * @param  previous_token_precedence          The integer precedence value of the previous token
  * @return   An AST or AST Subtree of the binary expressions in D_INPUT_FILE
  */
-AST_Node *parse_binary_expression(token t)
+AST_Node *parse_binary_expression(int previous_token_precedence)
 {
-    AST_Node *out;
     AST_Node *left;
     AST_Node *right;
-    Token_Type ttype;
 
-    // Get the intlit on the left
-    left = build_terminal_node(t);
-
-    // Scan the next token
-    scan(&t);
+    // Get the intlit on the left and scan the next token
+    left = build_terminal_node(GToken);
+    scan(&GToken);
 
     // Check for EOF
-    if (t._token == T_EOF) {
+    Token_Type current_ttype = GToken._token;
+    if (current_ttype == T_SEMICOLON) {
         return left;
     }
 
-    // This token should be an operator, so store its value
-    ttype = t._token;
+    // While current token has greater precedence than previous token
+    while (operator_precedence(current_ttype) > previous_token_precedence) {
+        // Scan the next token
+        scan(&GToken);
 
-    // Scan the next token
-    scan(&t);
+        // Recursively build the right AST subtree
+        right = parse_binary_expression(token_precedence[current_ttype]);
 
-    // Recursively build the right AST subtree
-    right = parse_binary_expression(t);
+        // Join right subtree with current left subtree
+        left = make_ast_node(current_ttype, left, right, 0);
 
-    // Build and return the output node
-    out = make_ast_node(ttype, left, right, 0);
-    return out;
+        // Update current_ttype and check for EOF
+        current_ttype = GToken._token;
+        if (current_ttype == T_SEMICOLON) {
+            break;
+        }
+    }
+
+    return left;
 }
 
 /**
- * Interprets a given AST Node *without* operator precedence. Will print intermediate steps if D_DEBUG is 1
+ * Interprets a given AST Node with operator precedence. Will print intermediate steps if D_DEBUG is 1
  * @param  n               AST Node to interpret
  * @return   The interpreted value of the AST Node
  */

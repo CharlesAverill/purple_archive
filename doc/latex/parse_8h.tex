@@ -12,7 +12,7 @@ Expression parsing headers.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_ac02a8eabfe3cf3809a226bde948f508f}{parse\+\_\+binary\+\_\+expression}} (\mbox{\hyperlink{structtoken}{token}} t)
+void \mbox{\hyperlink{parse_8h_aa4c0114ce448eaa4184782cc8c56accc}{parse\+\_\+input\+\_\+file}} (void)
 \item 
 int \mbox{\hyperlink{parse_8h_a7f290684512e2d39d1307a0d6fca65fc}{interpret\+\_\+\+AST}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
 \end{DoxyCompactItemize}
@@ -36,7 +36,7 @@ charlesaverill
 \doxysubsubsection{\texorpdfstring{interpret\_AST()}{interpret\_AST()}}
 {\footnotesize\ttfamily int interpret\+\_\+\+AST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n }\end{DoxyParamCaption})}
 
-Interprets a given AST Node {\itshape without} operator precedence. Will print intermediate steps if D\+\_\+\+DEBUG is 1 
+Interprets a given AST Node with operator precedence. Will print intermediate steps if D\+\_\+\+DEBUG is 1 
 \begin{DoxyParams}{Parameters}
 {\em n} & AST Node to interpret \\
 \hline
@@ -44,17 +44,10 @@ Interprets a given AST Node {\itshape without} operator precedence. Will print i
 \begin{DoxyReturn}{Returns}
 The interpreted value of the AST Node 
 \end{DoxyReturn}
-\mbox{\Hypertarget{parse_8h_ac02a8eabfe3cf3809a226bde948f508f}\label{parse_8h_ac02a8eabfe3cf3809a226bde948f508f}} 
-\index{parse.h@{parse.h}!parse\_binary\_expression@{parse\_binary\_expression}}
-\index{parse\_binary\_expression@{parse\_binary\_expression}!parse.h@{parse.h}}
-\doxysubsubsection{\texorpdfstring{parse\_binary\_expression()}{parse\_binary\_expression()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+binary\+\_\+expression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoken}{token}}}]{t }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{parse_8h_aa4c0114ce448eaa4184782cc8c56accc}\label{parse_8h_aa4c0114ce448eaa4184782cc8c56accc}} 
+\index{parse.h@{parse.h}!parse\_input\_file@{parse\_input\_file}}
+\index{parse\_input\_file@{parse\_input\_file}!parse.h@{parse.h}}
+\doxysubsubsection{\texorpdfstring{parse\_input\_file()}{parse\_input\_file()}}
+{\footnotesize\ttfamily void parse\+\_\+input\+\_\+file (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Given an initial token, recursively parse binary expressions into an AST 
-\begin{DoxyParams}{Parameters}
-{\em t} & The current token to be parsed \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An AST or AST Subtree of the binary expressions in D\+\_\+\+INPUT\+\_\+\+FILE 
-\end{DoxyReturn}
+Starts parsing D\+\_\+\+INPUT\+\_\+\+FILE 

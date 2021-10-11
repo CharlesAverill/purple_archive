@@ -2,7 +2,7 @@
  * @file
  * @author CharlesAverill
  * @date   06-Oct-2021
- * @brief Abstract Syntax Tree (AST) Logic
+ * @brief Functions for defining an Abstract Syntax Tree (AST)
 */
 
 #include <stdlib.h>

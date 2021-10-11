@@ -21,8 +21,21 @@ typedef enum Token_Type {
     T_STAR,
     T_SLASH,
     /**Integer literal*/
-    T_INTLIT
+    T_INTLIT,
+    // Syntax
+    T_SEMICOLON,
+    T_PRINT,
 } Token_Type;
+
+/**
+ * Token string equivalents
+ */
+static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal", ";", "print"};
+
+/**
+ * Token precedence values
+ */
+static int token_precedence[] = {0, 10, 10, 20, 20, 0};
 
 /**
  * @struct token
@@ -49,10 +62,5 @@ typedef struct AST_Node {
     /**If the AST Node contains an int, this field holds its value*/
     int value;
 } AST_Node;
-
-/**
- * List of printable tokens
- */
-static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal"};
 
 #endif

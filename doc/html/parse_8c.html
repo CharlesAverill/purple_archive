@@ -68,7 +68,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">parse.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -79,12 +80,21 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a654a9ec72e6c1e531ed04a23c28856c9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a654a9ec72e6c1e531ed04a23c28856c9">operator_precedence</a> (<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> ttype)</td></tr>
+<tr class="separator:a654a9ec72e6c1e531ed04a23c28856c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8c90be3bb2b9cf6fe22ebcaa82217a4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#ad8c90be3bb2b9cf6fe22ebcaa82217a4">build_terminal_node</a> (<a class="el" href="structtoken.html">token</a> t)</td></tr>
 <tr class="separator:ad8c90be3bb2b9cf6fe22ebcaa82217a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac02a8eabfe3cf3809a226bde948f508f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#ac02a8eabfe3cf3809a226bde948f508f">parse_binary_expression</a> (<a class="el" href="structtoken.html">token</a> t)</td></tr>
-<tr class="separator:ac02a8eabfe3cf3809a226bde948f508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1c559251b2f70f5ae3f4180e134979"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a9c1c559251b2f70f5ae3f4180e134979">parse_binary_expression</a> (int previous_token_precedence)</td></tr>
+<tr class="separator:a9c1c559251b2f70f5ae3f4180e134979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f290684512e2d39d1307a0d6fca65fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a7f290684512e2d39d1307a0d6fca65fc">interpret_AST</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
 <tr class="separator:a7f290684512e2d39d1307a0d6fca65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c0114ce448eaa4184782cc8c56accc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aa4c0114ce448eaa4184782cc8c56accc">parse_input_file</a> (void)</td></tr>
+<tr class="separator:aa4c0114ce448eaa4184782cc8c56accc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af0b79f23ba5e6c5f14de80e2d4377402"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structtoken.html">token</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#af0b79f23ba5e6c5f14de80e2d4377402">GToken</a></td></tr>
+<tr class="separator:af0b79f23ba5e6c5f14de80e2d4377402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Expression parsing logic. </p>
@@ -139,7 +149,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Interprets a given AST Node <em>without</em> operator precedence. Will print intermediate steps if D_DEBUG is 1 </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Interprets a given AST Node with operator precedence. Will print intermediate steps if D_DEBUG is 1 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>AST Node to interpret </td></tr>
   </table>
@@ -149,28 +159,112 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac02a8eabfe3cf3809a226bde948f508f" name="ac02a8eabfe3cf3809a226bde948f508f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac02a8eabfe3cf3809a226bde948f508f">&#9670;&nbsp;</a></span>parse_binary_expression()</h2>
+<a id="a654a9ec72e6c1e531ed04a23c28856c9" name="a654a9ec72e6c1e531ed04a23c28856c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a654a9ec72e6c1e531ed04a23c28856c9">&#9670;&nbsp;</a></span>operator_precedence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int operator_precedence </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a>&#160;</td>
+          <td class="paramname"><em>ttype</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Determine the precedence of a provided operator, with syntax checking </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ttype</td><td>The token type of the operator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer defining the precedence of the given operator </dd></dl>
+
+</div>
+</div>
+<a id="a9c1c559251b2f70f5ae3f4180e134979" name="a9c1c559251b2f70f5ae3f4180e134979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c1c559251b2f70f5ae3f4180e134979">&#9670;&nbsp;</a></span>parse_binary_expression()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structAST__Node.html">AST_Node</a> * parse_binary_expression </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>previous_token_precedence</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Given the precedence of the previous token, recursively parse binary expressions into an AST </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">previous_token_precedence</td><td>The integer precedence value of the previous token </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An AST or AST Subtree of the binary expressions in D_INPUT_FILE </dd></dl>
+
+</div>
+</div>
+<a id="aa4c0114ce448eaa4184782cc8c56accc" name="aa4c0114ce448eaa4184782cc8c56accc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c0114ce448eaa4184782cc8c56accc">&#9670;&nbsp;</a></span>parse_input_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structAST__Node.html">AST_Node</a> * parse_binary_expression </td>
+          <td class="memname">void parse_input_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoken.html">token</a>&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Given an initial token, recursively parse binary expressions into an AST </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>The current token to be parsed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An AST or AST Subtree of the binary expressions in D_INPUT_FILE </dd></dl>
+<p >Starts parsing D_INPUT_FILE </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="af0b79f23ba5e6c5f14de80e2d4377402" name="af0b79f23ba5e6c5f14de80e2d4377402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b79f23ba5e6c5f14de80e2d4377402">&#9670;&nbsp;</a></span>GToken</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtoken.html">token</a> GToken</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >A Global Token that persists through recursion calls </p>
 
 </div>
 </div>

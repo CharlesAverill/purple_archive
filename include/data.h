@@ -22,6 +22,9 @@ extern_ char D_PUT_BACK;
 /**The pointer to the open filestream for the Scanner*/
 extern_ FILE *D_INPUT_FILE;
 
+#define D_MAX_IDENTIFIER_LENGTH 512
+extern_ char D_IDENTIFIER_BUFFER[D_MAX_IDENTIFIER_LENGTH + 1];
+
 /**Activates debug behavior*/
 extern_ int D_DEBUG;
 
