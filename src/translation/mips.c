@@ -15,17 +15,17 @@ void mips_preamble(FILE *fp){
 void mips_postamble(FILE *fp){
     fputs(
         "\n"
-        "li $v0, 10\n"
-        "syscall\n",
+        "\tori $v0, $zero, 10\n"
+        "\tsyscall\n",
     fp);
 }
 
 void mips_load(FILE *fp, int r, int value){
-    fprintf(fp, "\tli\t%s, %d\n", mips_register_names[r], value);
+    fprintf(fp, "\tori\t%s, $zero, %d\n", mips_register_names[r], value);
 }
 
 void mips_print_int(FILE *fp, int r){
-    fprintf(fp, "\tli\t$v0, 1\n");
+    fprintf(fp, "\tori\t$v0, $zero, 1\n");
     fprintf(fp, "\tadd\t$a0, %s, $zero\n", mips_register_names[r]);
     fprintf(fp, "\tsyscall\n");
 }
