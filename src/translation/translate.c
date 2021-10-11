@@ -13,6 +13,43 @@ void print_registers(void){
     }
 }
 
+/**
+ * Frees all existing registers by setting their values to 1
+*/
+void free_all_registers(void){
+    for(int i = 0; i < n_registers; i++){
+        free_registers[i] = 1;
+    }
+}
+
+/**
+ * Allocates a free register. Exit if there are no remaining registers.
+ * @return       The index of the new register
+*/
+static int allocate_register(void){
+    for(int i = 0; i < n_registers; i++){
+        if(free_registers[i]){
+            free_registers[i] = 0;
+            return i;
+        }
+    }
+    
+    fprintf(stderr, "Ran out of registers\n");
+    exit(1);
+}
+
+/**
+ * Add register to the array of free registers
+*/
+static void add_free_register(int r_index){
+    if(free_registers[r_index]){
+        fprintf(stderr, "Error trying to free register %d\n", r_index);
+        exit(1);
+    }
+    
+    free_registers[r_index] = 1;
+}
+
 static void initialize_translator(void){
     current_asm_mode = MIPS;
     
@@ -53,41 +90,10 @@ static void initialize_translator(void){
     }
 }
 
-/**
- * Frees all existing registers by setting their values to 1
-*/
-static void free_all_registers(void){
-    for(int i = 0; i < n_registers; i++){
-        free_registers[i] = 1;
-    }
-}
-
-/**
- * Allocates a free register. Exit if there are no remaining registers.
- * @return       The index of the new register
-*/
-static int allocate_register(void){
-    for(int i = 0; i < n_registers; i++){
-        if(free_registers[i]){
-            free_registers[i] = 0;
-            return i;
-        }
-    }
+static void exit_translator(void){
+    fclose(ASM_OUTPUT);
     
-    fprintf(stderr, "Ran out of registers\n");
-    exit(1);
-}
-
-/**
- * Add register to the array of free registers
-*/
-static void add_free_register(int r_index){
-    if(free_registers[r_index]){
-        fprintf(stderr, "Error trying to free register %d\n", r_index);
-        exit(1);
-    }
-    
-    free_registers[r_index] = 1;
+    free_all_registers();
 }
 
 /**
@@ -104,7 +110,7 @@ static int pir_load(int value){
 /**
  * PIR Print Int logic
 */
-static void pir_print_int(int r){
+void pir_print_int(int r){
     generators.print_int(ASM_OUTPUT, r);
     add_free_register(r);
 }
@@ -150,7 +156,7 @@ static int pir_div(int left, int right){
  * @param  n           The AST Node used to generate PIR
  * @return       The value of the AST
 */
-static int ast_to_pir(AST_Node *n){
+int ast_to_pir(AST_Node *n){
     int left_register;
     int right_register;
     
@@ -178,9 +184,7 @@ static int ast_to_pir(AST_Node *n){
     }
 }
 
-int generate_pir(AST_Node *n){
-    int out_register;
-    
+int generate_pir(void){
     initialize_translator();
     
     // Reset all registers
@@ -189,12 +193,16 @@ int generate_pir(AST_Node *n){
     // Add the assembly preamble
     generators.preamble(ASM_OUTPUT);
     
+    // Initialize the Scanner
+    scan(&GToken);
+    
     // Calculate and print the value of the AST
-    out_register = ast_to_pir(n);
-    pir_print_int(out_register);
+    parse_statements();
     
     // Add the assembly postamble
     generators.postamble(ASM_OUTPUT);
+    
+    exit_translator();
     
     printf("%s assembly written to %s\n", asm_mode_names[current_asm_mode], "a.asm");
 }

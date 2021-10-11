@@ -6,7 +6,6 @@ void mips_preamble(FILE *fp){
     fputs(
         ".data"
         "\n"
-        "\n"
         ".text\n"
         "main:\n",
     fp);
@@ -14,7 +13,7 @@ void mips_preamble(FILE *fp){
 
 void mips_postamble(FILE *fp){
     fputs(
-        "\n"
+        "exit:\n"
         "\tori $v0, $zero, 10\n"
         "\tsyscall\n",
     fp);

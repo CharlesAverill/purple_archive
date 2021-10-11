@@ -6,6 +6,7 @@
 
 #include "data.h"
 #include "definitions.h"
+#include "parse.h"
 #include "tree.h"
 
 #include "translation/x86.h"
@@ -18,8 +19,6 @@ FILE *ASM_OUTPUT;
 
 /**The array defining free registers. If free_registers[r1] == 1, r1 is free*/
 static int free_registers[n_registers];
-/**PIR register names*/
-static char *registers[n_registers] = {"r0", "r1", "r2", "r3"};
 
 /**Enum defining supported assembly modes*/
 typedef enum Assembly_Mode {
@@ -50,6 +49,10 @@ typedef struct ASM_Generators{
 
 ASM_Generators generators;
 
-int generate_pir(AST_Node *n);
+void free_all_registers(void);
+void pir_print_int(int r);
+
+int ast_to_pir(AST_Node *n);
+int generate_pir(void);
 
 #endif

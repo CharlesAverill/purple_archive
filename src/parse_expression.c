@@ -7,9 +7,6 @@
 
 #include "parse.h"
 
-/**A Global Token that persists through recursion calls*/
-static token GToken;
-
 /**
  * Determine the precedence of a provided operator, with syntax checking
  * @param  ttype           The token type of the operator
@@ -51,7 +48,7 @@ static AST_Node *build_terminal_node(token t)
  * @param  previous_token_precedence          The integer precedence value of the previous token
  * @return   An AST or AST Subtree of the binary expressions in D_INPUT_FILE
  */
-static AST_Node *parse_binary_expression(int previous_token_precedence)
+AST_Node *parse_binary_expression(int previous_token_precedence)
 {
     AST_Node *left;
     AST_Node *right;
@@ -62,7 +59,7 @@ static AST_Node *parse_binary_expression(int previous_token_precedence)
 
     // Check for EOF
     Token_Type current_ttype = GToken._token;
-    if (current_ttype == T_EOF) {
+    if (current_ttype == T_SEMICOLON) {
         return left;
     }
 
@@ -79,7 +76,7 @@ static AST_Node *parse_binary_expression(int previous_token_precedence)
 
         // Update current_ttype and check for EOF
         current_ttype = GToken._token;
-        if (current_ttype == T_EOF) {
+        if (current_ttype == T_SEMICOLON) {
             break;
         }
     }
@@ -129,18 +126,4 @@ int interpret_AST(AST_Node *n)
         fprintf(stderr, "Unknown operator with ttype %d\n", n->ttype);
         exit(1);
     }
-}
-
-/**
- * Starts parsing D_INPUT_FILE
- */
-AST_Node *parse_input_file(void)
-{
-    token initial_token;
-    AST_Node *AST_root;
-
-    scan(&GToken);
-    AST_root = parse_binary_expression(0);
-    
-    return AST_root;
 }

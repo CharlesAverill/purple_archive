@@ -70,9 +70,8 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
         return 1;
     }
+    
+    generate_pir();
 
-    AST_Node *ast = parse_input_file();
-    generate_pir(ast);
-
-    return 0;
+    exit(0);
 }

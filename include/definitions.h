@@ -21,13 +21,16 @@ typedef enum Token_Type {
     T_STAR,
     T_SLASH,
     /**Integer literal*/
-    T_INTLIT
+    T_INTLIT,
+    // Syntax
+    T_SEMICOLON,
+    T_PRINT,
 } Token_Type;
 
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal"};
+static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal", ";", "print"};
 
 /**
  * Token precedence values
