@@ -42,15 +42,22 @@ static Assembly_Mode current_asm_mode = -1;
 /**Struct containing pointers to the asm-generating functions used by the translator*/
 typedef struct ASM_Generators {
     void (*preamble)(FILE *fp);
+    /**ASM postamble code*/
     void (*postamble)(FILE *fp);
 
+    /**Load an integer value into register r*/
     void (*load)(FILE *fp, int r, int value);
 
+    /**Print an integer in register r*/
     void (*print_int)(FILE *fp, int r);
 
+    /**Add two integers*/
     int (*add)(FILE *fp, int r1, int r2);
+    /**Subtract two integers*/
     int (*sub)(FILE *fp, int r1, int r2);
+    /**Multiply two integers*/
     int (*mul)(FILE *fp, int r1, int r2);
+    /**Divide two integers*/
     int (*div)(FILE *fp, int r1, int r2);
 } ASM_Generators;
 
