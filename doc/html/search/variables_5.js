@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['token_5fprecedence_0',['token_precedence',['../definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6',1,'definitions.h']]],
-  ['token_5fstrings_1',['token_strings',['../definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398',1,'definitions.h']]],
-  ['ttype_2',['ttype',['../structAST__Node.html#a10fdcd68b9140de3a6c2ee0e9c10e3b7',1,'AST_Node']]]
+  ['generators_0',['generators',['../translate_8h.html#a174b62d940e7da9d15ca4305671bc59a',1,'translate.h']]],
+  ['gtoken_1',['GToken',['../parse_8h.html#af0b79f23ba5e6c5f14de80e2d4377402',1,'parse.h']]]
 ];

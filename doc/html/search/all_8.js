@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['main_0',['main',['../purple_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'purple.c']]],
-  ['make_5fast_5fleaf_1',['make_ast_leaf',['../tree_8h.html#a375fab649cee2988c5767f2e4905ec49',1,'make_ast_leaf(Token_Type ttype, int value):&#160;tree.c'],['../tree_8c.html#a375fab649cee2988c5767f2e4905ec49',1,'make_ast_leaf(Token_Type ttype, int value):&#160;tree.c']]],
-  ['make_5fast_5fnode_2',['make_ast_node',['../tree_8h.html#a984b9557872bd8e1c9480fdef036b2c8',1,'make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int value):&#160;tree.c'],['../tree_8c.html#a984b9557872bd8e1c9480fdef036b2c8',1,'make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int value):&#160;tree.c']]],
-  ['make_5funary_5fast_5fnode_3',['make_unary_ast_node',['../tree_8h.html#ac34305dfde60559225a5136cc32d33a9',1,'make_unary_ast_node(Token_Type ttype, AST_Node *child, int value):&#160;tree.c'],['../tree_8c.html#ac34305dfde60559225a5136cc32d33a9',1,'make_unary_ast_node(Token_Type ttype, AST_Node *child, int value):&#160;tree.c']]]
+  ['index_0',['index',['../index.html',1,'']]],
+  ['index_5fof_1',['index_of',['../scan_8c.html#afe176fe0d1142633375951f2e45831bc',1,'scan.c']]],
+  ['init_2',['init',['../purple_8c.html#a17fb021b480a1f220d2579807fa2e398',1,'purple.c']]],
+  ['initialize_5ftranslator_3',['initialize_translator',['../translate_8c.html#a57229982869eb60dd2923bcaf7a6fa7c',1,'translate.c']]],
+  ['interpret_5fast_4',['interpret_AST',['../parse__expression_8c.html#a7f290684512e2d39d1307a0d6fca65fc',1,'parse_expression.c']]]
 ];

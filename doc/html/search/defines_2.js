@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dec_0',['DEC',['../CMakeCCompilerId_8c.html#ad1280362da42492bbc11aa78cbf776ad',1,'CMakeCCompilerId.c']]]
+  ['n_5fregisters_0',['n_registers',['../translate_8h.html#ad36c5a508277984c666476e859337196',1,'translate.h']]]
 ];

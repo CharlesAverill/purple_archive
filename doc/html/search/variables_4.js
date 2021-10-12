@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_0',['right',['../structAST__Node.html#a673b94630eaeac8e44b221fec58cbded',1,'AST_Node']]]
+  ['free_5fregisters_0',['free_registers',['../translate_8h.html#a55433eb735bb85faa4b88ffe56024ffd',1,'translate.h']]]
 ];

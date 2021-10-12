@@ -14,25 +14,28 @@
 \DoxyCodeLine{20     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}{T\_MINUS}},}
 \DoxyCodeLine{21     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}{T\_STAR}},}
 \DoxyCodeLine{22     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\_SLASH}},}
-\DoxyCodeLine{24     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\_INTLIT}}}
-\DoxyCodeLine{25 \} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{30 \textcolor{keyword}{static} \textcolor{keywordtype}{char} *\mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\_strings}}[] = \{\textcolor{stringliteral}{"{}EOF"{}}, \textcolor{stringliteral}{"{}+"{}}, \textcolor{stringliteral}{"{}-\/"{}}, \textcolor{stringliteral}{"{}*"{}}, \textcolor{stringliteral}{"{}/"{}}, \textcolor{stringliteral}{"{}integer literal"{}}\};}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{35 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\_precedence}}[] = \{0, 10, 10, 20, 20, 0\};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structtoken}{token}} \{}
-\DoxyCodeLine{43     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structtoken_a70a84af0938d09e699d4e9f6a708a4d7}{\_token}};}
-\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{structtoken_a8e1604c6941ff51d782b681a3e4e313c}{value}};}
-\DoxyCodeLine{46 \} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}};}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{52 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} \{}
-\DoxyCodeLine{54     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{ttype}};}
-\DoxyCodeLine{56     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_aabe36c18b59c78413f0be425b87fa751}{left}};}
-\DoxyCodeLine{58     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a673b94630eaeac8e44b221fec58cbded}{right}};}
-\DoxyCodeLine{60     \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_ad069e95d3dc2e199e2e3ffd392df7344}{value}};}
-\DoxyCodeLine{61 \} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\_Node}};}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{24     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\_INTLIT}},}
+\DoxyCodeLine{25     \textcolor{comment}{// Syntax}}
+\DoxyCodeLine{26     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}{T\_SEMICOLON}},}
+\DoxyCodeLine{27     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\_PRINT}},}
+\DoxyCodeLine{28 \} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33 \textcolor{keyword}{static} \textcolor{keywordtype}{char} *\mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\_strings}}[] = \{\textcolor{stringliteral}{"{}EOF"{}}, \textcolor{stringliteral}{"{}+"{}}, \textcolor{stringliteral}{"{}-\/"{}}, \textcolor{stringliteral}{"{}*"{}}, \textcolor{stringliteral}{"{}/"{}}, \textcolor{stringliteral}{"{}integer literal"{}}, \textcolor{stringliteral}{"{};"{}}, \textcolor{stringliteral}{"{}print"{}}\};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\_precedence}}[] = \{0, 10, 10, 20, 20, 0\};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{44 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structtoken}{token}} \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structtoken_a70a84af0938d09e699d4e9f6a708a4d7}{\_token}};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} \mbox{\hyperlink{structtoken_a8e1604c6941ff51d782b681a3e4e313c}{value}};}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} \{}
+\DoxyCodeLine{57     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{ttype}};}
+\DoxyCodeLine{59     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_aabe36c18b59c78413f0be425b87fa751}{left}};}
+\DoxyCodeLine{61     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a673b94630eaeac8e44b221fec58cbded}{right}};}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_ad069e95d3dc2e199e2e3ffd392df7344}{value}};}
+\DoxyCodeLine{64 \} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\_Node}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

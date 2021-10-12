@@ -2,7 +2,7 @@
 \label{scan_8c}\index{src/scan.c@{src/scan.c}}
 
 
-Lexical Scanner logic.  
+Functions for lexical scanning from D\+\_\+\+INPUT\+\_\+\+FILE.  
 
 
 {\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
@@ -11,11 +11,15 @@ Lexical Scanner logic.
 \item 
 static char \mbox{\hyperlink{scan_8c_aba19733986b2193569abfcc4951d480f}{next}} (void)
 \item 
-static void \mbox{\hyperlink{scan_8c_afe08adf54c0720dda42d616dbb2af21f}{D\+\_\+\+PUT\+\_\+\+BACK\+\_\+into\+\_\+stream}} (char c)
+static void \mbox{\hyperlink{scan_8c_aa675e2a79ca95a2b6861a587655eef81}{put\+\_\+back\+\_\+into\+\_\+stream}} (char c)
 \item 
 static char \mbox{\hyperlink{scan_8c_ae1cbaaa04222c8794e6fb52ab9a0078d}{skip}} (void)
 \item 
 static int \mbox{\hyperlink{scan_8c_afe176fe0d1142633375951f2e45831bc}{index\+\_\+of}} (char $\ast$s, int c)
+\item 
+static int \mbox{\hyperlink{scan_8c_a78e46f376d30d3a45eadcacdd8c676df}{scan\+\_\+identifier}} (char c, char $\ast$buf, int character\+\_\+limit)
+\item 
+static \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \mbox{\hyperlink{scan_8c_a551fdc66d2c26cad6e96d417aa62b936}{string\+\_\+to\+\_\+keyword}} (char $\ast$str)
 \item 
 static int \mbox{\hyperlink{scan_8c_afaef79548b221cbef5702e4b9957aeb8}{scanint}} (char c)
 \item 
@@ -24,7 +28,7 @@ int \mbox{\hyperlink{scan_8c_ad92e6905738891696232b05133dbf8fc}{scan}} (\mbox{\h
 
 
 \doxysubsection{Detailed Description}
-Lexical Scanner logic. 
+Functions for lexical scanning from D\+\_\+\+INPUT\+\_\+\+FILE. 
 
 \begin{DoxyAuthor}{Author}
 Charles\+Averill 
@@ -35,17 +39,6 @@ Charles\+Averill
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{scan_8c_afe08adf54c0720dda42d616dbb2af21f}\label{scan_8c_afe08adf54c0720dda42d616dbb2af21f}} 
-\index{scan.c@{scan.c}!D\_PUT\_BACK\_into\_stream@{D\_PUT\_BACK\_into\_stream}}
-\index{D\_PUT\_BACK\_into\_stream@{D\_PUT\_BACK\_into\_stream}!scan.c@{scan.c}}
-\doxysubsubsection{\texorpdfstring{D\_PUT\_BACK\_into\_stream()}{D\_PUT\_BACK\_into\_stream()}}
-{\footnotesize\ttfamily static void D\+\_\+\+PUT\+\_\+\+BACK\+\_\+into\+\_\+stream (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-Define the character to be put back into the input stream 
-\begin{DoxyParams}{Parameters}
-{\em c} & Character to be put back \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{scan_8c_afe176fe0d1142633375951f2e45831bc}\label{scan_8c_afe176fe0d1142633375951f2e45831bc}} 
 \index{scan.c@{scan.c}!index\_of@{index\_of}}
 \index{index\_of@{index\_of}!scan.c@{scan.c}}
@@ -71,6 +64,17 @@ Index of c in s if s contains c, else -\/1
 Get next valid character from D\+\_\+\+INPUT\+\_\+\+FILE \begin{DoxyReturn}{Returns}
 Next valid character from D\+\_\+\+INPUT\+\_\+\+FILE 
 \end{DoxyReturn}
+\mbox{\Hypertarget{scan_8c_aa675e2a79ca95a2b6861a587655eef81}\label{scan_8c_aa675e2a79ca95a2b6861a587655eef81}} 
+\index{scan.c@{scan.c}!put\_back\_into\_stream@{put\_back\_into\_stream}}
+\index{put\_back\_into\_stream@{put\_back\_into\_stream}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{put\_back\_into\_stream()}{put\_back\_into\_stream()}}
+{\footnotesize\ttfamily static void put\+\_\+back\+\_\+into\+\_\+stream (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Define the character to be put back into the input stream 
+\begin{DoxyParams}{Parameters}
+{\em c} & Character to be put back \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{scan_8c_ad92e6905738891696232b05133dbf8fc}\label{scan_8c_ad92e6905738891696232b05133dbf8fc}} 
 \index{scan.c@{scan.c}!scan@{scan}}
 \index{scan@{scan}!scan.c@{scan.c}}
@@ -85,6 +89,12 @@ Scan and fill the next token
 \begin{DoxyReturn}{Returns}
 1 if valid token returned, 0 if no tokens left 
 \end{DoxyReturn}
+\mbox{\Hypertarget{scan_8c_a78e46f376d30d3a45eadcacdd8c676df}\label{scan_8c_a78e46f376d30d3a45eadcacdd8c676df}} 
+\index{scan.c@{scan.c}!scan\_identifier@{scan\_identifier}}
+\index{scan\_identifier@{scan\_identifier}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{scan\_identifier()}{scan\_identifier()}}
+{\footnotesize\ttfamily static int scan\+\_\+identifier (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{char $\ast$}]{buf,  }\item[{int}]{character\+\_\+limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{scan_8c_afaef79548b221cbef5702e4b9957aeb8}\label{scan_8c_afaef79548b221cbef5702e4b9957aeb8}} 
 \index{scan.c@{scan.c}!scanint@{scanint}}
 \index{scanint@{scanint}!scan.c@{scan.c}}
@@ -108,3 +118,9 @@ Next scanned integer literal
 Skip whitespace tokens \begin{DoxyReturn}{Returns}
 Next non-\/whitespace token 
 \end{DoxyReturn}
+\mbox{\Hypertarget{scan_8c_a551fdc66d2c26cad6e96d417aa62b936}\label{scan_8c_a551fdc66d2c26cad6e96d417aa62b936}} 
+\index{scan.c@{scan.c}!string\_to\_keyword@{string\_to\_keyword}}
+\index{string\_to\_keyword@{string\_to\_keyword}!scan.c@{scan.c}}
+\doxysubsubsection{\texorpdfstring{string\_to\_keyword()}{string\_to\_keyword()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} string\+\_\+to\+\_\+keyword (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+

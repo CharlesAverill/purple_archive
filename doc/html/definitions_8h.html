@@ -109,6 +109,8 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a">T_SLASH</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46">T_INTLIT</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf">T_SEMICOLON</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b">T_PRINT</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a2e66bade4cb6bda81365ca377d98b805"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum contains the various kinds of permitted tokens.  <a href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">More...</a><br /></td></tr>
@@ -116,7 +118,7 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> [] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td></tr>
+<tr class="memitem:aac4b727eb90bfc1375ac629aa9e69398"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398">token_strings</a> [] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;, &quot;;&quot;, &quot;print&quot;}</td></tr>
 <tr class="separator:aac4b727eb90bfc1375ac629aa9e69398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeafee1d3efeb28aee6fb93819aba2a6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6">token_precedence</a> [] = {0, 10, 10, 20, 20, 0}</td></tr>
 <tr class="separator:aaeafee1d3efeb28aee6fb93819aba2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,6 +192,8 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a" name="a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a"></a>T_SLASH&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46" name="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46"></a>T_INTLIT&#160;</td><td class="fielddoc"><p >Integer literal </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf" name="a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf"></a>T_SEMICOLON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b" name="a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b"></a>T_PRINT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -228,7 +232,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char* token_strings[] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;}</td>
+          <td class="memname">char* token_strings[] = {&quot;EOF&quot;, &quot;+&quot;, &quot;-&quot;, &quot;*&quot;, &quot;/&quot;, &quot;integer literal&quot;, &quot;;&quot;, &quot;print&quot;}</td>
         </tr>
       </table>
   </td>

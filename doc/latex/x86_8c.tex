@@ -1,0 +1,87 @@
+\hypertarget{x86_8c}{}\doxysection{src/translation/x86.c File Reference}
+\label{x86_8c}\index{src/translation/x86.c@{src/translation/x86.c}}
+{\ttfamily \#include \char`\"{}translation/x86.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{x86_8c_a38ca625abc3d62ece474354842d3bd0d}{x86\+\_\+preamble}} (FILE $\ast$fp)
+\item 
+void \mbox{\hyperlink{x86_8c_a48197c35b358d41a8337ad917f15530e}{x86\+\_\+postamble}} (FILE $\ast$fp)
+\item 
+void \mbox{\hyperlink{x86_8c_a8e231d8859b046fd5401ee7985516592}{x86\+\_\+load}} (FILE $\ast$fp, int r, int value)
+\item 
+void \mbox{\hyperlink{x86_8c_a083839379d1a3079023e22609842c03f}{x86\+\_\+print\+\_\+int}} (FILE $\ast$fp, int r)
+\item 
+int \mbox{\hyperlink{x86_8c_a07a4a1ca34e073736c965a7be5196d3b}{x86\+\_\+add}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8c_aa70a82553c52dc87844afa76b3f87250}{x86\+\_\+sub}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8c_a662d3fae2aaa809be1b155acecb01bf1}{x86\+\_\+mul}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8c_a85140d025eea2d62829c9d8278d291c5}{x86\+\_\+div}} (FILE $\ast$fp, int r1, int r2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}{x86\+\_\+register\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}\%r8\char`\"{}, \char`\"{}\%r9\char`\"{}, \char`\"{}\%r10\char`\"{}, \char`\"{}\%r11\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{x86_8c_a07a4a1ca34e073736c965a7be5196d3b}\label{x86_8c_a07a4a1ca34e073736c965a7be5196d3b}} 
+\index{x86.c@{x86.c}!x86\_add@{x86\_add}}
+\index{x86\_add@{x86\_add}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_add()}{x86\_add()}}
+{\footnotesize\ttfamily int x86\+\_\+add (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a85140d025eea2d62829c9d8278d291c5}\label{x86_8c_a85140d025eea2d62829c9d8278d291c5}} 
+\index{x86.c@{x86.c}!x86\_div@{x86\_div}}
+\index{x86\_div@{x86\_div}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_div()}{x86\_div()}}
+{\footnotesize\ttfamily int x86\+\_\+div (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a8e231d8859b046fd5401ee7985516592}\label{x86_8c_a8e231d8859b046fd5401ee7985516592}} 
+\index{x86.c@{x86.c}!x86\_load@{x86\_load}}
+\index{x86\_load@{x86\_load}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_load()}{x86\_load()}}
+{\footnotesize\ttfamily void x86\+\_\+load (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a662d3fae2aaa809be1b155acecb01bf1}\label{x86_8c_a662d3fae2aaa809be1b155acecb01bf1}} 
+\index{x86.c@{x86.c}!x86\_mul@{x86\_mul}}
+\index{x86\_mul@{x86\_mul}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_mul()}{x86\_mul()}}
+{\footnotesize\ttfamily int x86\+\_\+mul (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a48197c35b358d41a8337ad917f15530e}\label{x86_8c_a48197c35b358d41a8337ad917f15530e}} 
+\index{x86.c@{x86.c}!x86\_postamble@{x86\_postamble}}
+\index{x86\_postamble@{x86\_postamble}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_postamble()}{x86\_postamble()}}
+{\footnotesize\ttfamily void x86\+\_\+postamble (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a38ca625abc3d62ece474354842d3bd0d}\label{x86_8c_a38ca625abc3d62ece474354842d3bd0d}} 
+\index{x86.c@{x86.c}!x86\_preamble@{x86\_preamble}}
+\index{x86\_preamble@{x86\_preamble}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_preamble()}{x86\_preamble()}}
+{\footnotesize\ttfamily void x86\+\_\+preamble (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a083839379d1a3079023e22609842c03f}\label{x86_8c_a083839379d1a3079023e22609842c03f}} 
+\index{x86.c@{x86.c}!x86\_print\_int@{x86\_print\_int}}
+\index{x86\_print\_int@{x86\_print\_int}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_print\_int()}{x86\_print\_int()}}
+{\footnotesize\ttfamily void x86\+\_\+print\+\_\+int (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_aa70a82553c52dc87844afa76b3f87250}\label{x86_8c_aa70a82553c52dc87844afa76b3f87250}} 
+\index{x86.c@{x86.c}!x86\_sub@{x86\_sub}}
+\index{x86\_sub@{x86\_sub}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_sub()}{x86\_sub()}}
+{\footnotesize\ttfamily int x86\+\_\+sub (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}\label{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}} 
+\index{x86.c@{x86.c}!x86\_register\_names@{x86\_register\_names}}
+\index{x86\_register\_names@{x86\_register\_names}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_register\_names}{x86\_register\_names}}
+{\footnotesize\ttfamily char$\ast$ x86\+\_\+register\+\_\+names\mbox{[}$\,$\mbox{]} = \{\char`\"{}\%r8\char`\"{}, \char`\"{}\%r9\char`\"{}, \char`\"{}\%r10\char`\"{}, \char`\"{}\%r11\char`\"{}\}}
+
