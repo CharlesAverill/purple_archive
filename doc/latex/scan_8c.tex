@@ -95,6 +95,18 @@ Scan and fill the next token
 \doxysubsubsection{\texorpdfstring{scan\_identifier()}{scan\_identifier()}}
 {\footnotesize\ttfamily static int scan\+\_\+identifier (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{char $\ast$}]{buf,  }\item[{int}]{character\+\_\+limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Scan an identifier, starting at char c, into buf, bounded by character\+\_\+limit 
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to start scanning from \\
+\hline
+{\em buf} & The buffer to read the identifier into \\
+\hline
+{\em character\+\_\+limit} & The maximum number of characters allowed for an identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the identifier 
+\end{DoxyReturn}
 \mbox{\Hypertarget{scan_8c_afaef79548b221cbef5702e4b9957aeb8}\label{scan_8c_afaef79548b221cbef5702e4b9957aeb8}} 
 \index{scan.c@{scan.c}!scanint@{scanint}}
 \index{scanint@{scanint}!scan.c@{scan.c}}
@@ -124,3 +136,11 @@ Next non-\/whitespace token
 \doxysubsubsection{\texorpdfstring{string\_to\_keyword()}{string\_to\_keyword()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} string\+\_\+to\+\_\+keyword (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Function to map a given string to the keyword it represents 
+\begin{DoxyParams}{Parameters}
+{\em str} & String to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Token\+\_\+\+Type of the keyword, or -\/1 if the keyword was not determined 
+\end{DoxyReturn}

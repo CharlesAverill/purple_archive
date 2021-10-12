@@ -74,39 +74,53 @@ static int index_of(char *s, int c)
     }
 }
 
-static int scan_identifier(char c, char *buf, int character_limit){
+/**
+ * Scan an identifier, starting at char c, into buf, bounded by character_limit
+ * @param  c                             The character to start scanning from
+ * @param  buf                           The buffer to read the identifier into
+ * @param  character_limit               The maximum number of characters allowed for an identifier
+ * @return                 The length of the identifier
+ */
+static int scan_identifier(char c, char *buf, int character_limit)
+{
     int i = 0;
-    
+
     // Identifiers permit alphanumeric characters and underscores
-    while(isalpha(c) || isdigit(c) || c == '_'){
-        if(i == character_limit - 1){
+    while (isalpha(c) || isdigit(c) || c == '_') {
+        if (i == character_limit - 1) {
             fprintf(stderr, "Identifier too long on line %d\n", D_LINE_NUMBER);
             exit(1);
-        } else if(i < character_limit - 1){
+        } else if (i < character_limit - 1) {
             buf[i++] = c;
         }
-        
+
         c = next();
     }
-    
+
     // Invalid character was reached
     put_back_into_stream(c);
-    
+
     // Null-terminate buffer
     buf[i] = '\0';
-    
+
     return i;
 }
 
-static Token_Type string_to_keyword(char *str){
-    switch(str[0]){
-        case 'p':
-            if(!strcmp(str, "print")){
-                return T_PRINT;
-            }
-            break;
+/**
+ * Function to map a given string to the keyword it represents
+ * @param  str               String to parse
+ * @return     The Token_Type of the keyword, or -1 if the keyword was not determined
+ */
+static Token_Type string_to_keyword(char *str)
+{
+    switch (str[0]) {
+    case 'p':
+        if (!strcmp(str, "print")) {
+            return T_PRINT;
+        }
+        break;
     }
-    
+
     return -1;
 }
 
@@ -171,17 +185,18 @@ int scan(token *t)
         if (isdigit(c)) {
             t->value = scanint(c);
             t->_token = T_INTLIT;
-        // Check if c is an identifier
-        } else if(isalpha(c) || c == '_'){
+            // Check if c is an identifier
+        } else if (isalpha(c) || c == '_') {
             scan_identifier(c, D_IDENTIFIER_BUFFER, D_MAX_IDENTIFIER_LENGTH);
-            
+
             Token_Type ttype = string_to_keyword(D_IDENTIFIER_BUFFER);
-            if(ttype != -1){
+            if (ttype != -1) {
                 t->_token = ttype;
                 break;
             }
-            
-            fprintf(stderr, "Unrecognized symbol %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
+
+            fprintf(stderr, "Unrecognized symbol %s on line %d\n", D_IDENTIFIER_BUFFER,
+                    D_LINE_NUMBER);
             exit(1);
         } else {
             fprintf(stderr, "Unrecognized character %c on line %d\n", c, D_LINE_NUMBER);

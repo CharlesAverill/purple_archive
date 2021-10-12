@@ -268,6 +268,15 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Scan an identifier, starting at char c, into buf, bounded by character_limit </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The character to start scanning from </td></tr>
+    <tr><td class="paramname">buf</td><td>The buffer to read the identifier into </td></tr>
+    <tr><td class="paramname">character_limit</td><td>The maximum number of characters allowed for an identifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the identifier </dd></dl>
 
 </div>
 </div>
@@ -354,6 +363,13 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Function to map a given string to the keyword it represents </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>String to parse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The Token_Type of the keyword, or -1 if the keyword was not determined </dd></dl>
 
 </div>
 </div>

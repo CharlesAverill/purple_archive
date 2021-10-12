@@ -1,6 +1,6 @@
 /**
  * @file
- * @author charlesaverill
+ * @author CharlesAverill
  * @date   06-Oct-2021
  * @brief Expression parsing headers
 */

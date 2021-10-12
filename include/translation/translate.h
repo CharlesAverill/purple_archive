@@ -1,3 +1,10 @@
+/**
+ * @file
+ * @author CharlesAverill
+ * @date   11-Oct-2021
+ * @brief Function headers and definitions for translation of PIR into ASM
+*/
+
 #ifndef TRANSLATE_H
 #define TRANSLATE_H
 
@@ -9,8 +16,8 @@
 #include "parse.h"
 #include "tree.h"
 
-#include "translation/x86.h"
 #include "translation/mips.h"
+#include "translation/x86.h"
 
 #define n_registers 4
 
@@ -33,26 +40,27 @@ static char *asm_mode_names[] = {"x86", "MIPS"};
 static Assembly_Mode current_asm_mode = -1;
 
 /**Struct containing pointers to the asm-generating functions used by the translator*/
-typedef struct ASM_Generators{
+typedef struct ASM_Generators {
     void (*preamble)(FILE *fp);
     void (*postamble)(FILE *fp);
-    
+
     void (*load)(FILE *fp, int r, int value);
-    
+
     void (*print_int)(FILE *fp, int r);
-    
+
     int (*add)(FILE *fp, int r1, int r2);
     int (*sub)(FILE *fp, int r1, int r2);
     int (*mul)(FILE *fp, int r1, int r2);
     int (*div)(FILE *fp, int r1, int r2);
 } ASM_Generators;
 
+/**Struct containing the ASM generator functions for the current compilation*/
 ASM_Generators generators;
 
 void free_all_registers(void);
 void pir_print_int(int r);
 
 int ast_to_pir(AST_Node *n);
-int generate_pir(void);
+void generate_pir(void);
 
 #endif

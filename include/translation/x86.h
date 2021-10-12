@@ -1,3 +1,10 @@
+/**
+ * @file
+ * @author CharlesAverill
+ * @date   11-Oct-2021
+ * @brief Function headers for x86 ASM generators
+*/
+
 #ifndef X86_H
 #define X86_H
 

@@ -1,13 +1,18 @@
 \hypertarget{translate_8h}{}\doxysection{include/translation/translate.h File Reference}
 \label{translate_8h}\index{include/translation/translate.h@{include/translation/translate.h}}
+
+
+Function headers and definitions for translation of PIR into ASM.  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}tree.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}translation/x86.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}translation/mips.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}translation/x86.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,7 +46,7 @@ void \mbox{\hyperlink{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}{pir\+\_\+p
 \item 
 int \mbox{\hyperlink{translate_8h_aa41f7ae049b8d7d028e6b0fbc5b74ff5}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
 \item 
-int \mbox{\hyperlink{translate_8h_a87901bf9f25d6eae5f677d68c4f9888f}{generate\+\_\+pir}} (void)
+void \mbox{\hyperlink{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -56,6 +61,17 @@ static \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly
 \item 
 \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{translate_8h_a174b62d940e7da9d15ca4305671bc59a}{generators}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function headers and definitions for translation of PIR into ASM. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/Oct-\/2021 
+\end{DoxyDate}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -122,19 +138,24 @@ The value of the AST
 \doxysubsubsection{\texorpdfstring{free\_all\_registers()}{free\_all\_registers()}}
 {\footnotesize\ttfamily void free\+\_\+all\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{translate_8h_a87901bf9f25d6eae5f677d68c4f9888f}\label{translate_8h_a87901bf9f25d6eae5f677d68c4f9888f}} 
+Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}\label{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}} 
 \index{translate.h@{translate.h}!generate\_pir@{generate\_pir}}
 \index{generate\_pir@{generate\_pir}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{generate\_pir()}{generate\_pir()}}
-{\footnotesize\ttfamily int generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}} 
+Handle function for generating ASM \mbox{\Hypertarget{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}} 
 \index{translate.h@{translate.h}!pir\_print\_int@{pir\_print\_int}}
 \index{pir\_print\_int@{pir\_print\_int}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{pir\_print\_int()}{pir\_print\_int()}}
 {\footnotesize\ttfamily void pir\+\_\+print\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption})}
 
-PIR Print Int logic 
+PIR Print Int Logic 
+\begin{DoxyParams}{Parameters}
+{\em r} & Index of the register to print \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{translate_8h_a5950725673066fe528e7c56fdabe43ec}\label{translate_8h_a5950725673066fe528e7c56fdabe43ec}} 
@@ -167,3 +188,4 @@ The array defining free registers. If free\+\_\+registers\mbox{[}r1\mbox{]} == 1
 \doxysubsubsection{\texorpdfstring{generators}{generators}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} generators}
 
+Struct containing the ASM generator functions for the current compilation 

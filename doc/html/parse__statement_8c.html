@@ -72,6 +72,9 @@ $(function() {
   <div class="headertitle"><div class="title">parse_statement.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Function for parsing statements and compiling them into ASM.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="parse_8h_source.html">parse.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -81,7 +84,11 @@ Functions</h2></td></tr>
 <tr class="memitem:a36e413083d2a6e7a8b561e22e141b811"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse__statement_8c.html#a36e413083d2a6e7a8b561e22e141b811">parse_statements</a> (void)</td></tr>
 <tr class="separator:a36e413083d2a6e7a8b561e22e141b811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Function for parsing statements and compiling them into ASM. </p>
+<dl class="section author"><dt>Author</dt><dd>charlesaverill </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11-Oct-2021 </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a42be0dd087c6ab2175670ee86cfc7cdf" name="a42be0dd087c6ab2175670ee86cfc7cdf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42be0dd087c6ab2175670ee86cfc7cdf">&#9670;&nbsp;</a></span>match()</h2>
 
@@ -115,6 +122,13 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Forces an exit if GToken's Token_Type does not match the provided Token_Type </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ttype</td><td>The desired Token_Type to match </td></tr>
+    <tr><td class="paramname">str</td><td>The name of the keyword to match </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -133,6 +147,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Parse all statements in a file, and compile them into ASM </p>
 
 </div>
 </div>

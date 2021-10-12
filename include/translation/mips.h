@@ -1,3 +1,10 @@
+/**
+ * @file
+ * @author CharlesAverill
+ * @date   11-Oct-2021
+ * @brief Function headers for MIPS ASM generators
+*/
+
 #ifndef MIPS_H
 #define MIPS_H
 

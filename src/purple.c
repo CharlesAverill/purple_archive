@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
         return 1;
     }
-    
+
     generate_pir();
 
     exit(0);
