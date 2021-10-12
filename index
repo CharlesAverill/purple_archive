@@ -6,7 +6,7 @@
  *
  * @section Introduction
  *
- * Purple is a simple compiled language. Right now it supports basic arithmetic parsing.
+ * Purple is a simple compiled language. Right now it supports compilation into x86 and MIPS, and basic arithmetic parsing.
  *
  * @section Installation
  *
