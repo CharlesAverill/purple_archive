@@ -10,6 +10,8 @@
 
 #include <stdio.h>
 
+#include "arguments.h"
+
 /**extern_ will be undefined in purple.c, causing purple.c to "own" these variables*/
 #ifndef extern_
 #define extern_ extern
@@ -27,5 +29,8 @@ extern_ char D_IDENTIFIER_BUFFER[D_MAX_IDENTIFIER_LENGTH + 1];
 
 /**Activates debug behavior*/
 extern_ int D_DEBUG;
+
+/**Command line arguments*/
+extern_ purple_args *args;
 
 #endif

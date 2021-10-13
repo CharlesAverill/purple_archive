@@ -7,6 +7,11 @@
 
 #include "parse.h"
 
+// Extern variables
+token GToken;
+FILE *ASM_OUTPUT;
+ASM_Generators generators;
+
 /**
  * Forces an exit if GToken's Token_Type does not match the provided Token_Type
  * @param ttype  The desired Token_Type to match

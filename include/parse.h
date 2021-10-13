@@ -15,4 +15,4 @@ AST_Node *parse_binary_expression(int previous_token_precedence);
 void parse_statements(void);
 
 /**A Global Token that persists through recursion calls*/
-token GToken;
+extern token GToken;
