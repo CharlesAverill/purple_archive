@@ -1,3 +1,10 @@
+/**
+ * @file
+ * @author CharlesAverill
+ * @date   11-Oct-2021
+ * @brief Logic for x86 ASM generation
+*/
+
 #include "translation/x86.h"
 
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
