@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_0',['right',['../structAST__Node.html#a673b94630eaeac8e44b221fec58cbded',1,'AST_Node']]]
+  ['quiet_0',['quiet',['../structpurple__args.html#a6b79528b098f74a0b9586277e0ed038a',1,'purple_args']]]
 ];

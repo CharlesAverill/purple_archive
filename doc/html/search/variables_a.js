@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sub_0',['sub',['../structASM__Generators.html#a6c0ecfad708a8a844119108ecc0ec98f',1,'ASM_Generators']]]
+  ['quiet_0',['quiet',['../structpurple__args.html#a6b79528b098f74a0b9586277e0ed038a',1,'purple_args']]]
 ];

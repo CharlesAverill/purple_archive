@@ -17,11 +17,13 @@ Function headers and definitions for translation of PIR into ASM.
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struct containing pointers to the asm-\/generating functions used by the translator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{translate_8h_ad36c5a508277984c666476e859337196}{n\+\_\+registers}}~4
+\item 
+\#define \mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}~2
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -55,7 +57,7 @@ FILE $\ast$ \mbox{\hyperlink{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}{ASM
 \item 
 static int \mbox{\hyperlink{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}{free\+\_\+registers}} \mbox{[}\mbox{\hyperlink{translate_8h_ad36c5a508277984c666476e859337196}{n\+\_\+registers}}\mbox{]}
 \item 
-static char $\ast$ \mbox{\hyperlink{translate_8h_a5950725673066fe528e7c56fdabe43ec}{asm\+\_\+mode\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}
+static char $\ast$ \mbox{\hyperlink{translate_8h_adf76c673cdc54c77495cb3fecd6e0182}{asm\+\_\+mode\+\_\+names}} \mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}
 \item 
 static \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{translate_8h_ab3981274303b2799394e3088b463624c}{current\+\_\+asm\+\_\+mode}} = -\/1
 \item 
@@ -81,6 +83,12 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{n\_registers}{n\_registers}}
 {\footnotesize\ttfamily \#define n\+\_\+registers~4}
 
+\mbox{\Hypertarget{translate_8h_a13648bd0247dde89b66613af67f44ab2}\label{translate_8h_a13648bd0247dde89b66613af67f44ab2}} 
+\index{translate.h@{translate.h}!N\_SUPPORTED\_ASM\_MODES@{N\_SUPPORTED\_ASM\_MODES}}
+\index{N\_SUPPORTED\_ASM\_MODES@{N\_SUPPORTED\_ASM\_MODES}!translate.h@{translate.h}}
+\doxysubsubsection{\texorpdfstring{N\_SUPPORTED\_ASM\_MODES}{N\_SUPPORTED\_ASM\_MODES}}
+{\footnotesize\ttfamily \#define N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES~2}
+
 
 
 \doxysubsection{Typedef Documentation}
@@ -90,7 +98,7 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{ASM\_Generators}{ASM\_Generators}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}}}
 
-Struct containing pointers to the asm-\/generating functions used by the translator \mbox{\Hypertarget{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}\label{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}} 
+\mbox{\Hypertarget{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}\label{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}} 
 \index{translate.h@{translate.h}!Assembly\_Mode@{Assembly\_Mode}}
 \index{Assembly\_Mode@{Assembly\_Mode}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{Assembly\_Mode}{Assembly\_Mode}}
@@ -158,17 +166,17 @@ PIR Print Int Logic
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{translate_8h_a5950725673066fe528e7c56fdabe43ec}\label{translate_8h_a5950725673066fe528e7c56fdabe43ec}} 
+\mbox{\Hypertarget{translate_8h_adf76c673cdc54c77495cb3fecd6e0182}\label{translate_8h_adf76c673cdc54c77495cb3fecd6e0182}} 
 \index{translate.h@{translate.h}!asm\_mode\_names@{asm\_mode\_names}}
 \index{asm\_mode\_names@{asm\_mode\_names}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{asm\_mode\_names}{asm\_mode\_names}}
-{\footnotesize\ttfamily char$\ast$ asm\+\_\+mode\+\_\+names\mbox{[}$\,$\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily char$\ast$ asm\+\_\+mode\+\_\+names\mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
 
 Names of supported assembly modes \mbox{\Hypertarget{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}\label{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}} 
 \index{translate.h@{translate.h}!ASM\_OUTPUT@{ASM\_OUTPUT}}
 \index{ASM\_OUTPUT@{ASM\_OUTPUT}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{ASM\_OUTPUT}{ASM\_OUTPUT}}
-{\footnotesize\ttfamily FILE$\ast$ ASM\+\_\+\+OUTPUT}
+{\footnotesize\ttfamily FILE$\ast$ ASM\+\_\+\+OUTPUT\hspace{0.3cm}{\ttfamily [extern]}}
 
 The file pointer for the output assembly file \mbox{\Hypertarget{translate_8h_ab3981274303b2799394e3088b463624c}\label{translate_8h_ab3981274303b2799394e3088b463624c}} 
 \index{translate.h@{translate.h}!current\_asm\_mode@{current\_asm\_mode}}
@@ -186,6 +194,6 @@ The array defining free registers. If free\+\_\+registers\mbox{[}r1\mbox{]} == 1
 \index{translate.h@{translate.h}!generators@{generators}}
 \index{generators@{generators}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{generators}{generators}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} generators}
+{\footnotesize\ttfamily \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} generators\hspace{0.3cm}{\ttfamily [extern]}}
 
 Struct containing the ASM generator functions for the current compilation 

@@ -22,7 +22,7 @@
 #define n_registers 4
 
 /**The file pointer for the output assembly file*/
-FILE *ASM_OUTPUT;
+extern FILE *ASM_OUTPUT;
 
 /**The array defining free registers. If free_registers[r1] == 1, r1 is free*/
 static int free_registers[n_registers];
@@ -33,14 +33,19 @@ typedef enum Assembly_Mode {
     MIPS,
 } Assembly_Mode;
 
+#define N_SUPPORTED_ASM_MODES 2
 /**Names of supported assembly modes*/
-static char *asm_mode_names[] = {"x86", "MIPS"};
+static char *asm_mode_names[N_SUPPORTED_ASM_MODES] = {"x86", "MIPS"};
 
 /**Assembly mode to use during compilation*/
 static Assembly_Mode current_asm_mode = -1;
 
-/**Struct containing pointers to the asm-generating functions used by the translator*/
+/**
+ * @struct ASM_Generators
+ * @brief Struct containing pointers to the asm-generating functions used by the translator
+ */
 typedef struct ASM_Generators {
+    /**ASM preamble code*/
     void (*preamble)(FILE *fp);
     /**ASM postamble code*/
     void (*postamble)(FILE *fp);
@@ -62,7 +67,7 @@ typedef struct ASM_Generators {
 } ASM_Generators;
 
 /**Struct containing the ASM generator functions for the current compilation*/
-ASM_Generators generators;
+extern ASM_Generators generators;
 
 void free_all_registers(void);
 void pir_print_int(int r);

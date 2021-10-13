@@ -94,12 +94,15 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html">ASM_Generators</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct containing pointers to the asm-generating functions used by the translator.  <a href="structASM__Generators.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ad36c5a508277984c666476e859337196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#ad36c5a508277984c666476e859337196">n_registers</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:ad36c5a508277984c666476e859337196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13648bd0247dde89b66613af67f44ab2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a13648bd0247dde89b66613af67f44ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -132,8 +135,8 @@ Variables</h2></td></tr>
 <tr class="separator:a3e4e4c22290f59aecd7fc1f0b874a7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55433eb735bb85faa4b88ffe56024ffd"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a55433eb735bb85faa4b88ffe56024ffd">free_registers</a> [<a class="el" href="translate_8h.html#ad36c5a508277984c666476e859337196">n_registers</a>]</td></tr>
 <tr class="separator:a55433eb735bb85faa4b88ffe56024ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5950725673066fe528e7c56fdabe43ec"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a5950725673066fe528e7c56fdabe43ec">asm_mode_names</a> [] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td></tr>
-<tr class="separator:a5950725673066fe528e7c56fdabe43ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf76c673cdc54c77495cb3fecd6e0182"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#adf76c673cdc54c77495cb3fecd6e0182">asm_mode_names</a> [<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td></tr>
+<tr class="separator:adf76c673cdc54c77495cb3fecd6e0182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3981274303b2799394e3088b463624c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#ab3981274303b2799394e3088b463624c">current_asm_mode</a> = -1</td></tr>
 <tr class="separator:ab3981274303b2799394e3088b463624c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a174b62d940e7da9d15ca4305671bc59a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structASM__Generators.html">ASM_Generators</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a174b62d940e7da9d15ca4305671bc59a">generators</a></td></tr>
@@ -158,6 +161,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a13648bd0247dde89b66613af67f44ab2" name="a13648bd0247dde89b66613af67f44ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13648bd0247dde89b66613af67f44ab2">&#9670;&nbsp;</a></span>N_SUPPORTED_ASM_MODES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define N_SUPPORTED_ASM_MODES&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aea01806c9c00199f1e24df6f171ff7f5" name="aea01806c9c00199f1e24df6f171ff7f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea01806c9c00199f1e24df6f171ff7f5">&#9670;&nbsp;</a></span>ASM_Generators</h2>
@@ -170,7 +187,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Struct containing pointers to the asm-generating functions used by the translator </p>
 
 </div>
 </div>
@@ -298,8 +314,8 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a5950725673066fe528e7c56fdabe43ec" name="a5950725673066fe528e7c56fdabe43ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5950725673066fe528e7c56fdabe43ec">&#9670;&nbsp;</a></span>asm_mode_names</h2>
+<a id="adf76c673cdc54c77495cb3fecd6e0182" name="adf76c673cdc54c77495cb3fecd6e0182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf76c673cdc54c77495cb3fecd6e0182">&#9670;&nbsp;</a></span>asm_mode_names</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +324,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char* asm_mode_names[] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td>
+          <td class="memname">char* asm_mode_names[<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td>
         </tr>
       </table>
   </td>
@@ -326,11 +342,19 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FILE* ASM_OUTPUT</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >The file pointer for the output assembly file </p>
 
@@ -387,11 +411,19 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structASM__Generators.html">ASM_Generators</a> generators</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p >Struct containing the ASM generator functions for the current compilation </p>
 

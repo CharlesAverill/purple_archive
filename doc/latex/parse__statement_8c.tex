@@ -13,6 +13,15 @@ static void \mbox{\hyperlink{parse__statement_8c_a42be0dd087c6ab2175670ee86cfc7c
 \item 
 void \mbox{\hyperlink{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}{parse\+\_\+statements}} (void)
 \end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{parse__statement_8c_af0b79f23ba5e6c5f14de80e2d4377402}{GToken}}
+\item 
+FILE $\ast$ \mbox{\hyperlink{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}{ASM\+\_\+\+OUTPUT}}
+\item 
+\mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}{generators}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -47,3 +56,24 @@ Forces an exit if GToken\textquotesingle{}s Token\+\_\+\+Type does not match the
 {\footnotesize\ttfamily void parse\+\_\+statements (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 Parse all statements in a file, and compile them into ASM 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}\label{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}} 
+\index{parse\_statement.c@{parse\_statement.c}!ASM\_OUTPUT@{ASM\_OUTPUT}}
+\index{ASM\_OUTPUT@{ASM\_OUTPUT}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{ASM\_OUTPUT}{ASM\_OUTPUT}}
+{\footnotesize\ttfamily FILE$\ast$ ASM\+\_\+\+OUTPUT}
+
+The file pointer for the output assembly file \mbox{\Hypertarget{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}\label{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}} 
+\index{parse\_statement.c@{parse\_statement.c}!generators@{generators}}
+\index{generators@{generators}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{generators}{generators}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} generators}
+
+Struct containing the ASM generator functions for the current compilation \mbox{\Hypertarget{parse__statement_8c_af0b79f23ba5e6c5f14de80e2d4377402}\label{parse__statement_8c_af0b79f23ba5e6c5f14de80e2d4377402}} 
+\index{parse\_statement.c@{parse\_statement.c}!GToken@{GToken}}
+\index{GToken@{GToken}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{GToken}{GToken}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoken}{token}} GToken}
+
+A Global Token that persists through recursion calls 

@@ -81,7 +81,9 @@ $(function() {
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="arguments_8h_source.html">arguments.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="definitions_8h_source.html">definitions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="info_8h_source.html">info.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="parse_8h_source.html">parse.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="scan_8h_source.html">scan.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="translate_8h_source.html">translation/translate.h</a>&quot;</code><br />
@@ -94,10 +96,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17fb021b480a1f220d2579807fa2e398"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="purple_8c.html#a17fb021b480a1f220d2579807fa2e398">init</a> (void)</td></tr>
-<tr class="separator:a17fb021b480a1f220d2579807fa2e398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89668ce1c9966e1ab0ac5e6a4c763269"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="purple_8c.html#a89668ce1c9966e1ab0ac5e6a4c763269">usage</a> (char *program_name)</td></tr>
-<tr class="separator:a89668ce1c9966e1ab0ac5e6a4c763269"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04900abd2e06f2bb8f7aa0edd9e2e8e2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="purple_8c.html#a04900abd2e06f2bb8f7aa0edd9e2e8e2">init</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a04900abd2e06f2bb8f7aa0edd9e2e8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9296af10705be57e5c3bd3b7be22cc4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="purple_8c.html#ac9296af10705be57e5c3bd3b7be22cc4">scan_file</a> ()</td></tr>
 <tr class="separator:ac9296af10705be57e5c3bd3b7be22cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="purple_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
@@ -124,8 +124,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a17fb021b480a1f220d2579807fa2e398" name="a17fb021b480a1f220d2579807fa2e398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17fb021b480a1f220d2579807fa2e398">&#9670;&nbsp;</a></span>init()</h2>
+<a id="a04900abd2e06f2bb8f7aa0edd9e2e8e2" name="a04900abd2e06f2bb8f7aa0edd9e2e8e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04900abd2e06f2bb8f7aa0edd9e2e8e2">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,9 +136,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">static void init </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -203,38 +213,6 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >Scan D_INPUT_FILE and print out tokens and their details </p>
-
-</div>
-</div>
-<a id="a89668ce1c9966e1ab0ac5e6a4c763269" name="a89668ce1c9966e1ab0ac5e6a4c763269"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89668ce1c9966e1ab0ac5e6a4c763269">&#9670;&nbsp;</a></span>usage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void usage </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>program_name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Print an error message describing the proper usage </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">program_name</td><td>Program name called by user </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

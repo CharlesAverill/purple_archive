@@ -10,7 +10,9 @@ Main compiler script.
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}info.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}translation/translate.\+h\char`\"{}}\newline
@@ -23,9 +25,7 @@ Main compiler script.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{purple_8c_a17fb021b480a1f220d2579807fa2e398}{init}} (void)
-\item 
-static void \mbox{\hyperlink{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}{usage}} (char $\ast$program\+\_\+name)
+static void \mbox{\hyperlink{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}{init}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \item 
 static void \mbox{\hyperlink{purple_8c_ac9296af10705be57e5c3bd3b7be22cc4}{scan\+\_\+file}} ()
 \item 
@@ -54,11 +54,11 @@ Charles\+Averill
 Define, then undef extern\+\_\+ to transfer ownership to \mbox{\hyperlink{purple_8c}{purple.\+c}} 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{purple_8c_a17fb021b480a1f220d2579807fa2e398}\label{purple_8c_a17fb021b480a1f220d2579807fa2e398}} 
+\mbox{\Hypertarget{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}\label{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}} 
 \index{purple.c@{purple.c}!init@{init}}
 \index{init@{init}!purple.c@{purple.c}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily static void init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void init (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Initialize compiler values \mbox{\Hypertarget{purple_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{purple_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
 \index{purple.c@{purple.c}!main@{main}}
@@ -72,14 +72,4 @@ Main compiler function \mbox{\Hypertarget{purple_8c_ac9296af10705be57e5c3bd3b7be
 \doxysubsubsection{\texorpdfstring{scan\_file()}{scan\_file()}}
 {\footnotesize\ttfamily static void scan\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Scan D\+\_\+\+INPUT\+\_\+\+FILE and print out tokens and their details \mbox{\Hypertarget{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}\label{purple_8c_a89668ce1c9966e1ab0ac5e6a4c763269}} 
-\index{purple.c@{purple.c}!usage@{usage}}
-\index{usage@{usage}!purple.c@{purple.c}}
-\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
-{\footnotesize\ttfamily static void usage (\begin{DoxyParamCaption}\item[{char $\ast$}]{program\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-Print an error message describing the proper usage 
-\begin{DoxyParams}{Parameters}
-{\em program\+\_\+name} & Program name called by user \\
-\hline
-\end{DoxyParams}
+Scan D\+\_\+\+INPUT\+\_\+\+FILE and print out tokens and their details 
