@@ -63,7 +63,7 @@ static void add_free_register(int r_index)
  */
 static void initialize_translator(void)
 {
-    current_asm_mode = MIPS;
+    current_asm_mode = args->forced_assembly_mode;
 
     switch (current_asm_mode) {
     case X86:
@@ -95,9 +95,9 @@ static void initialize_translator(void)
         exit(1);
     }
 
-    ASM_OUTPUT = fopen("a.asm", "w");
+    ASM_OUTPUT = fopen(args->filenames[1], "w");
     if (ASM_OUTPUT == NULL) {
-        fprintf(stderr, "Error opening %s for writing intermediate assembly\n", "a.asm");
+        fprintf(stderr, "Error opening %s for writing intermediate assembly\n", args->filenames[1]);
         exit(1);
     }
 }
@@ -249,5 +249,5 @@ void generate_pir(void)
 
     exit_translator();
 
-    printf("%s assembly written to %s\n", asm_mode_names[current_asm_mode], "a.asm");
+    printf("%s assembly written to %s\n", asm_mode_names[current_asm_mode], args->filenames[1]);
 }

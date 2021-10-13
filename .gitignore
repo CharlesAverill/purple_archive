@@ -1,3 +1,6 @@
 *.sh
 build/*
 bin/*
+scripts/*
+*.out
+*.s

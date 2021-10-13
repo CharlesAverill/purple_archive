@@ -2,7 +2,7 @@
  * @file
  * @author CharlesAverill
  * @date   06-Oct-2021
- * @brief Description
+ * @brief Function headers for AST operations
 */
 
 #ifndef TREE_H

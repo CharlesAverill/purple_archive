@@ -15,7 +15,9 @@
 #include "data.h"
 #undef extern_
 
+#include "arguments.h"
 #include "definitions.h"
+#include "info.h"
 #include "parse.h"
 #include "scan.h"
 #include "translation/translate.h"
@@ -24,18 +26,22 @@
 /**
  * Initialize compiler values
  */
-static void init(void)
+static void init(int argc, char *argv[])
 {
     D_DEBUG = 0;
     D_LINE_NUMBER = 1;
     D_PUT_BACK = '\n';
-}
 
-/**
- * Print an error message describing the proper usage
- * @param program_name  Program name called by user
- */
-static void usage(char *program_name) { fprintf(stderr, "Usage: %s <input_file>\n", program_name); }
+    // Argument parsing
+    args = malloc(sizeof(purple_args));
+    parse_args(args, argc, argv);
+
+    D_INPUT_FILE = fopen(args->filenames[0], "r");
+    if (D_INPUT_FILE == NULL) {
+        fprintf(stderr, "Unable to open %s: %s\n", args->filenames[0], strerror(errno));
+        exit(1);
+    }
+}
 
 /**
  * Scan D_INPUT_FILE and print out tokens and their details
@@ -58,20 +64,11 @@ static void scan_file()
  */
 int main(int argc, char *argv[])
 {
-    if (argc != 2) {
-        usage(argv[0]);
-        return 1;
-    }
-
-    init();
-
-    D_INPUT_FILE = fopen(argv[1], "r");
-    if (D_INPUT_FILE == NULL) {
-        fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
-        return 1;
-    }
+    init(argc, argv);
 
     generate_pir();
+
+    free(args);
 
     exit(0);
 }
