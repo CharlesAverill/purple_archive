@@ -6,6 +6,7 @@
 */
 
 #include "arguments.h"
+#include "info.h"
 #include "translation/translate.h"
 
 const char *argp_program_version = PROJECT_NAME_AND_VERS;
