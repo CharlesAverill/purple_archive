@@ -11,6 +11,26 @@
  * - Basic arithmetic parsing with precedence
  * - Variable declaration and assignment
  *
+ * @section Examples
+ *
+ * Purple uses C-style syntax, although this may change as the compiler is built
+ *
+ * ```
+ * int bob;
+ * int alice;
+ *
+ * bob = 5;
+ * alice = 10;
+ *
+ * print bob + alice;
+ *
+ * int bob_alice;
+ * bob_alice = 10 + 10 + bob + alice;
+ * print bob_alice;
+ * ```
+ *
+ * More examples can be viewed <a href="https://github.com/CharlesAverill/Purple/tree/main/examples" target="_blank">here</a>.
+ *
  * @section Installation
  *
  * View the source <a href="https://github.com/CharlesAverill/Purple" target="_blank">here</a>.
