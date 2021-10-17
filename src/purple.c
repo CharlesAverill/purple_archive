@@ -20,6 +20,7 @@
 #include "info.h"
 #include "parse.h"
 #include "scan.h"
+#include "symbol_table.h"
 #include "translation/translate.h"
 #include "tree.h"
 
@@ -32,15 +33,33 @@ static void init(int argc, char *argv[])
     D_LINE_NUMBER = 1;
     D_PUT_BACK = '\n';
 
+    init_symbol_table();
+
     // Argument parsing
     args = malloc(sizeof(purple_args));
+    if (args == NULL) {
+        fprintf(stderr, "Unable to allocate memory for command line arguments");
+        shutdown(1);
+    }
+
     parse_args(args, argc, argv);
 
     D_INPUT_FILE = fopen(args->filenames[0], "r");
     if (D_INPUT_FILE == NULL) {
         fprintf(stderr, "Unable to open %s: %s\n", args->filenames[0], strerror(errno));
-        exit(1);
+        shutdown(1);
     }
+}
+
+/**
+ * Free any memory, do any prep before the compiler stops, then exit
+ */
+void shutdown(int exit_code)
+{
+    free(args);
+    free(D_GLOBAL_SYMBOL_TABLE);
+
+    exit(exit_code);
 }
 
 /**
@@ -68,7 +87,5 @@ int main(int argc, char *argv[])
 
     generate_pir();
 
-    free(args);
-
-    exit(0);
+    shutdown(0);
 }

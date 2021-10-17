@@ -26,7 +26,7 @@ void mips_postamble(FILE *fp)
           fp);
 }
 
-void mips_load(FILE *fp, int r, int value)
+void mips_load_int(FILE *fp, int r, int value)
 {
     fprintf(fp, "\tori\t%s, $zero, %d\n", mips_register_names[r], value);
 }
@@ -64,4 +64,28 @@ int mips_div(FILE *fp, int r1, int r2)
     fprintf(fp, "\tdiv\t%s, %s\n", mips_register_names[r1], mips_register_names[r2]);
     fprintf(fp, "\tmflo\t%s\n", mips_register_names[r2]);
     return r2;
+}
+
+void mips_create_global_variable(FILE *fp, char *identifier)
+{
+    // MIPS does not universally support .comm, so uses the $fp register and stack offsets instead
+    return;
+}
+
+int mips_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+{
+    // Don't need the identifier
+    (void)identifier;
+
+    fprintf(fp, "\tlw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
+    return r;
+}
+
+int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+{
+    // Don't need the identifier
+    (void)identifier;
+    
+    fprintf(fp, "\tsw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
+    return r;
 }

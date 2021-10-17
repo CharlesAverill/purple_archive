@@ -51,8 +51,7 @@ typedef struct ASM_Generators {
     void (*postamble)(FILE *fp);
 
     /**Load an integer value into register r*/
-    void (*load)(FILE *fp, int r, int value);
-
+    void (*load_int)(FILE *fp, int r, int value);
     /**Print an integer in register r*/
     void (*print_int)(FILE *fp, int r);
 
@@ -64,6 +63,13 @@ typedef struct ASM_Generators {
     int (*mul)(FILE *fp, int r1, int r2);
     /**Divide two integers*/
     int (*div)(FILE *fp, int r1, int r2);
+
+    /**Create a global variable*/
+    void (*create_global_variable)(FILE *fp, char *identifier);
+    /**Load a variable from the stack into a register*/
+    int (*load_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
+    /**Save a variable from a register onto the stack*/
+    int (*save_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
 } ASM_Generators;
 
 /**Struct containing the ASM generator functions for the current compilation*/
@@ -72,7 +78,9 @@ extern ASM_Generators generators;
 void free_all_registers(void);
 void pir_print_int(int r);
 
-int ast_to_pir(AST_Node *n);
+void pir_create_global(char *identifier);
+
+int ast_to_pir(AST_Node *n, int r);
 void generate_pir(void);
 
 #endif

@@ -1,0 +1,61 @@
+\hypertarget{definitions_8h_source}{}\doxysection{definitions.\+h}
+\label{definitions_8h_source}\index{include/definitions.h@{include/definitions.h}}
+\mbox{\hyperlink{definitions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DEFINITIONS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DEFINITIONS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \{}
+\DoxyCodeLine{16     \textcolor{comment}{// File IO}}
+\DoxyCodeLine{17     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a9882ff017eb83e311ec8ad12ab646455}{T\_EOF}},}
+\DoxyCodeLine{18     \textcolor{comment}{// Arithmetic}}
+\DoxyCodeLine{19     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ad7d408f184b5312670748bbddf0077d2}{T\_PLUS}},}
+\DoxyCodeLine{20     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aeabbf9419f82ec47ab35d6931784dfb4}{T\_MINUS}},}
+\DoxyCodeLine{21     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}{T\_STAR}},}
+\DoxyCodeLine{22     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\_SLASH}},}
+\DoxyCodeLine{24     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\_INTLIT}},}
+\DoxyCodeLine{25     \textcolor{comment}{// Syntax}}
+\DoxyCodeLine{26     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}{T\_SEMICOLON}},}
+\DoxyCodeLine{27     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\_PRINT}},}
+\DoxyCodeLine{28     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}{T\_EQUALS}},}
+\DoxyCodeLine{30     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}{T\_IDENTIFIER}},}
+\DoxyCodeLine{31     \textcolor{comment}{// Types}}
+\DoxyCodeLine{32     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}{T\_INT}},}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{// AST-\/specific Types}}
+\DoxyCodeLine{35     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}{T\_LEFT\_VALUE\_IDENTIFIER}},}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41 \textcolor{keyword}{static} \textcolor{keywordtype}{char} *\mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\_strings}}[] = \{\textcolor{stringliteral}{"{}EOF"{}}, \textcolor{stringliteral}{"{}+"{}},     \textcolor{stringliteral}{"{}-\/"{}}, \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},  \textcolor{stringliteral}{"{}integer literal"{}},}
+\DoxyCodeLine{42                                 \textcolor{stringliteral}{"{};"{}},   \textcolor{stringliteral}{"{}print"{}}, \textcolor{stringliteral}{"{}="{}}, \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}}\};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\_precedence}}[] = \{0, 10, 10, 20, 20, 0\}; \textcolor{comment}{// EOF, PLUS, MINUS, STAR, SLASH, INTLIT}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structtoken}{token}} \{}
+\DoxyCodeLine{55     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structtoken_a70a84af0938d09e699d4e9f6a708a4d7}{\_token}};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} \mbox{\hyperlink{structtoken_a8e1604c6941ff51d782b681a3e4e313c}{value}};}
+\DoxyCodeLine{58 \} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} \{}
+\DoxyCodeLine{66     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{ttype}};}
+\DoxyCodeLine{68     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_aabe36c18b59c78413f0be425b87fa751}{left}};}
+\DoxyCodeLine{70     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a673b94630eaeac8e44b221fec58cbded}{right}};}
+\DoxyCodeLine{72     \textcolor{keyword}{union }\{}
+\DoxyCodeLine{73         \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_ad069e95d3dc2e199e2e3ffd392df7344}{value}};}
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_a989f2aee0075db516d38f70264af0b95}{position}};}
+\DoxyCodeLine{75     \} \mbox{\hyperlink{structAST__Node_ab80248f89bb82ee6d3c78dabdf92055b}{v}};}
+\DoxyCodeLine{76 \} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\_Node}};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define MAX\_SYMBOL\_LEN 63}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structsymbol}{symbol}} \{}
+\DoxyCodeLine{86     \textcolor{keywordtype}{char} \mbox{\hyperlink{structsymbol_a0f8d81b0fa92d41549e66ed99bcc0b4d}{name}}[\mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\_SYMBOL\_LEN}} + 1];}
+\DoxyCodeLine{88     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}{stack\_offset}};}
+\DoxyCodeLine{89 \} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keywordtype}{void} \mbox{\hyperlink{definitions_8h_a24e21ab6715200a0c1986e40c5acfa19}{shutdown}}(\textcolor{keywordtype}{int} exit\_code);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -41,7 +41,7 @@ static int allocate_register(void)
     }
 
     fprintf(stderr, "Ran out of registers\n");
-    exit(1);
+    shutdown(1);
 }
 
 /**
@@ -52,7 +52,7 @@ static void add_free_register(int r_index)
 {
     if (free_registers[r_index]) {
         fprintf(stderr, "Error trying to free register %d\n", r_index);
-        exit(1);
+        shutdown(1);
     }
 
     free_registers[r_index] = 1;
@@ -70,35 +70,43 @@ static void initialize_translator(void)
         generators.preamble = x86_preamble;
         generators.postamble = x86_postamble;
 
-        generators.load = x86_load;
+        generators.load_int = x86_load_int;
         generators.print_int = x86_print_int;
 
         generators.add = x86_add;
         generators.sub = x86_sub;
         generators.mul = x86_mul;
         generators.div = x86_div;
+
+        generators.create_global_variable = x86_create_global_variable;
+        generators.load_global_variable = x86_load_global_variable;
+        generators.save_global_variable = x86_save_global_variable;
         break;
     case MIPS:
         generators.preamble = mips_preamble;
         generators.postamble = mips_postamble;
 
-        generators.load = mips_load;
+        generators.load_int = mips_load_int;
         generators.print_int = mips_print_int;
 
         generators.add = mips_add;
         generators.sub = mips_sub;
         generators.mul = mips_mul;
         generators.div = mips_div;
+
+        generators.create_global_variable = mips_create_global_variable;
+        generators.load_global_variable = mips_load_global_variable;
+        generators.save_global_variable = mips_save_global_variable;
         break;
     default:
         fprintf(stderr, "Error choosing an assembly mode\n");
-        exit(1);
+        shutdown(1);
     }
 
     ASM_OUTPUT = fopen(args->filenames[1], "w");
     if (ASM_OUTPUT == NULL) {
         fprintf(stderr, "Error opening %s for writing intermediate assembly\n", args->filenames[1]);
-        exit(1);
+        shutdown(1);
     }
 }
 
@@ -113,18 +121,15 @@ static void exit_translator(void)
 }
 
 /**
- * Loads a value into a newly-allocated register
-*/
-/**
- * Loads a value into a newly-allocated register
+ * Loads an integer into a newly-allocated register
  * @param  value               The value to load
  * @return       The index of the register
  */
-static int pir_load(int value)
+static int pir_load_int(int value)
 {
     int r = allocate_register();
 
-    generators.load(ASM_OUTPUT, r, value);
+    generators.load_int(ASM_OUTPUT, r, value);
 
     return r;
 }
@@ -192,37 +197,90 @@ static int pir_div(int left, int right)
 }
 
 /**
+ * PIR Global variable creation logic
+ * NOTE: Only generates code for some platforms that support .comm directives
+ * @param  identifier               The string defining the name of the variable
+ */
+void pir_create_global(char *identifier)
+{
+    generators.create_global_variable(ASM_OUTPUT, identifier);
+}
+
+/**
+ * PIR Load variable from stack logic
+ * @param  symbol_index               Symbol table index of the variable to load
+ * @return              The register the value has been loaded into
+ */
+static int pir_load_global(int symbol_index)
+{
+    int r = allocate_register();
+    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
+
+    generators.load_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    return r;
+}
+
+/**
+ * PIR Save variable onto stack logic
+ * @param  r                          Register containing value to save
+ * @param  symbol_index               Symbol table index of symbol to save
+ * @return              Register containing value to save
+ */
+static int pir_save_global(int r, int symbol_index)
+{
+    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
+    generators.save_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    return r;
+}
+
+/**
  * Generates Purple Intermediate Representation (PIR) assembly from a given AST
  * @param  n           The AST Node used to generate PIR
+ * @param  r           Index of register used to store variables
  * @return       The value of the AST
 */
-int ast_to_pir(AST_Node *n)
+int ast_to_pir(AST_Node *n, int r)
 {
     int left_register;
     int right_register;
+    int out;
 
     if (n->left) {
-        left_register = ast_to_pir(n->left);
+        left_register = ast_to_pir(n->left, -1);
     }
     if (n->right) {
-        right_register = ast_to_pir(n->right);
+        right_register = ast_to_pir(n->right, left_register);
     }
 
     switch (n->ttype) {
     case T_PLUS:
-        return pir_add(left_register, right_register);
+        out = pir_add(left_register, right_register);
+        break;
     case T_MINUS:
-        return pir_sub(left_register, right_register);
+        out = pir_sub(left_register, right_register);
+        break;
     case T_STAR:
-        return pir_mul(left_register, right_register);
+        out = pir_mul(left_register, right_register);
+        break;
     case T_SLASH:
-        return pir_div(left_register, right_register);
+        out = pir_div(left_register, right_register);
+        break;
     case T_INTLIT:
-        return pir_load(n->value);
+        out = pir_load_int(n->v.value);
+        break;
+    case T_IDENTIFIER:
+        out = pir_load_global(n->v.position);
+        break;
+    case T_LEFT_VALUE_IDENTIFIER:
+        out = pir_save_global(r, n->v.position);
+    case T_EQUALS:
+        return right_register;
     default:
-        fprintf(stderr, "Unknown operator %d\n", n->ttype);
-        exit(1);
+        fprintf(stderr, "Unknown operator %s\n", token_strings[n->ttype]);
+        shutdown(1);
     }
+
+    return out;
 }
 
 /**

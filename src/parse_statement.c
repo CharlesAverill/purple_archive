@@ -1,6 +1,6 @@
 /**
  * @file
- * @author charlesaverill
+ * @author CharlesAverill
  * @date   11-Oct-2021
  * @brief Function for parsing statements and compiling them into ASM
 */
@@ -8,24 +8,66 @@
 #include "parse.h"
 
 // Extern variables
-token GToken;
 FILE *ASM_OUTPUT;
 ASM_Generators generators;
 
 /**
- * Forces an exit if GToken's Token_Type does not match the provided Token_Type
- * @param ttype  The desired Token_Type to match
- * @param str    The name of the keyword to match
+ * Parse print statement
  */
-static void match(Token_Type ttype, char *str)
+static void print_statement(void)
 {
-    if (GToken._token == ttype) {
-        scan(&GToken);
-    } else {
-        fprintf(stderr, "%s expected on line %d but got %s instead\n", str, D_LINE_NUMBER,
-                token_strings[ttype]);
-        exit(1);
+    AST_Node *root;
+    int r;
+
+    // First token must be print
+    match(T_PRINT);
+
+    // Parse expression, compile it, and print its value
+    root = parse_binary_expression(0);
+    r = ast_to_pir(root, -1);
+    pir_print_int(r);
+    free_all_registers();
+
+    // Last token must be a semicolon
+    match(T_SEMICOLON);
+}
+
+/**
+ * Parse variable assignment statement
+ */
+static void assignment_statement(void)
+{
+    AST_Node *left;
+    AST_Node *right;
+    AST_Node *root;
+
+    // First token must be an existing identifier
+    match(T_IDENTIFIER);
+
+    // Check position of variable in Global symbol table
+    int position = global_symbol_exists(D_IDENTIFIER_BUFFER);
+    if (position == -1) {
+        print_symbol_table();
+        fprintf(stderr, "Undefined variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
+        shutdown(1);
     }
+
+    // Build AST leaf for left value identifier
+    right = make_ast_leaf(T_LEFT_VALUE_IDENTIFIER, position);
+
+    // Match for an equals token
+    match(T_EQUALS);
+
+    // Build AST for assignment expression
+    left = parse_binary_expression(0);
+
+    // Assembly left and right into AST, generate PIR
+    root = make_ast_node(T_EQUALS, left, right, 0);
+    ast_to_pir(root, -1);
+    free_all_registers();
+
+    // Match for a semicolon
+    match(T_SEMICOLON);
 }
 
 /**
@@ -33,22 +75,21 @@ static void match(Token_Type ttype, char *str)
  */
 void parse_statements(void)
 {
-    AST_Node *AST_root;
-    int r;
-
     while (1) {
-        // First token must be a print statement
-        match(T_PRINT, "print");
-
-        // Parse expression, compile it, and print its value
-        AST_root = parse_binary_expression(0);
-        r = ast_to_pir(AST_root);
-        pir_print_int(r);
-
-        // Check for semicolon and EOF
-        match(T_SEMICOLON, ";");
-        if (GToken._token == T_EOF) {
+        switch (GToken._token) {
+        case T_PRINT:
+            print_statement();
             break;
+        case T_INT:
+            variable_declaration();
+            break;
+        case T_IDENTIFIER:
+            assignment_statement();
+            break;
+        case T_EOF:
+            return;
+        default:
+            fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
         }
     }
 }

@@ -1,0 +1,256 @@
+\hypertarget{translate_8c}{}\doxysection{src/translation/translate.c File Reference}
+\label{translate_8c}\index{src/translation/translate.c@{src/translation/translate.c}}
+
+
+Functions for translation to Purple IR.  
+
+
+{\ttfamily \#include \char`\"{}translation/translate.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{translate_8c_a553059e6f944a8feab73b46568ae5df6}{print\+\_\+registers}} (void)
+\item 
+void \mbox{\hyperlink{translate_8c_a2c64d3ce9ac9dd1cd2edf634d90403cd}{free\+\_\+all\+\_\+registers}} (void)
+\item 
+static int \mbox{\hyperlink{translate_8c_a152d19c954a1cf82392f5959ef2d79c7}{allocate\+\_\+register}} (void)
+\item 
+static void \mbox{\hyperlink{translate_8c_aa4a44dd3678cbdaf71e808e57a74dee8}{add\+\_\+free\+\_\+register}} (int r\+\_\+index)
+\item 
+static void \mbox{\hyperlink{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}{initialize\+\_\+translator}} (void)
+\item 
+static void \mbox{\hyperlink{translate_8c_a7963c933c90d2c80b16a1cec282ac3c5}{exit\+\_\+translator}} (void)
+\item 
+static int \mbox{\hyperlink{translate_8c_a2fb22694b38507f166a0f86d5ad833a0}{pir\+\_\+load\+\_\+int}} (int value)
+\item 
+void \mbox{\hyperlink{translate_8c_a3c9d6878ba9bdc7ee17330638ec6f60d}{pir\+\_\+print\+\_\+int}} (int r)
+\item 
+static int \mbox{\hyperlink{translate_8c_a52944e0eefbb45859b25002bf6c8e001}{pir\+\_\+add}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a6e827229d286c08760202c1f685b2c8e}{pir\+\_\+mul}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a602d0fc0bb99a0ad39ffd18a16296149}{pir\+\_\+sub}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a1d7e118576c99a86d9f3407033a7016b}{pir\+\_\+div}} (int left, int right)
+\item 
+void \mbox{\hyperlink{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier)
+\item 
+static int \mbox{\hyperlink{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}{pir\+\_\+load\+\_\+global}} (int symbol\+\_\+index)
+\item 
+static int \mbox{\hyperlink{translate_8c_ae87490aea50c2abb4e1c5a1559b2dd4e}{pir\+\_\+save\+\_\+global}} (int r, int symbol\+\_\+index)
+\item 
+int \mbox{\hyperlink{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r)
+\item 
+void \mbox{\hyperlink{translate_8c_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for translation to Purple IR. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+08-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{translate_8c_aa4a44dd3678cbdaf71e808e57a74dee8}\label{translate_8c_aa4a44dd3678cbdaf71e808e57a74dee8}} 
+\index{translate.c@{translate.c}!add\_free\_register@{add\_free\_register}}
+\index{add\_free\_register@{add\_free\_register}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{add\_free\_register()}{add\_free\_register()}}
+{\footnotesize\ttfamily static void add\+\_\+free\+\_\+register (\begin{DoxyParamCaption}\item[{int}]{r\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Add register to the array of free registers 
+\begin{DoxyParams}{Parameters}
+{\em r\+\_\+index} & Index of the register to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{translate_8c_a152d19c954a1cf82392f5959ef2d79c7}\label{translate_8c_a152d19c954a1cf82392f5959ef2d79c7}} 
+\index{translate.c@{translate.c}!allocate\_register@{allocate\_register}}
+\index{allocate\_register@{allocate\_register}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{allocate\_register()}{allocate\_register()}}
+{\footnotesize\ttfamily static int allocate\+\_\+register (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Allocates a free register. Exit if there are no remaining registers. \begin{DoxyReturn}{Returns}
+The index of the new register 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}\label{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}} 
+\index{translate.c@{translate.c}!ast\_to\_pir@{ast\_to\_pir}}
+\index{ast\_to\_pir@{ast\_to\_pir}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{ast\_to\_pir()}{ast\_to\_pir()}}
+{\footnotesize\ttfamily int ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+Generates Purple Intermediate Representation (PIR) assembly from a given AST 
+\begin{DoxyParams}{Parameters}
+{\em n} & The AST Node used to generate PIR \\
+\hline
+{\em r} & Index of register used to store variables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the AST 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a7963c933c90d2c80b16a1cec282ac3c5}\label{translate_8c_a7963c933c90d2c80b16a1cec282ac3c5}} 
+\index{translate.c@{translate.c}!exit\_translator@{exit\_translator}}
+\index{exit\_translator@{exit\_translator}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{exit\_translator()}{exit\_translator()}}
+{\footnotesize\ttfamily static void exit\+\_\+translator (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Exit code for the translator including freeing registers and closing the ASM file \mbox{\Hypertarget{translate_8c_a2c64d3ce9ac9dd1cd2edf634d90403cd}\label{translate_8c_a2c64d3ce9ac9dd1cd2edf634d90403cd}} 
+\index{translate.c@{translate.c}!free\_all\_registers@{free\_all\_registers}}
+\index{free\_all\_registers@{free\_all\_registers}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{free\_all\_registers()}{free\_all\_registers()}}
+{\footnotesize\ttfamily void free\+\_\+all\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{translate_8c_a3b3c28c8c9c6be58552fdbff47614e1d}\label{translate_8c_a3b3c28c8c9c6be58552fdbff47614e1d}} 
+\index{translate.c@{translate.c}!generate\_pir@{generate\_pir}}
+\index{generate\_pir@{generate\_pir}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{generate\_pir()}{generate\_pir()}}
+{\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Handle function for generating ASM \mbox{\Hypertarget{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}\label{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}} 
+\index{translate.c@{translate.c}!initialize\_translator@{initialize\_translator}}
+\index{initialize\_translator@{initialize\_translator}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{initialize\_translator()}{initialize\_translator()}}
+{\footnotesize\ttfamily static void initialize\+\_\+translator (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Initialization code for the translator, including setting the functions of \textquotesingle{}generators\textquotesingle{} \mbox{\Hypertarget{translate_8c_a52944e0eefbb45859b25002bf6c8e001}\label{translate_8c_a52944e0eefbb45859b25002bf6c8e001}} 
+\index{translate.c@{translate.c}!pir\_add@{pir\_add}}
+\index{pir\_add@{pir\_add}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_add()}{pir\_add()}}
+{\footnotesize\ttfamily static int pir\+\_\+add (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Add Logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to add \\
+\hline
+{\em right} & Index of the right register to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the sum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}\label{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}} 
+\index{translate.c@{translate.c}!pir\_create\_global@{pir\_create\_global}}
+\index{pir\_create\_global@{pir\_create\_global}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_create\_global()}{pir\_create\_global()}}
+{\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
+
+PIR Global variable creation logic NOTE\+: Only generates code for some platforms that support .comm directives 
+\begin{DoxyParams}{Parameters}
+{\em identifier} & The string defining the name of the variable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{translate_8c_a1d7e118576c99a86d9f3407033a7016b}\label{translate_8c_a1d7e118576c99a86d9f3407033a7016b}} 
+\index{translate.c@{translate.c}!pir\_div@{pir\_div}}
+\index{pir\_div@{pir\_div}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_div()}{pir\_div()}}
+{\footnotesize\ttfamily static int pir\+\_\+div (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Integer Division Logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to divide \\
+\hline
+{\em right} & Index of the right register to divide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the quotient (left / right) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}\label{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}} 
+\index{translate.c@{translate.c}!pir\_load\_global@{pir\_load\_global}}
+\index{pir\_load\_global@{pir\_load\_global}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_load\_global()}{pir\_load\_global()}}
+{\footnotesize\ttfamily static int pir\+\_\+load\+\_\+global (\begin{DoxyParamCaption}\item[{int}]{symbol\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Load variable from stack logic 
+\begin{DoxyParams}{Parameters}
+{\em symbol\+\_\+index} & Symbol table index of the variable to load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The register the value has been loaded into 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a2fb22694b38507f166a0f86d5ad833a0}\label{translate_8c_a2fb22694b38507f166a0f86d5ad833a0}} 
+\index{translate.c@{translate.c}!pir\_load\_int@{pir\_load\_int}}
+\index{pir\_load\_int@{pir\_load\_int}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_load\_int()}{pir\_load\_int()}}
+{\footnotesize\ttfamily static int pir\+\_\+load\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads an integer into a newly-\/allocated register 
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the register 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a6e827229d286c08760202c1f685b2c8e}\label{translate_8c_a6e827229d286c08760202c1f685b2c8e}} 
+\index{translate.c@{translate.c}!pir\_mul@{pir\_mul}}
+\index{pir\_mul@{pir\_mul}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_mul()}{pir\_mul()}}
+{\footnotesize\ttfamily static int pir\+\_\+mul (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Multiply Logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to multiply \\
+\hline
+{\em right} & Index of the right register to multiply \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8c_a3c9d6878ba9bdc7ee17330638ec6f60d}} 
+\index{translate.c@{translate.c}!pir\_print\_int@{pir\_print\_int}}
+\index{pir\_print\_int@{pir\_print\_int}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_print\_int()}{pir\_print\_int()}}
+{\footnotesize\ttfamily void pir\+\_\+print\+\_\+int (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption})}
+
+PIR Print Int Logic 
+\begin{DoxyParams}{Parameters}
+{\em r} & Index of the register to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{translate_8c_ae87490aea50c2abb4e1c5a1559b2dd4e}\label{translate_8c_ae87490aea50c2abb4e1c5a1559b2dd4e}} 
+\index{translate.c@{translate.c}!pir\_save\_global@{pir\_save\_global}}
+\index{pir\_save\_global@{pir\_save\_global}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_save\_global()}{pir\_save\_global()}}
+{\footnotesize\ttfamily static int pir\+\_\+save\+\_\+global (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{symbol\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Save variable onto stack logic 
+\begin{DoxyParams}{Parameters}
+{\em r} & Register containing value to save \\
+\hline
+{\em symbol\+\_\+index} & Symbol table index of symbol to save \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Register containing value to save 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a602d0fc0bb99a0ad39ffd18a16296149}\label{translate_8c_a602d0fc0bb99a0ad39ffd18a16296149}} 
+\index{translate.c@{translate.c}!pir\_sub@{pir\_sub}}
+\index{pir\_sub@{pir\_sub}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_sub()}{pir\_sub()}}
+{\footnotesize\ttfamily static int pir\+\_\+sub (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Subtract Logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to subtract \\
+\hline
+{\em right} & Index of the right register to subtract \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the difference (left -\/ right) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a553059e6f944a8feab73b46568ae5df6}\label{translate_8c_a553059e6f944a8feab73b46568ae5df6}} 
+\index{translate.c@{translate.c}!print\_registers@{print\_registers}}
+\index{print\_registers@{print\_registers}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{print\_registers()}{print\_registers()}}
+{\footnotesize\ttfamily void print\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Prints the contents of all registers 

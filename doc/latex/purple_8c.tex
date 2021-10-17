@@ -1,0 +1,84 @@
+\hypertarget{purple_8c}{}\doxysection{src/purple.c File Reference}
+\label{purple_8c}\index{src/purple.c@{src/purple.c}}
+
+
+Main compiler script.  
+
+
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}info.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}symbol\+\_\+table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}translation/translate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tree.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{purple_8c_a7e774264afdce4a653327473a9563e4d}{extern\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}{init}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{purple_8c_a24e21ab6715200a0c1986e40c5acfa19}{shutdown}} (int exit\+\_\+code)
+\item 
+static void \mbox{\hyperlink{purple_8c_ac9296af10705be57e5c3bd3b7be22cc4}{scan\+\_\+file}} ()
+\item 
+int \mbox{\hyperlink{purple_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main compiler script. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+05-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{purple_8c_a7e774264afdce4a653327473a9563e4d}\label{purple_8c_a7e774264afdce4a653327473a9563e4d}} 
+\index{purple.c@{purple.c}!extern\_@{extern\_}}
+\index{extern\_@{extern\_}!purple.c@{purple.c}}
+\doxysubsubsection{\texorpdfstring{extern\_}{extern\_}}
+{\footnotesize\ttfamily \#define extern\+\_\+}
+
+Define, then undef extern\+\_\+ to transfer ownership to \mbox{\hyperlink{purple_8c}{purple.\+c}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}\label{purple_8c_a04900abd2e06f2bb8f7aa0edd9e2e8e2}} 
+\index{purple.c@{purple.c}!init@{init}}
+\index{init@{init}!purple.c@{purple.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily static void init (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Initialize compiler values \mbox{\Hypertarget{purple_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{purple_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{purple.c@{purple.c}!main@{main}}
+\index{main@{main}!purple.c@{purple.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Main compiler function \mbox{\Hypertarget{purple_8c_ac9296af10705be57e5c3bd3b7be22cc4}\label{purple_8c_ac9296af10705be57e5c3bd3b7be22cc4}} 
+\index{purple.c@{purple.c}!scan\_file@{scan\_file}}
+\index{scan\_file@{scan\_file}!purple.c@{purple.c}}
+\doxysubsubsection{\texorpdfstring{scan\_file()}{scan\_file()}}
+{\footnotesize\ttfamily static void scan\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Scan D\+\_\+\+INPUT\+\_\+\+FILE and print out tokens and their details \mbox{\Hypertarget{purple_8c_a24e21ab6715200a0c1986e40c5acfa19}\label{purple_8c_a24e21ab6715200a0c1986e40c5acfa19}} 
+\index{purple.c@{purple.c}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!purple.c@{purple.c}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily void shutdown (\begin{DoxyParamCaption}\item[{int}]{exit\+\_\+code }\end{DoxyParamCaption})}
+
+Free any memory, do any prep before the compiler stops, then exit 
