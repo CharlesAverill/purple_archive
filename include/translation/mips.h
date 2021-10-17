@@ -22,7 +22,7 @@ int mips_sub(FILE *fp, int r1, int r2);
 int mips_mul(FILE *fp, int r1, int r2);
 int mips_div(FILE *fp, int r1, int r2);
 
-void mips_create_global_variable(FILE *fp, char *identifier);
+void mips_create_global_variable(FILE *fp, char *identifier, int stack_size);
 int mips_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
 int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
 

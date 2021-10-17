@@ -65,7 +65,7 @@ typedef struct ASM_Generators {
     int (*div)(FILE *fp, int r1, int r2);
 
     /**Create a global variable*/
-    void (*create_global_variable)(FILE *fp, char *identifier);
+    void (*create_global_variable)(FILE *fp, char *identifier, int stack_size);
     /**Load a variable from the stack into a register*/
     int (*load_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
     /**Save a variable from a register onto the stack*/
@@ -78,7 +78,7 @@ extern ASM_Generators generators;
 void free_all_registers(void);
 void pir_print_int(int r);
 
-void pir_create_global(char *identifier);
+void pir_create_global(char *identifier, int size);
 
 int ast_to_pir(AST_Node *n, int r);
 void generate_pir(void);
