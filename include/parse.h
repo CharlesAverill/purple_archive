@@ -5,7 +5,11 @@
  * @brief Expression parsing headers
 */
 
+#ifndef PARSE_H
+#define PARSE_H
+
 #include "data.h"
+#include "declaration.h"
 #include "definitions.h"
 #include "scan.h"
 #include "translation/translate.h"
@@ -14,5 +18,4 @@
 AST_Node *parse_binary_expression(int previous_token_precedence);
 void parse_statements(void);
 
-/**A Global Token that persists through recursion calls*/
-extern token GToken;
+#endif

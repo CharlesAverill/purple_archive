@@ -1,11 +1,12 @@
 /**
  * @file
- * @author charlesaverill
+ * @author CharlesAverill
  * @date   06-Oct-2021
  * @brief Function for parsing expressions into ASTs
 */
 
 #include "parse.h"
+#include "symbol_table.h"
 
 /**
  * Determine the precedence of a provided operator, with syntax checking
@@ -17,8 +18,8 @@ static int operator_precedence(Token_Type ttype)
     int prec = token_precedence[ttype];
 
     if (prec == 0) {
-        fprintf(stderr, "Syntax error on line %d, token %d\n", D_LINE_NUMBER, ttype);
-        exit(1);
+        fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER, token_strings[ttype]);
+        shutdown(1);
     }
 
     return prec;
@@ -32,13 +33,27 @@ static int operator_precedence(Token_Type ttype)
 static AST_Node *build_terminal_node(token t)
 {
     AST_Node *out;
+    int position;
 
-    if (t._token == T_INTLIT) {
+    switch (t._token) {
+    case T_INTLIT:
         out = make_ast_leaf(T_INTLIT, t.value);
-    } else {
+        break;
+    case T_IDENTIFIER:
+        position = global_symbol_exists(D_IDENTIFIER_BUFFER);
+        if(position == -1){
+            fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
+            shutdown(1);
+        }
+
+        out = make_ast_leaf(T_IDENTIFIER, position);
+        break;
+    default:
         fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
-        exit(1);
+        shutdown(1);
     }
+
+    scan(&GToken);
 
     return out;
 }
@@ -55,7 +70,6 @@ AST_Node *parse_binary_expression(int previous_token_precedence)
 
     // Get the intlit on the left and scan the next token
     left = build_terminal_node(GToken);
-    scan(&GToken);
 
     // Check for EOF
     Token_Type current_ttype = GToken._token;
@@ -104,7 +118,7 @@ int interpret_AST(AST_Node *n)
 
     if (D_DEBUG) {
         if (n->ttype == T_INTLIT) {
-            printf("int %d\n", n->value);
+            printf("int %d\n", n->v.value);
         } else {
             printf("%d %s %d\n", left, token_strings[n->ttype], right);
         }
@@ -121,9 +135,9 @@ int interpret_AST(AST_Node *n)
     case T_SLASH:
         return left / right;
     case T_INTLIT:
-        return n->value;
+        return n->v.value;
     default:
         fprintf(stderr, "Unknown operator with ttype %d\n", n->ttype);
-        exit(1);
+        shutdown(1);
     }
 }

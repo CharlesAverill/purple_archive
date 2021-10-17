@@ -1,0 +1,113 @@
+\hypertarget{x86_8h}{}\doxysection{include/translation/x86.h File Reference}
+\label{x86_8h}\index{include/translation/x86.h@{include/translation/x86.h}}
+
+
+Function headers for x86 ASM generators.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{x86_8h_a38ca625abc3d62ece474354842d3bd0d}{x86\+\_\+preamble}} (FILE $\ast$fp)
+\item 
+void \mbox{\hyperlink{x86_8h_a48197c35b358d41a8337ad917f15530e}{x86\+\_\+postamble}} (FILE $\ast$fp)
+\item 
+void \mbox{\hyperlink{x86_8h_a722d7839616d00e035edd03c9e741e50}{x86\+\_\+load\+\_\+int}} (FILE $\ast$fp, int r, int value)
+\item 
+void \mbox{\hyperlink{x86_8h_a083839379d1a3079023e22609842c03f}{x86\+\_\+print\+\_\+int}} (FILE $\ast$fp, int r)
+\item 
+int \mbox{\hyperlink{x86_8h_a07a4a1ca34e073736c965a7be5196d3b}{x86\+\_\+add}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8h_aa70a82553c52dc87844afa76b3f87250}{x86\+\_\+sub}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8h_a662d3fae2aaa809be1b155acecb01bf1}{x86\+\_\+mul}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{x86_8h_a85140d025eea2d62829c9d8278d291c5}{x86\+\_\+div}} (FILE $\ast$fp, int r1, int r2)
+\item 
+void \mbox{\hyperlink{x86_8h_a65beebdb7233be58fdbd97dedca01895}{x86\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier)
+\item 
+int \mbox{\hyperlink{x86_8h_a62937f6716d88be518e772e14a17394c}{x86\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+\item 
+int \mbox{\hyperlink{x86_8h_a7f14bd9082a09f266d9b948e39e0b1fc}{x86\+\_\+save\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function headers for x86 ASM generators. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{x86_8h_a07a4a1ca34e073736c965a7be5196d3b}\label{x86_8h_a07a4a1ca34e073736c965a7be5196d3b}} 
+\index{x86.h@{x86.h}!x86\_add@{x86\_add}}
+\index{x86\_add@{x86\_add}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_add()}{x86\_add()}}
+{\footnotesize\ttfamily int x86\+\_\+add (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a65beebdb7233be58fdbd97dedca01895}\label{x86_8h_a65beebdb7233be58fdbd97dedca01895}} 
+\index{x86.h@{x86.h}!x86\_create\_global\_variable@{x86\_create\_global\_variable}}
+\index{x86\_create\_global\_variable@{x86\_create\_global\_variable}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_create\_global\_variable()}{x86\_create\_global\_variable()}}
+{\footnotesize\ttfamily void x86\+\_\+create\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a85140d025eea2d62829c9d8278d291c5}\label{x86_8h_a85140d025eea2d62829c9d8278d291c5}} 
+\index{x86.h@{x86.h}!x86\_div@{x86\_div}}
+\index{x86\_div@{x86\_div}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_div()}{x86\_div()}}
+{\footnotesize\ttfamily int x86\+\_\+div (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a62937f6716d88be518e772e14a17394c}\label{x86_8h_a62937f6716d88be518e772e14a17394c}} 
+\index{x86.h@{x86.h}!x86\_load\_global\_variable@{x86\_load\_global\_variable}}
+\index{x86\_load\_global\_variable@{x86\_load\_global\_variable}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_load\_global\_variable()}{x86\_load\_global\_variable()}}
+{\footnotesize\ttfamily int x86\+\_\+load\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{stack\+\_\+offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a722d7839616d00e035edd03c9e741e50}\label{x86_8h_a722d7839616d00e035edd03c9e741e50}} 
+\index{x86.h@{x86.h}!x86\_load\_int@{x86\_load\_int}}
+\index{x86\_load\_int@{x86\_load\_int}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_load\_int()}{x86\_load\_int()}}
+{\footnotesize\ttfamily void x86\+\_\+load\+\_\+int (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a662d3fae2aaa809be1b155acecb01bf1}\label{x86_8h_a662d3fae2aaa809be1b155acecb01bf1}} 
+\index{x86.h@{x86.h}!x86\_mul@{x86\_mul}}
+\index{x86\_mul@{x86\_mul}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_mul()}{x86\_mul()}}
+{\footnotesize\ttfamily int x86\+\_\+mul (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a48197c35b358d41a8337ad917f15530e}\label{x86_8h_a48197c35b358d41a8337ad917f15530e}} 
+\index{x86.h@{x86.h}!x86\_postamble@{x86\_postamble}}
+\index{x86\_postamble@{x86\_postamble}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_postamble()}{x86\_postamble()}}
+{\footnotesize\ttfamily void x86\+\_\+postamble (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a38ca625abc3d62ece474354842d3bd0d}\label{x86_8h_a38ca625abc3d62ece474354842d3bd0d}} 
+\index{x86.h@{x86.h}!x86\_preamble@{x86\_preamble}}
+\index{x86\_preamble@{x86\_preamble}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_preamble()}{x86\_preamble()}}
+{\footnotesize\ttfamily void x86\+\_\+preamble (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a083839379d1a3079023e22609842c03f}\label{x86_8h_a083839379d1a3079023e22609842c03f}} 
+\index{x86.h@{x86.h}!x86\_print\_int@{x86\_print\_int}}
+\index{x86\_print\_int@{x86\_print\_int}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_print\_int()}{x86\_print\_int()}}
+{\footnotesize\ttfamily void x86\+\_\+print\+\_\+int (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_a7f14bd9082a09f266d9b948e39e0b1fc}\label{x86_8h_a7f14bd9082a09f266d9b948e39e0b1fc}} 
+\index{x86.h@{x86.h}!x86\_save\_global\_variable@{x86\_save\_global\_variable}}
+\index{x86\_save\_global\_variable@{x86\_save\_global\_variable}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_save\_global\_variable()}{x86\_save\_global\_variable()}}
+{\footnotesize\ttfamily int x86\+\_\+save\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{stack\+\_\+offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8h_aa70a82553c52dc87844afa76b3f87250}\label{x86_8h_aa70a82553c52dc87844afa76b3f87250}} 
+\index{x86.h@{x86.h}!x86\_sub@{x86\_sub}}
+\index{x86\_sub@{x86\_sub}!x86.h@{x86.h}}
+\doxysubsubsection{\texorpdfstring{x86\_sub()}{x86\_sub()}}
+{\footnotesize\ttfamily int x86\+\_\+sub (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+

@@ -25,17 +25,26 @@ typedef enum Token_Type {
     // Syntax
     T_SEMICOLON,
     T_PRINT,
+    T_EQUALS,
+    /**Identifier name*/
+    T_IDENTIFIER,
+    // Types
+    T_INT,
+
+    // AST-specific Types
+    T_LEFT_VALUE_IDENTIFIER,
 } Token_Type;
 
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF", "+", "-", "*", "/", "integer literal", ";", "print"};
+static char *token_strings[] = {"EOF", "+",     "-", "*",          "/",  "integer literal",
+                                ";",   "print", "=", "identifier", "int"};
 
 /**
- * Token precedence values
+ * Operator precedence values
  */
-static int token_precedence[] = {0, 10, 10, 20, 20, 0};
+static int token_precedence[] = {0, 10, 10, 20, 20, 0}; // EOF, PLUS, MINUS, STAR, SLASH, INTLIT
 
 /**
  * @struct token
@@ -59,8 +68,26 @@ typedef struct AST_Node {
     struct AST_Node *left;
     /**The right child of the AST Node*/
     struct AST_Node *right;
-    /**If the AST Node contains an int, this field holds its value*/
-    int value;
+    /**Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table*/
+    union {
+        int value;
+        int position;
+    } v;
 } AST_Node;
+
+#define MAX_SYMBOL_LEN 63
+
+/**
+ * @struct symbol
+ * @brief This structure contains data for a single symbol in a Symbol Table
+ */
+typedef struct symbol {
+    /**Maximum symbol length is 63 characters and a null terminator*/
+    char name[MAX_SYMBOL_LEN + 1];
+    /**This symbol's position on the stack*/
+    int stack_offset;
+} symbol;
+
+void shutdown(int exit_code);
 
 #endif

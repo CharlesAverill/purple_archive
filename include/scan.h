@@ -5,6 +5,9 @@
  * @brief Lexical Scanner function headers
 */
 
+#ifndef SCAN_H
+#define SCAN_H
+
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,3 +17,6 @@
 #include "definitions.h"
 
 int scan(struct token *t);
+void match(Token_Type ttype);
+
+#endif

@@ -1,0 +1,29 @@
+\hypertarget{mips_8h_source}{}\doxysection{mips.\+h}
+\label{mips_8h_source}\index{include/translation/mips.h@{include/translation/mips.h}}
+\mbox{\hyperlink{mips_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MIPS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MIPS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_abb3e5088ca7f779e5df06e45244da09c}{mips\_preamble}}(FILE *fp);}
+\DoxyCodeLine{14 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_ac6fd5f35c4f9bcb74da1988e2fd7a133}{mips\_postamble}}(FILE *fp);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_a94f48553645cc33d4fa027ee28e66445}{mips\_load\_int}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_ac9155591844e91b743a85202643cd53b}{mips\_print\_int}}(FILE *fp, \textcolor{keywordtype}{int} r);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_ad49f277756cf0f661579fd2dde7d7a9e}{mips\_add}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
+\DoxyCodeLine{21 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_aa6d0164f76860bfe5459ee97f586e75a}{mips\_sub}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
+\DoxyCodeLine{22 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_aff2ccfd52804d9d6542de96e226b624a}{mips\_mul}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
+\DoxyCodeLine{23 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_a11abaf2ee3f73888d58217d3ea1109e2}{mips\_div}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_a563c4e48facfda72ef2a1cb12c30994b}{mips\_create\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{char} *identifier);}
+\DoxyCodeLine{26 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}{mips\_load\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
+\DoxyCodeLine{27 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_acdcbd0182dfe0b5e5e0e498a524e225b}{mips\_save\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

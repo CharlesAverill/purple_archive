@@ -1,0 +1,86 @@
+\hypertarget{tree_8h}{}\doxysection{include/tree.h File Reference}
+\label{tree_8h}\index{include/tree.h@{include/tree.h}}
+
+
+Function headers for AST operations.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}{make\+\_\+ast\+\_\+node}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$left, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$right, int value)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_a375fab649cee2988c5767f2e4905ec49}{make\+\_\+ast\+\_\+leaf}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, int value)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_ac34305dfde60559225a5136cc32d33a9}{make\+\_\+unary\+\_\+ast\+\_\+node}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$child, int value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function headers for AST operations. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tree_8h_a375fab649cee2988c5767f2e4905ec49}\label{tree_8h_a375fab649cee2988c5767f2e4905ec49}} 
+\index{tree.h@{tree.h}!make\_ast\_leaf@{make\_ast\_leaf}}
+\index{make\_ast\_leaf@{make\_ast\_leaf}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{make\_ast\_leaf()}{make\_ast\_leaf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ make\+\_\+ast\+\_\+leaf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{ttype,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructs a new AST Leaf Node with the provided values 
+\begin{DoxyParams}{Parameters}
+{\em ttype} & Token\+\_\+\+Type of the new AST Node \\
+\hline
+{\em value} & If Token\+\_\+\+Type == T\+\_\+\+INTLIT, then the value of the integer literal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to a new AST Leaf Node with the provided values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}\label{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}} 
+\index{tree.h@{tree.h}!make\_ast\_node@{make\_ast\_node}}
+\index{make\_ast\_node@{make\_ast\_node}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{make\_ast\_node()}{make\_ast\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ make\+\_\+ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{ttype,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{right,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructs a new AST Node with the provided values 
+\begin{DoxyParams}{Parameters}
+{\em ttype} & Token\+\_\+\+Type of the new AST Node \\
+\hline
+{\em left} & Left child subtree of the new AST Node \\
+\hline
+{\em right} & Right child subtree of the new AST Node \\
+\hline
+{\em value} & If Token\+\_\+\+Type == T\+\_\+\+INTLIT, then the value of the integer literal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to a new AST Node with the provided values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tree_8h_ac34305dfde60559225a5136cc32d33a9}\label{tree_8h_ac34305dfde60559225a5136cc32d33a9}} 
+\index{tree.h@{tree.h}!make\_unary\_ast\_node@{make\_unary\_ast\_node}}
+\index{make\_unary\_ast\_node@{make\_unary\_ast\_node}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{make\_unary\_ast\_node()}{make\_unary\_ast\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ make\+\_\+unary\+\_\+ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{ttype,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{child,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Constructs a new AST Unary Parent Node with the provided values 
+\begin{DoxyParams}{Parameters}
+{\em ttype} & Token\+\_\+\+Type of the new AST Node \\
+\hline
+{\em child} & The AST Node\textquotesingle{}s single child \\
+\hline
+{\em value} & If Token\+\_\+\+Type == T\+\_\+\+INTLIT, then the value of the integer literal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to a new AST Unary Parent Node with the provided values 
+\end{DoxyReturn}

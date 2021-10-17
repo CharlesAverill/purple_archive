@@ -1,0 +1,72 @@
+\hypertarget{parse__statement_8c}{}\doxysection{src/parse\+\_\+statement.c File Reference}
+\label{parse__statement_8c}\index{src/parse\_statement.c@{src/parse\_statement.c}}
+
+
+Function for parsing statements and compiling them into ASM.  
+
+
+{\ttfamily \#include \char`\"{}parse.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}{print\+\_\+statement}} (void)
+\item 
+static void \mbox{\hyperlink{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}{assignment\+\_\+statement}} (void)
+\item 
+void \mbox{\hyperlink{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}{parse\+\_\+statements}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+FILE $\ast$ \mbox{\hyperlink{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}{ASM\+\_\+\+OUTPUT}}
+\item 
+\mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}{generators}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function for parsing statements and compiling them into ASM. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}\label{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}} 
+\index{parse\_statement.c@{parse\_statement.c}!assignment\_statement@{assignment\_statement}}
+\index{assignment\_statement@{assignment\_statement}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{assignment\_statement()}{assignment\_statement()}}
+{\footnotesize\ttfamily static void assignment\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parse variable assignment statement \mbox{\Hypertarget{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}\label{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}} 
+\index{parse\_statement.c@{parse\_statement.c}!parse\_statements@{parse\_statements}}
+\index{parse\_statements@{parse\_statements}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{parse\_statements()}{parse\_statements()}}
+{\footnotesize\ttfamily void parse\+\_\+statements (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Parse all statements in a file, and compile them into ASM \mbox{\Hypertarget{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}\label{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}} 
+\index{parse\_statement.c@{parse\_statement.c}!print\_statement@{print\_statement}}
+\index{print\_statement@{print\_statement}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{print\_statement()}{print\_statement()}}
+{\footnotesize\ttfamily static void print\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parse print statement 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}\label{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}} 
+\index{parse\_statement.c@{parse\_statement.c}!ASM\_OUTPUT@{ASM\_OUTPUT}}
+\index{ASM\_OUTPUT@{ASM\_OUTPUT}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{ASM\_OUTPUT}{ASM\_OUTPUT}}
+{\footnotesize\ttfamily FILE$\ast$ ASM\+\_\+\+OUTPUT}
+
+The file pointer for the output assembly file \mbox{\Hypertarget{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}\label{parse__statement_8c_a174b62d940e7da9d15ca4305671bc59a}} 
+\index{parse\_statement.c@{parse\_statement.c}!generators@{generators}}
+\index{generators@{generators}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{generators}{generators}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} generators}
+
+Struct containing the ASM generator functions for the current compilation 

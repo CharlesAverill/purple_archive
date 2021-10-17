@@ -89,7 +89,7 @@ static int scan_identifier(char c, char *buf, int character_limit)
     while (isalpha(c) || isdigit(c) || c == '_') {
         if (i == character_limit - 1) {
             fprintf(stderr, "Identifier too long on line %d\n", D_LINE_NUMBER);
-            exit(1);
+            shutdown(1);
         } else if (i < character_limit - 1) {
             buf[i++] = c;
         }
@@ -114,6 +114,11 @@ static int scan_identifier(char c, char *buf, int character_limit)
 static Token_Type string_to_keyword(char *str)
 {
     switch (str[0]) {
+    case 'i':
+        if (!strcmp(str, "int")) {
+            return T_INT;
+        }
+        break;
     case 'p':
         if (!strcmp(str, "print")) {
             return T_PRINT;
@@ -143,6 +148,22 @@ static int scanint(char c)
     put_back_into_stream(c);
 
     return val;
+}
+
+/**
+ * Forces an exit if GToken's Token_Type does not match the provided Token_Type
+ * @param ttype  The desired Token_Type to match
+ * @param str    The name of the keyword to match
+ */
+void match(Token_Type ttype)
+{
+    if (GToken._token == ttype) {
+        scan(&GToken);
+    } else {
+        fprintf(stderr, "%s expected on line %d but got %s instead\n", token_strings[ttype], D_LINE_NUMBER,
+                token_strings[GToken._token]);
+        shutdown(1);
+    }
 }
 
 /**
@@ -180,6 +201,9 @@ int scan(token *t)
     case ';':
         t->_token = T_SEMICOLON;
         break;
+    case '=':
+        t->_token = T_EQUALS;
+        break;
     default:
         // Check if c is an integer
         if (isdigit(c)) {
@@ -189,18 +213,19 @@ int scan(token *t)
         } else if (isalpha(c) || c == '_') {
             scan_identifier(c, D_IDENTIFIER_BUFFER, D_MAX_IDENTIFIER_LENGTH);
 
+            // Check if token is a keyword
             Token_Type ttype = string_to_keyword(D_IDENTIFIER_BUFFER);
             if (ttype != -1) {
                 t->_token = ttype;
                 break;
             }
 
-            fprintf(stderr, "Unrecognized symbol %s on line %d\n", D_IDENTIFIER_BUFFER,
-                    D_LINE_NUMBER);
-            exit(1);
+            // Token is not a keyword so must be an identifier
+            t->_token = T_IDENTIFIER;
+            break;
         } else {
             fprintf(stderr, "Unrecognized character %c on line %d\n", c, D_LINE_NUMBER);
-            exit(1);
+            shutdown(1);
         }
     }
 

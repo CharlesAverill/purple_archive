@@ -24,15 +24,15 @@ AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int v
     // Allocate memory for new node
     out = (AST_Node *)malloc(sizeof(AST_Node));
     if (out == NULL) {
-        perror("Unable to allocate memory for new AST Node");
-        exit(1);
+        fprintf(stderr, "Unable to allocate memory for new AST Node");
+        shutdown(1);
     }
 
     // Assign values
     out->ttype = ttype;
     out->left = left;
     out->right = right;
-    out->value = value;
+    out->v.value = value;
 
     return out;
 }
