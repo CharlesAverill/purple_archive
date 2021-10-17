@@ -1,0 +1,27 @@
+/**
+ * @file
+ * @brief Documentation Homepage
+ *
+ * @mainpage Purple Docs
+ *
+ * @section Introduction
+ *
+ * Purple is a simple compiled language. Right now it supports:
+ * - Compilation into x86, MIPS
+ * - Basic arithmetic parsing with precedence
+ * - Variable declaration and assignment
+ *
+ * @section Installation
+ *
+ * View the source <a href="https://github.com/CharlesAverill/Purple" target="_blank">here</a>.
+ *
+ * Purple may be built with cmake:
+ * ```bash
+ * mkdir build && cd build
+ * cmake ..
+ * make
+ * cd ..
+ *
+ * bin/purple example_file.prp
+ * ```
+*/
