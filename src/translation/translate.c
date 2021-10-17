@@ -200,10 +200,11 @@ static int pir_div(int left, int right)
  * PIR Global variable creation logic
  * NOTE: Only generates code for some platforms that support .comm directives
  * @param  identifier               The string defining the name of the variable
+ * @param  size                     The size of the data of the variable
  */
-void pir_create_global(char *identifier)
+void pir_create_global(char *identifier, int size)
 {
-    generators.create_global_variable(ASM_OUTPUT, identifier);
+    generators.create_global_variable(ASM_OUTPUT, identifier, size);
 }
 
 /**

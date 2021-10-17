@@ -15,6 +15,8 @@ This structure contains data for a single symbol in a Symbol Table.
 char \mbox{\hyperlink{structsymbol_a0f8d81b0fa92d41549e66ed99bcc0b4d}{name}} \mbox{[}\mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\+\_\+\+SYMBOL\+\_\+\+LEN}}+1\mbox{]}
 \item 
 int \mbox{\hyperlink{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}{stack\+\_\+offset}}
+\item 
+int \mbox{\hyperlink{structsymbol_aefd6c73a44b38bf92e92d7d608004f40}{size}}
 \end{DoxyCompactItemize}
 
 
@@ -28,7 +30,13 @@ This structure contains data for a single symbol in a Symbol Table.
 \doxysubsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily char symbol\+::name\mbox{[}\mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\+\_\+\+SYMBOL\+\_\+\+LEN}}+1\mbox{]}}
 
-Maximum symbol length is 63 characters and a null terminator \mbox{\Hypertarget{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}\label{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}} 
+Maximum symbol length is 63 characters and a null terminator \mbox{\Hypertarget{structsymbol_aefd6c73a44b38bf92e92d7d608004f40}\label{structsymbol_aefd6c73a44b38bf92e92d7d608004f40}} 
+\index{symbol@{symbol}!size@{size}}
+\index{size@{size}!symbol@{symbol}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily int symbol\+::size}
+
+The size of this symbol\textquotesingle{}s data in bytes \mbox{\Hypertarget{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}\label{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}} 
 \index{symbol@{symbol}!stack\_offset@{stack\_offset}}
 \index{stack\_offset@{stack\_offset}!symbol@{symbol}}
 \doxysubsubsection{\texorpdfstring{stack\_offset}{stack\_offset}}

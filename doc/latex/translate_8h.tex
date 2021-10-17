@@ -46,7 +46,7 @@ void \mbox{\hyperlink{translate_8h_a2c64d3ce9ac9dd1cd2edf634d90403cd}{free\+\_\+
 \item 
 void \mbox{\hyperlink{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}{pir\+\_\+print\+\_\+int}} (int r)
 \item 
-void \mbox{\hyperlink{translate_8h_a3f90ce8e72195e87641d48b0bb91d9aa}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier)
+void \mbox{\hyperlink{translate_8h_a5756063305cb7411127ec758f0f4b444}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier, int size)
 \item 
 int \mbox{\hyperlink{translate_8h_ae4e91687afb06b0d905e027b2fa20b6e}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r)
 \item 
@@ -156,15 +156,17 @@ Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{tra
 \doxysubsubsection{\texorpdfstring{generate\_pir()}{generate\_pir()}}
 {\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Handle function for generating ASM \mbox{\Hypertarget{translate_8h_a3f90ce8e72195e87641d48b0bb91d9aa}\label{translate_8h_a3f90ce8e72195e87641d48b0bb91d9aa}} 
+Handle function for generating ASM \mbox{\Hypertarget{translate_8h_a5756063305cb7411127ec758f0f4b444}\label{translate_8h_a5756063305cb7411127ec758f0f4b444}} 
 \index{translate.h@{translate.h}!pir\_create\_global@{pir\_create\_global}}
 \index{pir\_create\_global@{pir\_create\_global}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{pir\_create\_global()}{pir\_create\_global()}}
-{\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier,  }\item[{int}]{size }\end{DoxyParamCaption})}
 
 PIR Global variable creation logic NOTE\+: Only generates code for some platforms that support .comm directives 
 \begin{DoxyParams}{Parameters}
 {\em identifier} & The string defining the name of the variable \\
+\hline
+{\em size} & The size of the data of the variable \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}} 

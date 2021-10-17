@@ -132,6 +132,7 @@ int insert_global_symbol(char *name)
     // Set symbol data
     strcpy(D_GLOBAL_SYMBOL_TABLE[position].name, name);
     D_GLOBAL_SYMBOL_TABLE[position].stack_offset = stack_offset;
+    D_GLOBAL_SYMBOL_TABLE[position].size = 4;
 
     // Update overall stack offset
     stack_offset += 4;

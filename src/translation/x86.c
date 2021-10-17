@@ -84,7 +84,7 @@ int x86_div(FILE *fp, int r1, int r2)
     return r1;
 }
 
-void x86_create_global_variable(FILE *fp, char *identifier){
+void x86_create_global_variable(FILE *fp, char *identifier, int size){
     // x86 universally supports .comm, so does not use stack offsets
     fprintf(fp, "\t.comm\t%s,8,8\n", identifier);
 }

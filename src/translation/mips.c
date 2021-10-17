@@ -14,7 +14,8 @@ void mips_preamble(FILE *fp)
     fputs(".data"
           "\n"
           ".text\n"
-          "main:\n",
+          "main:\n"
+          "\taddiu\t$fp, $sp, 0\n", // Set up stack frame
           fp);
 }
 
@@ -66,9 +67,10 @@ int mips_div(FILE *fp, int r1, int r2)
     return r2;
 }
 
-void mips_create_global_variable(FILE *fp, char *identifier)
+void mips_create_global_variable(FILE *fp, char *identifier, int size)
 {
     // MIPS does not universally support .comm, so uses the $fp register and stack offsets instead
+    fprintf(fp, "\tsubu\t$sp, $sp, %d\n", size);
     return;
 }
 
@@ -85,7 +87,7 @@ int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offse
 {
     // Don't need the identifier
     (void)identifier;
-    
+
     fprintf(fp, "\tsw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
     return r;
 }

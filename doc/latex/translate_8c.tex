@@ -33,7 +33,7 @@ static int \mbox{\hyperlink{translate_8c_a602d0fc0bb99a0ad39ffd18a16296149}{pir\
 \item 
 static int \mbox{\hyperlink{translate_8c_a1d7e118576c99a86d9f3407033a7016b}{pir\+\_\+div}} (int left, int right)
 \item 
-void \mbox{\hyperlink{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier)
+void \mbox{\hyperlink{translate_8c_a5756063305cb7411127ec758f0f4b444}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier, int size)
 \item 
 static int \mbox{\hyperlink{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}{pir\+\_\+load\+\_\+global}} (int symbol\+\_\+index)
 \item 
@@ -133,15 +133,17 @@ PIR Add Logic
 \begin{DoxyReturn}{Returns}
 Index of the register containing the sum 
 \end{DoxyReturn}
-\mbox{\Hypertarget{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}\label{translate_8c_a3f90ce8e72195e87641d48b0bb91d9aa}} 
+\mbox{\Hypertarget{translate_8c_a5756063305cb7411127ec758f0f4b444}\label{translate_8c_a5756063305cb7411127ec758f0f4b444}} 
 \index{translate.c@{translate.c}!pir\_create\_global@{pir\_create\_global}}
 \index{pir\_create\_global@{pir\_create\_global}!translate.c@{translate.c}}
 \doxysubsubsection{\texorpdfstring{pir\_create\_global()}{pir\_create\_global()}}
-{\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier,  }\item[{int}]{size }\end{DoxyParamCaption})}
 
 PIR Global variable creation logic NOTE\+: Only generates code for some platforms that support .comm directives 
 \begin{DoxyParams}{Parameters}
 {\em identifier} & The string defining the name of the variable \\
+\hline
+{\em size} & The size of the data of the variable \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{translate_8c_a1d7e118576c99a86d9f3407033a7016b}\label{translate_8c_a1d7e118576c99a86d9f3407033a7016b}} 

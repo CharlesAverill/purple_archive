@@ -25,7 +25,7 @@ int \mbox{\hyperlink{x86_8h_a662d3fae2aaa809be1b155acecb01bf1}{x86\+\_\+mul}} (F
 \item 
 int \mbox{\hyperlink{x86_8h_a85140d025eea2d62829c9d8278d291c5}{x86\+\_\+div}} (FILE $\ast$fp, int r1, int r2)
 \item 
-void \mbox{\hyperlink{x86_8h_a65beebdb7233be58fdbd97dedca01895}{x86\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier)
+void \mbox{\hyperlink{x86_8h_add7d14cb5a5d1b1470b1c81581b1b763}{x86\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
 \item 
 int \mbox{\hyperlink{x86_8h_a62937f6716d88be518e772e14a17394c}{x86\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
 \item 
@@ -51,11 +51,11 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{x86\_add()}{x86\_add()}}
 {\footnotesize\ttfamily int x86\+\_\+add (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{x86_8h_a65beebdb7233be58fdbd97dedca01895}\label{x86_8h_a65beebdb7233be58fdbd97dedca01895}} 
+\mbox{\Hypertarget{x86_8h_add7d14cb5a5d1b1470b1c81581b1b763}\label{x86_8h_add7d14cb5a5d1b1470b1c81581b1b763}} 
 \index{x86.h@{x86.h}!x86\_create\_global\_variable@{x86\_create\_global\_variable}}
 \index{x86\_create\_global\_variable@{x86\_create\_global\_variable}!x86.h@{x86.h}}
 \doxysubsubsection{\texorpdfstring{x86\_create\_global\_variable()}{x86\_create\_global\_variable()}}
-{\footnotesize\ttfamily void x86\+\_\+create\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void x86\+\_\+create\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{stack\+\_\+size }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{x86_8h_a85140d025eea2d62829c9d8278d291c5}\label{x86_8h_a85140d025eea2d62829c9d8278d291c5}} 
 \index{x86.h@{x86.h}!x86\_div@{x86\_div}}

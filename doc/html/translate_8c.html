@@ -103,8 +103,8 @@ Functions</h2></td></tr>
 <tr class="separator:a602d0fc0bb99a0ad39ffd18a16296149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7e118576c99a86d9f3407033a7016b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a1d7e118576c99a86d9f3407033a7016b">pir_div</a> (int left, int right)</td></tr>
 <tr class="separator:a1d7e118576c99a86d9f3407033a7016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f90ce8e72195e87641d48b0bb91d9aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a3f90ce8e72195e87641d48b0bb91d9aa">pir_create_global</a> (char *identifier)</td></tr>
-<tr class="separator:a3f90ce8e72195e87641d48b0bb91d9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5756063305cb7411127ec758f0f4b444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a5756063305cb7411127ec758f0f4b444">pir_create_global</a> (char *identifier, int size)</td></tr>
+<tr class="separator:a5756063305cb7411127ec758f0f4b444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f50d24c41708a8b0255a5440a8ff17b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a9f50d24c41708a8b0255a5440a8ff17b">pir_load_global</a> (int symbol_index)</td></tr>
 <tr class="separator:a9f50d24c41708a8b0255a5440a8ff17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87490aea50c2abb4e1c5a1559b2dd4e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ae87490aea50c2abb4e1c5a1559b2dd4e">pir_save_global</a> (int r, int symbol_index)</td></tr>
@@ -350,8 +350,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3f90ce8e72195e87641d48b0bb91d9aa" name="a3f90ce8e72195e87641d48b0bb91d9aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f90ce8e72195e87641d48b0bb91d9aa">&#9670;&nbsp;</a></span>pir_create_global()</h2>
+<a id="a5756063305cb7411127ec758f0f4b444" name="a5756063305cb7411127ec758f0f4b444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5756063305cb7411127ec758f0f4b444">&#9670;&nbsp;</a></span>pir_create_global()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,14 +360,25 @@ Functions</h2></td></tr>
           <td class="memname">void pir_create_global </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>identifier</em></td><td>)</td>
+          <td class="paramname"><em>identifier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >PIR Global variable creation logic NOTE: Only generates code for some platforms that support .comm directives </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">identifier</td><td>The string defining the name of the variable </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the data of the variable </td></tr>
   </table>
   </dd>
 </dl>

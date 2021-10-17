@@ -86,6 +86,8 @@ typedef struct symbol {
     char name[MAX_SYMBOL_LEN + 1];
     /**This symbol's position on the stack*/
     int stack_offset;
+    /**The size of this symbol's data in bytes*/
+    int size;
 } symbol;
 
 void shutdown(int exit_code);

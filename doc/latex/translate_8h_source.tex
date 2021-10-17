@@ -45,7 +45,7 @@
 \DoxyCodeLine{63     int (*\mbox{\hyperlink{structASM__Generators_ae209809c34b3cbffb45980f9c92deb74}{mul}})(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
 \DoxyCodeLine{65     int (*\mbox{\hyperlink{structASM__Generators_a501a1ea72bba96486d4401999e640bc9}{div}})(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{68     void (*\mbox{\hyperlink{structASM__Generators_abf7580dc6668423cf3dd1ceeda3da0b2}{create\_global\_variable}})(FILE *fp, \textcolor{keywordtype}{char} *identifier);}
+\DoxyCodeLine{68     void (*\mbox{\hyperlink{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}{create\_global\_variable}})(FILE *fp, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} stack\_size);}
 \DoxyCodeLine{70     int (*\mbox{\hyperlink{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}{load\_global\_variable}})(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
 \DoxyCodeLine{72     int (*\mbox{\hyperlink{structASM__Generators_a778297134ab1d43025d97255f18fae59}{save\_global\_variable}})(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
 \DoxyCodeLine{73 \} \mbox{\hyperlink{translate_8h_aea01806c9c00199f1e24df6f171ff7f5}{ASM\_Generators}};}
@@ -55,7 +55,7 @@
 \DoxyCodeLine{78 \textcolor{keywordtype}{void} \mbox{\hyperlink{translate_8h_a2c64d3ce9ac9dd1cd2edf634d90403cd}{free\_all\_registers}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{79 \textcolor{keywordtype}{void} \mbox{\hyperlink{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}{pir\_print\_int}}(\textcolor{keywordtype}{int} r);}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{81 \textcolor{keywordtype}{void} \mbox{\hyperlink{translate_8h_a3f90ce8e72195e87641d48b0bb91d9aa}{pir\_create\_global}}(\textcolor{keywordtype}{char} *identifier);}
+\DoxyCodeLine{81 \textcolor{keywordtype}{void} \mbox{\hyperlink{translate_8h_a5756063305cb7411127ec758f0f4b444}{pir\_create\_global}}(\textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} size);}
 \DoxyCodeLine{82 }
 \DoxyCodeLine{83 \textcolor{keywordtype}{int} \mbox{\hyperlink{translate_8h_ae4e91687afb06b0d905e027b2fa20b6e}{ast\_to\_pir}}(\mbox{\hyperlink{structAST__Node}{AST\_Node}} *n, \textcolor{keywordtype}{int} r);}
 \DoxyCodeLine{84 \textcolor{keywordtype}{void} \mbox{\hyperlink{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\_pir}}(\textcolor{keywordtype}{void});}
