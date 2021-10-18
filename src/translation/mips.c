@@ -11,8 +11,8 @@ char *mips_register_names[] = {"$t0", "$t1", "$t2", "$t3"};
 
 void mips_preamble(FILE *fp)
 {
-    fputs(".data"
-          "\n"
+    fputs(".data\n"
+          "newline:\t.asciiz\t\"\\n\"\n"
           ".text\n"
           "main:\n"
           "\taddiu\t$fp, $sp, 0\n", // Set up stack frame
@@ -22,7 +22,15 @@ void mips_preamble(FILE *fp)
 void mips_postamble(FILE *fp)
 {
     fputs("exit:\n"
-          "\tori $v0, $zero, 10\n"
+          "\tori\t$v0, $zero, 10\n"
+          "\tsyscall\n",
+          fp);
+}
+
+void mips_print_newline(FILE *fp)
+{
+    fputs("\tli\t$v0, 4\n"
+          "\tla\t$a0, newline\n"
           "\tsyscall\n",
           fp);
 }
@@ -37,6 +45,8 @@ void mips_print_int(FILE *fp, int r)
     fprintf(fp, "\tori\t$v0, $zero, 1\n");
     fprintf(fp, "\tadd\t$a0, %s, $zero\n", mips_register_names[r]);
     fprintf(fp, "\tsyscall\n");
+
+    mips_print_newline(fp);
 }
 
 int mips_add(FILE *fp, int r1, int r2)
