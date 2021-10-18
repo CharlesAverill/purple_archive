@@ -3,6 +3,7 @@ Purple is a simple compiled language. Right now it supports\+:
 \begin{DoxyItemize}
 \item Compilation into x86, MIPS
 \item Basic arithmetic parsing with precedence
+\item Comparisons
 \item Variable declaration and assignment
 \end{DoxyItemize}\hypertarget{index_Examples}{}\doxysection{Examples}\label{index_Examples}
 Purple uses C-\/style syntax, although this may change as the compiler is built
@@ -15,10 +16,11 @@ Purple uses C-\/style syntax, although this may change as the compiler is built
 \DoxyCodeLine{bob = 5;}
 \DoxyCodeLine{alice = 10;}
 \DoxyCodeLine{}
-\DoxyCodeLine{print bob + alice;}
+\DoxyCodeLine{print bob + alice; \textcolor{comment}{// 15}}
+\DoxyCodeLine{print bob > alice; \textcolor{comment}{// 0}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int} bob\_alice;}
-\DoxyCodeLine{bob\_alice = 10 + 10 + bob + alice;}
+\DoxyCodeLine{bob\_alice = 10 + 10 + bob + alice; \textcolor{comment}{// 35}}
 \DoxyCodeLine{print bob\_alice;}
 
 \end{DoxyCode}

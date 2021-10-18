@@ -9,6 +9,7 @@
  * Purple is a simple compiled language. Right now it supports:
  * - Compilation into x86, MIPS
  * - Basic arithmetic parsing with precedence
+ * - Comparisons
  * - Variable declaration and assignment
  *
  * @section Examples
@@ -22,10 +23,11 @@
  * bob = 5;
  * alice = 10;
  *
- * print bob + alice;
+ * print bob + alice; // 15
+ * print bob > alice; // 0
  *
  * int bob_alice;
- * bob_alice = 10 + 10 + bob + alice;
+ * bob_alice = 10 + 10 + bob + alice; // 35
  * print bob_alice;
  * ```
  *
