@@ -56,13 +56,13 @@ static void assignment_statement(void)
     right = make_ast_leaf(T_LEFT_VALUE_IDENTIFIER, position);
 
     // Match for an equals token
-    match(T_EQUALS);
+    match(T_ASSIGNMENT);
 
     // Build AST for assignment expression
     left = parse_binary_expression(0);
 
     // Assembly left and right into AST, generate PIR
-    root = make_ast_node(T_EQUALS, left, right, 0);
+    root = make_ast_node(T_ASSIGNMENT, left, right, 0);
     ast_to_pir(root, -1);
     free_all_registers();
 

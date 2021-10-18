@@ -160,8 +160,8 @@ void match(Token_Type ttype)
     if (GToken._token == ttype) {
         scan(&GToken);
     } else {
-        fprintf(stderr, "%s expected on line %d but got %s instead\n", token_strings[ttype], D_LINE_NUMBER,
-                token_strings[GToken._token]);
+        fprintf(stderr, "%s expected on line %d but got %s instead\n", token_strings[ttype],
+                D_LINE_NUMBER, token_strings[GToken._token]);
         shutdown(1);
     }
 }
@@ -202,7 +202,44 @@ int scan(token *t)
         t->_token = T_SEMICOLON;
         break;
     case '=':
-        t->_token = T_EQUALS;
+        c = next();
+        // Check for ==
+        if (c == '=') {
+            t->_token = T_EQUALS;
+        } else {
+            t->_token = T_ASSIGNMENT;
+            put_back_into_stream(c);
+        }
+        break;
+    case '!':
+        c = next();
+        // Check for !=
+        if (c == '=') {
+            t->_token = T_NOT_EQUALS;
+        } else {
+            fprintf(stderr, "Unrecognized token on line %d\n", D_LINE_NUMBER);
+            shutdown(1);
+        }
+        break;
+    case '<':
+        c = next();
+        // Check for <=
+        if (c == '=') {
+            t->_token = T_LESS_EQUAL;
+        } else {
+            t->_token = T_LESS;
+            put_back_into_stream(c);
+        }
+        break;
+    case '>':
+        c = next();
+        // Check for >=
+        if (c == '=') {
+            t->_token = T_GREATER_EQUAL;
+        } else {
+            t->_token = T_GREATER;
+            put_back_into_stream(c);
+        }
         break;
     default:
         // Check if c is an integer

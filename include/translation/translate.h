@@ -64,6 +64,9 @@ typedef struct ASM_Generators {
     /**Divide two integers*/
     int (*div)(FILE *fp, int r1, int r2);
 
+    /**Compare the values of two registers*/
+    int (*compare)(FILE *fp, int r1, int r2, Comparison_Mode mode);
+
     /**Create a global variable*/
     void (*create_global_variable)(FILE *fp, char *identifier, int stack_size);
     /**Load a variable from the stack into a register*/

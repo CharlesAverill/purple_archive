@@ -67,6 +67,37 @@ int mips_div(FILE *fp, int r1, int r2)
     return r2;
 }
 
+int mips_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
+{
+    char *flag;
+
+    switch (mode) {
+    case CMP_LT:
+        flag = "slt";
+        break;
+    case CMP_GT:
+        flag = "sgt";
+        break;
+    case CMP_LE:
+        flag = "sle";
+        break;
+    case CMP_GE:
+        flag = "sge";
+        break;
+    case CMP_EQ:
+        flag = "seq";
+        break;
+    case CMP_NE:
+        flag = "sne";
+        break;
+    }
+
+    fprintf(fp, "\t%s\t%s, %s\n", mips_register_names[r2], mips_register_names[r1],
+            mips_register_names[r2]);
+
+    return r2;
+}
+
 void mips_create_global_variable(FILE *fp, char *identifier, int size)
 {
     // MIPS does not universally support .comm, so uses the $fp register and stack offsets instead
