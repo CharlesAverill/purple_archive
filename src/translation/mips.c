@@ -92,7 +92,7 @@ int mips_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
         break;
     }
 
-    fprintf(fp, "\t%s\t%s, %s\n", mips_register_names[r2], mips_register_names[r1],
+    fprintf(fp, "\t%s\t%s, %s, %s\n", flag, mips_register_names[r2], mips_register_names[r1],
             mips_register_names[r2]);
 
     return r2;
