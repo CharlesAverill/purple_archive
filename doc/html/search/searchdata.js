@@ -5,9 +5,9 @@ var indexSectionsWithContent =
   2: "adimpstx",
   3: "_abefgimnopsvx",
   4: "_acdfglmnopqrstvx",
-  5: "apst",
-  6: "at",
-  7: "mtx",
+  5: "acpst",
+  6: "act",
+  7: "cmtx",
   8: "demnp",
   9: "p"
 };

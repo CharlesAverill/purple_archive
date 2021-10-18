@@ -6,6 +6,7 @@ Function headers for MIPS ASM generators.
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,6 +25,8 @@ int \mbox{\hyperlink{mips_8h_aa6d0164f76860bfe5459ee97f586e75a}{mips\+\_\+sub}} 
 int \mbox{\hyperlink{mips_8h_aff2ccfd52804d9d6542de96e226b624a}{mips\+\_\+mul}} (FILE $\ast$fp, int r1, int r2)
 \item 
 int \mbox{\hyperlink{mips_8h_a11abaf2ee3f73888d58217d3ea1109e2}{mips\+\_\+div}} (FILE $\ast$fp, int r1, int r2)
+\item 
+int \mbox{\hyperlink{mips_8h_a588f5693bbab851e7149f85b92b6a225}{mips\+\_\+compare}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
 \item 
 void \mbox{\hyperlink{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}{mips\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
 \item 
@@ -50,6 +53,12 @@ Charles\+Averill
 \index{mips\_add@{mips\_add}!mips.h@{mips.h}}
 \doxysubsubsection{\texorpdfstring{mips\_add()}{mips\_add()}}
 {\footnotesize\ttfamily int mips\+\_\+add (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8h_a588f5693bbab851e7149f85b92b6a225}\label{mips_8h_a588f5693bbab851e7149f85b92b6a225}} 
+\index{mips.h@{mips.h}!mips\_compare@{mips\_compare}}
+\index{mips\_compare@{mips\_compare}!mips.h@{mips.h}}
+\doxysubsubsection{\texorpdfstring{mips\_compare()}{mips\_compare()}}
+{\footnotesize\ttfamily int mips\+\_\+compare (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}\label{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}} 
 \index{mips.h@{mips.h}!mips\_create\_global\_variable@{mips\_create\_global\_variable}}

@@ -25,6 +25,8 @@ int \mbox{\hyperlink{x86_8c_a662d3fae2aaa809be1b155acecb01bf1}{x86\+\_\+mul}} (F
 \item 
 int \mbox{\hyperlink{x86_8c_a85140d025eea2d62829c9d8278d291c5}{x86\+\_\+div}} (FILE $\ast$fp, int r1, int r2)
 \item 
+int \mbox{\hyperlink{x86_8c_a4ac6d8d9f90880651e8e22ebec4cba7e}{x86\+\_\+compare}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
+\item 
 void \mbox{\hyperlink{x86_8c_ac001f6df973a2cb38fd4e5b638d53201}{x86\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int size)
 \item 
 int \mbox{\hyperlink{x86_8c_a62937f6716d88be518e772e14a17394c}{x86\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
@@ -35,6 +37,8 @@ int \mbox{\hyperlink{x86_8c_a7f14bd9082a09f266d9b948e39e0b1fc}{x86\+\_\+save\+\_
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$ \mbox{\hyperlink{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}{x86\+\_\+register\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}\%r8\char`\"{}, \char`\"{}\%r9\char`\"{}, \char`\"{}\%r10\char`\"{}, \char`\"{}\%r11\char`\"{}\}
+\item 
+char $\ast$ \mbox{\hyperlink{x86_8c_ac24139b9cdbadafb6b092568b19cae14}{x86\+\_\+byte\+\_\+register\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}\%r8b\char`\"{}, \char`\"{}\%r9b\char`\"{}, \char`\"{}\%r10b\char`\"{}, \char`\"{}\%r11b\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
@@ -55,6 +59,12 @@ Charles\+Averill
 \index{x86\_add@{x86\_add}!x86.c@{x86.c}}
 \doxysubsubsection{\texorpdfstring{x86\_add()}{x86\_add()}}
 {\footnotesize\ttfamily int x86\+\_\+add (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x86_8c_a4ac6d8d9f90880651e8e22ebec4cba7e}\label{x86_8c_a4ac6d8d9f90880651e8e22ebec4cba7e}} 
+\index{x86.c@{x86.c}!x86\_compare@{x86\_compare}}
+\index{x86\_compare@{x86\_compare}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_compare()}{x86\_compare()}}
+{\footnotesize\ttfamily int x86\+\_\+compare (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{x86_8c_ac001f6df973a2cb38fd4e5b638d53201}\label{x86_8c_ac001f6df973a2cb38fd4e5b638d53201}} 
 \index{x86.c@{x86.c}!x86\_create\_global\_variable@{x86\_create\_global\_variable}}
@@ -119,6 +129,12 @@ Charles\+Averill
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{x86_8c_ac24139b9cdbadafb6b092568b19cae14}\label{x86_8c_ac24139b9cdbadafb6b092568b19cae14}} 
+\index{x86.c@{x86.c}!x86\_byte\_register\_names@{x86\_byte\_register\_names}}
+\index{x86\_byte\_register\_names@{x86\_byte\_register\_names}!x86.c@{x86.c}}
+\doxysubsubsection{\texorpdfstring{x86\_byte\_register\_names}{x86\_byte\_register\_names}}
+{\footnotesize\ttfamily char$\ast$ x86\+\_\+byte\+\_\+register\+\_\+names\mbox{[}$\,$\mbox{]} = \{\char`\"{}\%r8b\char`\"{}, \char`\"{}\%r9b\char`\"{}, \char`\"{}\%r10b\char`\"{}, \char`\"{}\%r11b\char`\"{}\}}
+
 \mbox{\Hypertarget{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}\label{x86_8c_a482a59b56f68befb00fa8e09dd8ecda9}} 
 \index{x86.c@{x86.c}!x86\_register\_names@{x86\_register\_names}}
 \index{x86\_register\_names@{x86\_register\_names}!x86.c@{x86.c}}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['purple_5fargs_0',['purple_args',['../arguments_8h.html#a67900464553150264a2ca70441aefe39',1,'arguments.h']]]
+  ['comparison_5fmode_0',['Comparison_Mode',['../definitions_8h.html#a84f30e066439c6170eec169dc92b81cb',1,'definitions.h']]]
 ];

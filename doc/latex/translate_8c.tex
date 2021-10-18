@@ -33,6 +33,18 @@ static int \mbox{\hyperlink{translate_8c_a602d0fc0bb99a0ad39ffd18a16296149}{pir\
 \item 
 static int \mbox{\hyperlink{translate_8c_a1d7e118576c99a86d9f3407033a7016b}{pir\+\_\+div}} (int left, int right)
 \item 
+static int \mbox{\hyperlink{translate_8c_a03ba41636a11164b8fe92c7594d43648}{pir\+\_\+equal}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a3a2af9bf318c9da080abffaa5b67e633}{pir\+\_\+not\+\_\+equal}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a689d45c3cd56d4a83708806c473d3e1e}{pir\+\_\+less\+\_\+than}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_ab79ef8890dbb298ae039eca3e83a1f45}{pir\+\_\+greater\+\_\+than}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_a48d9de552b216891dc9e6a8a6cbff789}{pir\+\_\+greater\+\_\+equal}} (int left, int right)
+\item 
+static int \mbox{\hyperlink{translate_8c_add130d9810d47afacf1f107a1209be21}{pir\+\_\+less\+\_\+equal}} (int left, int right)
+\item 
 void \mbox{\hyperlink{translate_8c_a5756063305cb7411127ec758f0f4b444}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier, int size)
 \item 
 static int \mbox{\hyperlink{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}{pir\+\_\+load\+\_\+global}} (int symbol\+\_\+index)
@@ -162,6 +174,86 @@ PIR Integer Division Logic
 \begin{DoxyReturn}{Returns}
 Index of the register containing the quotient (left / right) 
 \end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a03ba41636a11164b8fe92c7594d43648}\label{translate_8c_a03ba41636a11164b8fe92c7594d43648}} 
+\index{translate.c@{translate.c}!pir\_equal@{pir\_equal}}
+\index{pir\_equal@{pir\_equal}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_equal()}{pir\_equal()}}
+{\footnotesize\ttfamily static int pir\+\_\+equal (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Is Equal logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a48d9de552b216891dc9e6a8a6cbff789}\label{translate_8c_a48d9de552b216891dc9e6a8a6cbff789}} 
+\index{translate.c@{translate.c}!pir\_greater\_equal@{pir\_greater\_equal}}
+\index{pir\_greater\_equal@{pir\_greater\_equal}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_greater\_equal()}{pir\_greater\_equal()}}
+{\footnotesize\ttfamily static int pir\+\_\+greater\+\_\+equal (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Greater Than or Equal to logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_ab79ef8890dbb298ae039eca3e83a1f45}\label{translate_8c_ab79ef8890dbb298ae039eca3e83a1f45}} 
+\index{translate.c@{translate.c}!pir\_greater\_than@{pir\_greater\_than}}
+\index{pir\_greater\_than@{pir\_greater\_than}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_greater\_than()}{pir\_greater\_than()}}
+{\footnotesize\ttfamily static int pir\+\_\+greater\+\_\+than (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Greater Than logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_add130d9810d47afacf1f107a1209be21}\label{translate_8c_add130d9810d47afacf1f107a1209be21}} 
+\index{translate.c@{translate.c}!pir\_less\_equal@{pir\_less\_equal}}
+\index{pir\_less\_equal@{pir\_less\_equal}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_less\_equal()}{pir\_less\_equal()}}
+{\footnotesize\ttfamily static int pir\+\_\+less\+\_\+equal (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Less Than or Equal to logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a689d45c3cd56d4a83708806c473d3e1e}\label{translate_8c_a689d45c3cd56d4a83708806c473d3e1e}} 
+\index{translate.c@{translate.c}!pir\_less\_than@{pir\_less\_than}}
+\index{pir\_less\_than@{pir\_less\_than}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_less\_than()}{pir\_less\_than()}}
+{\footnotesize\ttfamily static int pir\+\_\+less\+\_\+than (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Less Than logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
+\end{DoxyReturn}
 \mbox{\Hypertarget{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}\label{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}} 
 \index{translate.c@{translate.c}!pir\_load\_global@{pir\_load\_global}}
 \index{pir\_load\_global@{pir\_load\_global}!translate.c@{translate.c}}
@@ -205,6 +297,22 @@ PIR Multiply Logic
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Index of the register containing the product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a3a2af9bf318c9da080abffaa5b67e633}\label{translate_8c_a3a2af9bf318c9da080abffaa5b67e633}} 
+\index{translate.c@{translate.c}!pir\_not\_equal@{pir\_not\_equal}}
+\index{pir\_not\_equal@{pir\_not\_equal}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{pir\_not\_equal()}{pir\_not\_equal()}}
+{\footnotesize\ttfamily static int pir\+\_\+not\+\_\+equal (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+PIR Is Not Equal logic 
+\begin{DoxyParams}{Parameters}
+{\em left} & Index of the left register to compare \\
+\hline
+{\em right} & Index of the right register to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the register containing the comparison result 
 \end{DoxyReturn}
 \mbox{\Hypertarget{translate_8c_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8c_a3c9d6878ba9bdc7ee17330638ec6f60d}} 
 \index{translate.c@{translate.c}!pir\_print\_int@{pir\_print\_int}}

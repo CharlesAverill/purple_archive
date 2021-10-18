@@ -29,6 +29,8 @@ typedef struct \mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{definition
 typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\+\_\+\+Node}}
 \item 
 typedef struct \mbox{\hyperlink{structsymbol}{symbol}} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}}
+\item 
+typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a84f30e066439c6170eec169dc92b81cb}{Comparison\+\_\+\+Mode}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -40,16 +42,34 @@ enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672}{T\+\_\+\+STAR}}
 , \newline
 \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a}{T\+\_\+\+SLASH}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}{T\+\_\+\+SEMICOLON}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}{T\+\_\+\+EQUALS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab213f08b61c46b1e0e78356df9ee40ff}{T\+\_\+\+NOT\+\_\+\+EQUALS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ada95264d25249b2a3d495210ba0914bc}{T\+\_\+\+LESS}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}{T\+\_\+\+EQUALS}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aae7d1ee5ed71c400ba55db04f16437a0}{T\+\_\+\+GREATER}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a21f02beca31cfa95816bd6e228da0d00}{T\+\_\+\+LESS\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a06f7f773620c8c3c5adc7170c5e6c692}{T\+\_\+\+GREATER\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}{T\+\_\+\+INTLIT}}
+, \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}{T\+\_\+\+SEMICOLON}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064}{T\+\_\+\+ASSIGNMENT}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}{T\+\_\+\+IDENTIFIER}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}{T\+\_\+\+INT}}
+, \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}{T\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
  \}
-\begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \{ \newline
+\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a2c3799538a8fd6f41c1f80941893ad34}{CMP\+\_\+\+LT}}
+, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a695ce417b3c1809628af09f78a7382f2}{CMP\+\_\+\+LE}}
+, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a22ef88c128421baa3180f5ab29776103}{CMP\+\_\+\+GT}}
+, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a6079dfc4afa6793daf9ff9088f850171}{CMP\+\_\+\+GE}}
+, \newline
+\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}{CMP\+\_\+\+EQ}}
+, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}{CMP\+\_\+\+NE}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,7 +80,7 @@ void \mbox{\hyperlink{definitions_8h_a24e21ab6715200a0c1986e40c5acfa19}{shutdown
 \item 
 static char $\ast$ \mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\+\_\+strings}} \mbox{[}$\,$\mbox{]}
 \item 
-static int \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\+\_\+precedence}} \mbox{[}$\,$\mbox{]} = \{0, 10, 10, 20, 20, 0\}
+static int \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\+\_\+precedence}} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -91,7 +111,13 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{AST\_Node}{AST\_Node}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}}}
 
-\mbox{\Hypertarget{definitions_8h_ab2f49544a431c27c6519cdfacc979353}\label{definitions_8h_ab2f49544a431c27c6519cdfacc979353}} 
+\mbox{\Hypertarget{definitions_8h_a84f30e066439c6170eec169dc92b81cb}\label{definitions_8h_a84f30e066439c6170eec169dc92b81cb}} 
+\index{definitions.h@{definitions.h}!Comparison\_Mode@{Comparison\_Mode}}
+\index{Comparison\_Mode@{Comparison\_Mode}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Comparison\_Mode}{Comparison\_Mode}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}
+
+Enum defining comparison modes for assembly generation \mbox{\Hypertarget{definitions_8h_ab2f49544a431c27c6519cdfacc979353}\label{definitions_8h_ab2f49544a431c27c6519cdfacc979353}} 
 \index{definitions.h@{definitions.h}!symbol@{symbol}}
 \index{symbol@{symbol}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{symbol}{symbol}}
@@ -112,6 +138,38 @@ Charles\+Averill
 
 
 \doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}} 
+\index{definitions.h@{definitions.h}!Comparison\_Mode@{Comparison\_Mode}}
+\index{Comparison\_Mode@{Comparison\_Mode}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Comparison\_Mode}{Comparison\_Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}
+
+Enum defining comparison modes for assembly generation \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_LT@{CMP\_LT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_LT@{CMP\_LT}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a2c3799538a8fd6f41c1f80941893ad34}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a2c3799538a8fd6f41c1f80941893ad34}} 
+CMP\+\_\+\+LT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_LE@{CMP\_LE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_LE@{CMP\_LE}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a695ce417b3c1809628af09f78a7382f2}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a695ce417b3c1809628af09f78a7382f2}} 
+CMP\+\_\+\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_GT@{CMP\_GT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_GT@{CMP\_GT}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a22ef88c128421baa3180f5ab29776103}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a22ef88c128421baa3180f5ab29776103}} 
+CMP\+\_\+\+GT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_GE@{CMP\_GE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_GE@{CMP\_GE}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a6079dfc4afa6793daf9ff9088f850171}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a6079dfc4afa6793daf9ff9088f850171}} 
+CMP\+\_\+\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_EQ@{CMP\_EQ}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_EQ@{CMP\_EQ}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}} 
+CMP\+\_\+\+EQ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_NE@{CMP\_NE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_NE@{CMP\_NE}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}} 
+CMP\+\_\+\+NE&\\
+\hline
+
+\end{DoxyEnumFields}
 \mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}} 
 \index{definitions.h@{definitions.h}!Token\_Type@{Token\_Type}}
 \index{Token\_Type@{Token\_Type}!definitions.h@{definitions.h}}
@@ -143,20 +201,40 @@ T\+\_\+\+STAR&\\
 T\+\_\+\+SLASH&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_EQUALS@{T\_EQUALS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_EQUALS@{T\_EQUALS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}} 
+T\+\_\+\+EQUALS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_NOT\_EQUALS@{T\_NOT\_EQUALS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_NOT\_EQUALS@{T\_NOT\_EQUALS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab213f08b61c46b1e0e78356df9ee40ff}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab213f08b61c46b1e0e78356df9ee40ff}} 
+T\+\_\+\+NOT\+\_\+\+EQUALS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LESS@{T\_LESS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LESS@{T\_LESS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ada95264d25249b2a3d495210ba0914bc}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ada95264d25249b2a3d495210ba0914bc}} 
+T\+\_\+\+LESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_GREATER@{T\_GREATER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_GREATER@{T\_GREATER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aae7d1ee5ed71c400ba55db04f16437a0}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aae7d1ee5ed71c400ba55db04f16437a0}} 
+T\+\_\+\+GREATER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LESS\_EQUAL@{T\_LESS\_EQUAL}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LESS\_EQUAL@{T\_LESS\_EQUAL}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a21f02beca31cfa95816bd6e228da0d00}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a21f02beca31cfa95816bd6e228da0d00}} 
+T\+\_\+\+LESS\+\_\+\+EQUAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_GREATER\_EQUAL@{T\_GREATER\_EQUAL}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_GREATER\_EQUAL@{T\_GREATER\_EQUAL}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a06f7f773620c8c3c5adc7170c5e6c692}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a06f7f773620c8c3c5adc7170c5e6c692}} 
+T\+\_\+\+GREATER\+\_\+\+EQUAL&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INTLIT@{T\_INTLIT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INTLIT@{T\_INTLIT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46}} 
-T\+\_\+\+INTLIT&Integer literal \\
+T\+\_\+\+INTLIT&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SEMICOLON@{T\_SEMICOLON}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SEMICOLON@{T\_SEMICOLON}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}} 
 T\+\_\+\+SEMICOLON&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PRINT@{T\_PRINT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PRINT@{T\_PRINT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}} 
-T\+\_\+\+PRINT&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_EQUALS@{T\_EQUALS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_EQUALS@{T\_EQUALS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a15032d2373f146d828e947ff20dd7768}} 
-T\+\_\+\+EQUALS&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_ASSIGNMENT@{T\_ASSIGNMENT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_ASSIGNMENT@{T\_ASSIGNMENT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064}} 
+T\+\_\+\+ASSIGNMENT&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_IDENTIFIER@{T\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_IDENTIFIER@{T\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}} 
@@ -165,6 +243,10 @@ T\+\_\+\+IDENTIFIER&Identifier name \\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_INT@{T\_INT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_INT@{T\_INT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}} 
 T\+\_\+\+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PRINT@{T\_PRINT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PRINT@{T\_PRINT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}} 
+T\+\_\+\+PRINT&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LEFT\_VALUE\_IDENTIFIER@{T\_LEFT\_VALUE\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LEFT\_VALUE\_IDENTIFIER@{T\_LEFT\_VALUE\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}} 
@@ -188,9 +270,31 @@ Free any memory, do any prep before the compiler stops, then exit
 \index{definitions.h@{definitions.h}!token\_precedence@{token\_precedence}}
 \index{token\_precedence@{token\_precedence}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{token\_precedence}{token\_precedence}}
-{\footnotesize\ttfamily int token\+\_\+precedence\mbox{[}$\,$\mbox{]} = \{0, 10, 10, 20, 20, 0\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily int token\+\_\+precedence\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
 
-Operator precedence values \mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}\label{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}} 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    0, }
+\DoxyCodeLine{}
+\DoxyCodeLine{    11, }
+\DoxyCodeLine{    11, }
+\DoxyCodeLine{    12, }
+\DoxyCodeLine{    12, }
+\DoxyCodeLine{}
+\DoxyCodeLine{    8, }
+\DoxyCodeLine{    8, }
+\DoxyCodeLine{}
+\DoxyCodeLine{    9, }
+\DoxyCodeLine{    9, }
+\DoxyCodeLine{    9, }
+\DoxyCodeLine{    9, }
+\DoxyCodeLine{}
+\DoxyCodeLine{    0, }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Operator precedence values. Precedence ranges from 0-\/15, 15 being the first to be computed \mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}\label{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}} 
 \index{definitions.h@{definitions.h}!token\_strings@{token\_strings}}
 \index{token\_strings@{token\_strings}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{token\_strings}{token\_strings}}
@@ -198,8 +302,9 @@ Operator precedence values \mbox{\Hypertarget{definitions_8h_aac4b727eb90bfc1375
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}EOF"{}}, \textcolor{stringliteral}{"{}+"{}},     \textcolor{stringliteral}{"{}-\/"{}}, \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},  \textcolor{stringliteral}{"{}integer literal"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{};"{}},   \textcolor{stringliteral}{"{}print"{}}, \textcolor{stringliteral}{"{}="{}}, \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}}\}}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{}EOF"{}}, \textcolor{stringliteral}{"{}+"{}},     \textcolor{stringliteral}{"{}-\/"{}}, \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},  \textcolor{stringliteral}{"{}=="{}}, \textcolor{stringliteral}{"{}!="{}}, \textcolor{stringliteral}{"{}<"{}}, \textcolor{stringliteral}{"{}>"{}}, \textcolor{stringliteral}{"{}<="{}}, \textcolor{stringliteral}{"{}>="{}}, \textcolor{stringliteral}{"{}integer literal"{}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"{};"{}},   \textcolor{stringliteral}{"{}print"{}}, \textcolor{stringliteral}{"{}="{}}, \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}}\}}
 
 \end{DoxyCode}
 Token string equivalents 

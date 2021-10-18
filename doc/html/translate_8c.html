@@ -103,6 +103,18 @@ Functions</h2></td></tr>
 <tr class="separator:a602d0fc0bb99a0ad39ffd18a16296149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7e118576c99a86d9f3407033a7016b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a1d7e118576c99a86d9f3407033a7016b">pir_div</a> (int left, int right)</td></tr>
 <tr class="separator:a1d7e118576c99a86d9f3407033a7016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ba41636a11164b8fe92c7594d43648"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a03ba41636a11164b8fe92c7594d43648">pir_equal</a> (int left, int right)</td></tr>
+<tr class="separator:a03ba41636a11164b8fe92c7594d43648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2af9bf318c9da080abffaa5b67e633"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a3a2af9bf318c9da080abffaa5b67e633">pir_not_equal</a> (int left, int right)</td></tr>
+<tr class="separator:a3a2af9bf318c9da080abffaa5b67e633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a689d45c3cd56d4a83708806c473d3e1e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a689d45c3cd56d4a83708806c473d3e1e">pir_less_than</a> (int left, int right)</td></tr>
+<tr class="separator:a689d45c3cd56d4a83708806c473d3e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79ef8890dbb298ae039eca3e83a1f45"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ab79ef8890dbb298ae039eca3e83a1f45">pir_greater_than</a> (int left, int right)</td></tr>
+<tr class="separator:ab79ef8890dbb298ae039eca3e83a1f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d9de552b216891dc9e6a8a6cbff789"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a48d9de552b216891dc9e6a8a6cbff789">pir_greater_equal</a> (int left, int right)</td></tr>
+<tr class="separator:a48d9de552b216891dc9e6a8a6cbff789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add130d9810d47afacf1f107a1209be21"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#add130d9810d47afacf1f107a1209be21">pir_less_equal</a> (int left, int right)</td></tr>
+<tr class="separator:add130d9810d47afacf1f107a1209be21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5756063305cb7411127ec758f0f4b444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a5756063305cb7411127ec758f0f4b444">pir_create_global</a> (char *identifier, int size)</td></tr>
 <tr class="separator:a5756063305cb7411127ec758f0f4b444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f50d24c41708a8b0255a5440a8ff17b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a9f50d24c41708a8b0255a5440a8ff17b">pir_load_global</a> (int symbol_index)</td></tr>
@@ -429,6 +441,226 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a03ba41636a11164b8fe92c7594d43648" name="a03ba41636a11164b8fe92c7594d43648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ba41636a11164b8fe92c7594d43648">&#9670;&nbsp;</a></span>pir_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_equal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Is Equal logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
+
+</div>
+</div>
+<a id="a48d9de552b216891dc9e6a8a6cbff789" name="a48d9de552b216891dc9e6a8a6cbff789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d9de552b216891dc9e6a8a6cbff789">&#9670;&nbsp;</a></span>pir_greater_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_greater_equal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Greater Than or Equal to logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
+
+</div>
+</div>
+<a id="ab79ef8890dbb298ae039eca3e83a1f45" name="ab79ef8890dbb298ae039eca3e83a1f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79ef8890dbb298ae039eca3e83a1f45">&#9670;&nbsp;</a></span>pir_greater_than()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_greater_than </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Greater Than logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
+
+</div>
+</div>
+<a id="add130d9810d47afacf1f107a1209be21" name="add130d9810d47afacf1f107a1209be21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add130d9810d47afacf1f107a1209be21">&#9670;&nbsp;</a></span>pir_less_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_less_equal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Less Than or Equal to logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
+
+</div>
+</div>
+<a id="a689d45c3cd56d4a83708806c473d3e1e" name="a689d45c3cd56d4a83708806c473d3e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689d45c3cd56d4a83708806c473d3e1e">&#9670;&nbsp;</a></span>pir_less_than()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_less_than </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Less Than logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
+
+</div>
+</div>
 <a id="a9f50d24c41708a8b0255a5440a8ff17b" name="a9f50d24c41708a8b0255a5440a8ff17b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f50d24c41708a8b0255a5440a8ff17b">&#9670;&nbsp;</a></span>pir_load_global()</h2>
 
@@ -536,6 +768,50 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Index of the register containing the product </dd></dl>
+
+</div>
+</div>
+<a id="a3a2af9bf318c9da080abffaa5b67e633" name="a3a2af9bf318c9da080abffaa5b67e633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2af9bf318c9da080abffaa5b67e633">&#9670;&nbsp;</a></span>pir_not_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_not_equal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Is Not Equal logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>Index of the left register to compare </td></tr>
+    <tr><td class="paramname">right</td><td>Index of the right register to compare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the register containing the comparison result </dd></dl>
 
 </div>
 </div>

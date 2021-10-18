@@ -28,6 +28,8 @@ int($\ast$ \mbox{\hyperlink{structASM__Generators_ae209809c34b3cbffb45980f9c92de
 \item 
 int($\ast$ \mbox{\hyperlink{structASM__Generators_a501a1ea72bba96486d4401999e640bc9}{div}} )(FILE $\ast$fp, int r1, int r2)
 \item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}{compare}} )(FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
+\item 
 void($\ast$ \mbox{\hyperlink{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}{create\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
 \item 
 int($\ast$ \mbox{\hyperlink{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}{load\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
@@ -46,7 +48,13 @@ Struct containing pointers to the asm-\/generating functions used by the transla
 \doxysubsubsection{\texorpdfstring{add}{add}}
 {\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::add) (FILE $\ast$fp, int r1, int r2)}
 
-Add two integers \mbox{\Hypertarget{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}\label{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}} 
+Add two integers \mbox{\Hypertarget{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}\label{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}} 
+\index{ASM\_Generators@{ASM\_Generators}!compare@{compare}}
+\index{compare@{compare}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{compare}{compare}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::compare) (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)}
+
+Compare the values of two registers \mbox{\Hypertarget{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}\label{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}} 
 \index{ASM\_Generators@{ASM\_Generators}!create\_global\_variable@{create\_global\_variable}}
 \index{create\_global\_variable@{create\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
 \doxysubsubsection{\texorpdfstring{create\_global\_variable}{create\_global\_variable}}
