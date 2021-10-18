@@ -8,6 +8,7 @@
 #include "translation/x86.h"
 
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
+char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
 
 void x86_preamble(FILE *fp)
 {
@@ -84,12 +85,52 @@ int x86_div(FILE *fp, int r1, int r2)
     return r1;
 }
 
-void x86_create_global_variable(FILE *fp, char *identifier, int size){
+int x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
+{
+    // Compare
+    fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r2], x86_register_names[r1]);
+
+    // Set flag
+    char *flag;
+    switch (mode) {
+    case CMP_LT:
+        flag = "setl";
+        break;
+    case CMP_GT:
+        flag = "setg";
+        break;
+    case CMP_LE:
+        flag = "setle";
+        break;
+    case CMP_GE:
+        flag = "setge";
+        break;
+    case CMP_EQ:
+        flag = "sete";
+        break;
+    case CMP_NE:
+        flag = "setne";
+        break;
+    default:
+        fprintf(stderr, "Unrecognized comparison mode %d\n", mode);
+        shutdown(1);
+    }
+
+    // Only read lower 8 bits (1 byte) of register for comparison
+    fprintf(fp, "\t%s\t%s\n", flag, x86_byte_register_names[r2]);
+    // And with 255 to ensure no bits leftover from previous operations
+    fprintf(fp, "\tandq\t$255,%s\n", x86_register_names[r2]);
+    return r2;
+}
+
+void x86_create_global_variable(FILE *fp, char *identifier, int size)
+{
     // x86 universally supports .comm, so does not use stack offsets
     fprintf(fp, "\t.comm\t%s,8,8\n", identifier);
 }
 
-int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset){
+int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+{
     // Don't need the stack offset
     (void)stack_offset;
 
@@ -97,7 +138,8 @@ int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset
     return r;
 }
 
-int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset){
+int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+{
     // Don't need the stack offset
     (void)stack_offset;
 

@@ -15,21 +15,35 @@
 typedef enum Token_Type {
     // File IO
     T_EOF,
+
     // Arithmetic
     T_PLUS,
     T_MINUS,
     T_STAR,
     T_SLASH,
-    /**Integer literal*/
+
+    // Comparison
+    T_EQUALS,
+    T_NOT_EQUALS,
+    T_LESS,
+    T_GREATER,
+    T_LESS_EQUAL,
+    T_GREATER_EQUAL,
+
+    // Literals
     T_INTLIT,
+
     // Syntax
     T_SEMICOLON,
-    T_PRINT,
-    T_EQUALS,
+    T_ASSIGNMENT,
     /**Identifier name*/
     T_IDENTIFIER,
+
     // Types
     T_INT,
+
+    // Keywords
+    T_PRINT,
 
     // AST-specific Types
     T_LEFT_VALUE_IDENTIFIER,
@@ -38,13 +52,31 @@ typedef enum Token_Type {
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF", "+",     "-", "*",          "/",  "integer literal",
-                                ";",   "print", "=", "identifier", "int"};
+static char *token_strings[] = {
+    "EOF", "+",     "-", "*",          "/",  "==", "!=", "<", ">", "<=", ">=", "integer literal",
+    ";",   "print", "=", "identifier", "int"};
 
 /**
- * Operator precedence values
+ * Operator precedence values. Precedence ranges from 0-15, 15 being the first to be computed
  */
-static int token_precedence[] = {0, 10, 10, 20, 20, 0}; // EOF, PLUS, MINUS, STAR, SLASH, INTLIT
+static int token_precedence[] = {
+    0, // EOF
+
+    11, // PLUS
+    11, // MINUS
+    12, // STAR
+    12, // SLASH
+
+    8, // EQUALS
+    8, // NOT EQUALS
+
+    9, // LESS
+    9, // GREATER
+    9, // LESS EQUAL
+    9, // GREATER EQUAL
+
+    0, // INTLIT
+};
 
 /**
  * @struct token
@@ -89,6 +121,16 @@ typedef struct symbol {
     /**The size of this symbol's data in bytes*/
     int size;
 } symbol;
+
+/**Enum defining comparison modes for assembly generation*/
+typedef enum Comparison_Mode {
+    CMP_LT,
+    CMP_LE,
+    CMP_GT,
+    CMP_GE,
+    CMP_EQ,
+    CMP_NE
+} Comparison_Mode;
 
 void shutdown(int exit_code);
 

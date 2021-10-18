@@ -16,7 +16,9 @@ static char args_doc[] = "PROGRAM";
 static struct argp_option options[] = {
     {"quiet", 'q', 0, 0, "Don't produce any output", 0},
     {"output", 'o', "FILE", 0, "Path to the generated assembly file", 0},
-    {"force_asm", -1, "ASM_LANG", 0, "Set this option to force compilation into a specified assembly language.\nSupported: {x86, MIPS}"},
+    {"force_asm", -1, "ASM_LANG", 0,
+     "Set this option to force compilation into a specified assembly language.\nSupported: {x86, "
+     "MIPS}"},
     {0},
 };
 
@@ -32,8 +34,8 @@ error_t parse_opt(int key, char *arg, struct argp_state *state)
         arguments->filenames[1] = arg;
         break;
     case -1:
-        for(int i = 0; i < N_SUPPORTED_ASM_MODES; i++){
-            if(!strcmp(asm_mode_names[i], arg)){
+        for (int i = 0; i < N_SUPPORTED_ASM_MODES; i++) {
+            if (!strcmp(asm_mode_names[i], arg)) {
                 arguments->forced_assembly_mode = i;
             }
         }

@@ -18,7 +18,8 @@ static int operator_precedence(Token_Type ttype)
     int prec = token_precedence[ttype];
 
     if (prec == 0) {
-        fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER, token_strings[ttype]);
+        fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER,
+                token_strings[ttype]);
         shutdown(1);
     }
 
@@ -41,7 +42,7 @@ static AST_Node *build_terminal_node(token t)
         break;
     case T_IDENTIFIER:
         position = global_symbol_exists(D_IDENTIFIER_BUFFER);
-        if(position == -1){
+        if (position == -1) {
             fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
             shutdown(1);
         }
@@ -85,8 +86,15 @@ AST_Node *parse_binary_expression(int previous_token_precedence)
         // Recursively build the right AST subtree
         right = parse_binary_expression(token_precedence[current_ttype]);
 
-        // Join right subtree with current left subtree
-        left = make_ast_node(current_ttype, left, right, 0);
+        // Ensure we're dealing with an operator
+        if (current_ttype > T_EOF && current_ttype < T_INTLIT) {
+            // Join right subtree with current left subtree
+            left = make_ast_node(current_ttype, left, right, 0);
+        } else {
+            fprintf(stderr, "Expected operator on line %d, got %s instead\n", D_LINE_NUMBER,
+                    token_strings[current_ttype]);
+            shutdown(1);
+        }
 
         // Update current_ttype and check for EOF
         current_ttype = GToken._token;

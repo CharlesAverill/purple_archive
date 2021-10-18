@@ -78,6 +78,8 @@ static void initialize_translator(void)
         generators.mul = x86_mul;
         generators.div = x86_div;
 
+        generators.compare = x86_compare;
+
         generators.create_global_variable = x86_create_global_variable;
         generators.load_global_variable = x86_load_global_variable;
         generators.save_global_variable = x86_save_global_variable;
@@ -93,6 +95,8 @@ static void initialize_translator(void)
         generators.sub = mips_sub;
         generators.mul = mips_mul;
         generators.div = mips_div;
+
+        generators.compare = mips_compare;
 
         generators.create_global_variable = mips_create_global_variable;
         generators.load_global_variable = mips_load_global_variable;
@@ -197,6 +201,84 @@ static int pir_div(int left, int right)
 }
 
 /**
+ * PIR Is Equal logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_equal(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_EQ);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
+ * PIR Is Not Equal logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_not_equal(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_NE);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
+ * PIR Less Than logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_less_than(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LT);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
+ * PIR Greater Than logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_greater_than(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GT);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
+ * PIR Greater Than or Equal to logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_greater_equal(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GE);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
+ * PIR Less Than or Equal to logic
+ * @param  left                Index of the left register to compare
+ * @param  right               Index of the right register to compare
+ * @return       Index of the register containing the comparison result
+ */
+static int pir_less_equal(int left, int right)
+{
+    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LE);
+    add_free_register(r == left ? right : left);
+    return r;
+}
+
+/**
  * PIR Global variable creation logic
  * NOTE: Only generates code for some platforms that support .comm directives
  * @param  identifier               The string defining the name of the variable
@@ -254,6 +336,7 @@ int ast_to_pir(AST_Node *n, int r)
     }
 
     switch (n->ttype) {
+    // Arithmetic
     case T_PLUS:
         out = pir_add(left_register, right_register);
         break;
@@ -266,15 +349,36 @@ int ast_to_pir(AST_Node *n, int r)
     case T_SLASH:
         out = pir_div(left_register, right_register);
         break;
+    // Comparison
+    case T_EQUALS:
+        out = pir_equal(left_register, right_register);
+        break;
+    case T_NOT_EQUALS:
+        out = pir_not_equal(left_register, right_register);
+        break;
+    case T_LESS:
+        out = pir_less_than(left_register, right_register);
+        break;
+    case T_GREATER:
+        out = pir_greater_than(left_register, right_register);
+        break;
+    case T_LESS_EQUAL:
+        out = pir_less_equal(left_register, right_register);
+        break;
+    case T_GREATER_EQUAL:
+        out = pir_greater_equal(left_register, right_register);
+        break;
+    // Literals
     case T_INTLIT:
         out = pir_load_int(n->v.value);
         break;
+    // Syntax
     case T_IDENTIFIER:
         out = pir_load_global(n->v.position);
         break;
     case T_LEFT_VALUE_IDENTIFIER:
         out = pir_save_global(r, n->v.position);
-    case T_EQUALS:
+    case T_ASSIGNMENT:
         return right_register;
     default:
         fprintf(stderr, "Unknown operator %s\n", token_strings[n->ttype]);
