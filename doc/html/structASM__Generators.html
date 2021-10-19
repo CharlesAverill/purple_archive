@@ -95,6 +95,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a501a1ea72bba96486d4401999e640bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a391a5643abb1f4a0eceaadd1ca042a56"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#a391a5643abb1f4a0eceaadd1ca042a56">compare</a> )(FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode)</td></tr>
 <tr class="separator:a391a5643abb1f4a0eceaadd1ca042a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8bad4f01bd57983da7a3d2f5632793c"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#aa8bad4f01bd57983da7a3d2f5632793c">compare_and_jump</a> )(FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode, int label_index)</td></tr>
+<tr class="separator:aa8bad4f01bd57983da7a3d2f5632793c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a294441250bce00da7631f2f22a72b73f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#a294441250bce00da7631f2f22a72b73f">label</a> )(FILE *fp, int label_index)</td></tr>
+<tr class="separator:a294441250bce00da7631f2f22a72b73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ac203599da39d5d92079576176bcc6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#a74ac203599da39d5d92079576176bcc6">jump_to_label</a> )(FILE *fp, int label_index)</td></tr>
+<tr class="separator:a74ac203599da39d5d92079576176bcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf2d4ce34a52d3f3ba3996b164f743c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#acdf2d4ce34a52d3f3ba3996b164f743c">create_global_variable</a> )(FILE *fp, char *identifier, int stack_size)</td></tr>
 <tr class="separator:acdf2d4ce34a52d3f3ba3996b164f743c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bfe0f02efbc4cb7ae39308d26784c0c"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structASM__Generators.html#a4bfe0f02efbc4cb7ae39308d26784c0c">load_global_variable</a> )(FILE *fp, int r, char *identifier, int <a class="el" href="symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc">stack_offset</a>)</td></tr>
@@ -131,7 +137,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Compare the values of two registers </p>
+<p >Compare the values of two registers and place it in a register </p>
+
+</div>
+</div>
+<a id="aa8bad4f01bd57983da7a3d2f5632793c" name="aa8bad4f01bd57983da7a3d2f5632793c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8bad4f01bd57983da7a3d2f5632793c">&#9670;&nbsp;</a></span>compare_and_jump</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* ASM_Generators::compare_and_jump) (FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode, int label_index)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Compare the values of two registers and jump to a label </p>
 
 </div>
 </div>
@@ -162,6 +183,36 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Divide two integers </p>
+
+</div>
+</div>
+<a id="a74ac203599da39d5d92079576176bcc6" name="a74ac203599da39d5d92079576176bcc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ac203599da39d5d92079576176bcc6">&#9670;&nbsp;</a></span>jump_to_label</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ASM_Generators::jump_to_label) (FILE *fp, int label_index)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Jump to a label </p>
+
+</div>
+</div>
+<a id="a294441250bce00da7631f2f22a72b73f" name="a294441250bce00da7631f2f22a72b73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a294441250bce00da7631f2f22a72b73f">&#9670;&nbsp;</a></span>label</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* ASM_Generators::label) (FILE *fp, int label_index)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Generate a label </p>
 
 </div>
 </div>

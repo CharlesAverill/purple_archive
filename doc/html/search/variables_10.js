@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['x86_5fbyte_5fregister_5fnames_0',['x86_byte_register_names',['../x86_8c.html#ac24139b9cdbadafb6b092568b19cae14',1,'x86.c']]],
-  ['x86_5fregister_5fnames_1',['x86_register_names',['../x86_8c.html#a482a59b56f68befb00fa8e09dd8ecda9',1,'x86.c']]]
+  ['v_0',['v',['../structAST__Node.html#ab80248f89bb82ee6d3c78dabdf92055b',1,'AST_Node']]],
+  ['value_1',['value',['../structtoken.html#a8e1604c6941ff51d782b681a3e4e313c',1,'token::value()'],['../structAST__Node.html#ad069e95d3dc2e199e2e3ffd392df7344',1,'AST_Node::value()']]]
 ];

@@ -10,7 +10,7 @@ Function headers for AST operations.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}{make\+\_\+ast\+\_\+node}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$left, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$right, int value)
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_a6f9cf04fd700347c4f863acec3c51fad}{make\+\_\+ast\+\_\+node}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$left, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$mid, \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$right, int value)
 \item 
 \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{tree_8h_a375fab649cee2988c5767f2e4905ec49}{make\+\_\+ast\+\_\+leaf}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype, int value)
 \item 
@@ -46,17 +46,19 @@ Constructs a new AST Leaf Node with the provided values
 \begin{DoxyReturn}{Returns}
 The pointer to a new AST Leaf Node with the provided values 
 \end{DoxyReturn}
-\mbox{\Hypertarget{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}\label{tree_8h_a984b9557872bd8e1c9480fdef036b2c8}} 
+\mbox{\Hypertarget{tree_8h_a6f9cf04fd700347c4f863acec3c51fad}\label{tree_8h_a6f9cf04fd700347c4f863acec3c51fad}} 
 \index{tree.h@{tree.h}!make\_ast\_node@{make\_ast\_node}}
 \index{make\_ast\_node@{make\_ast\_node}!tree.h@{tree.h}}
 \doxysubsubsection{\texorpdfstring{make\_ast\_node()}{make\_ast\_node()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ make\+\_\+ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{ttype,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{right,  }\item[{int}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ make\+\_\+ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{ttype,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{mid,  }\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{right,  }\item[{int}]{value }\end{DoxyParamCaption})}
 
 Constructs a new AST Node with the provided values 
 \begin{DoxyParams}{Parameters}
 {\em ttype} & Token\+\_\+\+Type of the new AST Node \\
 \hline
 {\em left} & Left child subtree of the new AST Node \\
+\hline
+{\em mid} & Middle child subtree of the new AST Node \\
 \hline
 {\em right} & Right child subtree of the new AST Node \\
 \hline

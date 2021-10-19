@@ -16,7 +16,7 @@ Expression parsing headers.
 \item 
 \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a1a55a902169fd68ec967131b427bc12b}{parse\+\_\+binary\+\_\+expression}} (int previous\+\_\+token\+\_\+precedence)
 \item 
-void \mbox{\hyperlink{parse_8h_a36e413083d2a6e7a8b561e22e141b811}{parse\+\_\+statements}} (void)
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}{parse\+\_\+compound\+\_\+statement}} (void)
 \end{DoxyCompactItemize}
 
 
@@ -46,10 +46,10 @@ Given the precedence of the previous token, recursively parse binary expressions
 \begin{DoxyReturn}{Returns}
 An AST or AST Subtree of the binary expressions in D\+\_\+\+INPUT\+\_\+\+FILE 
 \end{DoxyReturn}
-\mbox{\Hypertarget{parse_8h_a36e413083d2a6e7a8b561e22e141b811}\label{parse_8h_a36e413083d2a6e7a8b561e22e141b811}} 
-\index{parse.h@{parse.h}!parse\_statements@{parse\_statements}}
-\index{parse\_statements@{parse\_statements}!parse.h@{parse.h}}
-\doxysubsubsection{\texorpdfstring{parse\_statements()}{parse\_statements()}}
-{\footnotesize\ttfamily void parse\+\_\+statements (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}\label{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}} 
+\index{parse.h@{parse.h}!parse\_compound\_statement@{parse\_compound\_statement}}
+\index{parse\_compound\_statement@{parse\_compound\_statement}!parse.h@{parse.h}}
+\doxysubsubsection{\texorpdfstring{parse\_compound\_statement()}{parse\_compound\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+compound\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Parse all statements in a file, and compile them into ASM 
+Parse a compound statement (anything between braces) and return its AST 

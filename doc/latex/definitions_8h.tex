@@ -18,6 +18,8 @@ struct \mbox{\hyperlink{structsymbol}{symbol}}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\+\_\+\+SYMBOL\+\_\+\+LEN}}~63
+\item 
+\#define \mbox{\hyperlink{definitions_8h_a2874e6928fb1e47f50140925c5838934}{NO\+\_\+\+REGISTER}}~-\/1
 \end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -53,11 +55,20 @@ enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\
 , \newline
 \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf}{T\+\_\+\+SEMICOLON}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064}{T\+\_\+\+ASSIGNMENT}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6}{T\+\_\+\+LEFT\+\_\+\+PARENTHESIS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd}{T\+\_\+\+RIGHT\+\_\+\+PARENTHESIS}}
+, \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644}{T\+\_\+\+LEFT\+\_\+\+BRACE}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641}{T\+\_\+\+RIGHT\+\_\+\+BRACE}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}{T\+\_\+\+IDENTIFIER}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}{T\+\_\+\+INT}}
 , \newline
 \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}{T\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}{T\+\_\+\+IF}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}{T\+\_\+\+ELSE}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
+, \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\+\_\+\+AST\+\_\+\+GLUE}}
  \}
 \begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \{ \newline
@@ -101,6 +112,12 @@ Charles\+Averill
 \index{MAX\_SYMBOL\_LEN@{MAX\_SYMBOL\_LEN}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{MAX\_SYMBOL\_LEN}{MAX\_SYMBOL\_LEN}}
 {\footnotesize\ttfamily \#define MAX\+\_\+\+SYMBOL\+\_\+\+LEN~63}
+
+\mbox{\Hypertarget{definitions_8h_a2874e6928fb1e47f50140925c5838934}\label{definitions_8h_a2874e6928fb1e47f50140925c5838934}} 
+\index{definitions.h@{definitions.h}!NO\_REGISTER@{NO\_REGISTER}}
+\index{NO\_REGISTER@{NO\_REGISTER}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{NO\_REGISTER}{NO\_REGISTER}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+REGISTER~-\/1}
 
 
 
@@ -237,6 +254,22 @@ T\+\_\+\+SEMICOLON&\\
 T\+\_\+\+ASSIGNMENT&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LEFT\_PARENTHESIS@{T\_LEFT\_PARENTHESIS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LEFT\_PARENTHESIS@{T\_LEFT\_PARENTHESIS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6}} 
+T\+\_\+\+LEFT\+\_\+\+PARENTHESIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_RIGHT\_PARENTHESIS@{T\_RIGHT\_PARENTHESIS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_RIGHT\_PARENTHESIS@{T\_RIGHT\_PARENTHESIS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd}} 
+T\+\_\+\+RIGHT\+\_\+\+PARENTHESIS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LEFT\_BRACE@{T\_LEFT\_BRACE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LEFT\_BRACE@{T\_LEFT\_BRACE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644}} 
+T\+\_\+\+LEFT\+\_\+\+BRACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_RIGHT\_BRACE@{T\_RIGHT\_BRACE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_RIGHT\_BRACE@{T\_RIGHT\_BRACE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641}} 
+T\+\_\+\+RIGHT\+\_\+\+BRACE&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_IDENTIFIER@{T\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_IDENTIFIER@{T\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}} 
 T\+\_\+\+IDENTIFIER&Identifier name \\
 \hline
@@ -249,8 +282,20 @@ T\+\_\+\+INT&\\
 T\+\_\+\+PRINT&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_LEFT\_VALUE\_IDENTIFIER@{T\_LEFT\_VALUE\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_LEFT\_VALUE\_IDENTIFIER@{T\_LEFT\_VALUE\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031}} 
-T\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_IF@{T\_IF}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_IF@{T\_IF}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}} 
+T\+\_\+\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_ELSE@{T\_ELSE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_ELSE@{T\_ELSE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}} 
+T\+\_\+\+ELSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_AST\_LEFT\_VALUE\_IDENTIFIER@{T\_AST\_LEFT\_VALUE\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_AST\_LEFT\_VALUE\_IDENTIFIER@{T\_AST\_LEFT\_VALUE\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}} 
+T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_AST\_GLUE@{T\_AST\_GLUE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_AST\_GLUE@{T\_AST\_GLUE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}} 
+T\+\_\+\+AST\+\_\+\+GLUE&Glues ASTs together \\
 \hline
 
 \end{DoxyEnumFields}

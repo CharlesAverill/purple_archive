@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['left_0',['left',['../structAST__Node.html#aabe36c18b59c78413f0be425b87fa751',1,'AST_Node']]],
-  ['load_5fglobal_5fvariable_1',['load_global_variable',['../structASM__Generators.html#a4bfe0f02efbc4cb7ae39308d26784c0c',1,'ASM_Generators']]],
-  ['load_5fint_2',['load_int',['../structASM__Generators.html#aca513de1fdef342cdd92e2b05872be13',1,'ASM_Generators']]]
+  ['jump_5fcomparisons_0',['jump_comparisons',['../x86_8c.html#ad10376ae67e34ef4000ca0121f888086',1,'x86.c']]],
+  ['jump_5fto_5flabel_1',['jump_to_label',['../structASM__Generators.html#a74ac203599da39d5d92079576176bcc6',1,'ASM_Generators']]]
 ];

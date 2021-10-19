@@ -100,6 +100,12 @@ Functions</h2></td></tr>
 <tr class="separator:a11abaf2ee3f73888d58217d3ea1109e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a588f5693bbab851e7149f85b92b6a225"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#a588f5693bbab851e7149f85b92b6a225">mips_compare</a> (FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode)</td></tr>
 <tr class="separator:a588f5693bbab851e7149f85b92b6a225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7418ef01ca62b263fb92afe8e66b286"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#aa7418ef01ca62b263fb92afe8e66b286">mips_compare_and_jump</a> (FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode, int label_index)</td></tr>
+<tr class="separator:aa7418ef01ca62b263fb92afe8e66b286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10365f8b7476e05fd802a242bd305711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#a10365f8b7476e05fd802a242bd305711">mips_label</a> (FILE *fp, int label_index)</td></tr>
+<tr class="separator:a10365f8b7476e05fd802a242bd305711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab883ec1cf4be21d846dde95ac143aa2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#ab883ec1cf4be21d846dde95ac143aa2a">mips_jump_to_label</a> (FILE *fp, int label_index)</td></tr>
+<tr class="separator:ab883ec1cf4be21d846dde95ac143aa2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b85efaf6fa6526c39a8fa6a10f1e9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#a59b85efaf6fa6526c39a8fa6a10f1e9a">mips_create_global_variable</a> (FILE *fp, char *identifier, int stack_size)</td></tr>
 <tr class="separator:a59b85efaf6fa6526c39a8fa6a10f1e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab10d863fa9d33520cfc8a8c98142c17c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mips_8h.html#ab10d863fa9d33520cfc8a8c98142c17c">mips_load_global_variable</a> (FILE *fp, int r, char *identifier, int <a class="el" href="symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc">stack_offset</a>)</td></tr>
@@ -186,6 +192,52 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa7418ef01ca62b263fb92afe8e66b286" name="aa7418ef01ca62b263fb92afe8e66b286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7418ef01ca62b263fb92afe8e66b286">&#9670;&nbsp;</a></span>mips_compare_and_jump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mips_compare_and_jump </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a>&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>label_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a59b85efaf6fa6526c39a8fa6a10f1e9a" name="a59b85efaf6fa6526c39a8fa6a10f1e9a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59b85efaf6fa6526c39a8fa6a10f1e9a">&#9670;&nbsp;</a></span>mips_create_global_variable()</h2>
 
@@ -243,6 +295,62 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab883ec1cf4be21d846dde95ac143aa2a" name="ab883ec1cf4be21d846dde95ac143aa2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab883ec1cf4be21d846dde95ac143aa2a">&#9670;&nbsp;</a></span>mips_jump_to_label()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mips_jump_to_label </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>label_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a10365f8b7476e05fd802a242bd305711" name="a10365f8b7476e05fd802a242bd305711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10365f8b7476e05fd802a242bd305711">&#9670;&nbsp;</a></span>mips_label()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mips_label </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>label_index</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

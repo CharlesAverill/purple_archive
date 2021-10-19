@@ -28,6 +28,12 @@ int \mbox{\hyperlink{mips_8h_a11abaf2ee3f73888d58217d3ea1109e2}{mips\+\_\+div}} 
 \item 
 int \mbox{\hyperlink{mips_8h_a588f5693bbab851e7149f85b92b6a225}{mips\+\_\+compare}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
 \item 
+int \mbox{\hyperlink{mips_8h_aa7418ef01ca62b263fb92afe8e66b286}{mips\+\_\+compare\+\_\+and\+\_\+jump}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)
+\item 
+void \mbox{\hyperlink{mips_8h_a10365f8b7476e05fd802a242bd305711}{mips\+\_\+label}} (FILE $\ast$fp, int label\+\_\+index)
+\item 
+void \mbox{\hyperlink{mips_8h_ab883ec1cf4be21d846dde95ac143aa2a}{mips\+\_\+jump\+\_\+to\+\_\+label}} (FILE $\ast$fp, int label\+\_\+index)
+\item 
 void \mbox{\hyperlink{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}{mips\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
 \item 
 int \mbox{\hyperlink{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}{mips\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
@@ -60,6 +66,12 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{mips\_compare()}{mips\_compare()}}
 {\footnotesize\ttfamily int mips\+\_\+compare (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{mips_8h_aa7418ef01ca62b263fb92afe8e66b286}\label{mips_8h_aa7418ef01ca62b263fb92afe8e66b286}} 
+\index{mips.h@{mips.h}!mips\_compare\_and\_jump@{mips\_compare\_and\_jump}}
+\index{mips\_compare\_and\_jump@{mips\_compare\_and\_jump}!mips.h@{mips.h}}
+\doxysubsubsection{\texorpdfstring{mips\_compare\_and\_jump()}{mips\_compare\_and\_jump()}}
+{\footnotesize\ttfamily int mips\+\_\+compare\+\_\+and\+\_\+jump (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}\label{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}} 
 \index{mips.h@{mips.h}!mips\_create\_global\_variable@{mips\_create\_global\_variable}}
 \index{mips\_create\_global\_variable@{mips\_create\_global\_variable}!mips.h@{mips.h}}
@@ -71,6 +83,18 @@ Charles\+Averill
 \index{mips\_div@{mips\_div}!mips.h@{mips.h}}
 \doxysubsubsection{\texorpdfstring{mips\_div()}{mips\_div()}}
 {\footnotesize\ttfamily int mips\+\_\+div (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8h_ab883ec1cf4be21d846dde95ac143aa2a}\label{mips_8h_ab883ec1cf4be21d846dde95ac143aa2a}} 
+\index{mips.h@{mips.h}!mips\_jump\_to\_label@{mips\_jump\_to\_label}}
+\index{mips\_jump\_to\_label@{mips\_jump\_to\_label}!mips.h@{mips.h}}
+\doxysubsubsection{\texorpdfstring{mips\_jump\_to\_label()}{mips\_jump\_to\_label()}}
+{\footnotesize\ttfamily void mips\+\_\+jump\+\_\+to\+\_\+label (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8h_a10365f8b7476e05fd802a242bd305711}\label{mips_8h_a10365f8b7476e05fd802a242bd305711}} 
+\index{mips.h@{mips.h}!mips\_label@{mips\_label}}
+\index{mips\_label@{mips\_label}!mips.h@{mips.h}}
+\doxysubsubsection{\texorpdfstring{mips\_label()}{mips\_label()}}
+{\footnotesize\ttfamily void mips\+\_\+label (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}\label{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}} 
 \index{mips.h@{mips.h}!mips\_load\_global\_variable@{mips\_load\_global\_variable}}

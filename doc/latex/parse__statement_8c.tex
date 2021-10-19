@@ -9,11 +9,13 @@ Function for parsing statements and compiling them into ASM.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}{print\+\_\+statement}} (void)
+static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a3011717a9d89686560bbc477984e4331}{print\+\_\+statement}} (void)
 \item 
-static void \mbox{\hyperlink{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}{assignment\+\_\+statement}} (void)
+static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a7f204ed0bf8d5aec09447d3024ff6425}{assignment\+\_\+statement}} (void)
 \item 
-void \mbox{\hyperlink{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}{parse\+\_\+statements}} (void)
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a93e386bc94207e931845db8a28f14d45}{if\+\_\+statement}} (void)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a13a7a7b64c6f8dd6fcb30e0be389a9e3}{parse\+\_\+compound\+\_\+statement}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -36,23 +38,29 @@ Charles\+Averill
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}\label{parse__statement_8c_a2afb5107be64bb296ac5379206c8303a}} 
+\mbox{\Hypertarget{parse__statement_8c_a7f204ed0bf8d5aec09447d3024ff6425}\label{parse__statement_8c_a7f204ed0bf8d5aec09447d3024ff6425}} 
 \index{parse\_statement.c@{parse\_statement.c}!assignment\_statement@{assignment\_statement}}
 \index{assignment\_statement@{assignment\_statement}!parse\_statement.c@{parse\_statement.c}}
 \doxysubsubsection{\texorpdfstring{assignment\_statement()}{assignment\_statement()}}
-{\footnotesize\ttfamily static void assignment\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ assignment\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Parse variable assignment statement \mbox{\Hypertarget{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}\label{parse__statement_8c_a36e413083d2a6e7a8b561e22e141b811}} 
-\index{parse\_statement.c@{parse\_statement.c}!parse\_statements@{parse\_statements}}
-\index{parse\_statements@{parse\_statements}!parse\_statement.c@{parse\_statement.c}}
-\doxysubsubsection{\texorpdfstring{parse\_statements()}{parse\_statements()}}
-{\footnotesize\ttfamily void parse\+\_\+statements (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+Parse variable assignment statement \mbox{\Hypertarget{parse__statement_8c_a93e386bc94207e931845db8a28f14d45}\label{parse__statement_8c_a93e386bc94207e931845db8a28f14d45}} 
+\index{parse\_statement.c@{parse\_statement.c}!if\_statement@{if\_statement}}
+\index{if\_statement@{if\_statement}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{if\_statement()}{if\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ if\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Parse all statements in a file, and compile them into ASM \mbox{\Hypertarget{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}\label{parse__statement_8c_af4242b2b6f2d05d00166bc689f35d3d7}} 
+Parse an if statement \mbox{\Hypertarget{parse__statement_8c_a13a7a7b64c6f8dd6fcb30e0be389a9e3}\label{parse__statement_8c_a13a7a7b64c6f8dd6fcb30e0be389a9e3}} 
+\index{parse\_statement.c@{parse\_statement.c}!parse\_compound\_statement@{parse\_compound\_statement}}
+\index{parse\_compound\_statement@{parse\_compound\_statement}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{parse\_compound\_statement()}{parse\_compound\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+compound\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Parse a compound statement (anything between braces) and return its AST \mbox{\Hypertarget{parse__statement_8c_a3011717a9d89686560bbc477984e4331}\label{parse__statement_8c_a3011717a9d89686560bbc477984e4331}} 
 \index{parse\_statement.c@{parse\_statement.c}!print\_statement@{print\_statement}}
 \index{print\_statement@{print\_statement}!parse\_statement.c@{parse\_statement.c}}
 \doxysubsubsection{\texorpdfstring{print\_statement()}{print\_statement()}}
-{\footnotesize\ttfamily static void print\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ print\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Parse print statement 
 

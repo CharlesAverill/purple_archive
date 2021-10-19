@@ -30,6 +30,12 @@ int($\ast$ \mbox{\hyperlink{structASM__Generators_a501a1ea72bba96486d4401999e640
 \item 
 int($\ast$ \mbox{\hyperlink{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}{compare}} )(FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
 \item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}{compare\+\_\+and\+\_\+jump}} )(FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a294441250bce00da7631f2f22a72b73f}{label}} )(FILE $\ast$fp, int label\+\_\+index)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a74ac203599da39d5d92079576176bcc6}{jump\+\_\+to\+\_\+label}} )(FILE $\ast$fp, int label\+\_\+index)
+\item 
 void($\ast$ \mbox{\hyperlink{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}{create\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
 \item 
 int($\ast$ \mbox{\hyperlink{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}{load\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
@@ -54,7 +60,13 @@ Add two integers \mbox{\Hypertarget{structASM__Generators_a391a5643abb1f4a0eceaa
 \doxysubsubsection{\texorpdfstring{compare}{compare}}
 {\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::compare) (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)}
 
-Compare the values of two registers \mbox{\Hypertarget{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}\label{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}} 
+Compare the values of two registers and place it in a register \mbox{\Hypertarget{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}\label{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}} 
+\index{ASM\_Generators@{ASM\_Generators}!compare\_and\_jump@{compare\_and\_jump}}
+\index{compare\_and\_jump@{compare\_and\_jump}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{compare\_and\_jump}{compare\_and\_jump}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::compare\+\_\+and\+\_\+jump) (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)}
+
+Compare the values of two registers and jump to a label \mbox{\Hypertarget{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}\label{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}} 
 \index{ASM\_Generators@{ASM\_Generators}!create\_global\_variable@{create\_global\_variable}}
 \index{create\_global\_variable@{create\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
 \doxysubsubsection{\texorpdfstring{create\_global\_variable}{create\_global\_variable}}
@@ -66,7 +78,19 @@ Create a global variable \mbox{\Hypertarget{structASM__Generators_a501a1ea72bba9
 \doxysubsubsection{\texorpdfstring{div}{div}}
 {\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::div) (FILE $\ast$fp, int r1, int r2)}
 
-Divide two integers \mbox{\Hypertarget{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}\label{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}} 
+Divide two integers \mbox{\Hypertarget{structASM__Generators_a74ac203599da39d5d92079576176bcc6}\label{structASM__Generators_a74ac203599da39d5d92079576176bcc6}} 
+\index{ASM\_Generators@{ASM\_Generators}!jump\_to\_label@{jump\_to\_label}}
+\index{jump\_to\_label@{jump\_to\_label}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{jump\_to\_label}{jump\_to\_label}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::jump\+\_\+to\+\_\+label) (FILE $\ast$fp, int label\+\_\+index)}
+
+Jump to a label \mbox{\Hypertarget{structASM__Generators_a294441250bce00da7631f2f22a72b73f}\label{structASM__Generators_a294441250bce00da7631f2f22a72b73f}} 
+\index{ASM\_Generators@{ASM\_Generators}!label@{label}}
+\index{label@{label}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::label) (FILE $\ast$fp, int label\+\_\+index)}
+
+Generate a label \mbox{\Hypertarget{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}\label{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}} 
 \index{ASM\_Generators@{ASM\_Generators}!load\_global\_variable@{load\_global\_variable}}
 \index{load\_global\_variable@{load\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
 \doxysubsubsection{\texorpdfstring{load\_global\_variable}{load\_global\_variable}}

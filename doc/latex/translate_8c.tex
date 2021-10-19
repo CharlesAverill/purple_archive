@@ -51,9 +51,16 @@ static int \mbox{\hyperlink{translate_8c_a9f50d24c41708a8b0255a5440a8ff17b}{pir\
 \item 
 static int \mbox{\hyperlink{translate_8c_ae87490aea50c2abb4e1c5a1559b2dd4e}{pir\+\_\+save\+\_\+global}} (int r, int symbol\+\_\+index)
 \item 
-int \mbox{\hyperlink{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r)
+static int \mbox{\hyperlink{translate_8c_a4f85aac58e965d3a095d5cd9aa489b27}{if\+\_\+ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
+\item 
+int \mbox{\hyperlink{translate_8c_a77fe0335153d1aa2340570df4a1de20d}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} previous\+\_\+operation)
 \item 
 void \mbox{\hyperlink{translate_8c_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{translate_8c_a407e36a6f93ed3fff85fb256b9c7005f}{LABEL\+\_\+\+INDEX}} = 0
 \end{DoxyCompactItemize}
 
 
@@ -89,11 +96,11 @@ Add register to the array of free registers
 Allocates a free register. Exit if there are no remaining registers. \begin{DoxyReturn}{Returns}
 The index of the new register 
 \end{DoxyReturn}
-\mbox{\Hypertarget{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}\label{translate_8c_ae4e91687afb06b0d905e027b2fa20b6e}} 
+\mbox{\Hypertarget{translate_8c_a77fe0335153d1aa2340570df4a1de20d}\label{translate_8c_a77fe0335153d1aa2340570df4a1de20d}} 
 \index{translate.c@{translate.c}!ast\_to\_pir@{ast\_to\_pir}}
 \index{ast\_to\_pir@{ast\_to\_pir}!translate.c@{translate.c}}
 \doxysubsubsection{\texorpdfstring{ast\_to\_pir()}{ast\_to\_pir()}}
-{\footnotesize\ttfamily int ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n,  }\item[{int}]{r }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n,  }\item[{int}]{r,  }\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{previous\+\_\+operation }\end{DoxyParamCaption})}
 
 Generates Purple Intermediate Representation (PIR) assembly from a given AST 
 \begin{DoxyParams}{Parameters}
@@ -101,9 +108,11 @@ Generates Purple Intermediate Representation (PIR) assembly from a given AST
 \hline
 {\em r} & Index of register used to store variables \\
 \hline
+{\em previous\+\_\+operation} & Operation of the previously-\/analyzed node\textquotesingle{}s parent \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The value of the AST 
+The register containing the value of the AST 
 \end{DoxyReturn}
 \mbox{\Hypertarget{translate_8c_a7963c933c90d2c80b16a1cec282ac3c5}\label{translate_8c_a7963c933c90d2c80b16a1cec282ac3c5}} 
 \index{translate.c@{translate.c}!exit\_translator@{exit\_translator}}
@@ -123,7 +132,21 @@ Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{tra
 \doxysubsubsection{\texorpdfstring{generate\_pir()}{generate\_pir()}}
 {\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Handle function for generating ASM \mbox{\Hypertarget{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}\label{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}} 
+Handle function for generating ASM \mbox{\Hypertarget{translate_8c_a4f85aac58e965d3a095d5cd9aa489b27}\label{translate_8c_a4f85aac58e965d3a095d5cd9aa489b27}} 
+\index{translate.c@{translate.c}!if\_ast\_to\_pir@{if\_ast\_to\_pir}}
+\index{if\_ast\_to\_pir@{if\_ast\_to\_pir}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{if\_ast\_to\_pir()}{if\_ast\_to\_pir()}}
+{\footnotesize\ttfamily static int if\+\_\+ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates Purple Intermediate Representation (PIR) assembly from a given if-\/statement AST 
+\begin{DoxyParams}{Parameters}
+{\em n} & The AST Node used to generate PIR \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The register containing the value of the AST 
+\end{DoxyReturn}
+\mbox{\Hypertarget{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}\label{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}} 
 \index{translate.c@{translate.c}!initialize\_translator@{initialize\_translator}}
 \index{initialize\_translator@{initialize\_translator}!translate.c@{translate.c}}
 \doxysubsubsection{\texorpdfstring{initialize\_translator()}{initialize\_translator()}}
@@ -364,3 +387,11 @@ Index of the register containing the difference (left -\/ right)
 {\footnotesize\ttfamily void print\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 Prints the contents of all registers 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{translate_8c_a407e36a6f93ed3fff85fb256b9c7005f}\label{translate_8c_a407e36a6f93ed3fff85fb256b9c7005f}} 
+\index{translate.c@{translate.c}!LABEL\_INDEX@{LABEL\_INDEX}}
+\index{LABEL\_INDEX@{LABEL\_INDEX}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{LABEL\_INDEX}{LABEL\_INDEX}}
+{\footnotesize\ttfamily int LABEL\+\_\+\+INDEX = 0\hspace{0.3cm}{\ttfamily [static]}}
+

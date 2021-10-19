@@ -14,7 +14,7 @@ var searchData=
   ['asm_5fmode_5fnames_11',['asm_mode_names',['../translate_8h.html#adf76c673cdc54c77495cb3fecd6e0182',1,'translate.h']]],
   ['asm_5foutput_12',['ASM_OUTPUT',['../translate_8h.html#a3e4e4c22290f59aecd7fc1f0b874a7df',1,'ASM_OUTPUT():&#160;parse_statement.c'],['../parse__statement_8c.html#a3e4e4c22290f59aecd7fc1f0b874a7df',1,'ASM_OUTPUT():&#160;parse_statement.c']]],
   ['assembly_5fmode_13',['Assembly_Mode',['../translate_8h.html#a1a79efc86cd54f29203c2106df489c2b',1,'Assembly_Mode():&#160;translate.h'],['../translate_8h.html#a8bd68feedc2386902ba6dafc3c71342f',1,'Assembly_Mode():&#160;translate.h']]],
-  ['assignment_5fstatement_14',['assignment_statement',['../parse__statement_8c.html#a2afb5107be64bb296ac5379206c8303a',1,'parse_statement.c']]],
+  ['assignment_5fstatement_14',['assignment_statement',['../parse__statement_8c.html#a7f204ed0bf8d5aec09447d3024ff6425',1,'parse_statement.c']]],
   ['ast_5fnode_15',['AST_Node',['../structAST__Node.html',1,'AST_Node'],['../definitions_8h.html#a6ee7975d5cc932491493b322a370a212',1,'AST_Node():&#160;definitions.h']]],
-  ['ast_5fto_5fpir_16',['ast_to_pir',['../translate_8h.html#ae4e91687afb06b0d905e027b2fa20b6e',1,'ast_to_pir(AST_Node *n, int r):&#160;translate.c'],['../translate_8c.html#ae4e91687afb06b0d905e027b2fa20b6e',1,'ast_to_pir(AST_Node *n, int r):&#160;translate.c']]]
+  ['ast_5fto_5fpir_16',['ast_to_pir',['../translate_8h.html#a77fe0335153d1aa2340570df4a1de20d',1,'ast_to_pir(AST_Node *n, int r, Token_Type previous_operation):&#160;translate.c'],['../translate_8c.html#a77fe0335153d1aa2340570df4a1de20d',1,'ast_to_pir(AST_Node *n, int r, Token_Type previous_operation):&#160;translate.c']]]
 ];

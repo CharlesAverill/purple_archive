@@ -23,11 +23,15 @@
 \DoxyCodeLine{25 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_a11abaf2ee3f73888d58217d3ea1109e2}{mips\_div}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2);}
 \DoxyCodeLine{26 }
 \DoxyCodeLine{27 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_a588f5693bbab851e7149f85b92b6a225}{mips\_compare}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}} mode);}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}{mips\_create\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} stack\_size);}
-\DoxyCodeLine{30 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}{mips\_load\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
-\DoxyCodeLine{31 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_acdcbd0182dfe0b5e5e0e498a524e225b}{mips\_save\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
+\DoxyCodeLine{28 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_aa7418ef01ca62b263fb92afe8e66b286}{mips\_compare\_and\_jump}}(FILE *fp, \textcolor{keywordtype}{int} r1, \textcolor{keywordtype}{int} r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}} mode, \textcolor{keywordtype}{int} label\_index);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_a10365f8b7476e05fd802a242bd305711}{mips\_label}}(FILE *fp, \textcolor{keywordtype}{int} label\_index);}
+\DoxyCodeLine{31 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_ab883ec1cf4be21d846dde95ac143aa2a}{mips\_jump\_to\_label}}(FILE *fp, \textcolor{keywordtype}{int} label\_index);}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} \mbox{\hyperlink{mips_8h_a59b85efaf6fa6526c39a8fa6a10f1e9a}{mips\_create\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} stack\_size);}
+\DoxyCodeLine{34 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_ab10d863fa9d33520cfc8a8c98142c17c}{mips\_load\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
+\DoxyCodeLine{35 \textcolor{keywordtype}{int} \mbox{\hyperlink{mips_8h_acdcbd0182dfe0b5e5e0e498a524e225b}{mips\_save\_global\_variable}}(FILE *fp, \textcolor{keywordtype}{int} r, \textcolor{keywordtype}{char} *identifier, \textcolor{keywordtype}{int} \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\_offset}});}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

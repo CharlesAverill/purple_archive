@@ -48,7 +48,7 @@ void \mbox{\hyperlink{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}{pir\+\_\+p
 \item 
 void \mbox{\hyperlink{translate_8h_a5756063305cb7411127ec758f0f4b444}{pir\+\_\+create\+\_\+global}} (char $\ast$identifier, int size)
 \item 
-int \mbox{\hyperlink{translate_8h_ae4e91687afb06b0d905e027b2fa20b6e}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r)
+int \mbox{\hyperlink{translate_8h_a77fe0335153d1aa2340570df4a1de20d}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} previous\+\_\+operation)
 \item 
 void \mbox{\hyperlink{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
 \end{DoxyCompactItemize}
@@ -128,11 +128,11 @@ MIPS&\\
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{translate_8h_ae4e91687afb06b0d905e027b2fa20b6e}\label{translate_8h_ae4e91687afb06b0d905e027b2fa20b6e}} 
+\mbox{\Hypertarget{translate_8h_a77fe0335153d1aa2340570df4a1de20d}\label{translate_8h_a77fe0335153d1aa2340570df4a1de20d}} 
 \index{translate.h@{translate.h}!ast\_to\_pir@{ast\_to\_pir}}
 \index{ast\_to\_pir@{ast\_to\_pir}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{ast\_to\_pir()}{ast\_to\_pir()}}
-{\footnotesize\ttfamily int ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n,  }\item[{int}]{r }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n,  }\item[{int}]{r,  }\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{previous\+\_\+operation }\end{DoxyParamCaption})}
 
 Generates Purple Intermediate Representation (PIR) assembly from a given AST 
 \begin{DoxyParams}{Parameters}
@@ -140,9 +140,11 @@ Generates Purple Intermediate Representation (PIR) assembly from a given AST
 \hline
 {\em r} & Index of register used to store variables \\
 \hline
+{\em previous\+\_\+operation} & Operation of the previously-\/analyzed node\textquotesingle{}s parent \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The value of the AST 
+The register containing the value of the AST 
 \end{DoxyReturn}
 \mbox{\Hypertarget{translate_8h_a2c64d3ce9ac9dd1cd2edf634d90403cd}\label{translate_8h_a2c64d3ce9ac9dd1cd2edf634d90403cd}} 
 \index{translate.h@{translate.h}!free\_all\_registers@{free\_all\_registers}}

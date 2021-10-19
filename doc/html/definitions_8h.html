@@ -99,6 +99,8 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a8b28d62fc2727b12b5483f4b52232fb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a8b28d62fc2727b12b5483f4b52232fb6">MAX_SYMBOL_LEN</a>&#160;&#160;&#160;63</td></tr>
 <tr class="separator:a8b28d62fc2727b12b5483f4b52232fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2874e6928fb1e47f50140925c5838934"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a2874e6928fb1e47f50140925c5838934">NO_REGISTER</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:a2874e6928fb1e47f50140925c5838934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -133,11 +135,20 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf">T_SEMICOLON</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064">T_ASSIGNMENT</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6">T_LEFT_PARENTHESIS</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd">T_RIGHT_PARENTHESIS</a>
+, <br />
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644">T_LEFT_BRACE</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641">T_RIGHT_BRACE</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a">T_IDENTIFIER</a>
 , <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83">T_INT</a>
 , <br />
 &#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b">T_PRINT</a>
-, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031">T_LEFT_VALUE_IDENTIFIER</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d">T_IF</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8">T_ELSE</a>
+, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94">T_AST_LEFT_VALUE_IDENTIFIER</a>
+, <br />
+&#160;&#160;<a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a">T_AST_GLUE</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a2e66bade4cb6bda81365ca377d98b805"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum contains the various kinds of permitted tokens.  <a href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">More...</a><br /></td></tr>
@@ -179,6 +190,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define MAX_SYMBOL_LEN&#160;&#160;&#160;63</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2874e6928fb1e47f50140925c5838934" name="a2874e6928fb1e47f50140925c5838934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2874e6928fb1e47f50140925c5838934">&#9670;&nbsp;</a></span>NO_REGISTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NO_REGISTER&#160;&#160;&#160;-1</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -309,11 +334,19 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46" name="a2e66bade4cb6bda81365ca377d98b805ae16663241ea972e7426274c0bc7c5d46"></a>T_INTLIT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf" name="a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf"></a>T_SEMICOLON&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064" name="a2e66bade4cb6bda81365ca377d98b805adb3d9b2c5c1c3b3508df6e8357711064"></a>T_ASSIGNMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6" name="a2e66bade4cb6bda81365ca377d98b805acf154f7e2fb6ccc61262fb0b3e218dd6"></a>T_LEFT_PARENTHESIS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd" name="a2e66bade4cb6bda81365ca377d98b805ac6c1e9dd9087531a6dc6ab18ff573ebd"></a>T_RIGHT_PARENTHESIS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644" name="a2e66bade4cb6bda81365ca377d98b805af80c03e581832d0539f935ad06c55644"></a>T_LEFT_BRACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641" name="a2e66bade4cb6bda81365ca377d98b805a0c4f26d5004adf7f0ae46c972d47c641"></a>T_RIGHT_BRACE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a" name="a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a"></a>T_IDENTIFIER&#160;</td><td class="fielddoc"><p >Identifier name </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83" name="a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83"></a>T_INT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b" name="a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b"></a>T_PRINT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031" name="a2e66bade4cb6bda81365ca377d98b805aea7720de5ecf4692498baed211242031"></a>T_LEFT_VALUE_IDENTIFIER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d" name="a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d"></a>T_IF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8" name="a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8"></a>T_ELSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94" name="a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94"></a>T_AST_LEFT_VALUE_IDENTIFIER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a" name="a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a"></a>T_AST_GLUE&#160;</td><td class="fielddoc"><p >Glues ASTs together </p>
+</td></tr>
 </table>
 
 </div>

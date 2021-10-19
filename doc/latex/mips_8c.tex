@@ -29,16 +29,24 @@ int \mbox{\hyperlink{mips_8c_a11abaf2ee3f73888d58217d3ea1109e2}{mips\+\_\+div}} 
 \item 
 int \mbox{\hyperlink{mips_8c_a588f5693bbab851e7149f85b92b6a225}{mips\+\_\+compare}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
 \item 
+int \mbox{\hyperlink{mips_8c_aa7418ef01ca62b263fb92afe8e66b286}{mips\+\_\+compare\+\_\+and\+\_\+jump}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)
+\item 
 void \mbox{\hyperlink{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}{mips\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int size)
 \item 
 int \mbox{\hyperlink{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}{mips\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
 \item 
 int \mbox{\hyperlink{mips_8c_acdcbd0182dfe0b5e5e0e498a524e225b}{mips\+\_\+save\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+\item 
+void \mbox{\hyperlink{mips_8c_a10365f8b7476e05fd802a242bd305711}{mips\+\_\+label}} (FILE $\ast$fp, int label\+\_\+index)
+\item 
+void \mbox{\hyperlink{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}{mips\+\_\+jump\+\_\+to\+\_\+label}} (FILE $\ast$fp, int label\+\_\+index)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 char $\ast$ \mbox{\hyperlink{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}{mips\+\_\+register\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}\$t0\char`\"{}, \char`\"{}\$t1\char`\"{}, \char`\"{}\$t2\char`\"{}, \char`\"{}\$t3\char`\"{}\}
+\item 
+char $\ast$ \mbox{\hyperlink{mips_8c_a7ed272d365d5d60dc1d731041531a23d}{comparison\+\_\+instructions}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}slt\char`\"{}, \char`\"{}sle\char`\"{}, \char`\"{}sgt\char`\"{}, \char`\"{}sge\char`\"{}, \char`\"{}seq\char`\"{}, \char`\"{}sne\char`\"{}\}
 \end{DoxyCompactItemize}
 
 
@@ -66,6 +74,12 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{mips\_compare()}{mips\_compare()}}
 {\footnotesize\ttfamily int mips\+\_\+compare (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{mips_8c_aa7418ef01ca62b263fb92afe8e66b286}\label{mips_8c_aa7418ef01ca62b263fb92afe8e66b286}} 
+\index{mips.c@{mips.c}!mips\_compare\_and\_jump@{mips\_compare\_and\_jump}}
+\index{mips\_compare\_and\_jump@{mips\_compare\_and\_jump}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_compare\_and\_jump()}{mips\_compare\_and\_jump()}}
+{\footnotesize\ttfamily int mips\+\_\+compare\+\_\+and\+\_\+jump (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}\label{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}} 
 \index{mips.c@{mips.c}!mips\_create\_global\_variable@{mips\_create\_global\_variable}}
 \index{mips\_create\_global\_variable@{mips\_create\_global\_variable}!mips.c@{mips.c}}
@@ -77,6 +91,18 @@ Charles\+Averill
 \index{mips\_div@{mips\_div}!mips.c@{mips.c}}
 \doxysubsubsection{\texorpdfstring{mips\_div()}{mips\_div()}}
 {\footnotesize\ttfamily int mips\+\_\+div (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}\label{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}} 
+\index{mips.c@{mips.c}!mips\_jump\_to\_label@{mips\_jump\_to\_label}}
+\index{mips\_jump\_to\_label@{mips\_jump\_to\_label}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_jump\_to\_label()}{mips\_jump\_to\_label()}}
+{\footnotesize\ttfamily void mips\+\_\+jump\+\_\+to\+\_\+label (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8c_a10365f8b7476e05fd802a242bd305711}\label{mips_8c_a10365f8b7476e05fd802a242bd305711}} 
+\index{mips.c@{mips.c}!mips\_label@{mips\_label}}
+\index{mips\_label@{mips\_label}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_label()}{mips\_label()}}
+{\footnotesize\ttfamily void mips\+\_\+label (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}\label{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}} 
 \index{mips.c@{mips.c}!mips\_load\_global\_variable@{mips\_load\_global\_variable}}
@@ -135,6 +161,12 @@ Charles\+Averill
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mips_8c_a7ed272d365d5d60dc1d731041531a23d}\label{mips_8c_a7ed272d365d5d60dc1d731041531a23d}} 
+\index{mips.c@{mips.c}!comparison\_instructions@{comparison\_instructions}}
+\index{comparison\_instructions@{comparison\_instructions}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{comparison\_instructions}{comparison\_instructions}}
+{\footnotesize\ttfamily char$\ast$ comparison\+\_\+instructions\mbox{[}$\,$\mbox{]} = \{\char`\"{}slt\char`\"{}, \char`\"{}sle\char`\"{}, \char`\"{}sgt\char`\"{}, \char`\"{}sge\char`\"{}, \char`\"{}seq\char`\"{}, \char`\"{}sne\char`\"{}\}}
+
 \mbox{\Hypertarget{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}\label{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}} 
 \index{mips.c@{mips.c}!mips\_register\_names@{mips\_register\_names}}
 \index{mips\_register\_names@{mips\_register\_names}!mips.c@{mips.c}}
