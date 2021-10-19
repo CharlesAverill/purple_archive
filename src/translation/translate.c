@@ -428,17 +428,26 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         break;
     // Comparison
     case T_EQUALS:
-		cmp_mode = CMP_EQ;
     case T_NOT_EQUALS:
-		cmp_mode = CMP_NE;
     case T_LESS:
-		cmp_mode = CMP_LT;
     case T_GREATER:
-		cmp_mode = CMP_GT;
     case T_LESS_EQUAL:
-		cmp_mode = CMP_LE;
     case T_GREATER_EQUAL:
-		cmp_mode = CMP_GE;
+			
+		switch(n->ttype){
+		case T_EQUALS:
+			cmp_mode = CMP_EQ;
+		case T_NOT_EQUALS:
+			cmp_mode = CMP_NE;
+		case T_LESS:
+			cmp_mode = CMP_LT;
+		case T_GREATER:
+			cmp_mode = CMP_GT;
+		case T_LESS_EQUAL:
+			cmp_mode = CMP_LE;
+		case T_GREATER_EQUAL:
+			cmp_mode = CMP_GE;
+		}
 			
 		// For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
 		if(previous_operation == T_IF){
@@ -453,16 +462,23 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         out = pir_load_int(n->v.value);
         break;
     // Syntax
+	case T_PRINT:
+		pir_print_int(left_register);
+		free_all_registers();
+		out = NO_REGISTER;
+		break;
     case T_IDENTIFIER:
         out = pir_load_global(n->v.position);
         break;
     case T_ASSIGNMENT:
-        return right_register;
+        out = right_register;
+		break;
 	// AST-specific
     case T_AST_LEFT_VALUE_IDENTIFIER:
         out = pir_save_global(r, n->v.position);
+		break;
     default:
-        fprintf(stderr, "Unknown operator %s\n", token_strings[n->ttype]);
+        fprintf(stderr, "Unknown operator during ASM generation - %s\n", token_strings[n->ttype]);
         shutdown(1);
     }
 
