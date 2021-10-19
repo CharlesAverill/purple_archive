@@ -25,6 +25,10 @@ int x86_mul(FILE *fp, int r1, int r2);
 int x86_div(FILE *fp, int r1, int r2);
 
 int x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode);
+int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index);
+
+void x86_label(FILE *fp, int label_index);
+void x86_jump_to_label(FILE *fp, int label_index);
 
 void x86_create_global_variable(FILE *fp, char *identifier, int stack_size);
 int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);

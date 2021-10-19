@@ -36,6 +36,10 @@ typedef enum Token_Type {
     // Syntax
     T_SEMICOLON,
     T_ASSIGNMENT,
+    T_LEFT_PARENTHESIS,
+    T_RIGHT_PARENTHESIS,
+    T_LEFT_BRACE,
+    T_RIGHT_BRACE,
     /**Identifier name*/
     T_IDENTIFIER,
 
@@ -44,9 +48,13 @@ typedef enum Token_Type {
 
     // Keywords
     T_PRINT,
+    T_IF,
+    T_ELSE,
 
     // AST-specific Types
-    T_LEFT_VALUE_IDENTIFIER,
+    T_AST_LEFT_VALUE_IDENTIFIER,
+	/**Glues ASTs together*/
+	T_AST_GLUE,
 } Token_Type;
 
 /**
@@ -98,6 +106,8 @@ typedef struct AST_Node {
     Token_Type ttype;
     /**The left child of the AST Node*/
     struct AST_Node *left;
+	/**The middle child of the AST Node*/
+	struct AST_Node *mid;
     /**The right child of the AST Node*/
     struct AST_Node *right;
     /**Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table*/
@@ -107,6 +117,7 @@ typedef struct AST_Node {
     } v;
 } AST_Node;
 
+// Max symbol length in Purple is 63 characters and a null terminator
 #define MAX_SYMBOL_LEN 63
 
 /**
@@ -131,6 +142,9 @@ typedef enum Comparison_Mode {
     CMP_EQ,
     CMP_NE
 } Comparison_Mode;
+
+// Return NO_REGISTER if PIR functions do not return a register
+#define NO_REGISTER -1
 
 void shutdown(int exit_code);
 

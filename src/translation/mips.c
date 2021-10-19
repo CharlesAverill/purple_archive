@@ -77,35 +77,19 @@ int mips_div(FILE *fp, int r1, int r2)
     return r2;
 }
 
+char *comparison_instructions[] = {"slt", "sle", "sgt", "sge", "seq", "sne"};
 int mips_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
 {
-    char *flag;
-
-    switch (mode) {
-    case CMP_LT:
-        flag = "slt";
-        break;
-    case CMP_GT:
-        flag = "sgt";
-        break;
-    case CMP_LE:
-        flag = "sle";
-        break;
-    case CMP_GE:
-        flag = "sge";
-        break;
-    case CMP_EQ:
-        flag = "seq";
-        break;
-    case CMP_NE:
-        flag = "sne";
-        break;
-    }
-
-    fprintf(fp, "\t%s\t%s, %s, %s\n", flag, mips_register_names[r2], mips_register_names[r1],
+    fprintf(fp, "\t%s\t%s, %s, %s\n", comparison_instructions[mode], mips_register_names[r2], mips_register_names[r1],
             mips_register_names[r2]);
 
     return r2;
+}
+
+int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index){
+	switch(mode){
+		
+	}
 }
 
 void mips_create_global_variable(FILE *fp, char *identifier, int size)
@@ -131,4 +115,12 @@ int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offse
 
     fprintf(fp, "\tsw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
     return r;
+}
+
+void mips_label(FILE *fp, int label_index){
+	fprintf(fp, "L%d:\n", label_index);
+}
+
+void mips_jump_to_label(FILE *fp, int label_index){
+	fprintf(fp, "\tj\tL%d\n", label_index);
 }
