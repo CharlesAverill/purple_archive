@@ -14,28 +14,27 @@ ASM_Generators generators;
 /**
  * Parse print statement
  */
-static void print_statement(void)
+static AST_Node *print_statement(void)
 {
     AST_Node *root;
-    int r;
 
     // First token must be print
     match(T_PRINT);
 
-    // Parse expression, compile it, and print its value
+    // Parse expression into AST
     root = parse_binary_expression(0);
-    r = ast_to_pir(root, -1);
-    pir_print_int(r);
-    free_all_registers();
+	root = make_unary_ast_node(T_PRINT, root, 0);
 
     // Last token must be a semicolon
     match(T_SEMICOLON);
+	
+	return root;
 }
 
 /**
  * Parse variable assignment statement
  */
-static void assignment_statement(void)
+static AST_Node *assignment_statement(void)
 {
     AST_Node *left;
     AST_Node *right;
@@ -53,7 +52,7 @@ static void assignment_statement(void)
     }
 
     // Build AST leaf for left value identifier
-    right = make_ast_leaf(T_LEFT_VALUE_IDENTIFIER, position);
+    right = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, position);
 
     // Match for an equals token
     match(T_ASSIGNMENT);
@@ -61,35 +60,83 @@ static void assignment_statement(void)
     // Build AST for assignment expression
     left = parse_binary_expression(0);
 
-    // Assembly left and right into AST, generate PIR
-    root = make_ast_node(T_ASSIGNMENT, left, right, 0);
-    ast_to_pir(root, -1);
-    free_all_registers();
+    // Assembly left and right into AST
+    root = make_ast_node(T_ASSIGNMENT, left, NULL, right, 0);
 
     // Match for a semicolon
     match(T_SEMICOLON);
+	
+	return root;
 }
 
 /**
- * Parse all statements in a file, and compile them into ASM
+ * Parse an if statement
  */
-void parse_statements(void)
+AST_Node *if_statement(void){
+	AST_Node *condition_root = NULL;
+	AST_Node *true_root = NULL;
+	AST_Node *false_root = NULL;
+	
+	match(T_IF);
+	match(T_LEFT_PARENTHESIS);
+	
+	condition_root = parse_binary_expression(0);
+	
+	if(condition_root->ttype < T_EQUALS || condition_root->ttype > T_GREATER_EQUAL){
+		fprintf(stderr, "Uncrecognized comparison on line %d\n", D_LINE_NUMBER);
+		shutdown(1);
+	}
+	
+	match(T_RIGHT_PARENTHESIS);
+	
+	true_root = parse_compound_statement();
+	
+	if(GToken._token == T_ELSE){
+		scan(&GToken);
+		false_root = parse_compound_statement();
+	}
+	
+	return make_ast_node(T_IF, condition_root, true_root, false_root, 0);
+}
+
+/**
+ * Parse a compound statement (anything between braces) and return its AST
+ */
+AST_Node *parse_compound_statement(void)
 {
+	AST_Node *left = NULL;
+	AST_Node *root;
+	
+	match(T_LEFT_BRACE);
+	
     while (1) {
         switch (GToken._token) {
         case T_PRINT:
-            print_statement();
+            root = print_statement();
             break;
         case T_INT:
             variable_declaration();
+			root = NULL;
             break;
         case T_IDENTIFIER:
-            assignment_statement();
+            root = assignment_statement();
             break;
-        case T_EOF:
-            return;
+		case T_IF:
+			root = if_statement();
+			break;
+		case T_RIGHT_BRACE:
+			match(T_RIGHT_BRACE);
+			return left;
         default:
             fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
         }
+	
+		if(root){
+			if(left == NULL){
+				left = root;
+			} else {
+				left = make_ast_node(T_AST_GLUE, left, NULL, root, 0);
+			}
+		}
     }
 }

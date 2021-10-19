@@ -13,11 +13,12 @@
  * Constructs a new AST Node with the provided values
  * @param  ttype               Token_Type of the new AST Node
  * @param  left                Left child subtree of the new AST Node
+ * @param  mid                 Middle child subtree of the new AST Node
  * @param  right               Right child subtree of the new AST Node
  * @param  value               If Token_Type == T_INTLIT, then the value of the integer literal
  * @return       The pointer to a new AST Node with the provided values
  */
-AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int value)
+AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *mid, AST_Node *right, int value)
 {
     AST_Node *out;
 
@@ -31,6 +32,7 @@ AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int v
     // Assign values
     out->ttype = ttype;
     out->left = left;
+	out->mid = mid;
     out->right = right;
     out->v.value = value;
 
@@ -45,7 +47,7 @@ AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *right, int v
  */
 AST_Node *make_ast_leaf(Token_Type ttype, int value)
 {
-    return make_ast_node(ttype, NULL, NULL, value);
+    return make_ast_node(ttype, NULL, NULL, NULL, value);
 }
 
 /**
@@ -57,5 +59,5 @@ AST_Node *make_ast_leaf(Token_Type ttype, int value)
  */
 AST_Node *make_unary_ast_node(Token_Type ttype, AST_Node *child, int value)
 {
-    return make_ast_node(ttype, child, NULL, value);
+    return make_ast_node(ttype, child, NULL, NULL, value);
 }

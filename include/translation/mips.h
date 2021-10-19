@@ -25,6 +25,10 @@ int mips_mul(FILE *fp, int r1, int r2);
 int mips_div(FILE *fp, int r1, int r2);
 
 int mips_compare(FILE *fp, int r1, int r2, Comparison_Mode mode);
+int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index);
+
+void mips_label(FILE *fp, int label_index);
+void mips_jump_to_label(FILE *fp, int label_index);
 
 void mips_create_global_variable(FILE *fp, char *identifier, int stack_size);
 int mips_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);

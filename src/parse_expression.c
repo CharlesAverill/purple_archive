@@ -89,7 +89,7 @@ AST_Node *parse_binary_expression(int previous_token_precedence)
         // Ensure we're dealing with an operator
         if (current_ttype > T_EOF && current_ttype < T_INTLIT) {
             // Join right subtree with current left subtree
-            left = make_ast_node(current_ttype, left, right, 0);
+            left = make_ast_node(current_ttype, left, NULL, right, 0);
         } else {
             fprintf(stderr, "Expected operator on line %d, got %s instead\n", D_LINE_NUMBER,
                     token_strings[current_ttype]);

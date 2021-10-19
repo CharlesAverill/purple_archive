@@ -114,9 +114,16 @@ static int scan_identifier(char c, char *buf, int character_limit)
 static Token_Type string_to_keyword(char *str)
 {
     switch (str[0]) {
+    case 'e':
+		if(!strcmp(str, "else")){
+			return T_ELSE;
+		}
+		break;
     case 'i':
         if (!strcmp(str, "int")) {
             return T_INT;
+        } else if(!strcmp(str, "if")){
+            return T_IF;
         }
         break;
     case 'p':
@@ -200,6 +207,18 @@ int scan(token *t)
         break;
     case ';':
         t->_token = T_SEMICOLON;
+        break;
+    case '(':
+        t->_token = T_LEFT_PARENTHESIS;
+        break;
+    case ')':
+        t->_token = T_RIGHT_PARENTHESIS;
+        break;
+    case '{':
+        t->_token = T_LEFT_BRACE;
+        break;
+    case '}':
+        t->_token = T_RIGHT_BRACE;
         break;
     case '=':
         c = next();

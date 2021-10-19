@@ -16,6 +16,6 @@
 #include "tree.h"
 
 AST_Node *parse_binary_expression(int previous_token_precedence);
-void parse_statements(void);
+AST_Node *parse_compound_statement(void);
 
 #endif

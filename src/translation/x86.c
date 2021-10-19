@@ -85,42 +85,23 @@ int x86_div(FILE *fp, int r1, int r2)
     return r1;
 }
 
+char *flag_setters[] = {"setl", "setle", "setg", "setge", "sete", "setne"};
 int x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
 {
     // Compare
     fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r2], x86_register_names[r1]);
-
-    // Set flag
-    char *flag;
-    switch (mode) {
-    case CMP_LT:
-        flag = "setl";
-        break;
-    case CMP_GT:
-        flag = "setg";
-        break;
-    case CMP_LE:
-        flag = "setle";
-        break;
-    case CMP_GE:
-        flag = "setge";
-        break;
-    case CMP_EQ:
-        flag = "sete";
-        break;
-    case CMP_NE:
-        flag = "setne";
-        break;
-    default:
-        fprintf(stderr, "Unrecognized comparison mode %d\n", mode);
-        shutdown(1);
-    }
-
     // Only read lower 8 bits (1 byte) of register for comparison
-    fprintf(fp, "\t%s\t%s\n", flag, x86_byte_register_names[r2]);
+    fprintf(fp, "\t%s\t%s\n", flag_setters[mode], x86_byte_register_names[r2]);
     // And with 255 to ensure no bits leftover from previous operations
-    fprintf(fp, "\tandq\t$255,%s\n", x86_register_names[r2]);
+    fprintf(fp, "\tmovzbq\t%s,%s\n", x86_byte_register_names[r2], x86_register_names[r2]);
     return r2;
+}
+
+char *jump_comparisons[] = {"jl", "jle", "jg", "jge", "je", "jne"};
+int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index){
+	fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r2], x86_register_names[r1]);
+	fprintf(fp, "\t%s\tL%d\n", x86_register_names[mode], label_index);
+	return NO_REGISTER;
 }
 
 void x86_create_global_variable(FILE *fp, char *identifier, int size)
@@ -145,4 +126,12 @@ int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset
 
     fprintf(fp, "\tmovq\t%s, %s(\%%rip)\n", x86_register_names[r], identifier);
     return r;
+}
+
+void x86_label(FILE *fp, int label_index){
+	fprintf(fp, "L%d:\n", label_index);
+}
+
+void x86_jump_to_label(FILE *fp, int label_index){
+	fprintf(fp, "\tjmp\tL%d\n", label_index);
 }

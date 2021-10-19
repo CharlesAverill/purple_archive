@@ -79,6 +79,9 @@ static void initialize_translator(void)
         generators.div = x86_div;
 
         generators.compare = x86_compare;
+		generators.compare_and_jump = x86_compare_and_jump;
+		generators.label = x86_label;
+		generators.jump_to_label = x86_jump_to_label;
 
         generators.create_global_variable = x86_create_global_variable;
         generators.load_global_variable = x86_load_global_variable;
@@ -97,6 +100,9 @@ static void initialize_translator(void)
         generators.div = mips_div;
 
         generators.compare = mips_compare;
+		generators.compare_and_jump = mips_compare_and_jump;
+		generators.label = mips_label;
+		generators.jump_to_label = mips_jump_to_label;
 
         generators.create_global_variable = mips_create_global_variable;
         generators.load_global_variable = mips_load_global_variable;
@@ -316,24 +322,95 @@ static int pir_save_global(int r, int symbol_index)
     return r;
 }
 
+// Index of branch labels to be generated
+static int LABEL_INDEX = 0;
+
+/**
+ * Generates Purple Intermediate Representation (PIR) assembly from a given if-statement AST
+ * @param  n                         The AST Node used to generate PIR
+ * @return       The register containing the value of the AST
+*/
+static int if_ast_to_pir(AST_Node *n){
+	int false_label_index;
+	int exit_label_index;
+	
+	// Generate label index for the false branch
+	false_label_index = LABEL_INDEX++;
+	
+	// Generate label index for exiting the if statement
+	// If there is no nelse, false_label_index = exit_label_index
+	if(n->right){
+		exit_label_index = LABEL_INDEX++;
+	}
+	
+	// Generate conditional code and a jump to the false label
+	ast_to_pir(n->left, false_label_index, n->ttype);
+	free_all_registers();
+	
+	// Generate ASM for compound statement if true
+	ast_to_pir(n->mid, NO_REGISTER, n->ttype);
+	free_all_registers();
+	
+	// If an else exists, generate the jump for it
+	if(n->right){
+		generators.jump_to_label(ASM_OUTPUT, exit_label_index);
+	}
+	
+	// Add the false label
+	generators.label(ASM_OUTPUT, false_label_index);
+	
+	// If an else exists, generate the else ASM and the label to skip it
+	if(n->right){
+		ast_to_pir(n->right, NO_REGISTER, n->ttype);
+		free_all_registers();
+		
+		generators.label(ASM_OUTPUT, exit_label_index);
+	}
+	
+	return NO_REGISTER;
+}
+
 /**
  * Generates Purple Intermediate Representation (PIR) assembly from a given AST
- * @param  n           The AST Node used to generate PIR
- * @param  r           Index of register used to store variables
- * @return       The value of the AST
+ * @param  n                         The AST Node used to generate PIR
+ * @param  r                         Index of register used to store variables
+ * @param  previous_operation        Operation of the previously-analyzed node's parent
+ * @return       The register containing the value of the AST
 */
-int ast_to_pir(AST_Node *n, int r)
+int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 {
     int left_register;
     int right_register;
     int out;
+	
+	// If-statement AST parsing takes precedence
+	
+	switch(n->ttype){
+	case T_IF:
+		return if_ast_to_pir(n);
+		break;
+	case T_AST_GLUE:
+		// Generate left side
+		ast_to_pir(n->left, NO_REGISTER, n->ttype);
+		free_all_registers();
+		
+		// Generate right side
+		ast_to_pir(n->right, NO_REGISTER, n->ttype);
+		free_all_registers();
+		
+		return NO_REGISTER;
+	}
+	
+	// Perform general AST parsing if not an IF statement or Glue
 
     if (n->left) {
-        left_register = ast_to_pir(n->left, -1);
+        left_register = ast_to_pir(n->left, -1, n->ttype);
     }
     if (n->right) {
-        right_register = ast_to_pir(n->right, left_register);
+        right_register = ast_to_pir(n->right, left_register, n->ttype);
     }
+	
+	Comparison_Mode cmp_mode;
 
     switch (n->ttype) {
     // Arithmetic
@@ -351,22 +428,25 @@ int ast_to_pir(AST_Node *n, int r)
         break;
     // Comparison
     case T_EQUALS:
-        out = pir_equal(left_register, right_register);
-        break;
+		cmp_mode = CMP_EQ;
     case T_NOT_EQUALS:
-        out = pir_not_equal(left_register, right_register);
-        break;
+		cmp_mode = CMP_NE;
     case T_LESS:
-        out = pir_less_than(left_register, right_register);
-        break;
+		cmp_mode = CMP_LT;
     case T_GREATER:
-        out = pir_greater_than(left_register, right_register);
-        break;
+		cmp_mode = CMP_GT;
     case T_LESS_EQUAL:
-        out = pir_less_equal(left_register, right_register);
-        break;
+		cmp_mode = CMP_LE;
     case T_GREATER_EQUAL:
-        out = pir_greater_equal(left_register, right_register);
+		cmp_mode = CMP_GE;
+			
+		// For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
+		if(previous_operation == T_IF){
+			return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode, r);
+			free_all_registers();
+		} else {
+			return generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
+		}
         break;
     // Literals
     case T_INTLIT:
@@ -376,10 +456,11 @@ int ast_to_pir(AST_Node *n, int r)
     case T_IDENTIFIER:
         out = pir_load_global(n->v.position);
         break;
-    case T_LEFT_VALUE_IDENTIFIER:
-        out = pir_save_global(r, n->v.position);
     case T_ASSIGNMENT:
         return right_register;
+	// AST-specific
+    case T_AST_LEFT_VALUE_IDENTIFIER:
+        out = pir_save_global(r, n->v.position);
     default:
         fprintf(stderr, "Unknown operator %s\n", token_strings[n->ttype]);
         shutdown(1);
@@ -404,8 +485,10 @@ void generate_pir(void)
     // Initialize the Scanner
     scan(&GToken);
 
-    // Calculate and print the value of the AST
-    parse_statements();
+    // Parse everything into a single AST
+	AST_Node *root;
+    root = parse_compound_statement();
+	ast_to_pir(root, NO_REGISTER, 0);
 
     // Add the assembly postamble
     generators.postamble(ASM_OUTPUT);
