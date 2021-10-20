@@ -333,40 +333,40 @@ static int LABEL_INDEX = 0;
 static int if_ast_to_pir(AST_Node *n){
 	int false_label_index;
 	int exit_label_index;
-	
+
 	// Generate label index for the false branch
 	false_label_index = LABEL_INDEX++;
-	
+
 	// Generate label index for exiting the if statement
 	// If there is no nelse, false_label_index = exit_label_index
 	if(n->right){
 		exit_label_index = LABEL_INDEX++;
 	}
-	
+
 	// Generate conditional code and a jump to the false label
 	ast_to_pir(n->left, false_label_index, n->ttype);
 	free_all_registers();
-	
+
 	// Generate ASM for compound statement if true
 	ast_to_pir(n->mid, NO_REGISTER, n->ttype);
 	free_all_registers();
-	
+
 	// If an else exists, generate the jump for it
 	if(n->right){
 		generators.jump_to_label(ASM_OUTPUT, exit_label_index);
 	}
-	
+
 	// Add the false label
 	generators.label(ASM_OUTPUT, false_label_index);
-	
+
 	// If an else exists, generate the else ASM and the label to skip it
 	if(n->right){
 		ast_to_pir(n->right, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		generators.label(ASM_OUTPUT, exit_label_index);
 	}
-	
+
 	return NO_REGISTER;
 }
 
@@ -382,9 +382,9 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     int left_register;
     int right_register;
     int out;
-	
+
 	// If-statement AST parsing takes precedence
-	
+
 	switch(n->ttype){
 	case T_IF:
 		return if_ast_to_pir(n);
@@ -393,14 +393,14 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 		// Generate left side
 		ast_to_pir(n->left, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		// Generate right side
 		ast_to_pir(n->right, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		return NO_REGISTER;
 	}
-	
+
 	// Perform general AST parsing if not an IF statement or Glue
 
     if (n->left) {
@@ -409,7 +409,7 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     if (n->right) {
         right_register = ast_to_pir(n->right, left_register, n->ttype);
     }
-	
+
 	Comparison_Mode cmp_mode;
 
     switch (n->ttype) {
@@ -433,22 +433,28 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     case T_GREATER:
     case T_LESS_EQUAL:
     case T_GREATER_EQUAL:
-			
+
 		switch(n->ttype){
 		case T_EQUALS:
 			cmp_mode = CMP_EQ;
+            break;
 		case T_NOT_EQUALS:
 			cmp_mode = CMP_NE;
+            break;
 		case T_LESS:
 			cmp_mode = CMP_LT;
+            break;
 		case T_GREATER:
 			cmp_mode = CMP_GT;
+            break;
 		case T_LESS_EQUAL:
 			cmp_mode = CMP_LE;
+            break;
 		case T_GREATER_EQUAL:
 			cmp_mode = CMP_GE;
+            break;
 		}
-			
+
 		// For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
 		if(previous_operation == T_IF){
 			return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode, r);
