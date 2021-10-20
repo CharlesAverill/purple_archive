@@ -19,7 +19,9 @@ int \mbox{\hyperlink{symbol__table_8c_ab6d09930d0237257206d5eefced58976}{global\
 \item 
 static void \mbox{\hyperlink{symbol__table_8c_a7d3e2fea3eb9d237cb37bf65316c211c}{\+\_\+expand\+\_\+global\+\_\+symbol\+\_\+table}} (void)
 \item 
-int \mbox{\hyperlink{symbol__table_8c_abb2ef900f3636e400962bf3728525800}{insert\+\_\+global\+\_\+symbol}} (char $\ast$name)
+int \mbox{\hyperlink{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}{insert\+\_\+global\+\_\+symbol}} (char $\ast$name, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} datatype)
+\item 
+int \mbox{\hyperlink{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}{remove\+\_\+global\+\_\+symbol}} (char $\ast$name)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -79,15 +81,17 @@ The index of the symbol, if it exists. Otherwise -\/1.
 \doxysubsubsection{\texorpdfstring{init\_symbol\_table()}{init\_symbol\_table()}}
 {\footnotesize\ttfamily void init\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Code for initializing the Global symbol table \mbox{\Hypertarget{symbol__table_8c_abb2ef900f3636e400962bf3728525800}\label{symbol__table_8c_abb2ef900f3636e400962bf3728525800}} 
+Code for initializing the Global symbol table \mbox{\Hypertarget{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}\label{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}} 
 \index{symbol\_table.c@{symbol\_table.c}!insert\_global\_symbol@{insert\_global\_symbol}}
 \index{insert\_global\_symbol@{insert\_global\_symbol}!symbol\_table.c@{symbol\_table.c}}
 \doxysubsubsection{\texorpdfstring{insert\_global\_symbol()}{insert\_global\_symbol()}}
-{\footnotesize\ttfamily int insert\+\_\+global\+\_\+symbol (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int insert\+\_\+global\+\_\+symbol (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{datatype }\end{DoxyParamCaption})}
 
 Insert a new symbol into the Global symbol table 
 \begin{DoxyParams}{Parameters}
 {\em name} & Name of the symbol to create \\
+\hline
+{\em datatype} & Data type of the symbol to create \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -98,6 +102,12 @@ The position of the symbol in the Global symbol table
 \index{print\_symbol\_table@{print\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
 \doxysubsubsection{\texorpdfstring{print\_symbol\_table()}{print\_symbol\_table()}}
 {\footnotesize\ttfamily void print\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}\label{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}} 
+\index{symbol\_table.c@{symbol\_table.c}!remove\_global\_symbol@{remove\_global\_symbol}}
+\index{remove\_global\_symbol@{remove\_global\_symbol}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{remove\_global\_symbol()}{remove\_global\_symbol()}}
+{\footnotesize\ttfamily int remove\+\_\+global\+\_\+symbol (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
 
 
 

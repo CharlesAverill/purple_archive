@@ -9,11 +9,12 @@ var searchData=
   ['scanint_6',['scanint',['../scan_8c.html#afaef79548b221cbef5702e4b9957aeb8',1,'scan.c']]],
   ['shutdown_7',['shutdown',['../definitions_8h.html#a24e21ab6715200a0c1986e40c5acfa19',1,'shutdown(int exit_code):&#160;purple.c'],['../purple_8c.html#a24e21ab6715200a0c1986e40c5acfa19',1,'shutdown(int exit_code):&#160;purple.c']]],
   ['size_8',['size',['../structsymbol.html#aefd6c73a44b38bf92e92d7d608004f40',1,'symbol']]],
-  ['skip_9',['skip',['../scan_8c.html#ae1cbaaa04222c8794e6fb52ab9a0078d',1,'scan.c']]],
-  ['stack_5foffset_10',['stack_offset',['../structsymbol.html#a7228e9a2f62ccd52e9f5a09054c9443a',1,'symbol::stack_offset()'],['../symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc',1,'stack_offset():&#160;symbol_table.c']]],
-  ['string_5fto_5fkeyword_11',['string_to_keyword',['../scan_8c.html#a551fdc66d2c26cad6e96d417aa62b936',1,'scan.c']]],
-  ['sub_12',['sub',['../structASM__Generators.html#a6c0ecfad708a8a844119108ecc0ec98f',1,'ASM_Generators']]],
-  ['symbol_13',['symbol',['../structsymbol.html',1,'symbol'],['../definitions_8h.html#ab2f49544a431c27c6519cdfacc979353',1,'symbol():&#160;definitions.h']]],
-  ['symbol_5ftable_2ec_14',['symbol_table.c',['../symbol__table_8c.html',1,'']]],
-  ['symbol_5ftable_2eh_15',['symbol_table.h',['../symbol__table_8h.html',1,'']]]
+  ['size_5fint_9',['SIZE_INT',['../definitions_8h.html#a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb',1,'definitions.h']]],
+  ['skip_10',['skip',['../scan_8c.html#ae1cbaaa04222c8794e6fb52ab9a0078d',1,'scan.c']]],
+  ['stack_5foffset_11',['stack_offset',['../structsymbol.html#a7228e9a2f62ccd52e9f5a09054c9443a',1,'symbol::stack_offset()'],['../symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc',1,'stack_offset():&#160;symbol_table.c']]],
+  ['string_5fto_5fkeyword_12',['string_to_keyword',['../scan_8c.html#a551fdc66d2c26cad6e96d417aa62b936',1,'scan.c']]],
+  ['sub_13',['sub',['../structASM__Generators.html#a6c0ecfad708a8a844119108ecc0ec98f',1,'ASM_Generators']]],
+  ['symbol_14',['symbol',['../structsymbol.html',1,'symbol'],['../definitions_8h.html#ab2f49544a431c27c6519cdfacc979353',1,'symbol():&#160;definitions.h']]],
+  ['symbol_5ftable_2ec_15',['symbol_table.c',['../symbol__table_8c.html',1,'']]],
+  ['symbol_5ftable_2eh_16',['symbol_table.h',['../symbol__table_8h.html',1,'']]]
 ];

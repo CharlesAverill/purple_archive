@@ -17,6 +17,8 @@ Lexical Scanner function headers.
 int \mbox{\hyperlink{scan_8h_a6252179230f8804c22ab8d8f701aab86}{scan}} (struct \mbox{\hyperlink{structtoken}{token}} $\ast$t)
 \item 
 void \mbox{\hyperlink{scan_8h_ab5b1311c807df7500258a55ca644ae7c}{match}} (\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} ttype)
+\item 
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} \mbox{\hyperlink{scan_8h_a8961f66f4916886744c424d61e9433d5}{match\+\_\+datatype}} (void)
 \end{DoxyCompactItemize}
 
 
@@ -45,6 +47,15 @@ Forces an exit if GToken\textquotesingle{}s Token\+\_\+\+Type does not match the
 {\em str} & The name of the keyword to match \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{scan_8h_a8961f66f4916886744c424d61e9433d5}\label{scan_8h_a8961f66f4916886744c424d61e9433d5}} 
+\index{scan.h@{scan.h}!match\_datatype@{match\_datatype}}
+\index{match\_datatype@{match\_datatype}!scan.h@{scan.h}}
+\doxysubsubsection{\texorpdfstring{match\_datatype()}{match\_datatype()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} match\+\_\+datatype (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Forces an exit if GToken\textquotesingle{}s Token\+\_\+\+Type does not match a datatype (int, char, float, etc.) \begin{DoxyReturn}{Returns}
+The matched datatype 
+\end{DoxyReturn}
 \mbox{\Hypertarget{scan_8h_a6252179230f8804c22ab8d8f701aab86}\label{scan_8h_a6252179230f8804c22ab8d8f701aab86}} 
 \index{scan.h@{scan.h}!scan@{scan}}
 \index{scan@{scan}!scan.h@{scan.h}}

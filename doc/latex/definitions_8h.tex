@@ -33,6 +33,8 @@ typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperl
 typedef struct \mbox{\hyperlink{structsymbol}{symbol}} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}}
 \item 
 typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a84f30e066439c6170eec169dc92b81cb}{Comparison\+\_\+\+Mode}}
+\item 
+typedef enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}} \mbox{\hyperlink{definitions_8h_a86557600aff296bf23917553c7cf25a8}{Datatype\+\_\+\+Sizes}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -63,12 +65,14 @@ enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a141e88afb82d0cd392318a5c3534c33a}{T\+\_\+\+IDENTIFIER}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa30cbb0eb56b7263a35f9d6643e12c83}{T\+\_\+\+INT}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}{T\+\_\+\+IF}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a5f7c020be1b8580c81cc9f88b068516d}{T\+\_\+\+AS}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}{T\+\_\+\+IF}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}{T\+\_\+\+ELSE}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\+\_\+\+WHILE}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\+\_\+\+WHILE}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}{T\+\_\+\+WITH}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\+\_\+\+AST\+\_\+\+GLUE}}
  \}
 \begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\item 
@@ -80,6 +84,9 @@ enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparis
 , \newline
 \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}{CMP\+\_\+\+EQ}}
 , \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}{CMP\+\_\+\+NE}}
+ \}
+\item 
+enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}} \{ \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}{SIZE\+\_\+\+INT}} = 4
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -135,7 +142,13 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{Comparison\_Mode}{Comparison\_Mode}}
 {\footnotesize\ttfamily typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}
 
-Enum defining comparison modes for assembly generation \mbox{\Hypertarget{definitions_8h_ab2f49544a431c27c6519cdfacc979353}\label{definitions_8h_ab2f49544a431c27c6519cdfacc979353}} 
+Enum defining comparison modes for assembly generation \mbox{\Hypertarget{definitions_8h_a86557600aff296bf23917553c7cf25a8}\label{definitions_8h_a86557600aff296bf23917553c7cf25a8}} 
+\index{definitions.h@{definitions.h}!Datatype\_Sizes@{Datatype\_Sizes}}
+\index{Datatype\_Sizes@{Datatype\_Sizes}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Datatype\_Sizes}{Datatype\_Sizes}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}} \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}}}
+
+Enum defining the size of each datatype \mbox{\Hypertarget{definitions_8h_ab2f49544a431c27c6519cdfacc979353}\label{definitions_8h_ab2f49544a431c27c6519cdfacc979353}} 
 \index{definitions.h@{definitions.h}!symbol@{symbol}}
 \index{symbol@{symbol}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{symbol}{symbol}}
@@ -185,6 +198,18 @@ CMP\+\_\+\+EQ&\\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{CMP\_NE@{CMP\_NE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!CMP\_NE@{CMP\_NE}}}\mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}} 
 CMP\+\_\+\+NE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}\label{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}} 
+\index{definitions.h@{definitions.h}!Datatype\_Sizes@{Datatype\_Sizes}}
+\index{Datatype\_Sizes@{Datatype\_Sizes}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Datatype\_Sizes}{Datatype\_Sizes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}}}
+
+Enum defining the size of each datatype \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIZE\_INT@{SIZE\_INT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!SIZE\_INT@{SIZE\_INT}}}\mbox{\Hypertarget{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}\label{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}} 
+SIZE\+\_\+\+INT&\\
 \hline
 
 \end{DoxyEnumFields}
@@ -279,6 +304,10 @@ T\+\_\+\+IDENTIFIER&Identifier name \\
 T\+\_\+\+INT&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_AS@{T\_AS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_AS@{T\_AS}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a5f7c020be1b8580c81cc9f88b068516d}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a5f7c020be1b8580c81cc9f88b068516d}} 
+T\+\_\+\+AS&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_IF@{T\_IF}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_IF@{T\_IF}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}} 
 T\+\_\+\+IF&\\
 \hline
@@ -293,6 +322,10 @@ T\+\_\+\+PRINT&\\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_WHILE@{T\_WHILE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_WHILE@{T\_WHILE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}} 
 T\+\_\+\+WHILE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_WITH@{T\_WITH}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_WITH@{T\_WITH}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}} 
+T\+\_\+\+WITH&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_AST\_LEFT\_VALUE\_IDENTIFIER@{T\_AST\_LEFT\_VALUE\_IDENTIFIER}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_AST\_LEFT\_VALUE\_IDENTIFIER@{T\_AST\_LEFT\_VALUE\_IDENTIFIER}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}} 
@@ -352,31 +385,15 @@ Operator precedence values. Precedence ranges from 0-\/15, 15 being the first to
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}EOF"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}+"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}-\/"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}*"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}/"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}=="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}!="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}<"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}>"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}<="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}>="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}integer literal"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{};"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}("{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{})"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}\{"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}\}"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}identifier"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}int"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}print"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}if"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}else"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}while"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}LValue Identifier"{}},}
+\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}EOF"{}},        \textcolor{stringliteral}{"{}+"{}},    \textcolor{stringliteral}{"{}-\/"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},    \textcolor{stringliteral}{"{}=="{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}!="{}},         \textcolor{stringliteral}{"{}<"{}},    \textcolor{stringliteral}{"{}>"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}<="{}},         \textcolor{stringliteral}{"{}>="{}},   \textcolor{stringliteral}{"{}integer literal"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{};"{}},          \textcolor{stringliteral}{"{}="{}},    \textcolor{stringliteral}{"{}("{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{})"{}},          \textcolor{stringliteral}{"{}\{"{}},    \textcolor{stringliteral}{"{}\}"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}},  \textcolor{stringliteral}{"{}as"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}if"{}},         \textcolor{stringliteral}{"{}else"{}}, \textcolor{stringliteral}{"{}print"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}while"{}},      \textcolor{stringliteral}{"{}with"{}}, \textcolor{stringliteral}{"{}LValue Identifier"{}},}
 \DoxyCodeLine{                                \textcolor{stringliteral}{"{}AST Glue"{}}\}}
 
 \end{DoxyCode}
