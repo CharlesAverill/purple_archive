@@ -66,13 +66,13 @@ typedef struct ASM_Generators {
 
     /**Compare the values of two registers and place it in a register*/
     int (*compare)(FILE *fp, int r1, int r2, Comparison_Mode mode);
-	/**Compare the values of two registers and jump to a label*/
-	int (*compare_and_jump)(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index);
-	
-	/**Generate a label*/
-	void (*label)(FILE *fp, int label_index);
-	/**Jump to a label*/
-	void (*jump_to_label)(FILE *fp, int label_index);
+    /**Compare the values of two registers and jump to a label*/
+    int (*compare_and_jump)(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index);
+
+    /**Generate a label*/
+    void (*label)(FILE *fp, int label_index);
+    /**Jump to a label*/
+    void (*jump_to_label)(FILE *fp, int label_index);
 
     /**Create a global variable*/
     void (*create_global_variable)(FILE *fp, char *identifier, int stack_size);

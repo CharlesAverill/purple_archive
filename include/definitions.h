@@ -47,22 +47,46 @@ typedef enum Token_Type {
     T_INT,
 
     // Keywords
-    T_PRINT,
     T_IF,
     T_ELSE,
+    T_PRINT,
+    T_WHILE,
 
     // AST-specific Types
     T_AST_LEFT_VALUE_IDENTIFIER,
-	/**Glues ASTs together*/
-	T_AST_GLUE,
+    /**Glues ASTs together*/
+    T_AST_GLUE,
 } Token_Type;
 
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {
-    "EOF", "+",     "-", "*",          "/",  "==", "!=", "<", ">", "<=", ">=", "integer literal",
-    ";", "=", "(", ")", "{", "}", "identifier", "int", "print", "if", "else", "LValue Identifier", "AST Glue"};
+static char *token_strings[] = {"EOF",
+                                "+",
+                                "-",
+                                "*",
+                                "/",
+                                "==",
+                                "!=",
+                                "<",
+                                ">",
+                                "<=",
+                                ">=",
+                                "integer literal",
+                                ";",
+                                "=",
+                                "(",
+                                ")",
+                                "{",
+                                "}",
+                                "identifier",
+                                "int",
+                                "print",
+                                "if",
+                                "else",
+                                "while",
+                                "LValue Identifier",
+                                "AST Glue"};
 
 /**
  * Operator precedence values. Precedence ranges from 0-15, 15 being the first to be computed
@@ -106,8 +130,8 @@ typedef struct AST_Node {
     Token_Type ttype;
     /**The left child of the AST Node*/
     struct AST_Node *left;
-	/**The middle child of the AST Node*/
-	struct AST_Node *mid;
+    /**The middle child of the AST Node*/
+    struct AST_Node *mid;
     /**The right child of the AST Node*/
     struct AST_Node *right;
     /**Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table*/
@@ -134,14 +158,7 @@ typedef struct symbol {
 } symbol;
 
 /**Enum defining comparison modes for assembly generation*/
-typedef enum Comparison_Mode {
-    CMP_LT,
-    CMP_LE,
-    CMP_GT,
-    CMP_GE,
-    CMP_EQ,
-    CMP_NE
-} Comparison_Mode;
+typedef enum Comparison_Mode { CMP_LT, CMP_LE, CMP_GT, CMP_GE, CMP_EQ, CMP_NE } Comparison_Mode;
 
 // Return NO_REGISTER if PIR functions do not return a register
 #define NO_REGISTER -1

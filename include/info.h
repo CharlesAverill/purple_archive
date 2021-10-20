@@ -9,7 +9,7 @@
 #define INFO_H
 
 #define PROJECT_NAME "TestName"
-#define PROJECT_VER  "TestVersion"
+#define PROJECT_VER "TestVersion"
 #define PROJECT_VER_MAJOR "TestMajor"
 #define PROJECT_VER_MINOR "TestMinor"
 #define PROJECT_VER_PATCH "TestPatch"
