@@ -114,6 +114,11 @@ static int scan_identifier(char c, char *buf, int character_limit)
 static Token_Type string_to_keyword(char *str)
 {
     switch (str[0]) {
+    case 'a':
+        if (!strcmp(str, "as")) {
+            return T_AS;
+        }
+        break;
     case 'e':
         if (!strcmp(str, "else")) {
             return T_ELSE;
@@ -134,6 +139,8 @@ static Token_Type string_to_keyword(char *str)
     case 'w':
         if (!strcmp(str, "while")) {
             return T_WHILE;
+        } else if (!strcmp(str, "with")) {
+            return T_WITH;
         }
         break;
     }
@@ -176,6 +183,25 @@ void match(Token_Type ttype)
                 D_LINE_NUMBER, token_strings[GToken._token]);
         shutdown(1);
     }
+}
+
+/**
+ * Forces an exit if GToken's Token_Type does not match a datatype (int, char, float, etc.)
+ * @return  The matched datatype
+ */
+Token_Type match_datatype(void)
+{
+    Token_Type out;
+    if (GToken._token >= T_INT && GToken._token <= T_INT) {
+        out = GToken._token;
+        scan(&GToken);
+    } else {
+        fprintf(stderr, "Type expected on line %d but got %s instead\n", D_LINE_NUMBER,
+                token_strings[GToken._token]);
+        shutdown(1);
+    }
+
+    return out;
 }
 
 /**

@@ -47,10 +47,12 @@ typedef enum Token_Type {
     T_INT,
 
     // Keywords
+    T_AS,
     T_IF,
     T_ELSE,
     T_PRINT,
     T_WHILE,
+    T_WITH,
 
     // AST-specific Types
     T_AST_LEFT_VALUE_IDENTIFIER,
@@ -61,31 +63,15 @@ typedef enum Token_Type {
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF",
-                                "+",
-                                "-",
-                                "*",
-                                "/",
-                                "==",
-                                "!=",
-                                "<",
-                                ">",
-                                "<=",
-                                ">=",
-                                "integer literal",
-                                ";",
-                                "=",
-                                "(",
-                                ")",
-                                "{",
-                                "}",
-                                "identifier",
-                                "int",
-                                "print",
-                                "if",
-                                "else",
-                                "while",
-                                "LValue Identifier",
+static char *token_strings[] = {"EOF",        "+",    "-",
+                                "*",          "/",    "==",
+                                "!=",         "<",    ">",
+                                "<=",         ">=",   "integer literal",
+                                ";",          "=",    "(",
+                                ")",          "{",    "}",
+                                "identifier", "int",  "as",
+                                "if",         "else", "print",
+                                "while",      "with", "LValue Identifier",
                                 "AST Glue"};
 
 /**
@@ -162,6 +148,11 @@ typedef enum Comparison_Mode { CMP_LT, CMP_LE, CMP_GT, CMP_GE, CMP_EQ, CMP_NE } 
 
 // Return NO_REGISTER if PIR functions do not return a register
 #define NO_REGISTER -1
+
+/**Enum defining the size of each datatype*/
+typedef enum Datatype_Sizes {
+    SIZE_INT = 4,
+} Datatype_Sizes;
 
 void shutdown(int exit_code);
 

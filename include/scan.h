@@ -18,5 +18,6 @@
 
 int scan(struct token *t);
 void match(Token_Type ttype);
+Token_Type match_datatype(void);
 
 #endif
