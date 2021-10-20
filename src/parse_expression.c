@@ -41,9 +41,7 @@ static AST_Node *build_terminal_node(token t)
         out = make_ast_leaf(T_INTLIT, t.value);
         break;
     case T_IDENTIFIER:
-        printf("Checking if %s exists %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
         position = global_symbol_exists(D_IDENTIFIER_BUFFER);
-        print_symbol_table();
         if (position == -1) {
             fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
             shutdown(1);
@@ -52,7 +50,7 @@ static AST_Node *build_terminal_node(token t)
         out = make_ast_leaf(T_IDENTIFIER, position);
         break;
     default:
-        fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
+        fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER, token_strings[t._token]);
         shutdown(1);
     }
 

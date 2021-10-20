@@ -50,6 +50,7 @@ typedef enum Token_Type {
     T_AS,
     T_IF,
     T_ELSE,
+	T_FOR,
     T_PRINT,
     T_WHILE,
     T_WITH,
@@ -70,7 +71,7 @@ static char *token_strings[] = {"EOF",        "+",    "-",
                                 ";",          "=",    "(",
                                 ")",          "{",    "}",
                                 "identifier", "int",  "as",
-                                "if",         "else", "print",
+                                "if",         "else", "for", "print",
                                 "while",      "with", "LValue Identifier",
                                 "AST Glue"};
 

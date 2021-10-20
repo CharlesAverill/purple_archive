@@ -124,6 +124,11 @@ static Token_Type string_to_keyword(char *str)
             return T_ELSE;
         }
         break;
+	case 'f':
+		if(!strcmp(str, "for")){
+			return T_FOR;
+		}
+		break;
     case 'i':
         if (!strcmp(str, "int")) {
             return T_INT;

@@ -25,9 +25,6 @@ static AST_Node *print_statement(void)
     root = parse_binary_expression(0);
     root = make_unary_ast_node(T_PRINT, root, 0);
 
-    // Last token must be a semicolon
-    match(T_SEMICOLON);
-
     return root;
 }
 
@@ -62,9 +59,6 @@ static AST_Node *assignment_statement(void)
 
     // Assembly left and right into AST
     root = make_ast_node(T_ASSIGNMENT, left, NULL, right, 0);
-
-    // Match for a semicolon
-    match(T_SEMICOLON);
 
     return root;
 }
@@ -101,7 +95,7 @@ AST_Node *if_statement(void)
 }
 
 /**
- * Parse an if statement
+ * Parse an while statement
  */
 AST_Node *while_statement(void)
 {
@@ -166,7 +160,87 @@ static AST_Node *with_as_statement(void)
 
     remove_global_symbol(as_identifier);
 
+	// Essentially we are saying:
+	// <type> temp_var = <expression>
+	// do compound statement
+	// Dereference temp_var
     return make_ast_node(T_AST_GLUE, assignment_root, NULL, body_root, 0);
+}
+
+/**
+ * Parse for statement
+ */
+static AST_Node *for_statement(void){
+	AST_Node *assignment_root;
+	AST_Node *condition_root;
+	AST_Node *post_operation_root;
+	AST_Node *body_root;
+	AST_Node *output;
+	
+	match(T_FOR);
+	match(T_LEFT_PARENTHESIS);
+	
+	// Get the loop assignment statement
+	assignment_root = parse_statement();
+	
+	match(T_SEMICOLON);
+	
+	// Get the loop condition
+	condition_root = parse_binary_expression(0);
+	if (condition_root->ttype < T_EQUALS || condition_root->ttype > T_GREATER_EQUAL) {
+        fprintf(stderr, "Uncrecognized comparison on line %d\n", D_LINE_NUMBER);
+        shutdown(1);
+    }
+	
+	match(T_SEMICOLON);
+	
+	// Get the post-loop operation
+	post_operation_root = parse_statement();
+	
+	// Close the statement
+	match(T_RIGHT_PARENTHESIS);
+	
+	// Fill in the body
+	body_root = parse_compound_statement();
+	
+	// Glue the subtrees together
+	output = make_ast_node(T_AST_GLUE, body_root, NULL, post_operation_root, 0);
+	output = make_ast_node(T_WHILE, condition_root, NULL, output, 0);
+	return make_ast_node(T_AST_GLUE, assignment_root, NULL, output, 0);
+}
+
+AST_Node *parse_statement(void){
+	AST_Node *root;
+	
+	switch (GToken._token) {
+	case T_PRINT:
+		root = print_statement();
+		break;
+	case T_INT:
+		variable_declaration();
+		root = NULL;
+		break;
+	case T_IDENTIFIER:
+		root = assignment_statement();
+		break;
+	case T_IF:
+		root = if_statement();
+		break;
+	case T_FOR:
+		root = for_statement();
+		break;
+	case T_WHILE:
+		root = while_statement();
+		break;
+	case T_WITH:
+		root = with_as_statement();
+		break;
+	default:
+		fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER, token_strings[GToken._token]);
+		shutdown(1);
+    }
+	
+	return root;
 }
 
 /**
@@ -180,39 +254,24 @@ AST_Node *parse_compound_statement(void)
     match(T_LEFT_BRACE);
 
     while (1) {
-        switch (GToken._token) {
-        case T_PRINT:
-            root = print_statement();
-            break;
-        case T_INT:
-            variable_declaration();
-            root = NULL;
-            break;
-        case T_IDENTIFIER:
-            root = assignment_statement();
-            break;
-        case T_IF:
-            root = if_statement();
-            break;
-        case T_WHILE:
-            root = while_statement();
-            break;
-        case T_WITH:
-            root = with_as_statement();
-            break;
-        case T_RIGHT_BRACE:
-            match(T_RIGHT_BRACE);
-            return left;
-        default:
-            fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
-        }
+        root = parse_statement();
 
         if (root) {
+			// Only some statements require a semicolon
+			if(root->ttype == T_PRINT || root->ttype == T_ASSIGNMENT){
+				match(T_SEMICOLON);
+			}
+			
             if (left == NULL) {
                 left = root;
             } else {
                 left = make_ast_node(T_AST_GLUE, left, NULL, root, 0);
             }
         }
+		
+		if(GToken._token == T_RIGHT_BRACE){
+			match(T_RIGHT_BRACE);
+			return left;
+		}
     }
 }

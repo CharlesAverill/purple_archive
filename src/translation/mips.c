@@ -31,7 +31,7 @@ void mips_postamble(FILE *fp)
 
 void mips_print_newline(FILE *fp)
 {
-    fputs("\tli\t$v0, 4\n"
+    fputs("\tori\t$v0, $zero, 4\n"
           "\tla\t$a0, newline\n"
           "\tsyscall\n"
           "\n",
