@@ -207,84 +207,6 @@ static int pir_div(int left, int right)
 }
 
 /**
- * PIR Is Equal logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_EQ);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Is Not Equal logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_not_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_NE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Less Than logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_less_than(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LT);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Greater Than logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_greater_than(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GT);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Greater Than or Equal to logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_greater_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Less Than or Equal to logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_less_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
  * PIR Global variable creation logic
  * NOTE: Only generates code for some platforms that support .comm directives
  * @param  identifier               The string defining the name of the variable
@@ -460,7 +382,8 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 			return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode, r);
 			free_all_registers();
 		} else {
-			return generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
+			out = generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
+            add_free_register(out == left_register ? right_register : left_register);
 		}
         break;
     // Literals

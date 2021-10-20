@@ -77,19 +77,68 @@ int mips_div(FILE *fp, int r1, int r2)
     return r2;
 }
 
-char *comparison_instructions[] = {"slt", "sle", "sgt", "sge", "seq", "sne"};
 int mips_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
 {
-    fprintf(fp, "\t%s\t%s, %s, %s\n", comparison_instructions[mode], mips_register_names[r2], mips_register_names[r1],
-            mips_register_names[r2]);
+    // MIPS typically only supports SLT
+    switch(mode){
+        case CMP_LT:
+            fprintf(fp, "\tslt\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r1], mips_register_names[r2]);
+            break;
+        case CMP_GT:
+            fprintf(fp, "\tslt\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r2], mips_register_names[r1]);
+            break;
+        case CMP_LE:
+            fprintf(fp, "\tslt\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r2], mips_register_names[r1]);
+            fprintf(fp, "\tori\t$at, $zero, 1\n");
+            fprintf(fp, "\tsubu\t%s, $at, %s\n", mips_register_names[r2], mips_register_names[r2]);
+            break;
+        case CMP_GE:
+            fprintf(fp, "\tslt\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r1], mips_register_names[r2]);
+            fprintf(fp, "\tori\t$at, $zero, 1\n");
+            fprintf(fp, "\tsubu\t%s, $at, %s\n", mips_register_names[r2], mips_register_names[r2]);
+            break;
+        case CMP_EQ:
+            fprintf(fp, "\tsubu\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r1], mips_register_names[r2]);
+            fprintf(fp, "\tori\t$at, $zero, 1\n");
+            fprintf(fp, "\tsltu\t%s, %s, $at\n", mips_register_names[r2], mips_register_names[r2]);
+            break;
+        case CMP_NE:
+            fprintf(fp, "\tsubu\t%s, %s, %s\n", mips_register_names[r2], mips_register_names[r1], mips_register_names[r2]);
+            fprintf(fp, "\tsltu\t%s, $zero, %s\n", mips_register_names[r2], mips_register_names[r2]);
+            break;
+    }
 
     return r2;
 }
 
 int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index){
-	switch(mode){
-		
-	}
+    // MIPS typically only supports BEQ and BNE
+    switch(mode){
+        case CMP_LT:
+            fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r2], mips_register_names[r1]);
+            fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
+            break;
+        case CMP_GT:
+            fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
+            fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
+            break;
+        case CMP_LE:
+            fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
+            fprintf(fp, "\tbeq\t$at, $zero, L%d\n", label_index);
+            break;
+        case CMP_GE:
+            fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r2], mips_register_names[r1]);
+            fprintf(fp, "\tbeq\t$at, $zero, L%d\n", label_index);
+            break;
+        case CMP_EQ:
+            fprintf(fp, "\tbne\t%s, %s, L%d\n", mips_register_names[r1], mips_register_names[r2], label_index);
+            break;
+        case CMP_NE:
+            fprintf(fp, "\tbeq\t%s, %s, L%d\n", mips_register_names[r1], mips_register_names[r2], label_index);
+            break;
+    }
+
+    return NO_REGISTER;
 }
 
 void mips_create_global_variable(FILE *fp, char *identifier, int size)
