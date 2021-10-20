@@ -15,6 +15,8 @@ static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperli
 \item 
 \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a93e386bc94207e931845db8a28f14d45}{if\+\_\+statement}} (void)
 \item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_ac786dd0ea3de3e79d2b14f662d33c4de}{while\+\_\+statement}} (void)
+\item 
 \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse__statement_8c_a13a7a7b64c6f8dd6fcb30e0be389a9e3}{parse\+\_\+compound\+\_\+statement}} (void)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
@@ -62,7 +64,13 @@ Parse a compound statement (anything between braces) and return its AST \mbox{\H
 \doxysubsubsection{\texorpdfstring{print\_statement()}{print\_statement()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ print\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Parse print statement 
+Parse print statement \mbox{\Hypertarget{parse__statement_8c_ac786dd0ea3de3e79d2b14f662d33c4de}\label{parse__statement_8c_ac786dd0ea3de3e79d2b14f662d33c4de}} 
+\index{parse\_statement.c@{parse\_statement.c}!while\_statement@{while\_statement}}
+\index{while\_statement@{while\_statement}!parse\_statement.c@{parse\_statement.c}}
+\doxysubsubsection{\texorpdfstring{while\_statement()}{while\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ while\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Parse an if statement 
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}\label{parse__statement_8c_a3e4e4c22290f59aecd7fc1f0b874a7df}} 

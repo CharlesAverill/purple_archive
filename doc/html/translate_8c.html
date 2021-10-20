@@ -112,6 +112,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae87490aea50c2abb4e1c5a1559b2dd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f85aac58e965d3a095d5cd9aa489b27"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a4f85aac58e965d3a095d5cd9aa489b27">if_ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
 <tr class="separator:a4f85aac58e965d3a095d5cd9aa489b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac085a598f7d1f587da0c87e4e8187c98"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ac085a598f7d1f587da0c87e4e8187c98">while_ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
+<tr class="separator:ac085a598f7d1f587da0c87e4e8187c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fe0335153d1aa2340570df4a1de20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a77fe0335153d1aa2340570df4a1de20d">ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n, int r, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> previous_operation)</td></tr>
 <tr class="separator:a77fe0335153d1aa2340570df4a1de20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b3c28c8c9c6be58552fdbff47614e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a3b3c28c8c9c6be58552fdbff47614e1d">generate_pir</a> (void)</td></tr>
@@ -323,7 +325,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The register containing the value of the AST </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NO_REGISTER </dd></dl>
 
 </div>
 </div>
@@ -715,6 +717,39 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Prints the contents of all registers </p>
+
+</div>
+</div>
+<a id="ac085a598f7d1f587da0c87e4e8187c98" name="ac085a598f7d1f587da0c87e4e8187c98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac085a598f7d1f587da0c87e4e8187c98">&#9670;&nbsp;</a></span>while_ast_to_pir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int while_ast_to_pir </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Generates Purple Intermediate Representation (PIR) assembly from a given while-statement AST </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The AST Node used to generate PIR </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>NO_REGISTER </dd></dl>
 
 </div>
 </div>

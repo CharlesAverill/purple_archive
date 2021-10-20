@@ -41,6 +41,8 @@ static int \mbox{\hyperlink{translate_8c_ae87490aea50c2abb4e1c5a1559b2dd4e}{pir\
 \item 
 static int \mbox{\hyperlink{translate_8c_a4f85aac58e965d3a095d5cd9aa489b27}{if\+\_\+ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
 \item 
+static int \mbox{\hyperlink{translate_8c_ac085a598f7d1f587da0c87e4e8187c98}{while\+\_\+ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n)
+\item 
 int \mbox{\hyperlink{translate_8c_a77fe0335153d1aa2340570df4a1de20d}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} previous\+\_\+operation)
 \item 
 void \mbox{\hyperlink{translate_8c_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
@@ -132,7 +134,7 @@ Generates Purple Intermediate Representation (PIR) assembly from a given if-\/st
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The register containing the value of the AST 
+NO\+\_\+\+REGISTER 
 \end{DoxyReturn}
 \mbox{\Hypertarget{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}\label{translate_8c_a57229982869eb60dd2923bcaf7a6fa7c}} 
 \index{translate.c@{translate.c}!initialize\_translator@{initialize\_translator}}
@@ -278,7 +280,21 @@ Index of the register containing the difference (left -\/ right)
 \doxysubsubsection{\texorpdfstring{print\_registers()}{print\_registers()}}
 {\footnotesize\ttfamily void print\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Prints the contents of all registers 
+Prints the contents of all registers \mbox{\Hypertarget{translate_8c_ac085a598f7d1f587da0c87e4e8187c98}\label{translate_8c_ac085a598f7d1f587da0c87e4e8187c98}} 
+\index{translate.c@{translate.c}!while\_ast\_to\_pir@{while\_ast\_to\_pir}}
+\index{while\_ast\_to\_pir@{while\_ast\_to\_pir}!translate.c@{translate.c}}
+\doxysubsubsection{\texorpdfstring{while\_ast\_to\_pir()}{while\_ast\_to\_pir()}}
+{\footnotesize\ttfamily static int while\+\_\+ast\+\_\+to\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates Purple Intermediate Representation (PIR) assembly from a given while-\/statement AST 
+\begin{DoxyParams}{Parameters}
+{\em n} & The AST Node used to generate PIR \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NO\+\_\+\+REGISTER 
+\end{DoxyReturn}
+
 
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{translate_8c_a407e36a6f93ed3fff85fb256b9c7005f}\label{translate_8c_a407e36a6f93ed3fff85fb256b9c7005f}} 
