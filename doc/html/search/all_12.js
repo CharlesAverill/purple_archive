@@ -25,13 +25,14 @@ var searchData=
   ['t_5fsemicolon_22',['T_SEMICOLON',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a4039443f93e2fd03579606d7b2d02dbf',1,'definitions.h']]],
   ['t_5fslash_23',['T_SLASH',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805aab6fe980d9e636005e0c90080985645a',1,'definitions.h']]],
   ['t_5fstar_24',['T_STAR',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a6fad6b41ffee1efe0dfc7b12a19c0672',1,'definitions.h']]],
-  ['token_25',['token',['../definitions_8h.html#a771467edb1f9006944af9d56a7668da7',1,'token():&#160;definitions.h'],['../structtoken.html',1,'token']]],
-  ['token_5fprecedence_26',['token_precedence',['../definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6',1,'definitions.h']]],
-  ['token_5fstrings_27',['token_strings',['../definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398',1,'definitions.h']]],
-  ['token_5ftype_28',['Token_Type',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805',1,'Token_Type():&#160;definitions.h'],['../definitions_8h.html#a9b892f38b792556cb5c7f029cb8865cd',1,'Token_Type():&#160;definitions.h']]],
-  ['translate_2ec_29',['translate.c',['../translate_8c.html',1,'']]],
-  ['translate_2eh_30',['translate.h',['../translate_8h.html',1,'']]],
-  ['tree_2ec_31',['tree.c',['../tree_8c.html',1,'']]],
-  ['tree_2eh_32',['tree.h',['../tree_8h.html',1,'']]],
-  ['ttype_33',['ttype',['../structAST__Node.html#a10fdcd68b9140de3a6c2ee0e9c10e3b7',1,'AST_Node']]]
+  ['t_5fwhile_25',['T_WHILE',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90',1,'definitions.h']]],
+  ['token_26',['token',['../definitions_8h.html#a771467edb1f9006944af9d56a7668da7',1,'token():&#160;definitions.h'],['../structtoken.html',1,'token']]],
+  ['token_5fprecedence_27',['token_precedence',['../definitions_8h.html#aaeafee1d3efeb28aee6fb93819aba2a6',1,'definitions.h']]],
+  ['token_5fstrings_28',['token_strings',['../definitions_8h.html#aac4b727eb90bfc1375ac629aa9e69398',1,'definitions.h']]],
+  ['token_5ftype_29',['Token_Type',['../definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805',1,'Token_Type():&#160;definitions.h'],['../definitions_8h.html#a9b892f38b792556cb5c7f029cb8865cd',1,'Token_Type():&#160;definitions.h']]],
+  ['translate_2ec_30',['translate.c',['../translate_8c.html',1,'']]],
+  ['translate_2eh_31',['translate.h',['../translate_8h.html',1,'']]],
+  ['tree_2ec_32',['tree.c',['../tree_8c.html',1,'']]],
+  ['tree_2eh_33',['tree.h',['../tree_8h.html',1,'']]],
+  ['ttype_34',['ttype',['../structAST__Node.html#a10fdcd68b9140de3a6c2ee0e9c10e3b7',1,'AST_Node']]]
 ];

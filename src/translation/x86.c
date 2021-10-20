@@ -98,10 +98,11 @@ int x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
 }
 
 char *jump_comparisons[] = {"jl", "jle", "jg", "jge", "jne", "je"};
-int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index){
-	fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r1], x86_register_names[r2]);
-	fprintf(fp, "\t%s\tL%d\n", jump_comparisons[mode], label_index);
-	return NO_REGISTER;
+int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index)
+{
+    fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r1], x86_register_names[r2]);
+    fprintf(fp, "\t%s\tL%d\n", jump_comparisons[mode], label_index);
+    return NO_REGISTER;
 }
 
 void x86_create_global_variable(FILE *fp, char *identifier, int size)
@@ -128,10 +129,6 @@ int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset
     return r;
 }
 
-void x86_label(FILE *fp, int label_index){
-	fprintf(fp, "L%d:\n", label_index);
-}
+void x86_label(FILE *fp, int label_index) { fprintf(fp, "L%d:\n", label_index); }
 
-void x86_jump_to_label(FILE *fp, int label_index){
-	fprintf(fp, "\tjmp\tL%d\n", label_index);
-}
+void x86_jump_to_label(FILE *fp, int label_index) { fprintf(fp, "\tjmp\tL%d\n", label_index); }

@@ -115,14 +115,14 @@ static Token_Type string_to_keyword(char *str)
 {
     switch (str[0]) {
     case 'e':
-		if(!strcmp(str, "else")){
-			return T_ELSE;
-		}
-		break;
+        if (!strcmp(str, "else")) {
+            return T_ELSE;
+        }
+        break;
     case 'i':
         if (!strcmp(str, "int")) {
             return T_INT;
-        } else if(!strcmp(str, "if")){
+        } else if (!strcmp(str, "if")) {
             return T_IF;
         }
         break;

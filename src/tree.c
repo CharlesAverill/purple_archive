@@ -32,7 +32,7 @@ AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *mid, AST_Nod
     // Assign values
     out->ttype = ttype;
     out->left = left;
-	out->mid = mid;
+    out->mid = mid;
     out->right = right;
     out->v.value = value;
 

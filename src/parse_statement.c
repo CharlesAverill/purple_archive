@@ -23,12 +23,12 @@ static AST_Node *print_statement(void)
 
     // Parse expression into AST
     root = parse_binary_expression(0);
-	root = make_unary_ast_node(T_PRINT, root, 0);
+    root = make_unary_ast_node(T_PRINT, root, 0);
 
     // Last token must be a semicolon
     match(T_SEMICOLON);
-	
-	return root;
+
+    return root;
 }
 
 /**
@@ -65,38 +65,39 @@ static AST_Node *assignment_statement(void)
 
     // Match for a semicolon
     match(T_SEMICOLON);
-	
-	return root;
+
+    return root;
 }
 
 /**
  * Parse an if statement
  */
-AST_Node *if_statement(void){
-	AST_Node *condition_root = NULL;
-	AST_Node *true_root = NULL;
-	AST_Node *false_root = NULL;
-	
-	match(T_IF);
-	match(T_LEFT_PARENTHESIS);
-	
-	condition_root = parse_binary_expression(0);
-	
-	if(condition_root->ttype < T_EQUALS || condition_root->ttype > T_GREATER_EQUAL){
-		fprintf(stderr, "Uncrecognized comparison on line %d\n", D_LINE_NUMBER);
-		shutdown(1);
-	}
-	
-	match(T_RIGHT_PARENTHESIS);
-	
-	true_root = parse_compound_statement();
-	
-	if(GToken._token == T_ELSE){
-		scan(&GToken);
-		false_root = parse_compound_statement();
-	}
-	
-	return make_ast_node(T_IF, condition_root, true_root, false_root, 0);
+AST_Node *if_statement(void)
+{
+    AST_Node *condition_root = NULL;
+    AST_Node *true_root = NULL;
+    AST_Node *false_root = NULL;
+
+    match(T_IF);
+    match(T_LEFT_PARENTHESIS);
+
+    condition_root = parse_binary_expression(0);
+
+    if (condition_root->ttype < T_EQUALS || condition_root->ttype > T_GREATER_EQUAL) {
+        fprintf(stderr, "Uncrecognized comparison on line %d\n", D_LINE_NUMBER);
+        shutdown(1);
+    }
+
+    match(T_RIGHT_PARENTHESIS);
+
+    true_root = parse_compound_statement();
+
+    if (GToken._token == T_ELSE) {
+        scan(&GToken);
+        false_root = parse_compound_statement();
+    }
+
+    return make_ast_node(T_IF, condition_root, true_root, false_root, 0);
 }
 
 /**
@@ -104,11 +105,11 @@ AST_Node *if_statement(void){
  */
 AST_Node *parse_compound_statement(void)
 {
-	AST_Node *left = NULL;
-	AST_Node *root;
-	
-	match(T_LEFT_BRACE);
-	
+    AST_Node *left = NULL;
+    AST_Node *root;
+
+    match(T_LEFT_BRACE);
+
     while (1) {
         switch (GToken._token) {
         case T_PRINT:
@@ -116,27 +117,27 @@ AST_Node *parse_compound_statement(void)
             break;
         case T_INT:
             variable_declaration();
-			root = NULL;
+            root = NULL;
             break;
         case T_IDENTIFIER:
             root = assignment_statement();
             break;
-		case T_IF:
-			root = if_statement();
-			break;
-		case T_RIGHT_BRACE:
-			match(T_RIGHT_BRACE);
-			return left;
+        case T_IF:
+            root = if_statement();
+            break;
+        case T_RIGHT_BRACE:
+            match(T_RIGHT_BRACE);
+            return left;
         default:
             fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
         }
-	
-		if(root){
-			if(left == NULL){
-				left = root;
-			} else {
-				left = make_ast_node(T_AST_GLUE, left, NULL, root, 0);
-			}
-		}
+
+        if (root) {
+            if (left == NULL) {
+                left = root;
+            } else {
+                left = make_ast_node(T_AST_GLUE, left, NULL, root, 0);
+            }
+        }
     }
 }
