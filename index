@@ -18,19 +18,21 @@
  * Purple uses C-style syntax, although this may change as the compiler is built
  *
  * ```
- * int bob;
- * int alice;
+ * {
+ *     int bob;
+ *     int alice;
  *
- * bob = 5;
- * alice = 10;
+ *     bob = 5;
+ *     alice = 10;
  *
- * print bob + alice; // 15
- * print bob > alice; // 0
+ *     print bob + alice; // 15
+ *     print bob > alice; // 0
  *
- * int bob_alice;
- * bob_alice = 10 + 10 + bob + alice; // 35
- * if(bob_alice > 30){
- *     print bob_alice;
+ *     int bob_alice;
+ *     bob_alice = 10 + 10 + bob + alice; // 35
+ *     if(bob_alice > 30){
+ *         print bob_alice;
+ *     }
  * }
  * ```
  *
