@@ -154,7 +154,7 @@ int remove_global_symbol(char *name)
 {
     int position = global_symbol_exists(name);
     if (position == -1) {
-        fprintf("Attempt to remove nonexistent symbol from symbol table on line %d\n",
+        fprintf(stderr, "Attempt to remove nonexistent symbol from symbol table on line %d\n",
                 D_LINE_NUMBER);
         shutdown(1);
     }
