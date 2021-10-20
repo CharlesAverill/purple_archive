@@ -1,0 +1,55 @@
+\hypertarget{parse_8h}{}\doxysection{include/parse.h File Reference}
+\label{parse_8h}\index{include/parse.h@{include/parse.h}}
+
+
+Expression parsing headers.  
+
+
+{\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}declaration.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}translation/translate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tree.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a1a55a902169fd68ec967131b427bc12b}{parse\+\_\+binary\+\_\+expression}} (int previous\+\_\+token\+\_\+precedence)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}{parse\+\_\+compound\+\_\+statement}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Expression parsing headers. 
+
+\begin{DoxyAuthor}{Author}
+Charles\+Averill 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06-\/Oct-\/2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parse_8h_a1a55a902169fd68ec967131b427bc12b}\label{parse_8h_a1a55a902169fd68ec967131b427bc12b}} 
+\index{parse.h@{parse.h}!parse\_binary\_expression@{parse\_binary\_expression}}
+\index{parse\_binary\_expression@{parse\_binary\_expression}!parse.h@{parse.h}}
+\doxysubsubsection{\texorpdfstring{parse\_binary\_expression()}{parse\_binary\_expression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+binary\+\_\+expression (\begin{DoxyParamCaption}\item[{int}]{previous\+\_\+token\+\_\+precedence }\end{DoxyParamCaption})}
+
+Given the precedence of the previous token, recursively parse binary expressions into an AST 
+\begin{DoxyParams}{Parameters}
+{\em previous\+\_\+token\+\_\+precedence} & The integer precedence value of the previous token \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An AST or AST Subtree of the binary expressions in D\+\_\+\+INPUT\+\_\+\+FILE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}\label{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}} 
+\index{parse.h@{parse.h}!parse\_compound\_statement@{parse\_compound\_statement}}
+\index{parse\_compound\_statement@{parse\_compound\_statement}!parse.h@{parse.h}}
+\doxysubsubsection{\texorpdfstring{parse\_compound\_statement()}{parse\_compound\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+compound\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Parse a compound statement (anything between braces) and return its AST 

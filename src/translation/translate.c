@@ -207,84 +207,6 @@ static int pir_div(int left, int right)
 }
 
 /**
- * PIR Is Equal logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_EQ);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Is Not Equal logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_not_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_NE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Less Than logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_less_than(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LT);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Greater Than logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_greater_than(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GT);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Greater Than or Equal to logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_greater_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_GE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
- * PIR Less Than or Equal to logic
- * @param  left                Index of the left register to compare
- * @param  right               Index of the right register to compare
- * @return       Index of the register containing the comparison result
- */
-static int pir_less_equal(int left, int right)
-{
-    int r = generators.compare(ASM_OUTPUT, left, right, CMP_LE);
-    add_free_register(r == left ? right : left);
-    return r;
-}
-
-/**
  * PIR Global variable creation logic
  * NOTE: Only generates code for some platforms that support .comm directives
  * @param  identifier               The string defining the name of the variable
@@ -333,40 +255,40 @@ static int LABEL_INDEX = 0;
 static int if_ast_to_pir(AST_Node *n){
 	int false_label_index;
 	int exit_label_index;
-	
+
 	// Generate label index for the false branch
 	false_label_index = LABEL_INDEX++;
-	
+
 	// Generate label index for exiting the if statement
 	// If there is no nelse, false_label_index = exit_label_index
 	if(n->right){
 		exit_label_index = LABEL_INDEX++;
 	}
-	
+
 	// Generate conditional code and a jump to the false label
 	ast_to_pir(n->left, false_label_index, n->ttype);
 	free_all_registers();
-	
+
 	// Generate ASM for compound statement if true
 	ast_to_pir(n->mid, NO_REGISTER, n->ttype);
 	free_all_registers();
-	
+
 	// If an else exists, generate the jump for it
 	if(n->right){
 		generators.jump_to_label(ASM_OUTPUT, exit_label_index);
 	}
-	
+
 	// Add the false label
 	generators.label(ASM_OUTPUT, false_label_index);
-	
+
 	// If an else exists, generate the else ASM and the label to skip it
 	if(n->right){
 		ast_to_pir(n->right, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		generators.label(ASM_OUTPUT, exit_label_index);
 	}
-	
+
 	return NO_REGISTER;
 }
 
@@ -382,9 +304,9 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     int left_register;
     int right_register;
     int out;
-	
+
 	// If-statement AST parsing takes precedence
-	
+
 	switch(n->ttype){
 	case T_IF:
 		return if_ast_to_pir(n);
@@ -393,14 +315,14 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 		// Generate left side
 		ast_to_pir(n->left, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		// Generate right side
 		ast_to_pir(n->right, NO_REGISTER, n->ttype);
 		free_all_registers();
-		
+
 		return NO_REGISTER;
 	}
-	
+
 	// Perform general AST parsing if not an IF statement or Glue
 
     if (n->left) {
@@ -409,7 +331,7 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     if (n->right) {
         right_register = ast_to_pir(n->right, left_register, n->ttype);
     }
-	
+
 	Comparison_Mode cmp_mode;
 
     switch (n->ttype) {
@@ -428,24 +350,40 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         break;
     // Comparison
     case T_EQUALS:
-		cmp_mode = CMP_EQ;
     case T_NOT_EQUALS:
-		cmp_mode = CMP_NE;
     case T_LESS:
-		cmp_mode = CMP_LT;
     case T_GREATER:
-		cmp_mode = CMP_GT;
     case T_LESS_EQUAL:
-		cmp_mode = CMP_LE;
     case T_GREATER_EQUAL:
-		cmp_mode = CMP_GE;
-			
+
+		switch(n->ttype){
+		case T_EQUALS:
+			cmp_mode = CMP_EQ;
+            break;
+		case T_NOT_EQUALS:
+			cmp_mode = CMP_NE;
+            break;
+		case T_LESS:
+			cmp_mode = CMP_LT;
+            break;
+		case T_GREATER:
+			cmp_mode = CMP_GT;
+            break;
+		case T_LESS_EQUAL:
+			cmp_mode = CMP_LE;
+            break;
+		case T_GREATER_EQUAL:
+			cmp_mode = CMP_GE;
+            break;
+		}
+
 		// For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
 		if(previous_operation == T_IF){
 			return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode, r);
 			free_all_registers();
 		} else {
-			return generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
+			out = generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
+            add_free_register(out == left_register ? right_register : left_register);
 		}
         break;
     // Literals
@@ -453,16 +391,23 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         out = pir_load_int(n->v.value);
         break;
     // Syntax
+	case T_PRINT:
+		pir_print_int(left_register);
+		free_all_registers();
+		out = NO_REGISTER;
+		break;
     case T_IDENTIFIER:
         out = pir_load_global(n->v.position);
         break;
     case T_ASSIGNMENT:
-        return right_register;
+        out = right_register;
+		break;
 	// AST-specific
     case T_AST_LEFT_VALUE_IDENTIFIER:
         out = pir_save_global(r, n->v.position);
+		break;
     default:
-        fprintf(stderr, "Unknown operator %s\n", token_strings[n->ttype]);
+        fprintf(stderr, "Unknown operator during ASM generation - %s\n", token_strings[n->ttype]);
         shutdown(1);
     }
 

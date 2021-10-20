@@ -1,0 +1,145 @@
+\hypertarget{structASM__Generators}{}\doxysection{ASM\+\_\+\+Generators Struct Reference}
+\label{structASM__Generators}\index{ASM\_Generators@{ASM\_Generators}}
+
+
+Struct containing pointers to the asm-\/generating functions used by the translator.  
+
+
+
+
+{\ttfamily \#include $<$translate.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_ac5419cf3368b0903babfa2f60136bc1c}{preamble}} )(FILE $\ast$fp)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a8a76d9f96a41f6b83160664335e161cd}{postamble}} )(FILE $\ast$fp)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_aca513de1fdef342cdd92e2b05872be13}{load\+\_\+int}} )(FILE $\ast$fp, int r, int value)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a94cd741566e788242d2dcb1146957d63}{print\+\_\+int}} )(FILE $\ast$fp, int r)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_adc772f5838386568a5508ad2514b8985}{add}} )(FILE $\ast$fp, int r1, int r2)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a6c0ecfad708a8a844119108ecc0ec98f}{sub}} )(FILE $\ast$fp, int r1, int r2)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_ae209809c34b3cbffb45980f9c92deb74}{mul}} )(FILE $\ast$fp, int r1, int r2)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a501a1ea72bba96486d4401999e640bc9}{div}} )(FILE $\ast$fp, int r1, int r2)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}{compare}} )(FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}{compare\+\_\+and\+\_\+jump}} )(FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a294441250bce00da7631f2f22a72b73f}{label}} )(FILE $\ast$fp, int label\+\_\+index)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_a74ac203599da39d5d92079576176bcc6}{jump\+\_\+to\+\_\+label}} )(FILE $\ast$fp, int label\+\_\+index)
+\item 
+void($\ast$ \mbox{\hyperlink{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}{create\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}{load\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+\item 
+int($\ast$ \mbox{\hyperlink{structASM__Generators_a778297134ab1d43025d97255f18fae59}{save\+\_\+global\+\_\+variable}} )(FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct containing pointers to the asm-\/generating functions used by the translator. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structASM__Generators_adc772f5838386568a5508ad2514b8985}\label{structASM__Generators_adc772f5838386568a5508ad2514b8985}} 
+\index{ASM\_Generators@{ASM\_Generators}!add@{add}}
+\index{add@{add}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{add}{add}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::add) (FILE $\ast$fp, int r1, int r2)}
+
+Add two integers \mbox{\Hypertarget{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}\label{structASM__Generators_a391a5643abb1f4a0eceaadd1ca042a56}} 
+\index{ASM\_Generators@{ASM\_Generators}!compare@{compare}}
+\index{compare@{compare}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{compare}{compare}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::compare) (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode)}
+
+Compare the values of two registers and place it in a register \mbox{\Hypertarget{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}\label{structASM__Generators_aa8bad4f01bd57983da7a3d2f5632793c}} 
+\index{ASM\_Generators@{ASM\_Generators}!compare\_and\_jump@{compare\_and\_jump}}
+\index{compare\_and\_jump@{compare\_and\_jump}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{compare\_and\_jump}{compare\_and\_jump}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::compare\+\_\+and\+\_\+jump) (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)}
+
+Compare the values of two registers and jump to a label \mbox{\Hypertarget{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}\label{structASM__Generators_acdf2d4ce34a52d3f3ba3996b164f743c}} 
+\index{ASM\_Generators@{ASM\_Generators}!create\_global\_variable@{create\_global\_variable}}
+\index{create\_global\_variable@{create\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{create\_global\_variable}{create\_global\_variable}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::create\+\_\+global\+\_\+variable) (FILE $\ast$fp, char $\ast$identifier, int stack\+\_\+size)}
+
+Create a global variable \mbox{\Hypertarget{structASM__Generators_a501a1ea72bba96486d4401999e640bc9}\label{structASM__Generators_a501a1ea72bba96486d4401999e640bc9}} 
+\index{ASM\_Generators@{ASM\_Generators}!div@{div}}
+\index{div@{div}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{div}{div}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::div) (FILE $\ast$fp, int r1, int r2)}
+
+Divide two integers \mbox{\Hypertarget{structASM__Generators_a74ac203599da39d5d92079576176bcc6}\label{structASM__Generators_a74ac203599da39d5d92079576176bcc6}} 
+\index{ASM\_Generators@{ASM\_Generators}!jump\_to\_label@{jump\_to\_label}}
+\index{jump\_to\_label@{jump\_to\_label}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{jump\_to\_label}{jump\_to\_label}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::jump\+\_\+to\+\_\+label) (FILE $\ast$fp, int label\+\_\+index)}
+
+Jump to a label \mbox{\Hypertarget{structASM__Generators_a294441250bce00da7631f2f22a72b73f}\label{structASM__Generators_a294441250bce00da7631f2f22a72b73f}} 
+\index{ASM\_Generators@{ASM\_Generators}!label@{label}}
+\index{label@{label}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::label) (FILE $\ast$fp, int label\+\_\+index)}
+
+Generate a label \mbox{\Hypertarget{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}\label{structASM__Generators_a4bfe0f02efbc4cb7ae39308d26784c0c}} 
+\index{ASM\_Generators@{ASM\_Generators}!load\_global\_variable@{load\_global\_variable}}
+\index{load\_global\_variable@{load\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{load\_global\_variable}{load\_global\_variable}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::load\+\_\+global\+\_\+variable) (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})}
+
+Load a variable from the stack into a register \mbox{\Hypertarget{structASM__Generators_aca513de1fdef342cdd92e2b05872be13}\label{structASM__Generators_aca513de1fdef342cdd92e2b05872be13}} 
+\index{ASM\_Generators@{ASM\_Generators}!load\_int@{load\_int}}
+\index{load\_int@{load\_int}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{load\_int}{load\_int}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::load\+\_\+int) (FILE $\ast$fp, int r, int value)}
+
+Load an integer value into register r \mbox{\Hypertarget{structASM__Generators_ae209809c34b3cbffb45980f9c92deb74}\label{structASM__Generators_ae209809c34b3cbffb45980f9c92deb74}} 
+\index{ASM\_Generators@{ASM\_Generators}!mul@{mul}}
+\index{mul@{mul}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{mul}{mul}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::mul) (FILE $\ast$fp, int r1, int r2)}
+
+Multiply two integers \mbox{\Hypertarget{structASM__Generators_a8a76d9f96a41f6b83160664335e161cd}\label{structASM__Generators_a8a76d9f96a41f6b83160664335e161cd}} 
+\index{ASM\_Generators@{ASM\_Generators}!postamble@{postamble}}
+\index{postamble@{postamble}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{postamble}{postamble}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::postamble) (FILE $\ast$fp)}
+
+ASM postamble code \mbox{\Hypertarget{structASM__Generators_ac5419cf3368b0903babfa2f60136bc1c}\label{structASM__Generators_ac5419cf3368b0903babfa2f60136bc1c}} 
+\index{ASM\_Generators@{ASM\_Generators}!preamble@{preamble}}
+\index{preamble@{preamble}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{preamble}{preamble}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::preamble) (FILE $\ast$fp)}
+
+ASM preamble code \mbox{\Hypertarget{structASM__Generators_a94cd741566e788242d2dcb1146957d63}\label{structASM__Generators_a94cd741566e788242d2dcb1146957d63}} 
+\index{ASM\_Generators@{ASM\_Generators}!print\_int@{print\_int}}
+\index{print\_int@{print\_int}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{print\_int}{print\_int}}
+{\footnotesize\ttfamily void($\ast$ ASM\+\_\+\+Generators\+::print\+\_\+int) (FILE $\ast$fp, int r)}
+
+Print an integer in register r \mbox{\Hypertarget{structASM__Generators_a778297134ab1d43025d97255f18fae59}\label{structASM__Generators_a778297134ab1d43025d97255f18fae59}} 
+\index{ASM\_Generators@{ASM\_Generators}!save\_global\_variable@{save\_global\_variable}}
+\index{save\_global\_variable@{save\_global\_variable}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{save\_global\_variable}{save\_global\_variable}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::save\+\_\+global\+\_\+variable) (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})}
+
+Save a variable from a register onto the stack \mbox{\Hypertarget{structASM__Generators_a6c0ecfad708a8a844119108ecc0ec98f}\label{structASM__Generators_a6c0ecfad708a8a844119108ecc0ec98f}} 
+\index{ASM\_Generators@{ASM\_Generators}!sub@{sub}}
+\index{sub@{sub}!ASM\_Generators@{ASM\_Generators}}
+\doxysubsubsection{\texorpdfstring{sub}{sub}}
+{\footnotesize\ttfamily int($\ast$ ASM\+\_\+\+Generators\+::sub) (FILE $\ast$fp, int r1, int r2)}
+
+Subtract two integers 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/translation/\mbox{\hyperlink{translate_8h}{translate.\+h}}\end{DoxyCompactItemize}

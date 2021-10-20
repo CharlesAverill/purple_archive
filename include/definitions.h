@@ -62,7 +62,7 @@ typedef enum Token_Type {
  */
 static char *token_strings[] = {
     "EOF", "+",     "-", "*",          "/",  "==", "!=", "<", ">", "<=", ">=", "integer literal",
-    ";",   "print", "=", "identifier", "int"};
+    ";", "=", "(", ")", "{", "}", "identifier", "int", "print", "if", "else", "LValue Identifier", "AST Glue"};
 
 /**
  * Operator precedence values. Precedence ranges from 0-15, 15 being the first to be computed
