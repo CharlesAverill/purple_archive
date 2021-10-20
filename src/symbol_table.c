@@ -30,6 +30,7 @@ void init_symbol_table(void)
 
 void print_symbol_table(void)
 {
+    printf("-----BEGIN SYMBOL TABLE-----\n");
     for (int i = 0; i < next_global_symbol_table_position; i++) {
         symbol sym = D_GLOBAL_SYMBOL_TABLE[i];
 
@@ -37,6 +38,7 @@ void print_symbol_table(void)
         printf("   Name:         %s\n", sym.name);
         printf("   Stack Offset: %d\n", sym.stack_offset);
     }
+    printf("-----END SYMBOL TABLE-----\n");
 }
 
 /**
@@ -70,7 +72,7 @@ static int _global_search(int low, int high, char *value)
  */
 int global_symbol_exists(char *name)
 {
-    return _global_search(0, next_global_symbol_table_position, name);
+    return _global_search(0, next_global_symbol_table_position - 1, name);
 }
 
 /**
@@ -98,9 +100,10 @@ static void _expand_global_symbol_table(void)
 /**
  * Insert a new symbol into the Global symbol table
  * @param  name               Name of the symbol to create
+ * @param  datatype           Data type of the symbol to create
  * @return      The position of the symbol in the Global symbol table
  */
-int insert_global_symbol(char *name)
+int insert_global_symbol(char *name, Token_Type datatype)
 {
     if (strlen(name) > MAX_SYMBOL_LEN) {
         fprintf(stderr, "Symbol %s on line %d is too long\n", name, D_LINE_NUMBER);
@@ -132,10 +135,36 @@ int insert_global_symbol(char *name)
     // Set symbol data
     strcpy(D_GLOBAL_SYMBOL_TABLE[position].name, name);
     D_GLOBAL_SYMBOL_TABLE[position].stack_offset = stack_offset;
-    D_GLOBAL_SYMBOL_TABLE[position].size = 4;
+
+    int set_size;
+    switch (datatype) {
+    case T_INT:
+        set_size = SIZE_INT;
+        break;
+    }
+    D_GLOBAL_SYMBOL_TABLE[position].size = set_size;
 
     // Update overall stack offset
-    stack_offset += 4;
+    stack_offset += set_size;
 
     return position;
+}
+
+int remove_global_symbol(char *name)
+{
+    int position = global_symbol_exists(name);
+    if (position == -1) {
+        fprintf("Attempt to remove nonexistent symbol from symbol table on line %d\n",
+                D_LINE_NUMBER);
+        shutdown(1);
+    }
+
+    next_global_symbol_table_position -= 1;
+
+    // Shift every symbol down the list
+    for (int i = next_global_symbol_table_position; i > position; i--) {
+        D_GLOBAL_SYMBOL_TABLE[i - 1] = D_GLOBAL_SYMBOL_TABLE[i];
+    }
+
+    return 0;
 }

@@ -126,6 +126,50 @@ AST_Node *while_statement(void)
 }
 
 /**
+ * Parse with-as statement
+ */
+static AST_Node *with_as_statement(void)
+{
+    AST_Node *expression_root;
+    AST_Node *declaration_root;
+    AST_Node *assignment_root;
+    AST_Node *body_root;
+
+    match(T_WITH);
+    match(T_LEFT_PARENTHESIS);
+
+    expression_root = parse_binary_expression(0);
+
+    match(T_AS);
+
+    // Must provide type
+    Token_Type datatype = match_datatype();
+    match(T_IDENTIFIER);
+
+    // Add to symbol table
+    int position = insert_global_symbol(D_IDENTIFIER_BUFFER, datatype);
+    pir_create_global(D_IDENTIFIER_BUFFER, D_GLOBAL_SYMBOL_TABLE[position].size);
+
+    // Copy buffer for removal later
+    char as_identifier[D_MAX_IDENTIFIER_LENGTH + 1];
+    strcpy(as_identifier, D_IDENTIFIER_BUFFER);
+
+    match(T_RIGHT_PARENTHESIS);
+
+    // Build AST leaf for left value identifier
+    declaration_root = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, position);
+
+    // Assembly left and right into AST
+    assignment_root = make_ast_node(T_ASSIGNMENT, expression_root, NULL, declaration_root, 0);
+
+    body_root = parse_compound_statement();
+
+    remove_global_symbol(as_identifier);
+
+    return make_ast_node(T_AST_GLUE, assignment_root, NULL, body_root, 0);
+}
+
+/**
  * Parse a compound statement (anything between braces) and return its AST
  */
 AST_Node *parse_compound_statement(void)
@@ -152,6 +196,9 @@ AST_Node *parse_compound_statement(void)
             break;
         case T_WHILE:
             root = while_statement();
+            break;
+        case T_WITH:
+            root = with_as_statement();
             break;
         case T_RIGHT_BRACE:
             match(T_RIGHT_BRACE);
