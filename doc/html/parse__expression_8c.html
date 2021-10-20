@@ -86,8 +86,6 @@ Functions</h2></td></tr>
 <tr class="separator:ad8c90be3bb2b9cf6fe22ebcaa82217a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a55a902169fd68ec967131b427bc12b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse__expression_8c.html#a1a55a902169fd68ec967131b427bc12b">parse_binary_expression</a> (int previous_token_precedence)</td></tr>
 <tr class="separator:a1a55a902169fd68ec967131b427bc12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f290684512e2d39d1307a0d6fca65fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse__expression_8c.html#a7f290684512e2d39d1307a0d6fca65fc">interpret_AST</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
-<tr class="separator:a7f290684512e2d39d1307a0d6fca65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Function for parsing expressions into ASTs. </p>
@@ -124,31 +122,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An AST Node built from the provided token, or an error if the token is non-terminal </dd></dl>
-
-</div>
-</div>
-<a id="a7f290684512e2d39d1307a0d6fca65fc" name="a7f290684512e2d39d1307a0d6fca65fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f290684512e2d39d1307a0d6fca65fc">&#9670;&nbsp;</a></span>interpret_AST()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int interpret_AST </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Interprets a given AST Node with operator precedence. Will print intermediate steps if D_DEBUG is 1 </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>AST Node to interpret </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The interpreted value of the AST Node </dd></dl>
 
 </div>
 </div>
