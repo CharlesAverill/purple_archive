@@ -85,7 +85,16 @@ int main(int argc, char *argv[])
 {
     init(argc, argv);
 
-    generate_pir();
+    // Initialize the Scanner
+    scan(&GToken);
+
+    // Parse program
+    AST_Node *root = parse_compound_statement();
+
+    print_symbol_table();
+
+    // Generate ASM
+    generate_pir(root);
 
     shutdown(0);
 }

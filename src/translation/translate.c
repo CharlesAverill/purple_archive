@@ -67,6 +67,8 @@ static void initialize_translator(void)
 
     switch (current_asm_mode) {
     case X86:
+        generators.data_section = x86_data_section;
+
         generators.preamble = x86_preamble;
         generators.postamble = x86_postamble;
 
@@ -88,6 +90,9 @@ static void initialize_translator(void)
         generators.save_global_variable = x86_save_global_variable;
         break;
     case MIPS:
+        //TODO: Add MIPS data section
+        // generators.data_section = MISSING;
+
         generators.preamble = mips_preamble;
         generators.postamble = mips_postamble;
 
@@ -453,9 +458,11 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 /**
  * Handle function for generating ASM
  */
-void generate_pir(void)
+void generate_pir(AST_Node *root)
 {
     initialize_translator();
+
+    generators.data_section(ASM_OUTPUT);
 
     // Reset all registers
     free_all_registers();
@@ -463,12 +470,7 @@ void generate_pir(void)
     // Add the assembly preamble
     generators.preamble(ASM_OUTPUT);
 
-    // Initialize the Scanner
-    scan(&GToken);
-
     // Parse everything into a single AST
-    AST_Node *root;
-    root = parse_compound_statement();
     ast_to_pir(root, NO_REGISTER, 0);
 
     // Add the assembly postamble

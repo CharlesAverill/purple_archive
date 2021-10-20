@@ -12,6 +12,8 @@
 
 #include "definitions.h"
 
+void x86_data_section(FILE *fp);
+
 void x86_preamble(FILE *fp);
 void x86_postamble(FILE *fp);
 

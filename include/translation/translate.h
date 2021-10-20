@@ -45,6 +45,8 @@ static Assembly_Mode current_asm_mode = -1;
  * @brief Struct containing pointers to the asm-generating functions used by the translator
  */
 typedef struct ASM_Generators {
+    /**ASM data section*/
+    void (*data_section)(FILE *fp);
     /**ASM preamble code*/
     void (*preamble)(FILE *fp);
     /**ASM postamble code*/
@@ -91,6 +93,6 @@ void pir_print_int(int r);
 void pir_create_global(char *identifier, int size);
 
 int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation);
-void generate_pir(void);
+void generate_pir(AST_Node *root);
 
 #endif

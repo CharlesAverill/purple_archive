@@ -6,9 +6,20 @@
 */
 
 #include "translation/x86.h"
+#include "symbol_table.h"
 
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
 char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
+
+void x86_data_section(FILE *fp) {
+    fputs("\t.data\n", fp);
+
+    for (int i = 0; i < global_symbol_table_len(); i++) {
+        symbol sym = D_GLOBAL_SYMBOL_TABLE[i];
+        fprintf(fp, "%s:\n", sym.name);
+        fprintf(fp, "\t.zero %d\n", sym.size);
+    }
+}
 
 void x86_preamble(FILE *fp)
 {
