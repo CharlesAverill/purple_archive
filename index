@@ -11,7 +11,8 @@
  * - Basic arithmetic parsing with precedence
  * - Comparisons
  * - Variable declaration and assignment
- * - If/Else statements
+ * - If, Else statements
+ * - While Loops
  *
  * @section Examples
  *
@@ -33,6 +34,13 @@
  *     if(bob_alice > 30){
  *         print bob_alice;
  *     }
+ *
+ *     int i;
+ *     i = 0;
+ *     while (i < 20) {
+ *         print i;
+ *         i = i + 1;
+       }
  * }
  * ```
  *
