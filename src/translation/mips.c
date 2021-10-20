@@ -122,20 +122,20 @@ int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int la
     // MIPS typically only supports BEQ and BNE
     switch (mode) {
     case CMP_LT:
-        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r2], mips_register_names[r1]);
-        fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
+        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
+        fprintf(fp, "\tbeq\t$at, $zero, L%d\n", label_index);
         break;
     case CMP_GT:
-        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
-        fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
-        break;
-    case CMP_LE:
-        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
-        fprintf(fp, "\tbeq\t$at, $zero, L%d\n", label_index);
-        break;
-    case CMP_GE:
         fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r2], mips_register_names[r1]);
         fprintf(fp, "\tbeq\t$at, $zero, L%d\n", label_index);
+        break;
+    case CMP_LE:
+        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r2], mips_register_names[r1]);
+        fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
+        break;
+    case CMP_GE:
+        fprintf(fp, "\tslt\t$at, %s, %s\n", mips_register_names[r1], mips_register_names[r2]);
+        fprintf(fp, "\tbne\t$at, $zero, L%d\n", label_index);
         break;
     case CMP_EQ:
         fprintf(fp, "\tbne\t%s, %s, L%d\n", mips_register_names[r1], mips_register_names[r2],
