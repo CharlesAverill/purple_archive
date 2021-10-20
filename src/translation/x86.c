@@ -97,7 +97,7 @@ int x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode)
     return r2;
 }
 
-char *jump_comparisons[] = {"jl", "jle", "jg", "jge", "jne", "je"};
+char *jump_comparisons[] = {"jle", "jl", "jge", "jg", "jne", "je"};
 int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int label_index)
 {
     fprintf(fp, "\tcmpq\t%s, %s\n", x86_register_names[r1], x86_register_names[r2]);

@@ -101,6 +101,31 @@ AST_Node *if_statement(void)
 }
 
 /**
+ * Parse an if statement
+ */
+AST_Node *while_statement(void)
+{
+    AST_Node *condition_root = NULL;
+    AST_Node *body_root = NULL;
+
+    match(T_WHILE);
+    match(T_LEFT_PARENTHESIS);
+
+    condition_root = parse_binary_expression(0);
+
+    if (condition_root->ttype < T_EQUALS || condition_root->ttype > T_GREATER_EQUAL) {
+        fprintf(stderr, "Uncrecognized comparison on line %d\n", D_LINE_NUMBER);
+        shutdown(1);
+    }
+
+    match(T_RIGHT_PARENTHESIS);
+
+    body_root = parse_compound_statement();
+
+    return make_ast_node(T_WHILE, condition_root, NULL, body_root, 0);
+}
+
+/**
  * Parse a compound statement (anything between braces) and return its AST
  */
 AST_Node *parse_compound_statement(void)
@@ -124,6 +149,9 @@ AST_Node *parse_compound_statement(void)
             break;
         case T_IF:
             root = if_statement();
+            break;
+        case T_WHILE:
+            root = while_statement();
             break;
         case T_RIGHT_BRACE:
             match(T_RIGHT_BRACE);

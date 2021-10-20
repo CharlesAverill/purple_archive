@@ -250,7 +250,7 @@ static int LABEL_INDEX = 0;
 /**
  * Generates Purple Intermediate Representation (PIR) assembly from a given if-statement AST
  * @param  n                         The AST Node used to generate PIR
- * @return       The register containing the value of the AST
+ * @return       NO_REGISTER
 */
 static int if_ast_to_pir(AST_Node *n)
 {
@@ -294,6 +294,39 @@ static int if_ast_to_pir(AST_Node *n)
 }
 
 /**
+ * Generates Purple Intermediate Representation (PIR) assembly from a given while-statement AST
+ * @param  n                         The AST Node used to generate PIR
+ * @return       NO_REGISTER
+*/
+static int while_ast_to_pir(AST_Node *n)
+{
+    int loop_label_index;
+    int exit_label_index;
+
+    // Generate label index for the loop and exit branches
+    loop_label_index = LABEL_INDEX++;
+    exit_label_index = LABEL_INDEX++;
+
+    generators.label(ASM_OUTPUT, loop_label_index);
+
+    // Generate conditional code and a jump to the exit label
+    ast_to_pir(n->left, exit_label_index, n->ttype);
+    free_all_registers();
+
+    // Generate ASM for compound statement
+    ast_to_pir(n->right, NO_REGISTER, n->ttype);
+    free_all_registers();
+
+    // Jump back to the loop label
+    generators.jump_to_label(ASM_OUTPUT, loop_label_index);
+
+    // Add the exit label
+    generators.label(ASM_OUTPUT, exit_label_index);
+
+    return NO_REGISTER;
+}
+
+/**
  * Generates Purple Intermediate Representation (PIR) assembly from a given AST
  * @param  n                         The AST Node used to generate PIR
  * @param  r                         Index of register used to store variables
@@ -311,7 +344,8 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     switch (n->ttype) {
     case T_IF:
         return if_ast_to_pir(n);
-        break;
+    case T_WHILE:
+        return while_ast_to_pir(n);
     case T_AST_GLUE:
         // Generate left side
         ast_to_pir(n->left, NO_REGISTER, n->ttype);
@@ -379,7 +413,7 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         }
 
         // For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
-        if (previous_operation == T_IF) {
+        if (previous_operation == T_IF || previous_operation == T_WHILE) {
             return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode,
                                                r);
             free_all_registers();

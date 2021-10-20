@@ -131,6 +131,11 @@ static Token_Type string_to_keyword(char *str)
             return T_PRINT;
         }
         break;
+    case 'w':
+        if (!strcmp(str, "while")) {
+            return T_WHILE;
+        }
+        break;
     }
 
     return -1;
