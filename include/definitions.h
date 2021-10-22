@@ -144,6 +144,13 @@ typedef struct symbol {
     int size;
 } symbol;
 
+typedef struct symbol_table {
+    symbol *symbols;
+    symbol_table *parent;
+    int length;
+    int next_position;
+} symbol_table;
+
 /**Enum defining comparison modes for assembly generation*/
 typedef enum Comparison_Mode { CMP_LT, CMP_LE, CMP_GT, CMP_GE, CMP_EQ, CMP_NE } Comparison_Mode;
 
