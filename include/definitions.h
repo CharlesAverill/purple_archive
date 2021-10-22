@@ -125,6 +125,7 @@ typedef struct AST_Node {
     union {
         int value;
         int position;
+        symbol_table *scope_symbol_table;
     } v;
 } AST_Node;
 
