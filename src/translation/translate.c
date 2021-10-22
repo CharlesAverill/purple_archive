@@ -67,6 +67,8 @@ static void initialize_translator(void)
 
     switch (current_asm_mode) {
     case X86:
+        generators.data_section = x86_data_section;
+
         generators.preamble = x86_preamble;
         generators.postamble = x86_postamble;
 
@@ -88,6 +90,9 @@ static void initialize_translator(void)
         generators.save_global_variable = x86_save_global_variable;
         break;
     case MIPS:
+        //TODO: Add MIPS data section
+        generators.data_section = mips_data_section;
+
         generators.preamble = mips_preamble;
         generators.postamble = mips_postamble;
 
@@ -225,9 +230,9 @@ void pir_create_global(char *identifier, int size)
 static int pir_load_global(int symbol_index)
 {
     int r = allocate_register();
-    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
+    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
 
-    generators.load_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    generators.load_global_variable(ASM_OUTPUT, r, sym.name);
     return r;
 }
 
@@ -239,7 +244,7 @@ static int pir_load_global(int symbol_index)
  */
 static int pir_save_global(int r, int symbol_index)
 {
-    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
+    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
     generators.save_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
     return r;
 }
@@ -453,9 +458,11 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 /**
  * Handle function for generating ASM
  */
-void generate_pir(void)
+void generate_pir(AST_Node *root)
 {
     initialize_translator();
+
+    generators.data_section(ASM_OUTPUT);
 
     // Reset all registers
     free_all_registers();
@@ -463,12 +470,7 @@ void generate_pir(void)
     // Add the assembly preamble
     generators.preamble(ASM_OUTPUT);
 
-    // Initialize the Scanner
-    scan(&GToken);
-
     // Parse everything into a single AST
-    AST_Node *root;
-    root = parse_compound_statement();
     ast_to_pir(root, NO_REGISTER, 0);
 
     // Add the assembly postamble

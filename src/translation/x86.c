@@ -10,6 +10,16 @@
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
 char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
 
+void x86_data_section(FILE *fp) {
+    fputs("\t.data\n", fp);
+
+    for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
+        symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[i];
+        fprintf(fp, "%s:\n", sym.name);
+        fprintf(fp, "\t.zero %d\n", sym.size);
+    }
+}
+
 void x86_preamble(FILE *fp)
 {
     fputs("\t.text\n"
@@ -111,20 +121,14 @@ void x86_create_global_variable(FILE *fp, char *identifier, int size)
     fprintf(fp, "\t.comm\t%s,8,8\n", identifier);
 }
 
-int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int x86_load_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the stack offset
-    (void)stack_offset;
-
     fprintf(fp, "\tmovq\t%s(\%%rip), %s\n", identifier, x86_register_names[r]);
     return r;
 }
 
-int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int x86_save_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the stack offset
-    (void)stack_offset;
-
     fprintf(fp, "\tmovq\t%s, %s(\%%rip)\n", x86_register_names[r], identifier);
     return r;
 }

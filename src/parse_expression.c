@@ -41,7 +41,7 @@ static AST_Node *build_terminal_node(token t)
         out = make_ast_leaf(T_INTLIT, t.value);
         break;
     case T_IDENTIFIER:
-        position = global_symbol_exists(D_IDENTIFIER_BUFFER);
+        position = symbol_exists(D_GLOBAL_SYMBOL_TABLE, D_IDENTIFIER_BUFFER);
         if (position == -1) {
             fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
             shutdown(1);
