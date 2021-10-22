@@ -146,9 +146,9 @@ typedef struct symbol {
 
 typedef struct symbol_table {
     symbol *symbols;
-    symbol_table *parent;
-    int length;
-    int next_position;
+    struct symbol_table *parent;
+    int max_length;
+    int cur_length;
 } symbol_table;
 
 /**Enum defining comparison modes for assembly generation*/

@@ -10,42 +10,44 @@
 /**Overall stack offset*/
 int stack_offset = 0;
 
-/**
- * Code for initializing the Global symbol table
- */
-void init_global_symbol_table(void)
-{
-    D_GLOBAL_SYMBOL_TABLE = malloc(global_symbol_table_length * sizeof(symbol));
-    if (D_GLOBAL_SYMBOL_TABLE == NULL) {
-        fprintf(stderr, "Unable to allocate memory for new AST Node");
-        shutdown(1);
-    }
-}
 
 /**
  * Code to make a symbol table
  * If the symbol table is the root symbol table (i.e. the global symbol table) parent should be null
  */
-void make_symbol_table(symbol_table *parent) {
+symbol_table *make_symbol_table(symbol_table *parent) {
     symbol_table *symtab = malloc(sizeof(symbol_table));
     if(symtab == NULL) {
-        printf(stderr, "Unable to allocate memory for symbol table");
+        fprintf(stderr, "Unable to allocate memory for symbol table");
         shutdown(1);
     }
-    symtab->length = 64;
-    symtab->symbols = malloc(sizeof(symbol) * symtab->length);
+    symtab->max_length = 64;
+    symtab->symbols = malloc(sizeof(symbol) * symtab->max_length);
     if(symtab->symbols == NULL) {
-        printf(stderr, "Unable to allocate memory for symbol table array");
+        fprintf(stderr, "Unable to allocate memory for symbol table array");
         shutdown(1);
     }
-    symtab->next_position = 0;
+    symtab->cur_length= 0;
     symtab->parent = parent;
+    return symtab;
+}
+
+/**
+ * Code for initializing the Global symbol table
+ */
+void init_global_symbol_table(void)
+{
+    D_GLOBAL_SYMBOL_TABLE = make_symbol_table(NULL);
+    if (D_GLOBAL_SYMBOL_TABLE == NULL) {
+        fprintf(stderr, "Unable to allocate memory for global symbol table");
+        shutdown(1);
+    }
 }
 
 void print_symbol_table(symbol_table *table)
 {
     printf("-----BEGIN SYMBOL TABLE-----\n");
-    for (int i = 0; i < table->next_position; i++) {
+    for (int i = 0; i < table->cur_length; i++) {
         symbol sym = table->symbols[i];
 
         printf("---SYMBOL %d---\n", i);
@@ -73,10 +75,10 @@ static int _search(symbol_table *symtab, int low, int high, char *value)
 
     // Compare first characters of value and symbol at mid
     if (strcmp(value, symtab->symbols[mid].name) > 0) {
-        return _search(mid + 1, high, value);
+        return _search(symtab, mid + 1, high, value);
     }
 
-    return _search(low, mid - 1, value);
+    return _search(symtab, low, mid - 1, value);
 }
 
 /**
@@ -86,7 +88,7 @@ static int _search(symbol_table *symtab, int low, int high, char *value)
  */
 int symbol_exists(symbol_table *symtab, char *name)
 {
-    return _search(symtab, 0, symtab->next_position-1, name);
+    return _search(symtab, 0, symtab->cur_length-1, name);
 }
 
 /**
@@ -95,18 +97,18 @@ int symbol_exists(symbol_table *symtab, char *name)
 static void _expand_symbol_table(symbol_table *symtab)
 {
     // Check for length overflow
-    if (symbol_table->length * 2 < symbol->table->length) {
+    if (symtab->max_length * 2 < symtab->max_length) {
         fprintf(stderr, "Symbol table length overflow, too many symbols\n");
         shutdown(1);
     }
 
     // Double the length of the symbol table every time its bounds are exceeded
-    symbol_table->length *= 2;
+    symtab->max_length *= 2;
 
-    symbol_table->symbols = (symbol *)realloc(symbol_table->symbols, symbol_table->length);
-    if (symbol_table->symbols == NULL) {
+    symtab->symbols = (symbol *)realloc(symtab->symbols, symtab->max_length);
+    if (symtab->symbols == NULL) {
         fprintf(stderr, "Error when attempting to resize symbol table to %d elements\n",
-                symbol_table->length);
+                symtab->max_length);
         shutdown(1);
     }
 }
@@ -132,8 +134,8 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
     }
 
     // Get next available table position
-    position = symtab->next_position++;
-    if (position >= symtab->length) {
+    position = symtab->cur_length++;
+    if (position >= symtab->max_length) {
         _expand_symbol_table(symtab);
     }
 

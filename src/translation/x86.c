@@ -14,8 +14,8 @@ char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
 void x86_data_section(FILE *fp) {
     fputs("\t.data\n", fp);
 
-    for (int i = 0; i < global_symbol_table_len(); i++) {
-        symbol sym = D_GLOBAL_SYMBOL_TABLE[i];
+    for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
+        symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[i];
         fprintf(fp, "%s:\n", sym.name);
         fprintf(fp, "\t.zero %d\n", sym.size);
     }

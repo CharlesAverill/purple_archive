@@ -11,12 +11,10 @@
 #include "data.h"
 #include "definitions.h"
 
-void init_symbol_table(void);
-int global_symbol_exists(char *name);
-int insert_global_symbol(char *name, Token_Type datatype);
-int remove_global_symbol(char *name);
-int global_symbol_table_len();
+void init_global_symbol_table(void);
+int symbol_exists(symbol_table *symtab, char *name);
+int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype);
 
-void print_symbol_table(void);
+void print_symbol_table(symbol_table *symtab);
 
 #endif
