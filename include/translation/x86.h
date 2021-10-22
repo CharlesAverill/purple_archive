@@ -10,7 +10,9 @@
 
 #include <stdio.h>
 
+#include "data.h"
 #include "definitions.h"
+#include "symbol_table.h"
 
 void x86_data_section(FILE *fp);
 
@@ -33,7 +35,7 @@ void x86_label(FILE *fp, int label_index);
 void x86_jump_to_label(FILE *fp, int label_index);
 
 void x86_create_global_variable(FILE *fp, char *identifier, int stack_size);
-int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
-int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
+int x86_load_global_variable(FILE *fp, int r, char *identifier);
+int x86_save_global_variable(FILE *fp, int r, char *identifier);
 
 #endif

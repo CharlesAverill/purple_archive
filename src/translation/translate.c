@@ -91,7 +91,7 @@ static void initialize_translator(void)
         break;
     case MIPS:
         //TODO: Add MIPS data section
-        // generators.data_section = MISSING;
+        generators.data_section = mips_data_section;
 
         generators.preamble = mips_preamble;
         generators.postamble = mips_postamble;
@@ -232,7 +232,7 @@ static int pir_load_global(int symbol_index)
     int r = allocate_register();
     symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
 
-    generators.load_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    generators.load_global_variable(ASM_OUTPUT, r, sym.name);
     return r;
 }
 
