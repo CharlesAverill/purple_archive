@@ -85,9 +85,11 @@ static void initialize_translator(void)
         generators.label = x86_label;
         generators.jump_to_label = x86_jump_to_label;
 
-        generators.create_global_variable = x86_create_global_variable;
-        generators.load_global_variable = x86_load_global_variable;
-        generators.save_global_variable = x86_save_global_variable;
+        generators.enter_scope = x86_enter_scope;
+        generators.leave_scope = x86_leave_scope;
+
+        generators.load_variable = x86_load_variable;
+        generators.save_variable = x86_save_variable;
         break;
     case MIPS:
         //TODO: Add MIPS data section
@@ -109,9 +111,9 @@ static void initialize_translator(void)
         generators.label = mips_label;
         generators.jump_to_label = mips_jump_to_label;
 
-        generators.create_global_variable = mips_create_global_variable;
-        generators.load_global_variable = mips_load_global_variable;
-        generators.save_global_variable = mips_save_global_variable;
+        //TODO: Implement MIPS globals
+        //generators.load_global_variable = mips_load_global_variable;
+        //generators.save_global_variable = mips_save_global_variable;
         break;
     default:
         fprintf(stderr, "Error choosing an assembly mode\n");
@@ -212,40 +214,26 @@ static int pir_div(int left, int right)
 }
 
 /**
- * PIR Global variable creation logic
- * NOTE: Only generates code for some platforms that support .comm directives
- * @param  identifier               The string defining the name of the variable
- * @param  size                     The size of the data of the variable
- */
-void pir_create_global(char *identifier, int size)
-{
-    generators.create_global_variable(ASM_OUTPUT, identifier, size);
-}
-
-/**
- * PIR Load variable from stack logic
- * @param  symbol_index               Symbol table index of the variable to load
+ * PIR Load variable logic
+ * @param  identifier               
  * @return              The register the value has been loaded into
  */
-static int pir_load_global(int symbol_index)
+static int pir_load(char *identifier)
 {
     int r = allocate_register();
-    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
-
-    generators.load_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    generators.load_variable(ASM_OUTPUT, r, identifier);
     return r;
 }
 
 /**
- * PIR Save variable onto stack logic
+ * PIR Save variable logic
  * @param  r                          Register containing value to save
  * @param  symbol_index               Symbol table index of symbol to save
  * @return              Register containing value to save
  */
-static int pir_save_global(int r, int symbol_index)
+static int pir_save(int r, char *identifier)
 {
-    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
-    generators.save_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
+    generators.save_variable(ASM_OUTPUT, r, identifier);
     return r;
 }
 
@@ -438,14 +426,14 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
         out = NO_REGISTER;
         break;
     case T_IDENTIFIER:
-        out = pir_load_global(n->v.position);
+        out = pir_load(n->v.identifier);
         break;
     case T_ASSIGNMENT:
         out = right_register;
         break;
         // AST-specific
     case T_AST_LEFT_VALUE_IDENTIFIER:
-        out = pir_save_global(r, n->v.position);
+        out = pir_save(r, n->v.identifier);
         break;
     default:
         fprintf(stderr, "Unknown operator during ASM generation - %s\n", token_strings[n->ttype]);

@@ -15,6 +15,8 @@ void init_global_symbol_table(void);
 int symbol_exists(symbol_table *symtab, char *name);
 int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype);
 
+symbol* get_symbol(symbol_table *stack_top, char *name);
+
 void print_symbol_table(symbol_table *symtab);
 
 #endif

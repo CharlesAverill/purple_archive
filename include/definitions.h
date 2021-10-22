@@ -121,10 +121,10 @@ typedef struct AST_Node {
     struct AST_Node *mid;
     /**The right child of the AST Node*/
     struct AST_Node *right;
-    /**Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table*/
+    /**Union containing either the value of an integer literal, or the identifier of a symbol*/
     union {
         int value;
-        int position;
+        char *identifier;
     } v;
 } AST_Node;
 
@@ -138,7 +138,8 @@ typedef struct AST_Node {
 typedef struct symbol {
     /**Maximum symbol length is 63 characters and a null terminator*/
     char name[MAX_SYMBOL_LEN + 1];
-    /**This symbol's position on the stack*/
+    /**This symbol's position on the stack
+     * If this is a global it should be -1 */
     int stack_offset;
     /**The size of this symbol's data in bytes*/
     int size;
@@ -149,6 +150,8 @@ typedef struct symbol_table {
     struct symbol_table *parent;
     int max_length;
     int cur_length;
+    //size of all of the elments of this symbol table in bytes
+    int stack_offset;
 } symbol_table;
 
 /**Enum defining comparison modes for assembly generation*/
