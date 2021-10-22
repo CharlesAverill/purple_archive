@@ -93,7 +93,7 @@ static void initialize_translator(void)
         break;
     case MIPS:
         //TODO: Add MIPS data section
-        // generators.data_section = MISSING;
+        generators.data_section = mips_data_section;
 
         generators.preamble = mips_preamble;
         generators.postamble = mips_postamble;
@@ -211,6 +211,22 @@ static int pir_div(int left, int right)
     int r = generators.div(ASM_OUTPUT, left, right);
     add_free_register(r == left ? right : left);
     return r;
+}
+
+/**
+ * PIR Enter Scope Logic
+ * @param symtab    Symbol table of the new scope
+ */
+
+static void pir_enter_scope(symbol_table *symtab) {
+    generators.enter_scope(ASM_OUTPUT, symtab);
+}
+
+/**
+ * PIR Leave Scope Logic
+ */
+static void pir_leave_scope() {
+    generators.leave_scope(ASM_OUTPUT);
 }
 
 /**
@@ -338,8 +354,14 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     case T_IF:
         return if_ast_to_pir(n);
     case T_WHILE:
-        return while_ast_to_pir(n);
+        return  while_ast_to_pir(n);
+    case T_SCOPE:
+        pir_enter_scope(n->v.scope_symbol_table);
+        ast_to_pir(n->left, NO_REGISTER, n->ttype);
+        pir_leave_scope();
+        return NO_REGISTER;
     case T_AST_GLUE:
+
         // Generate left side
         ast_to_pir(n->left, NO_REGISTER, n->ttype);
         free_all_registers();
@@ -407,9 +429,10 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 
         // For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
         if (previous_operation == T_IF || previous_operation == T_WHILE) {
-            return generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode,
+            int val =  generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode,
                                                r);
             free_all_registers();
+            return val;
         } else {
             out = generators.compare(ASM_OUTPUT, left_register, right_register, cmp_mode);
             add_free_register(out == left_register ? right_register : left_register);

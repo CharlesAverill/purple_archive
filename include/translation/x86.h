@@ -10,7 +10,9 @@
 
 #include <stdio.h>
 
+#include "data.h"
 #include "definitions.h"
+#include "symbol_table.h"
 
 void x86_data_section(FILE *fp);
 

@@ -12,15 +12,16 @@
  * Code to make a symbol table
  * If the symbol table is the root symbol table (i.e. the global symbol table) parent should be null
  */
-symbol_table *make_symbol_table(symbol_table *parent) {
+symbol_table *make_symbol_table(symbol_table *parent)
+{
     symbol_table *symtab = malloc(sizeof(symbol_table));
-    if(symtab == NULL) {
+    if (symtab == NULL) {
         fprintf(stderr, "Unable to allocate memory for symbol table");
         shutdown(1);
     }
     symtab->max_length = 64;
     symtab->symbols = malloc(sizeof(symbol) * symtab->max_length);
-    if(symtab->symbols == NULL) {
+    if (symtab->symbols == NULL) {
         fprintf(stderr, "Unable to allocate memory for symbol table array");
         shutdown(1);
     }
@@ -87,7 +88,7 @@ static int _search(symbol_table *symtab, int low, int high, char *value)
  */
 int symbol_exists(symbol_table *symtab, char *name)
 {
-    return _search(symtab, 0, symtab->cur_length-1, name);
+    return _search(symtab, 0, symtab->cur_length - 1, name);
 }
 
 /**

@@ -10,7 +10,11 @@
 
 #include <stdio.h>
 
+#include "data.h"
 #include "definitions.h"
+#include "symbol_table.h"
+
+void mips_data_section(FILE *fp);
 
 void mips_preamble(FILE *fp);
 void mips_postamble(FILE *fp);
@@ -31,7 +35,7 @@ void mips_label(FILE *fp, int label_index);
 void mips_jump_to_label(FILE *fp, int label_index);
 
 void mips_create_global_variable(FILE *fp, char *identifier, int stack_size);
-int mips_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
-int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
+int mips_load_global_variable(FILE *fp, int r, char *identifier);
+int mips_save_global_variable(FILE *fp, int r, char *identifier);
 
 #endif

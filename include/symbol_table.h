@@ -12,6 +12,7 @@
 #include "definitions.h"
 
 void init_global_symbol_table(void);
+symbol_table *make_symbol_table(symbol_table *parent);
 int symbol_exists(symbol_table *symtab, char *name);
 int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype);
 

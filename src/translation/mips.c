@@ -9,11 +9,37 @@
 
 char *mips_register_names[] = {"$t0", "$t1", "$t2", "$t3"};
 
-void mips_preamble(FILE *fp)
+void mips_data_section(FILE *fp)
 {
     fputs(".data\n"
-          "newline:\t.asciiz\t\"\\n\"\n"
-          ".text\n"
+          "newline:\t.asciiz\t\"\\n\"\n",
+          fp);
+
+    for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
+        symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[i];
+
+        if(sym.size <= 32){
+            fprintf(fp, "%s:\t.word\t0", sym.name);
+        } else if(sym.size <= 64){
+            fprintf(fp, "%s:\t.double\t0", sym.name);
+        } else {
+            fprintf(stderr, "Symbol %s requires too much space - %d bytes\n", sym.name, sym.size);
+            shutdown(1);
+        }
+
+        // Use .space to offset anything that doesn't end on a word (4 byte) boundary
+        int remainder = sym.size % 4;
+        if(remainder != 0){
+            fprintf(fp, "\t.space\t%d", remainder);
+        }
+
+        fprintf(fp, "\n");
+    }
+}
+
+void mips_preamble(FILE *fp)
+{
+    fputs(".text\n"
           "main:\n"
           "\taddiu\t$fp, $sp, 0\n" // Set up stack frame
           "\n",
@@ -157,25 +183,20 @@ int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int la
 void mips_create_global_variable(FILE *fp, char *identifier, int size)
 {
     // MIPS does not universally support .comm, so uses the $fp register and stack offsets instead
-    fprintf(fp, "\tsubu\t$sp, $sp, %d\n", size);
+    // NOTE: This isn't going to happen yet
+    // fprintf(fp, "\tsubu\t$sp, $sp, %d\n", size);
     return;
 }
 
-int mips_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int mips_load_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the identifier
-    (void)identifier;
-
-    fprintf(fp, "\tlw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
+    fprintf(fp, "\tlw\t%s, %s\n", mips_register_names[r], identifier);
     return r;
 }
 
-int mips_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int mips_save_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the identifier
-    (void)identifier;
-
-    fprintf(fp, "\tsw\t%s, %d($fp)\n", mips_register_names[r], stack_offset);
+    fprintf(fp, "\tsw\t%s, %s\n", mips_register_names[r], identifier);
     return r;
 }
 

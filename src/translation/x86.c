@@ -6,7 +6,6 @@
 */
 
 #include "translation/x86.h"
-#include "symbol_table.h"
 
 symbol_table *symtab_stack;
 //stack offset of all symbol tables EXCEPT the current top of the stack
@@ -27,8 +26,6 @@ void x86_data_section(FILE *fp) {
 
 void x86_preamble(FILE *fp)
 {
-    symtab_stack = D_GLOBAL_SYMBOL_TABLE;
-
     fputs("\t.text\n"
           ".LC0:\n"
           "\t.string\t\"%d\\n\"\n"
@@ -123,8 +120,12 @@ int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int lab
 }
 
 void x86_enter_scope(FILE *fp, symbol_table *symtab) {
+    if(symtab_stack == NULL) {
+        symtab_stack = symtab;
+        return;
+    }
     if(symtab->parent != symtab_stack) {
-        fprintf(stderr, "x86 enter scope which is not child of existing scope");
+        fprintf(stderr, "x86 enter scope which is not child of existing scope\n");
         shutdown(1);
     }
     current_stack_offset += symtab->stack_offset;

@@ -59,6 +59,8 @@ typedef enum Token_Type {
     T_AST_LEFT_VALUE_IDENTIFIER,
     /**Glues ASTs together*/
     T_AST_GLUE,
+    /**New Scope*/
+    T_SCOPE,
 } Token_Type;
 
 /**
@@ -73,7 +75,7 @@ static char *token_strings[] = {"EOF",        "+",    "-",
                                 "identifier", "int",  "as",
                                 "if",         "else", "for", "print",
                                 "while",      "with", "LValue Identifier",
-                                "AST Glue"};
+                                "AST Glue", "Scope"};
 
 /**
  * Operator precedence values. Precedence ranges from 0-15, 15 being the first to be computed
@@ -108,25 +110,6 @@ typedef struct token {
     int value;
 } token;
 
-/**
- * @struct AST_Node
- * @brief This structure is used to build the AST for parsing
- */
-typedef struct AST_Node {
-    /**@brief The Token_Type of the given token*/
-    Token_Type ttype;
-    /**The left child of the AST Node*/
-    struct AST_Node *left;
-    /**The middle child of the AST Node*/
-    struct AST_Node *mid;
-    /**The right child of the AST Node*/
-    struct AST_Node *right;
-    /**Union containing either the value of an integer literal, or the identifier of a symbol*/
-    union {
-        int value;
-        char *identifier;
-    } v;
-} AST_Node;
 
 // Max symbol length in Purple is 63 characters and a null terminator
 #define MAX_SYMBOL_LEN 63
@@ -153,6 +136,27 @@ typedef struct symbol_table {
     //size of all of the elments of this symbol table in bytes
     int stack_offset;
 } symbol_table;
+
+/**
+ * @struct AST_Node
+ * @brief This structure is used to build the AST for parsing
+ */
+typedef struct AST_Node {
+    /**@brief The Token_Type of the given token*/
+    Token_Type ttype;
+    /**The left child of the AST Node*/
+    struct AST_Node *left;
+    /**The middle child of the AST Node*/
+    struct AST_Node *mid;
+    /**The right child of the AST Node*/
+    struct AST_Node *right;
+    /**Union containing either the value of an integer literal, or the identifier of a symbol*/
+    union {
+        int value;
+        char *identifier;
+        symbol_table *scope_symbol_table;
+    } v;
+} AST_Node;
 
 /**Enum defining comparison modes for assembly generation*/
 typedef enum Comparison_Mode { CMP_LT, CMP_LE, CMP_GT, CMP_GE, CMP_EQ, CMP_NE } Comparison_Mode;
