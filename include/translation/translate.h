@@ -79,9 +79,9 @@ typedef struct ASM_Generators {
     /**Create a global variable*/
     void (*create_global_variable)(FILE *fp, char *identifier, int stack_size);
     /**Load a variable from the stack into a register*/
-    int (*load_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
+    int (*load_global_variable)(FILE *fp, int r, char *identifier);
     /**Save a variable from a register onto the stack*/
-    int (*save_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
+    int (*save_global_variable)(FILE *fp, int r, char *identifier);
 } ASM_Generators;
 
 /**Struct containing the ASM generator functions for the current compilation*/

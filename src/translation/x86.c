@@ -6,7 +6,6 @@
 */
 
 #include "translation/x86.h"
-#include "symbol_table.h"
 
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
 char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
@@ -122,20 +121,14 @@ void x86_create_global_variable(FILE *fp, char *identifier, int size)
     fprintf(fp, "\t.comm\t%s,8,8\n", identifier);
 }
 
-int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int x86_load_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the stack offset
-    (void)stack_offset;
-
     fprintf(fp, "\tmovq\t%s(\%%rip), %s\n", identifier, x86_register_names[r]);
     return r;
 }
 
-int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset)
+int x86_save_global_variable(FILE *fp, int r, char *identifier)
 {
-    // Don't need the stack offset
-    (void)stack_offset;
-
     fprintf(fp, "\tmovq\t%s, %s(\%%rip)\n", x86_register_names[r], identifier);
     return r;
 }
