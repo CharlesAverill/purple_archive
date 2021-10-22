@@ -4,3 +4,8 @@ bin/*
 scripts/*
 *.out
 *.s
+.gdb_history
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake

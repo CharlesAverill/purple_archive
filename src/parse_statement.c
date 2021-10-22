@@ -142,7 +142,6 @@ static AST_Node *with_as_statement(void)
 
     // Add to symbol table
     int position = insert_global_symbol(D_IDENTIFIER_BUFFER, datatype);
-    pir_create_global(D_IDENTIFIER_BUFFER, D_GLOBAL_SYMBOL_TABLE[position].size);
 
     // Copy buffer for removal later
     char as_identifier[D_MAX_IDENTIFIER_LENGTH + 1];

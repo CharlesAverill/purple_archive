@@ -41,6 +41,14 @@ void print_symbol_table(void)
     printf("-----END SYMBOL TABLE-----\n");
 }
 
+
+/**
+ * Return the length of the global symbol table
+ */
+int global_symbol_table_len() {
+    return next_global_symbol_table_position;
+}
+
 /**
  * Binary search implementation to find a given symbol in the Global symbol table
  * @return       The index of the symbol, if it exists. Otherwise -1.
