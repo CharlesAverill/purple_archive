@@ -41,9 +41,9 @@ static AST_Node *assignment_statement(void)
     match(T_IDENTIFIER);
 
     // Check position of variable in Global symbol table
-    int position = global_symbol_exists(D_IDENTIFIER_BUFFER);
+    int position = symbol_exists(D_GLOBAL_SYMBOL_TABLE, D_IDENTIFIER_BUFFER);
     if (position == -1) {
-        print_symbol_table();
+        print_symbol_table(D_GLOBAL_SYMBOL_TABLE);
         fprintf(stderr, "Undefined variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
         shutdown(1);
     }
@@ -124,6 +124,8 @@ AST_Node *while_statement(void)
  */
 static AST_Node *with_as_statement(void)
 {
+    //TODO: Re implement this once we have locals
+    /*
     AST_Node *expression_root;
     AST_Node *declaration_root;
     AST_Node *assignment_root;
@@ -164,6 +166,7 @@ static AST_Node *with_as_statement(void)
 	// do compound statement
 	// Dereference temp_var
     return make_ast_node(T_AST_GLUE, assignment_root, NULL, body_root, 0);
+    */
 }
 
 /**

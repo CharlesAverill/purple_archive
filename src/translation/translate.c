@@ -230,7 +230,7 @@ void pir_create_global(char *identifier, int size)
 static int pir_load_global(int symbol_index)
 {
     int r = allocate_register();
-    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
+    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
 
     generators.load_global_variable(ASM_OUTPUT, r, sym.name);
     return r;
@@ -244,8 +244,8 @@ static int pir_load_global(int symbol_index)
  */
 static int pir_save_global(int r, int symbol_index)
 {
-    symbol sym = D_GLOBAL_SYMBOL_TABLE[symbol_index];
-    generators.save_global_variable(ASM_OUTPUT, r, sym.name);
+    symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[symbol_index];
+    generators.save_global_variable(ASM_OUTPUT, r, sym.name, sym.stack_offset);
     return r;
 }
 
