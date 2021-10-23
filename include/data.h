@@ -39,6 +39,6 @@ extern_ purple_args *args;
 extern_ token GToken;
 
 /**Global symbol table, sorted by symbol name*/
-extern_ symbol *D_GLOBAL_SYMBOL_TABLE;
+extern_ symbol_table *D_GLOBAL_SYMBOL_TABLE;
 
 #endif

@@ -33,7 +33,7 @@ static void init(int argc, char *argv[])
     D_LINE_NUMBER = 1;
     D_PUT_BACK = '\n';
 
-    init_symbol_table();
+    init_global_symbol_table();
 
     // Argument parsing
     args = malloc(sizeof(purple_args));
@@ -85,7 +85,14 @@ int main(int argc, char *argv[])
 {
     init(argc, argv);
 
-    generate_pir();
+    // Initialize the Scanner
+    scan(&GToken);
+
+    // Parse program
+    AST_Node *root = parse_compound_statement(NULL);
+
+    // Generate ASM
+    generate_pir(root);
 
     shutdown(0);
 }

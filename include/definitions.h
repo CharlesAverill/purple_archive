@@ -50,7 +50,7 @@ typedef enum Token_Type {
     T_AS,
     T_IF,
     T_ELSE,
-	T_FOR,
+    T_FOR,
     T_PRINT,
     T_WHILE,
     T_WITH,
@@ -59,21 +59,21 @@ typedef enum Token_Type {
     T_AST_LEFT_VALUE_IDENTIFIER,
     /**Glues ASTs together*/
     T_AST_GLUE,
+    /**New Scope*/
+    T_SCOPE,
 } Token_Type;
 
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF",        "+",    "-",
-                                "*",          "/",    "==",
-                                "!=",         "<",    ">",
-                                "<=",         ">=",   "integer literal",
-                                ";",          "=",    "(",
-                                ")",          "{",    "}",
-                                "identifier", "int",  "as",
-                                "if",         "else", "for", "print",
-                                "while",      "with", "LValue Identifier",
-                                "AST Glue"};
+static char *token_strings[] = {"EOF",      "+",     "-",          "*",
+                                "/",        "==",    "!=",         "<",
+                                ">",        "<=",    ">=",         "integer literal",
+                                ";",        "=",     "(",          ")",
+                                "{",        "}",     "identifier", "int",
+                                "as",       "if",    "else",       "for",
+                                "print",    "while", "with",       "LValue Identifier",
+                                "AST Glue", "Scope"};
 
 /**
  * Operator precedence values. Precedence ranges from 0-15, 15 being the first to be computed
@@ -108,6 +108,32 @@ typedef struct token {
     int value;
 } token;
 
+// Max symbol length in Purple is 63 characters and a null terminator
+#define MAX_SYMBOL_LEN 63
+
+/**
+ * @struct symbol
+ * @brief This structure contains data for a single symbol in a Symbol Table
+ */
+typedef struct symbol {
+    /**Maximum symbol length is 63 characters and a null terminator*/
+    char name[MAX_SYMBOL_LEN + 1];
+    /**This symbol's position on the stack
+     * If this is a global it should be -1 */
+    int stack_offset;
+    /**The size of this symbol's data in bytes*/
+    int size;
+} symbol;
+
+typedef struct symbol_table {
+    symbol *symbols;
+    struct symbol_table *parent;
+    int max_length;
+    int cur_length;
+    //size of all of the elments of this symbol table in bytes
+    int stack_offset;
+} symbol_table;
+
 /**
  * @struct AST_Node
  * @brief This structure is used to build the AST for parsing
@@ -121,28 +147,13 @@ typedef struct AST_Node {
     struct AST_Node *mid;
     /**The right child of the AST Node*/
     struct AST_Node *right;
-    /**Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table*/
+    /**Union containing either the value of an integer literal, or the identifier of a symbol*/
     union {
         int value;
-        int position;
+        char *identifier;
+        symbol_table *scope_symbol_table;
     } v;
 } AST_Node;
-
-// Max symbol length in Purple is 63 characters and a null terminator
-#define MAX_SYMBOL_LEN 63
-
-/**
- * @struct symbol
- * @brief This structure contains data for a single symbol in a Symbol Table
- */
-typedef struct symbol {
-    /**Maximum symbol length is 63 characters and a null terminator*/
-    char name[MAX_SYMBOL_LEN + 1];
-    /**This symbol's position on the stack*/
-    int stack_offset;
-    /**The size of this symbol's data in bytes*/
-    int size;
-} symbol;
 
 /**Enum defining comparison modes for assembly generation*/
 typedef enum Comparison_Mode { CMP_LT, CMP_LE, CMP_GT, CMP_GE, CMP_EQ, CMP_NE } Comparison_Mode;
