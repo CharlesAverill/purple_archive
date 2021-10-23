@@ -7,14 +7,15 @@
 
 #include "translation/x86.h"
 
-symbol_table *symtab_stack;
-//stack offset of all symbol tables EXCEPT the current top of the stack
-int current_stack_offset = 0;
+static symbol_table *symtab_stack;
+// Stack offset of all symbol tables EXCEPT the current top of the stack
+static int current_stack_offset = 0;
 
 char *x86_register_names[] = {"%r8", "%r9", "%r10", "%r11"};
 char *x86_byte_register_names[] = {"%r8b", "%r9b", "%r10b", "%r11b"};
 
-void x86_data_section(FILE *fp) {
+void x86_data_section(FILE *fp)
+{
     fputs("\t.data\n", fp);
 
     for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
@@ -119,12 +120,13 @@ int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int lab
     return NO_REGISTER;
 }
 
-void x86_enter_scope(FILE *fp, symbol_table *symtab) {
-    if(symtab_stack == NULL) {
+void x86_enter_scope(FILE *fp, symbol_table *symtab)
+{
+    if (symtab_stack == NULL) {
         symtab_stack = symtab;
         return;
     }
-    if(symtab->parent != symtab_stack) {
+    if (symtab->parent != symtab_stack) {
         fprintf(stderr, "x86 enter scope which is not child of existing scope\n");
         shutdown(1);
     }
@@ -132,7 +134,8 @@ void x86_enter_scope(FILE *fp, symbol_table *symtab) {
     symtab_stack = symtab;
 }
 
-void x86_leave_scope(FILE *fp) {
+void x86_leave_scope(FILE *fp)
+{
     current_stack_offset -= symtab_stack->stack_offset;
     symtab_stack = symtab_stack->parent;
 }
@@ -141,12 +144,13 @@ void x86_load_variable(FILE *fp, int r, char *identifier)
 {
     symbol *symbol = get_symbol(symtab_stack, identifier);
     //global variable
-    if(symbol->stack_offset == -1) {
+    if (symbol->stack_offset == -1) {
         fprintf(fp, "\tmovq\t%s(\%%rip), %s\n", identifier, x86_register_names[r]);
     }
     //local variable
     else {
-        fprintf(fp, "\tmovq\t-%d(\%%rbp), %s\n", symbol->stack_offset, x86_register_names[r]);
+        fprintf(fp, "\tmovq\t-%d(\%%rbp), %s\n", symbol->stack_offset + current_stack_offset,
+                x86_register_names[r]);
     }
 }
 
@@ -154,12 +158,13 @@ void x86_save_variable(FILE *fp, int r, char *identifier)
 {
     symbol *symbol = get_symbol(symtab_stack, identifier);
     //global variable
-    if(symbol->stack_offset == -1) {
+    if (symbol->stack_offset == -1) {
         fprintf(fp, "\tmovq\t%s, %s(\%%rip)\n", x86_register_names[r], identifier);
     }
     //local variable
     else {
-        fprintf(fp, "\tmovq\t%s, -%d(\%%rbp)\n", x86_register_names[r], symbol->stack_offset);
+        fprintf(fp, "\tmovq\t%s, -%d(\%%rbp)\n", x86_register_names[r],
+                symbol->stack_offset + current_stack_offset);
     }
 }
 

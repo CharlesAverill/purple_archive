@@ -7,6 +7,10 @@
 
 #include "translation/mips.h"
 
+static symbol_table *symtab_stack;
+// Stack offset of all symbol tables EXCEPT the current top of the stack
+static int current_stack_offset = 0;
+
 char *mips_register_names[] = {"$t0", "$t1", "$t2", "$t3"};
 
 void mips_data_section(FILE *fp)
@@ -18,9 +22,9 @@ void mips_data_section(FILE *fp)
     for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
         symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[i];
 
-        if(sym.size <= 32){
+        if (sym.size <= 32) {
             fprintf(fp, "%s:\t.word\t0", sym.name);
-        } else if(sym.size <= 64){
+        } else if (sym.size <= 64) {
             fprintf(fp, "%s:\t.double\t0", sym.name);
         } else {
             fprintf(stderr, "Symbol %s requires too much space - %d bytes\n", sym.name, sym.size);
@@ -29,7 +33,7 @@ void mips_data_section(FILE *fp)
 
         // Use .space to offset anything that doesn't end on a word (4 byte) boundary
         int remainder = sym.size % 4;
-        if(remainder != 0){
+        if (remainder != 0) {
             fprintf(fp, "\t.space\t%d", remainder);
         }
 
@@ -180,24 +184,51 @@ int mips_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int la
     return NO_REGISTER;
 }
 
-void mips_create_global_variable(FILE *fp, char *identifier, int size)
+void mips_enter_scope(FILE *fp, symbol_table *symtab)
 {
-    // MIPS does not universally support .comm, so uses the $fp register and stack offsets instead
-    // NOTE: This isn't going to happen yet
-    // fprintf(fp, "\tsubu\t$sp, $sp, %d\n", size);
-    return;
+    if (symtab_stack == NULL) {
+        symtab_stack = symtab;
+        return;
+    }
+    if (symtab->parent != symtab_stack) {
+        fprintf(stderr, "MIPS enter scope which is not child of existing scope\n");
+        shutdown(1);
+    }
+
+    current_stack_offset += symtab->stack_offset;
+    symtab_stack = symtab;
 }
 
-int mips_load_global_variable(FILE *fp, int r, char *identifier)
+void mips_leave_scope(FILE *fp)
 {
-    fprintf(fp, "\tlw\t%s, %s\n", mips_register_names[r], identifier);
-    return r;
+    current_stack_offset -= symtab_stack->stack_offset;
+    symtab_stack = symtab_stack->parent;
 }
 
-int mips_save_global_variable(FILE *fp, int r, char *identifier)
+void mips_load_variable(FILE *fp, int r, char *identifier)
 {
-    fprintf(fp, "\tsw\t%s, %s\n", mips_register_names[r], identifier);
-    return r;
+    symbol *symbol = get_symbol(symtab_stack, identifier);
+    if (symbol->stack_offset == -1) {
+        // Global variable, load from .data
+        fprintf(fp, "\tlw\t%s, %s\n", mips_register_names[r], identifier);
+    } else {
+        // Local variable, load from stack
+        fprintf(fp, "\tlw\t%s, %d($fp)\n", mips_register_names[r],
+                symbol->stack_offset + current_stack_offset);
+    }
+}
+
+void mips_save_variable(FILE *fp, int r, char *identifier)
+{
+    symbol *symbol = get_symbol(symtab_stack, identifier);
+    if (symbol->stack_offset == -1) {
+        // Global variable, save to .data
+        fprintf(fp, "\tsw\t%s, %s\n", mips_register_names[r], identifier);
+    } else {
+        // Local variable, save to stack
+        fprintf(fp, "\tsw\t%s, %d($fp)\n", mips_register_names[r],
+                symbol->stack_offset + current_stack_offset);
+    }
 }
 
 void mips_label(FILE *fp, int label_index) { fprintf(fp, "L%d:\n", label_index); }

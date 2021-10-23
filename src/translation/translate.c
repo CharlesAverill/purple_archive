@@ -92,7 +92,6 @@ static void initialize_translator(void)
         generators.save_variable = x86_save_variable;
         break;
     case MIPS:
-        //TODO: Add MIPS data section
         generators.data_section = mips_data_section;
 
         generators.preamble = mips_preamble;
@@ -111,9 +110,11 @@ static void initialize_translator(void)
         generators.label = mips_label;
         generators.jump_to_label = mips_jump_to_label;
 
-        //TODO: Implement MIPS globals
-        //generators.load_global_variable = mips_load_global_variable;
-        //generators.save_global_variable = mips_save_global_variable;
+        generators.enter_scope = mips_enter_scope;
+        generators.leave_scope = mips_leave_scope;
+
+        generators.load_variable = mips_load_variable;
+        generators.save_variable = mips_save_variable;
         break;
     default:
         fprintf(stderr, "Error choosing an assembly mode\n");
@@ -122,7 +123,7 @@ static void initialize_translator(void)
 
     ASM_OUTPUT = fopen(args->filenames[1], "w");
     if (ASM_OUTPUT == NULL) {
-        fprintf(stderr, "Error opening %s for writing intermediate assembly\n", args->filenames[1]);
+        fprintf(stderr, "Error opening %s for writing assembly\n", args->filenames[1]);
         shutdown(1);
     }
 }
@@ -218,20 +219,16 @@ static int pir_div(int left, int right)
  * @param symtab    Symbol table of the new scope
  */
 
-static void pir_enter_scope(symbol_table *symtab) {
-    generators.enter_scope(ASM_OUTPUT, symtab);
-}
+static void pir_enter_scope(symbol_table *symtab) { generators.enter_scope(ASM_OUTPUT, symtab); }
 
 /**
  * PIR Leave Scope Logic
  */
-static void pir_leave_scope() {
-    generators.leave_scope(ASM_OUTPUT);
-}
+static void pir_leave_scope() { generators.leave_scope(ASM_OUTPUT); }
 
 /**
  * PIR Load variable logic
- * @param  identifier               
+ * @param  identifier
  * @return              The register the value has been loaded into
  */
 static int pir_load(char *identifier)
@@ -354,7 +351,7 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
     case T_IF:
         return if_ast_to_pir(n);
     case T_WHILE:
-        return  while_ast_to_pir(n);
+        return while_ast_to_pir(n);
     case T_SCOPE:
         pir_enter_scope(n->v.scope_symbol_table);
         ast_to_pir(n->left, NO_REGISTER, n->ttype);
@@ -429,8 +426,8 @@ int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation)
 
         // For now, make if comparisons generate jumps, and general comparisons fill a register with 1 or 0
         if (previous_operation == T_IF || previous_operation == T_WHILE) {
-            int val =  generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode,
-                                               r);
+            int val =
+                generators.compare_and_jump(ASM_OUTPUT, left_register, right_register, cmp_mode, r);
             free_all_registers();
             return val;
         } else {

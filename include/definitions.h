@@ -50,7 +50,7 @@ typedef enum Token_Type {
     T_AS,
     T_IF,
     T_ELSE,
-	T_FOR,
+    T_FOR,
     T_PRINT,
     T_WHILE,
     T_WITH,
@@ -66,15 +66,13 @@ typedef enum Token_Type {
 /**
  * Token string equivalents
  */
-static char *token_strings[] = {"EOF",        "+",    "-",
-                                "*",          "/",    "==",
-                                "!=",         "<",    ">",
-                                "<=",         ">=",   "integer literal",
-                                ";",          "=",    "(",
-                                ")",          "{",    "}",
-                                "identifier", "int",  "as",
-                                "if",         "else", "for", "print",
-                                "while",      "with", "LValue Identifier",
+static char *token_strings[] = {"EOF",      "+",     "-",          "*",
+                                "/",        "==",    "!=",         "<",
+                                ">",        "<=",    ">=",         "integer literal",
+                                ";",        "=",     "(",          ")",
+                                "{",        "}",     "identifier", "int",
+                                "as",       "if",    "else",       "for",
+                                "print",    "while", "with",       "LValue Identifier",
                                 "AST Glue", "Scope"};
 
 /**
@@ -109,7 +107,6 @@ typedef struct token {
     /**If an integer literal, the token's value*/
     int value;
 } token;
-
 
 // Max symbol length in Purple is 63 characters and a null terminator
 #define MAX_SYMBOL_LEN 63
