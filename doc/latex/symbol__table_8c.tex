@@ -9,28 +9,21 @@ Symbol Table logic.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{symbol__table_8c_a071a517467c6490eba299705c51038bd}{init\+\_\+symbol\+\_\+table}} (void)
+\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$ \mbox{\hyperlink{symbol__table_8c_a0f9b909cc0917a5c9ba56203746538d5}{make\+\_\+symbol\+\_\+table}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$parent)
 \item 
-void \mbox{\hyperlink{symbol__table_8c_a3a40c5a66542e9fff0b17d411fbd5d3f}{print\+\_\+symbol\+\_\+table}} (void)
+void \mbox{\hyperlink{symbol__table_8c_ab53d25812ab51fcee7c71ae8c76bec20}{init\+\_\+global\+\_\+symbol\+\_\+table}} (void)
 \item 
-static int \mbox{\hyperlink{symbol__table_8c_a199b4b9683dc47fdec12c4a467f80846}{\+\_\+global\+\_\+search}} (int low, int high, char $\ast$value)
+void \mbox{\hyperlink{symbol__table_8c_adecb7ff1aeb3962ca63f755914814430}{print\+\_\+symbol\+\_\+table}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$table)
 \item 
-int \mbox{\hyperlink{symbol__table_8c_ab6d09930d0237257206d5eefced58976}{global\+\_\+symbol\+\_\+exists}} (char $\ast$name)
+static int \mbox{\hyperlink{symbol__table_8c_a01b616dd4ecdc49951b496768a259650}{\+\_\+search}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab, int low, int high, char $\ast$value)
 \item 
-static void \mbox{\hyperlink{symbol__table_8c_a7d3e2fea3eb9d237cb37bf65316c211c}{\+\_\+expand\+\_\+global\+\_\+symbol\+\_\+table}} (void)
+int \mbox{\hyperlink{symbol__table_8c_a6f9dce30abcdb31be5d3b069a955d94e}{symbol\+\_\+exists}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab, char $\ast$name)
 \item 
-int \mbox{\hyperlink{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}{insert\+\_\+global\+\_\+symbol}} (char $\ast$name, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} datatype)
+static void \mbox{\hyperlink{symbol__table_8c_a08f0efd2d6c16dd8e3f56aa727c29891}{\+\_\+expand\+\_\+symbol\+\_\+table}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab)
 \item 
-int \mbox{\hyperlink{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}{remove\+\_\+global\+\_\+symbol}} (char $\ast$name)
-\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
+int \mbox{\hyperlink{symbol__table_8c_a64104cac47d954ebf50953571f2e2de6}{insert\+\_\+symbol}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab, char $\ast$name, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} datatype)
 \item 
-int \mbox{\hyperlink{symbol__table_8c_a120c6f993322d61f07fe74f446e9b0e7}{global\+\_\+symbol\+\_\+table\+\_\+length}} = 64
-\item 
-int \mbox{\hyperlink{symbol__table_8c_ab50969853437d857dc4097d41caa3a31}{next\+\_\+global\+\_\+symbol\+\_\+table\+\_\+position}} = 0
-\item 
-int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}} = 0
+\mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{symbol__table_8c_ad97acc2aa642bfd7f72b8cbf26e647a4}{get\+\_\+symbol}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$stack\+\_\+top, char $\ast$name)
 \end{DoxyCompactItemize}
 
 
@@ -46,48 +39,50 @@ Charles\+Averill
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{symbol__table_8c_a7d3e2fea3eb9d237cb37bf65316c211c}\label{symbol__table_8c_a7d3e2fea3eb9d237cb37bf65316c211c}} 
-\index{symbol\_table.c@{symbol\_table.c}!\_expand\_global\_symbol\_table@{\_expand\_global\_symbol\_table}}
-\index{\_expand\_global\_symbol\_table@{\_expand\_global\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{\_expand\_global\_symbol\_table()}{\_expand\_global\_symbol\_table()}}
-{\footnotesize\ttfamily static void \+\_\+expand\+\_\+global\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\mbox{\Hypertarget{symbol__table_8c_a08f0efd2d6c16dd8e3f56aa727c29891}\label{symbol__table_8c_a08f0efd2d6c16dd8e3f56aa727c29891}} 
+\index{symbol\_table.c@{symbol\_table.c}!\_expand\_symbol\_table@{\_expand\_symbol\_table}}
+\index{\_expand\_symbol\_table@{\_expand\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{\_expand\_symbol\_table()}{\_expand\_symbol\_table()}}
+{\footnotesize\ttfamily static void \+\_\+expand\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Double the size of the global symbol table \mbox{\Hypertarget{symbol__table_8c_a199b4b9683dc47fdec12c4a467f80846}\label{symbol__table_8c_a199b4b9683dc47fdec12c4a467f80846}} 
-\index{symbol\_table.c@{symbol\_table.c}!\_global\_search@{\_global\_search}}
-\index{\_global\_search@{\_global\_search}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{\_global\_search()}{\_global\_search()}}
-{\footnotesize\ttfamily static int \+\_\+global\+\_\+search (\begin{DoxyParamCaption}\item[{int}]{low,  }\item[{int}]{high,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+Double the size of a symbol table \mbox{\Hypertarget{symbol__table_8c_a01b616dd4ecdc49951b496768a259650}\label{symbol__table_8c_a01b616dd4ecdc49951b496768a259650}} 
+\index{symbol\_table.c@{symbol\_table.c}!\_search@{\_search}}
+\index{\_search@{\_search}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{\_search()}{\_search()}}
+{\footnotesize\ttfamily static int \+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab,  }\item[{int}]{low,  }\item[{int}]{high,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Binary search implementation to find a given symbol in the Global symbol table \begin{DoxyReturn}{Returns}
+Binary search implementation to find a given symbol in a symbol table \begin{DoxyReturn}{Returns}
 The index of the symbol, if it exists. Otherwise -\/1. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{symbol__table_8c_ab6d09930d0237257206d5eefced58976}\label{symbol__table_8c_ab6d09930d0237257206d5eefced58976}} 
-\index{symbol\_table.c@{symbol\_table.c}!global\_symbol\_exists@{global\_symbol\_exists}}
-\index{global\_symbol\_exists@{global\_symbol\_exists}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{global\_symbol\_exists()}{global\_symbol\_exists()}}
-{\footnotesize\ttfamily int global\+\_\+symbol\+\_\+exists (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{symbol__table_8c_ad97acc2aa642bfd7f72b8cbf26e647a4}\label{symbol__table_8c_ad97acc2aa642bfd7f72b8cbf26e647a4}} 
+\index{symbol\_table.c@{symbol\_table.c}!get\_symbol@{get\_symbol}}
+\index{get\_symbol@{get\_symbol}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{get\_symbol()}{get\_symbol()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ get\+\_\+symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{stack\+\_\+top,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
 
-Determine if a given symbol exists in the Global symbol table 
+Get a symbol from the symbol table tree recursively. Return the first match found (i.\+e. the most specific scope a variable is declared in) 
 \begin{DoxyParams}{Parameters}
-{\em name} & The symbol name to search for \\
+{\em stack\+\_\+top} & top of the symbol table stack to traverse \\
+\hline
+{\em name} & the name of the symbol \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The index of the symbol, if it exists. Otherwise -\/1. 
+the symbol found 
 \end{DoxyReturn}
-\mbox{\Hypertarget{symbol__table_8c_a071a517467c6490eba299705c51038bd}\label{symbol__table_8c_a071a517467c6490eba299705c51038bd}} 
-\index{symbol\_table.c@{symbol\_table.c}!init\_symbol\_table@{init\_symbol\_table}}
-\index{init\_symbol\_table@{init\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{init\_symbol\_table()}{init\_symbol\_table()}}
-{\footnotesize\ttfamily void init\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{symbol__table_8c_ab53d25812ab51fcee7c71ae8c76bec20}\label{symbol__table_8c_ab53d25812ab51fcee7c71ae8c76bec20}} 
+\index{symbol\_table.c@{symbol\_table.c}!init\_global\_symbol\_table@{init\_global\_symbol\_table}}
+\index{init\_global\_symbol\_table@{init\_global\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{init\_global\_symbol\_table()}{init\_global\_symbol\_table()}}
+{\footnotesize\ttfamily void init\+\_\+global\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Code for initializing the Global symbol table \mbox{\Hypertarget{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}\label{symbol__table_8c_aa24482348efa4a5876836c7b51bf0b9d}} 
-\index{symbol\_table.c@{symbol\_table.c}!insert\_global\_symbol@{insert\_global\_symbol}}
-\index{insert\_global\_symbol@{insert\_global\_symbol}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{insert\_global\_symbol()}{insert\_global\_symbol()}}
-{\footnotesize\ttfamily int insert\+\_\+global\+\_\+symbol (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{datatype }\end{DoxyParamCaption})}
+Code for initializing the Global symbol table \mbox{\Hypertarget{symbol__table_8c_a64104cac47d954ebf50953571f2e2de6}\label{symbol__table_8c_a64104cac47d954ebf50953571f2e2de6}} 
+\index{symbol\_table.c@{symbol\_table.c}!insert\_symbol@{insert\_symbol}}
+\index{insert\_symbol@{insert\_symbol}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{insert\_symbol()}{insert\_symbol()}}
+{\footnotesize\ttfamily int insert\+\_\+symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab,  }\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}}}]{datatype }\end{DoxyParamCaption})}
 
-Insert a new symbol into the Global symbol table 
+Insert a new symbol into a symbol table 
 \begin{DoxyParams}{Parameters}
 {\em name} & Name of the symbol to create \\
 \hline
@@ -95,39 +90,31 @@ Insert a new symbol into the Global symbol table
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The position of the symbol in the Global symbol table 
+The position of the symbol in the symbol table 
 \end{DoxyReturn}
-\mbox{\Hypertarget{symbol__table_8c_a3a40c5a66542e9fff0b17d411fbd5d3f}\label{symbol__table_8c_a3a40c5a66542e9fff0b17d411fbd5d3f}} 
+\mbox{\Hypertarget{symbol__table_8c_a0f9b909cc0917a5c9ba56203746538d5}\label{symbol__table_8c_a0f9b909cc0917a5c9ba56203746538d5}} 
+\index{symbol\_table.c@{symbol\_table.c}!make\_symbol\_table@{make\_symbol\_table}}
+\index{make\_symbol\_table@{make\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{make\_symbol\_table()}{make\_symbol\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$ make\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{parent }\end{DoxyParamCaption})}
+
+Code to make a symbol table If the symbol table is the root symbol table (i.\+e. the global symbol table) parent should be null \mbox{\Hypertarget{symbol__table_8c_adecb7ff1aeb3962ca63f755914814430}\label{symbol__table_8c_adecb7ff1aeb3962ca63f755914814430}} 
 \index{symbol\_table.c@{symbol\_table.c}!print\_symbol\_table@{print\_symbol\_table}}
 \index{print\_symbol\_table@{print\_symbol\_table}!symbol\_table.c@{symbol\_table.c}}
 \doxysubsubsection{\texorpdfstring{print\_symbol\_table()}{print\_symbol\_table()}}
-{\footnotesize\ttfamily void print\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void print\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{table }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}\label{symbol__table_8c_ada7fbfd725b02e9523b31e6ac54ea077}} 
-\index{symbol\_table.c@{symbol\_table.c}!remove\_global\_symbol@{remove\_global\_symbol}}
-\index{remove\_global\_symbol@{remove\_global\_symbol}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{remove\_global\_symbol()}{remove\_global\_symbol()}}
-{\footnotesize\ttfamily int remove\+\_\+global\+\_\+symbol (\begin{DoxyParamCaption}\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{symbol__table_8c_a6f9dce30abcdb31be5d3b069a955d94e}\label{symbol__table_8c_a6f9dce30abcdb31be5d3b069a955d94e}} 
+\index{symbol\_table.c@{symbol\_table.c}!symbol\_exists@{symbol\_exists}}
+\index{symbol\_exists@{symbol\_exists}!symbol\_table.c@{symbol\_table.c}}
+\doxysubsubsection{\texorpdfstring{symbol\_exists()}{symbol\_exists()}}
+{\footnotesize\ttfamily int symbol\+\_\+exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
 
-
-
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{symbol__table_8c_a120c6f993322d61f07fe74f446e9b0e7}\label{symbol__table_8c_a120c6f993322d61f07fe74f446e9b0e7}} 
-\index{symbol\_table.c@{symbol\_table.c}!global\_symbol\_table\_length@{global\_symbol\_table\_length}}
-\index{global\_symbol\_table\_length@{global\_symbol\_table\_length}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{global\_symbol\_table\_length}{global\_symbol\_table\_length}}
-{\footnotesize\ttfamily int global\+\_\+symbol\+\_\+table\+\_\+length = 64}
-
-Global symbol table length \mbox{\Hypertarget{symbol__table_8c_ab50969853437d857dc4097d41caa3a31}\label{symbol__table_8c_ab50969853437d857dc4097d41caa3a31}} 
-\index{symbol\_table.c@{symbol\_table.c}!next\_global\_symbol\_table\_position@{next\_global\_symbol\_table\_position}}
-\index{next\_global\_symbol\_table\_position@{next\_global\_symbol\_table\_position}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{next\_global\_symbol\_table\_position}{next\_global\_symbol\_table\_position}}
-{\footnotesize\ttfamily int next\+\_\+global\+\_\+symbol\+\_\+table\+\_\+position = 0}
-
-Next available global symbol table position \mbox{\Hypertarget{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}\label{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}} 
-\index{symbol\_table.c@{symbol\_table.c}!stack\_offset@{stack\_offset}}
-\index{stack\_offset@{stack\_offset}!symbol\_table.c@{symbol\_table.c}}
-\doxysubsubsection{\texorpdfstring{stack\_offset}{stack\_offset}}
-{\footnotesize\ttfamily int stack\+\_\+offset = 0}
-
-Overall stack offset 
+Determine if a given symbol exists in a symbol table 
+\begin{DoxyParams}{Parameters}
+{\em name} & The symbol name to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the symbol, if it exists. Otherwise -\/1. 
+\end{DoxyReturn}

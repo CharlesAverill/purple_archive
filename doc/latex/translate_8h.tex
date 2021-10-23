@@ -50,7 +50,7 @@ void \mbox{\hyperlink{translate_8h_a5756063305cb7411127ec758f0f4b444}{pir\+\_\+c
 \item 
 int \mbox{\hyperlink{translate_8h_a77fe0335153d1aa2340570df4a1de20d}{ast\+\_\+to\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$n, int r, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\_\+\+Type}} previous\+\_\+operation)
 \item 
-void \mbox{\hyperlink{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}{generate\+\_\+pir}} (void)
+void \mbox{\hyperlink{translate_8h_abc1cc243c646bdfcedbc0db6b8dd55bf}{generate\+\_\+pir}} (\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$root)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -152,11 +152,11 @@ The register containing the value of the AST
 \doxysubsubsection{\texorpdfstring{free\_all\_registers()}{free\_all\_registers()}}
 {\footnotesize\ttfamily void free\+\_\+all\+\_\+registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}\label{translate_8h_a3b3c28c8c9c6be58552fdbff47614e1d}} 
+Frees all existing registers by setting their values to 1 \mbox{\Hypertarget{translate_8h_abc1cc243c646bdfcedbc0db6b8dd55bf}\label{translate_8h_abc1cc243c646bdfcedbc0db6b8dd55bf}} 
 \index{translate.h@{translate.h}!generate\_pir@{generate\_pir}}
 \index{generate\_pir@{generate\_pir}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{generate\_pir()}{generate\_pir()}}
-{\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void generate\+\_\+pir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$}]{root }\end{DoxyParamCaption})}
 
 Handle function for generating ASM \mbox{\Hypertarget{translate_8h_a5756063305cb7411127ec758f0f4b444}\label{translate_8h_a5756063305cb7411127ec758f0f4b444}} 
 \index{translate.h@{translate.h}!pir\_create\_global@{pir\_create\_global}}
@@ -164,13 +164,6 @@ Handle function for generating ASM \mbox{\Hypertarget{translate_8h_a5756063305cb
 \doxysubsubsection{\texorpdfstring{pir\_create\_global()}{pir\_create\_global()}}
 {\footnotesize\ttfamily void pir\+\_\+create\+\_\+global (\begin{DoxyParamCaption}\item[{char $\ast$}]{identifier,  }\item[{int}]{size }\end{DoxyParamCaption})}
 
-PIR Global variable creation logic NOTE\+: Only generates code for some platforms that support .comm directives 
-\begin{DoxyParams}{Parameters}
-{\em identifier} & The string defining the name of the variable \\
-\hline
-{\em size} & The size of the data of the variable \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}\label{translate_8h_a3c9d6878ba9bdc7ee17330638ec6f60d}} 
 \index{translate.h@{translate.h}!pir\_print\_int@{pir\_print\_int}}
 \index{pir\_print\_int@{pir\_print\_int}!translate.h@{translate.h}}

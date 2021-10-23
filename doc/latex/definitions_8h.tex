@@ -10,10 +10,12 @@ Relevant project-\/wide definitions.
 \item 
 struct \mbox{\hyperlink{structtoken}{token}}
 \begin{DoxyCompactList}\small\item\em A structure to hold token information. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}}
-\begin{DoxyCompactList}\small\item\em This structure is used to build the AST for parsing. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structsymbol}{symbol}}
-\begin{DoxyCompactList}\small\item\em This structure contains data for a single symbol in a Symbol Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This structure contains data for a single symbol in a Symbol Table. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}}
+\item 
+struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}}
+\begin{DoxyCompactList}\small\item\em This structure is used to build the AST for parsing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,9 +30,11 @@ typedef enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{
 \item 
 typedef struct \mbox{\hyperlink{structtoken}{token}} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}}
 \item 
-typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\+\_\+\+Node}}
-\item 
 typedef struct \mbox{\hyperlink{structsymbol}{symbol}} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}}
+\item 
+typedef struct \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} \mbox{\hyperlink{definitions_8h_ae53e5ab6dbb0344dbd7025bf1ad56e1f}{symbol\+\_\+table}}
+\item 
+typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\+\_\+\+Node}}
 \item 
 typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a84f30e066439c6170eec169dc92b81cb}{Comparison\+\_\+\+Mode}}
 \item 
@@ -68,12 +72,15 @@ enum \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\+\
 \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a5f7c020be1b8580c81cc9f88b068516d}{T\+\_\+\+AS}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}{T\+\_\+\+IF}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}{T\+\_\+\+ELSE}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a015a67f9192b6e93aefaad3ff8e4d534}{T\+\_\+\+FOR}}
 , \newline
-\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\+\_\+\+WHILE}}
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\+\_\+\+PRINT}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\+\_\+\+WHILE}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}{T\+\_\+\+WITH}}
 , \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER}}
-, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\+\_\+\+AST\+\_\+\+GLUE}}
+, \newline
+\mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\+\_\+\+AST\+\_\+\+GLUE}}
+, \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6dcb240a45662619300d349d2de241ff}{T\+\_\+\+SCOPE}}
  \}
 \begin{DoxyCompactList}\small\item\em This enum contains the various kinds of permitted tokens. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \{ \newline
@@ -153,6 +160,12 @@ Enum defining the size of each datatype \mbox{\Hypertarget{definitions_8h_ab2f49
 \index{symbol@{symbol}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{symbol}{symbol}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structsymbol}{symbol}} \mbox{\hyperlink{structsymbol}{symbol}}}
+
+\mbox{\Hypertarget{definitions_8h_ae53e5ab6dbb0344dbd7025bf1ad56e1f}\label{definitions_8h_ae53e5ab6dbb0344dbd7025bf1ad56e1f}} 
+\index{definitions.h@{definitions.h}!symbol\_table@{symbol\_table}}
+\index{symbol\_table@{symbol\_table}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{symbol\_table}{symbol\_table}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}}}
 
 \mbox{\Hypertarget{definitions_8h_a771467edb1f9006944af9d56a7668da7}\label{definitions_8h_a771467edb1f9006944af9d56a7668da7}} 
 \index{definitions.h@{definitions.h}!token@{token}}
@@ -316,6 +329,10 @@ T\+\_\+\+IF&\\
 T\+\_\+\+ELSE&\\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_FOR@{T\_FOR}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_FOR@{T\_FOR}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a015a67f9192b6e93aefaad3ff8e4d534}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a015a67f9192b6e93aefaad3ff8e4d534}} 
+T\+\_\+\+FOR&\\
+\hline
+
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_PRINT@{T\_PRINT}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_PRINT@{T\_PRINT}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}} 
 T\+\_\+\+PRINT&\\
 \hline
@@ -334,6 +351,10 @@ T\+\_\+\+AST\+\_\+\+LEFT\+\_\+\+VALUE\+\_\+\+IDENTIFIER&\\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{T\_AST\_GLUE@{T\_AST\_GLUE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_AST\_GLUE@{T\_AST\_GLUE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}} 
 T\+\_\+\+AST\+\_\+\+GLUE&Glues ASTs together \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\_SCOPE@{T\_SCOPE}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!T\_SCOPE@{T\_SCOPE}}}\mbox{\Hypertarget{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6dcb240a45662619300d349d2de241ff}\label{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6dcb240a45662619300d349d2de241ff}} 
+T\+\_\+\+SCOPE&New Scope \\
 \hline
 
 \end{DoxyEnumFields}
@@ -385,16 +406,14 @@ Operator precedence values. Precedence ranges from 0-\/15, 15 being the first to
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}EOF"{}},        \textcolor{stringliteral}{"{}+"{}},    \textcolor{stringliteral}{"{}-\/"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},    \textcolor{stringliteral}{"{}=="{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}!="{}},         \textcolor{stringliteral}{"{}<"{}},    \textcolor{stringliteral}{"{}>"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}<="{}},         \textcolor{stringliteral}{"{}>="{}},   \textcolor{stringliteral}{"{}integer literal"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{};"{}},          \textcolor{stringliteral}{"{}="{}},    \textcolor{stringliteral}{"{}("{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{})"{}},          \textcolor{stringliteral}{"{}\{"{}},    \textcolor{stringliteral}{"{}\}"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}},  \textcolor{stringliteral}{"{}as"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}if"{}},         \textcolor{stringliteral}{"{}else"{}}, \textcolor{stringliteral}{"{}print"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}while"{}},      \textcolor{stringliteral}{"{}with"{}}, \textcolor{stringliteral}{"{}LValue Identifier"{}},}
-\DoxyCodeLine{                                \textcolor{stringliteral}{"{}AST Glue"{}}\}}
+\DoxyCodeLine{= \{\textcolor{stringliteral}{"{}EOF"{}},      \textcolor{stringliteral}{"{}+"{}},     \textcolor{stringliteral}{"{}-\/"{}},          \textcolor{stringliteral}{"{}*"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}/"{}},        \textcolor{stringliteral}{"{}=="{}},    \textcolor{stringliteral}{"{}!="{}},         \textcolor{stringliteral}{"{}<"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}>"{}},        \textcolor{stringliteral}{"{}<="{}},    \textcolor{stringliteral}{"{}>="{}},         \textcolor{stringliteral}{"{}integer literal"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{};"{}},        \textcolor{stringliteral}{"{}="{}},     \textcolor{stringliteral}{"{}("{}},          \textcolor{stringliteral}{"{})"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}\{"{}},        \textcolor{stringliteral}{"{}\}"{}},     \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}as"{}},       \textcolor{stringliteral}{"{}if"{}},    \textcolor{stringliteral}{"{}else"{}},       \textcolor{stringliteral}{"{}for"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}print"{}},    \textcolor{stringliteral}{"{}while"{}}, \textcolor{stringliteral}{"{}with"{}},       \textcolor{stringliteral}{"{}LValue Identifier"{}},}
+\DoxyCodeLine{                                \textcolor{stringliteral}{"{}AST Glue"{}}, \textcolor{stringliteral}{"{}Scope"{}}\}}
 
 \end{DoxyCode}
 Token string equivalents 

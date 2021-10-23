@@ -89,14 +89,30 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ab80248f89bb82ee6d3c78dabdf92055b"><td class="memItemLeft" >union {</td></tr>
 <tr class="memitem:a9d07d3c2ecb0309148d028328bbcc33f"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="structAST__Node.html#ad069e95d3dc2e199e2e3ffd392df7344">value</a></td></tr>
 <tr class="separator:a9d07d3c2ecb0309148d028328bbcc33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a980eca3399843ee3c2f5a4ec0488bd53"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="structAST__Node.html#a989f2aee0075db516d38f70264af0b95">position</a></td></tr>
-<tr class="separator:a980eca3399843ee3c2f5a4ec0488bd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8720833bf40617a7fdab588a0a898bd"><td class="memItemLeft" >&#160;&#160;&#160;char *&#160;&#160;&#160;<a class="el" href="structAST__Node.html#af7e245813db5289ecf6b8c40fa068a39">identifier</a></td></tr>
+<tr class="separator:af8720833bf40617a7fdab588a0a898bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a295971018f3b93fe035cdaafb9bb4a4b"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;&#160;&#160;<a class="el" href="structAST__Node.html#ae67835f9a88376c8f303128a71ac2183">scope_symbol_table</a></td></tr>
+<tr class="separator:a295971018f3b93fe035cdaafb9bb4a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80248f89bb82ee6d3c78dabdf92055b"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAST__Node.html#ab80248f89bb82ee6d3c78dabdf92055b">v</a></td></tr>
 <tr class="separator:ab80248f89bb82ee6d3c78dabdf92055b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This structure is used to build the AST for parsing. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="af7e245813db5289ecf6b8c40fa068a39" name="af7e245813db5289ecf6b8c40fa068a39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e245813db5289ecf6b8c40fa068a39">&#9670;&nbsp;</a></span>identifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* AST_Node::identifier</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aabe36c18b59c78413f0be425b87fa751" name="aabe36c18b59c78413f0be425b87fa751"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabe36c18b59c78413f0be425b87fa751">&#9670;&nbsp;</a></span>left</h2>
 
@@ -127,20 +143,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a989f2aee0075db516d38f70264af0b95" name="a989f2aee0075db516d38f70264af0b95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a989f2aee0075db516d38f70264af0b95">&#9670;&nbsp;</a></span>position</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int AST_Node::position</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a673b94630eaeac8e44b221fec58cbded" name="a673b94630eaeac8e44b221fec58cbded"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a673b94630eaeac8e44b221fec58cbded">&#9670;&nbsp;</a></span>right</h2>
 
@@ -153,6 +155,20 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >The right child of the AST Node </p>
+
+</div>
+</div>
+<a id="ae67835f9a88376c8f303128a71ac2183" name="ae67835f9a88376c8f303128a71ac2183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae67835f9a88376c8f303128a71ac2183">&#9670;&nbsp;</a></span>scope_symbol_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsymbol__table.html">symbol_table</a>* AST_Node::scope_symbol_table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -183,7 +199,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Union containing either the value of an integer literal, or the position of a symbol in the Global symbol table </p>
+<p >Union containing either the value of an integer literal, or the identifier of a symbol </p>
 
 </div>
 </div>

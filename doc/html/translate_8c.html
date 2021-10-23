@@ -104,20 +104,22 @@ Functions</h2></td></tr>
 <tr class="separator:a602d0fc0bb99a0ad39ffd18a16296149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7e118576c99a86d9f3407033a7016b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a1d7e118576c99a86d9f3407033a7016b">pir_div</a> (int left, int right)</td></tr>
 <tr class="separator:a1d7e118576c99a86d9f3407033a7016b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5756063305cb7411127ec758f0f4b444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a5756063305cb7411127ec758f0f4b444">pir_create_global</a> (char *identifier, int size)</td></tr>
-<tr class="separator:a5756063305cb7411127ec758f0f4b444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f50d24c41708a8b0255a5440a8ff17b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a9f50d24c41708a8b0255a5440a8ff17b">pir_load_global</a> (int symbol_index)</td></tr>
-<tr class="separator:a9f50d24c41708a8b0255a5440a8ff17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae87490aea50c2abb4e1c5a1559b2dd4e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ae87490aea50c2abb4e1c5a1559b2dd4e">pir_save_global</a> (int r, int symbol_index)</td></tr>
-<tr class="separator:ae87490aea50c2abb4e1c5a1559b2dd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607568c765b1572d64d1db4b8465391c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a607568c765b1572d64d1db4b8465391c">pir_enter_scope</a> (<a class="el" href="structsymbol__table.html">symbol_table</a> *symtab)</td></tr>
+<tr class="separator:a607568c765b1572d64d1db4b8465391c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3d84e19e1d40d56a83ebaad1c797fb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a9b3d84e19e1d40d56a83ebaad1c797fb">pir_leave_scope</a> ()</td></tr>
+<tr class="separator:a9b3d84e19e1d40d56a83ebaad1c797fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66d3b903004cab1403bd667e9b0fe4d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#af66d3b903004cab1403bd667e9b0fe4d">pir_load</a> (char *identifier)</td></tr>
+<tr class="separator:af66d3b903004cab1403bd667e9b0fe4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04fda57d75e84f260af9a0e675294e7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ae04fda57d75e84f260af9a0e675294e7">pir_save</a> (int r, char *identifier)</td></tr>
+<tr class="separator:ae04fda57d75e84f260af9a0e675294e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f85aac58e965d3a095d5cd9aa489b27"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a4f85aac58e965d3a095d5cd9aa489b27">if_ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
 <tr class="separator:a4f85aac58e965d3a095d5cd9aa489b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac085a598f7d1f587da0c87e4e8187c98"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#ac085a598f7d1f587da0c87e4e8187c98">while_ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n)</td></tr>
 <tr class="separator:ac085a598f7d1f587da0c87e4e8187c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77fe0335153d1aa2340570df4a1de20d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a77fe0335153d1aa2340570df4a1de20d">ast_to_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *n, int r, <a class="el" href="definitions_8h.html#a2e66bade4cb6bda81365ca377d98b805">Token_Type</a> previous_operation)</td></tr>
 <tr class="separator:a77fe0335153d1aa2340570df4a1de20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b3c28c8c9c6be58552fdbff47614e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#a3b3c28c8c9c6be58552fdbff47614e1d">generate_pir</a> (void)</td></tr>
-<tr class="separator:a3b3c28c8c9c6be58552fdbff47614e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1cc243c646bdfcedbc0db6b8dd55bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8c.html#abc1cc243c646bdfcedbc0db6b8dd55bf">generate_pir</a> (<a class="el" href="structAST__Node.html">AST_Node</a> *root)</td></tr>
+<tr class="separator:abc1cc243c646bdfcedbc0db6b8dd55bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -277,8 +279,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3b3c28c8c9c6be58552fdbff47614e1d" name="a3b3c28c8c9c6be58552fdbff47614e1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b3c28c8c9c6be58552fdbff47614e1d">&#9670;&nbsp;</a></span>generate_pir()</h2>
+<a id="abc1cc243c646bdfcedbc0db6b8dd55bf" name="abc1cc243c646bdfcedbc0db6b8dd55bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1cc243c646bdfcedbc0db6b8dd55bf">&#9670;&nbsp;</a></span>generate_pir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,8 +288,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void generate_pir </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -400,41 +402,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5756063305cb7411127ec758f0f4b444" name="a5756063305cb7411127ec758f0f4b444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5756063305cb7411127ec758f0f4b444">&#9670;&nbsp;</a></span>pir_create_global()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pir_create_global </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>identifier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >PIR Global variable creation logic NOTE: Only generates code for some platforms that support .comm directives </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">identifier</td><td>The string defining the name of the variable </td></tr>
-    <tr><td class="paramname">size</td><td>The size of the data of the variable </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a1d7e118576c99a86d9f3407033a7016b" name="a1d7e118576c99a86d9f3407033a7016b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d7e118576c99a86d9f3407033a7016b">&#9670;&nbsp;</a></span>pir_div()</h2>
 
@@ -479,8 +446,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9f50d24c41708a8b0255a5440a8ff17b" name="a9f50d24c41708a8b0255a5440a8ff17b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f50d24c41708a8b0255a5440a8ff17b">&#9670;&nbsp;</a></span>pir_load_global()</h2>
+<a id="a607568c765b1572d64d1db4b8465391c" name="a607568c765b1572d64d1db4b8465391c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607568c765b1572d64d1db4b8465391c">&#9670;&nbsp;</a></span>pir_enter_scope()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,10 +456,10 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int pir_load_global </td>
+          <td class="memname">static void pir_enter_scope </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>symbol_index</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td>
+          <td class="paramname"><em>symtab</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -502,9 +469,67 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >PIR Load variable from stack logic </p><dl class="params"><dt>Parameters</dt><dd>
+<p >PIR Enter Scope Logic </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">symbol_index</td><td>Symbol table index of the variable to load </td></tr>
+    <tr><td class="paramname">symtab</td><td>Symbol table of the new scope </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b3d84e19e1d40d56a83ebaad1c797fb" name="a9b3d84e19e1d40d56a83ebaad1c797fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3d84e19e1d40d56a83ebaad1c797fb">&#9670;&nbsp;</a></span>pir_leave_scope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pir_leave_scope </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Leave Scope Logic </p>
+
+</div>
+</div>
+<a id="af66d3b903004cab1403bd667e9b0fe4d" name="af66d3b903004cab1403bd667e9b0fe4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66d3b903004cab1403bd667e9b0fe4d">&#9670;&nbsp;</a></span>pir_load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int pir_load </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>identifier</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >PIR Load variable logic </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -613,8 +638,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae87490aea50c2abb4e1c5a1559b2dd4e" name="ae87490aea50c2abb4e1c5a1559b2dd4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae87490aea50c2abb4e1c5a1559b2dd4e">&#9670;&nbsp;</a></span>pir_save_global()</h2>
+<a id="ae04fda57d75e84f260af9a0e675294e7" name="ae04fda57d75e84f260af9a0e675294e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04fda57d75e84f260af9a0e675294e7">&#9670;&nbsp;</a></span>pir_save()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -623,7 +648,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int pir_save_global </td>
+          <td class="memname">static int pir_save </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>r</em>, </td>
@@ -631,8 +656,8 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>symbol_index</em>&#160;</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>identifier</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -646,7 +671,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >PIR Save variable onto stack logic </p><dl class="params"><dt>Parameters</dt><dd>
+<p >PIR Save variable logic </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>Register containing value to save </td></tr>
     <tr><td class="paramname">symbol_index</td><td>Symbol table index of symbol to save </td></tr>

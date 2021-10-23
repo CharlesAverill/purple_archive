@@ -9,6 +9,8 @@ Logic for MIPS ASM generation.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{mips_8c_a1ba3e736a6460542ce47c1b5c573e46e}{mips\+\_\+data\+\_\+section}} (FILE $\ast$fp)
+\item 
 void \mbox{\hyperlink{mips_8c_abb3e5088ca7f779e5df06e45244da09c}{mips\+\_\+preamble}} (FILE $\ast$fp)
 \item 
 void \mbox{\hyperlink{mips_8c_ac6fd5f35c4f9bcb74da1988e2fd7a133}{mips\+\_\+postamble}} (FILE $\ast$fp)
@@ -31,11 +33,13 @@ int \mbox{\hyperlink{mips_8c_a588f5693bbab851e7149f85b92b6a225}{mips\+\_\+compar
 \item 
 int \mbox{\hyperlink{mips_8c_aa7418ef01ca62b263fb92afe8e66b286}{mips\+\_\+compare\+\_\+and\+\_\+jump}} (FILE $\ast$fp, int r1, int r2, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} mode, int label\+\_\+index)
 \item 
-void \mbox{\hyperlink{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}{mips\+\_\+create\+\_\+global\+\_\+variable}} (FILE $\ast$fp, char $\ast$identifier, int size)
+void \mbox{\hyperlink{mips_8c_a9df136c0d03d50d55f8673a0323835a7}{mips\+\_\+enter\+\_\+scope}} (FILE $\ast$fp, \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab)
 \item 
-int \mbox{\hyperlink{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}{mips\+\_\+load\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+void \mbox{\hyperlink{mips_8c_aa739f6d9a05feac4c9053e8668c1a805}{mips\+\_\+leave\+\_\+scope}} (FILE $\ast$fp)
 \item 
-int \mbox{\hyperlink{mips_8c_acdcbd0182dfe0b5e5e0e498a524e225b}{mips\+\_\+save\+\_\+global\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier, int \mbox{\hyperlink{symbol__table_8c_a20ca472aa5b2e0b3099b99b9254308fc}{stack\+\_\+offset}})
+void \mbox{\hyperlink{mips_8c_a74437e21eb343bcc9c3f3e0775b41818}{mips\+\_\+load\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier)
+\item 
+void \mbox{\hyperlink{mips_8c_a485456c9e036fd7ee66fb46a83140d9b}{mips\+\_\+save\+\_\+variable}} (FILE $\ast$fp, int r, char $\ast$identifier)
 \item 
 void \mbox{\hyperlink{mips_8c_a10365f8b7476e05fd802a242bd305711}{mips\+\_\+label}} (FILE $\ast$fp, int label\+\_\+index)
 \item 
@@ -43,6 +47,10 @@ void \mbox{\hyperlink{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}{mips\+\_\+jump\
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$ \mbox{\hyperlink{mips_8c_a8e3c23a32a66707d7e494837b95bb59b}{symtab\+\_\+stack}}
+\item 
+static int \mbox{\hyperlink{mips_8c_a66fb861a1c902ee4f4be20ff2fc19bc2}{current\+\_\+stack\+\_\+offset}} = 0
 \item 
 char $\ast$ \mbox{\hyperlink{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}{mips\+\_\+register\+\_\+names}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}\$t0\char`\"{}, \char`\"{}\$t1\char`\"{}, \char`\"{}\$t2\char`\"{}, \char`\"{}\$t3\char`\"{}\}
 \end{DoxyCompactItemize}
@@ -78,17 +86,23 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{mips\_compare\_and\_jump()}{mips\_compare\_and\_jump()}}
 {\footnotesize\ttfamily int mips\+\_\+compare\+\_\+and\+\_\+jump (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2,  }\item[{\mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}}}]{mode,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}\label{mips_8c_aad4cf343e52d77e48fdcbe5668a994dd}} 
-\index{mips.c@{mips.c}!mips\_create\_global\_variable@{mips\_create\_global\_variable}}
-\index{mips\_create\_global\_variable@{mips\_create\_global\_variable}!mips.c@{mips.c}}
-\doxysubsubsection{\texorpdfstring{mips\_create\_global\_variable()}{mips\_create\_global\_variable()}}
-{\footnotesize\ttfamily void mips\+\_\+create\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{size }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{mips_8c_a1ba3e736a6460542ce47c1b5c573e46e}\label{mips_8c_a1ba3e736a6460542ce47c1b5c573e46e}} 
+\index{mips.c@{mips.c}!mips\_data\_section@{mips\_data\_section}}
+\index{mips\_data\_section@{mips\_data\_section}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_data\_section()}{mips\_data\_section()}}
+{\footnotesize\ttfamily void mips\+\_\+data\+\_\+section (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_a11abaf2ee3f73888d58217d3ea1109e2}\label{mips_8c_a11abaf2ee3f73888d58217d3ea1109e2}} 
 \index{mips.c@{mips.c}!mips\_div@{mips\_div}}
 \index{mips\_div@{mips\_div}!mips.c@{mips.c}}
 \doxysubsubsection{\texorpdfstring{mips\_div()}{mips\_div()}}
 {\footnotesize\ttfamily int mips\+\_\+div (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r1,  }\item[{int}]{r2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8c_a9df136c0d03d50d55f8673a0323835a7}\label{mips_8c_a9df136c0d03d50d55f8673a0323835a7}} 
+\index{mips.c@{mips.c}!mips\_enter\_scope@{mips\_enter\_scope}}
+\index{mips\_enter\_scope@{mips\_enter\_scope}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_enter\_scope()}{mips\_enter\_scope()}}
+{\footnotesize\ttfamily void mips\+\_\+enter\+\_\+scope (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}\label{mips_8c_ab883ec1cf4be21d846dde95ac143aa2a}} 
 \index{mips.c@{mips.c}!mips\_jump\_to\_label@{mips\_jump\_to\_label}}
@@ -102,17 +116,23 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{mips\_label()}{mips\_label()}}
 {\footnotesize\ttfamily void mips\+\_\+label (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{label\+\_\+index }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}\label{mips_8c_ab10d863fa9d33520cfc8a8c98142c17c}} 
-\index{mips.c@{mips.c}!mips\_load\_global\_variable@{mips\_load\_global\_variable}}
-\index{mips\_load\_global\_variable@{mips\_load\_global\_variable}!mips.c@{mips.c}}
-\doxysubsubsection{\texorpdfstring{mips\_load\_global\_variable()}{mips\_load\_global\_variable()}}
-{\footnotesize\ttfamily int mips\+\_\+load\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{stack\+\_\+offset }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{mips_8c_aa739f6d9a05feac4c9053e8668c1a805}\label{mips_8c_aa739f6d9a05feac4c9053e8668c1a805}} 
+\index{mips.c@{mips.c}!mips\_leave\_scope@{mips\_leave\_scope}}
+\index{mips\_leave\_scope@{mips\_leave\_scope}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_leave\_scope()}{mips\_leave\_scope()}}
+{\footnotesize\ttfamily void mips\+\_\+leave\+\_\+scope (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_a94f48553645cc33d4fa027ee28e66445}\label{mips_8c_a94f48553645cc33d4fa027ee28e66445}} 
 \index{mips.c@{mips.c}!mips\_load\_int@{mips\_load\_int}}
 \index{mips\_load\_int@{mips\_load\_int}!mips.c@{mips.c}}
 \doxysubsubsection{\texorpdfstring{mips\_load\_int()}{mips\_load\_int()}}
 {\footnotesize\ttfamily void mips\+\_\+load\+\_\+int (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mips_8c_a74437e21eb343bcc9c3f3e0775b41818}\label{mips_8c_a74437e21eb343bcc9c3f3e0775b41818}} 
+\index{mips.c@{mips.c}!mips\_load\_variable@{mips\_load\_variable}}
+\index{mips\_load\_variable@{mips\_load\_variable}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_load\_variable()}{mips\_load\_variable()}}
+{\footnotesize\ttfamily void mips\+\_\+load\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_aff2ccfd52804d9d6542de96e226b624a}\label{mips_8c_aff2ccfd52804d9d6542de96e226b624a}} 
 \index{mips.c@{mips.c}!mips\_mul@{mips\_mul}}
@@ -144,11 +164,11 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{mips\_print\_newline()}{mips\_print\_newline()}}
 {\footnotesize\ttfamily void mips\+\_\+print\+\_\+newline (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{mips_8c_acdcbd0182dfe0b5e5e0e498a524e225b}\label{mips_8c_acdcbd0182dfe0b5e5e0e498a524e225b}} 
-\index{mips.c@{mips.c}!mips\_save\_global\_variable@{mips\_save\_global\_variable}}
-\index{mips\_save\_global\_variable@{mips\_save\_global\_variable}!mips.c@{mips.c}}
-\doxysubsubsection{\texorpdfstring{mips\_save\_global\_variable()}{mips\_save\_global\_variable()}}
-{\footnotesize\ttfamily int mips\+\_\+save\+\_\+global\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier,  }\item[{int}]{stack\+\_\+offset }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{mips_8c_a485456c9e036fd7ee66fb46a83140d9b}\label{mips_8c_a485456c9e036fd7ee66fb46a83140d9b}} 
+\index{mips.c@{mips.c}!mips\_save\_variable@{mips\_save\_variable}}
+\index{mips\_save\_variable@{mips\_save\_variable}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{mips\_save\_variable()}{mips\_save\_variable()}}
+{\footnotesize\ttfamily void mips\+\_\+save\+\_\+variable (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{int}]{r,  }\item[{char $\ast$}]{identifier }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{mips_8c_aa6d0164f76860bfe5459ee97f586e75a}\label{mips_8c_aa6d0164f76860bfe5459ee97f586e75a}} 
 \index{mips.c@{mips.c}!mips\_sub@{mips\_sub}}
@@ -159,9 +179,21 @@ Charles\+Averill
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{mips_8c_a66fb861a1c902ee4f4be20ff2fc19bc2}\label{mips_8c_a66fb861a1c902ee4f4be20ff2fc19bc2}} 
+\index{mips.c@{mips.c}!current\_stack\_offset@{current\_stack\_offset}}
+\index{current\_stack\_offset@{current\_stack\_offset}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{current\_stack\_offset}{current\_stack\_offset}}
+{\footnotesize\ttfamily int current\+\_\+stack\+\_\+offset = 0\hspace{0.3cm}{\ttfamily [static]}}
+
 \mbox{\Hypertarget{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}\label{mips_8c_a88641c3f474f69edb6a9c9fd165e74ba}} 
 \index{mips.c@{mips.c}!mips\_register\_names@{mips\_register\_names}}
 \index{mips\_register\_names@{mips\_register\_names}!mips.c@{mips.c}}
 \doxysubsubsection{\texorpdfstring{mips\_register\_names}{mips\_register\_names}}
 {\footnotesize\ttfamily char$\ast$ mips\+\_\+register\+\_\+names\mbox{[}$\,$\mbox{]} = \{\char`\"{}\$t0\char`\"{}, \char`\"{}\$t1\char`\"{}, \char`\"{}\$t2\char`\"{}, \char`\"{}\$t3\char`\"{}\}}
+
+\mbox{\Hypertarget{mips_8c_a8e3c23a32a66707d7e494837b95bb59b}\label{mips_8c_a8e3c23a32a66707d7e494837b95bb59b}} 
+\index{mips.c@{mips.c}!symtab\_stack@{symtab\_stack}}
+\index{symtab\_stack@{symtab\_stack}!mips.c@{mips.c}}
+\doxysubsubsection{\texorpdfstring{symtab\_stack}{symtab\_stack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}}$\ast$ symtab\+\_\+stack\hspace{0.3cm}{\ttfamily [static]}}
 

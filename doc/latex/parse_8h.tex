@@ -16,7 +16,9 @@ Expression parsing headers.
 \item 
 \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a1a55a902169fd68ec967131b427bc12b}{parse\+\_\+binary\+\_\+expression}} (int previous\+\_\+token\+\_\+precedence)
 \item 
-\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}{parse\+\_\+compound\+\_\+statement}} (void)
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_acd806a2bf1b7a334640f754d3d890fe1}{parse\+\_\+statement}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$parent\+\_\+table)
+\item 
+\mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ \mbox{\hyperlink{parse_8h_ab7b50b7880d07d61d0ac59d1339b8eea}{parse\+\_\+compound\+\_\+statement}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$parent\+\_\+table)
 \end{DoxyCompactItemize}
 
 
@@ -46,10 +48,15 @@ Given the precedence of the previous token, recursively parse binary expressions
 \begin{DoxyReturn}{Returns}
 An AST or AST Subtree of the binary expressions in D\+\_\+\+INPUT\+\_\+\+FILE 
 \end{DoxyReturn}
-\mbox{\Hypertarget{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}\label{parse_8h_a13a7a7b64c6f8dd6fcb30e0be389a9e3}} 
+\mbox{\Hypertarget{parse_8h_ab7b50b7880d07d61d0ac59d1339b8eea}\label{parse_8h_ab7b50b7880d07d61d0ac59d1339b8eea}} 
 \index{parse.h@{parse.h}!parse\_compound\_statement@{parse\_compound\_statement}}
 \index{parse\_compound\_statement@{parse\_compound\_statement}!parse.h@{parse.h}}
 \doxysubsubsection{\texorpdfstring{parse\_compound\_statement()}{parse\_compound\_statement()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+compound\+\_\+statement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+compound\+\_\+statement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{parent\+\_\+table }\end{DoxyParamCaption})}
 
-Parse a compound statement (anything between braces) and return its AST 
+Parse a compound statement (anything between braces) and return its AST \mbox{\Hypertarget{parse_8h_acd806a2bf1b7a334640f754d3d890fe1}\label{parse_8h_acd806a2bf1b7a334640f754d3d890fe1}} 
+\index{parse.h@{parse.h}!parse\_statement@{parse\_statement}}
+\index{parse\_statement@{parse\_statement}!parse.h@{parse.h}}
+\doxysubsubsection{\texorpdfstring{parse\_statement()}{parse\_statement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} $\ast$ parse\+\_\+statement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{parent\+\_\+table }\end{DoxyParamCaption})}
+

@@ -80,6 +80,8 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7a500b4ea15a9d8cf454b0bee7d2b7e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a7a500b4ea15a9d8cf454b0bee7d2b7e8">x86_data_section</a> (FILE *fp)</td></tr>
+<tr class="separator:a7a500b4ea15a9d8cf454b0bee7d2b7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38ca625abc3d62ece474354842d3bd0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a38ca625abc3d62ece474354842d3bd0d">x86_preamble</a> (FILE *fp)</td></tr>
 <tr class="separator:a38ca625abc3d62ece474354842d3bd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48197c35b358d41a8337ad917f15530e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a48197c35b358d41a8337ad917f15530e">x86_postamble</a> (FILE *fp)</td></tr>
@@ -100,12 +102,14 @@ Functions</h2></td></tr>
 <tr class="separator:a4ac6d8d9f90880651e8e22ebec4cba7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ccbf620df27a6bd625b8b1bb13143ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a1ccbf620df27a6bd625b8b1bb13143ab">x86_compare_and_jump</a> (FILE *fp, int r1, int r2, <a class="el" href="definitions_8h.html#ae4d9fc46a51491eeb28d238061165d09">Comparison_Mode</a> mode, int label_index)</td></tr>
 <tr class="separator:a1ccbf620df27a6bd625b8b1bb13143ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac001f6df973a2cb38fd4e5b638d53201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#ac001f6df973a2cb38fd4e5b638d53201">x86_create_global_variable</a> (FILE *fp, char *identifier, int size)</td></tr>
-<tr class="separator:ac001f6df973a2cb38fd4e5b638d53201"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62937f6716d88be518e772e14a17394c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a62937f6716d88be518e772e14a17394c">x86_load_global_variable</a> (FILE *fp, int r, char *identifier, int <a class="el" href="symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc">stack_offset</a>)</td></tr>
-<tr class="separator:a62937f6716d88be518e772e14a17394c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f14bd9082a09f266d9b948e39e0b1fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a7f14bd9082a09f266d9b948e39e0b1fc">x86_save_global_variable</a> (FILE *fp, int r, char *identifier, int <a class="el" href="symbol__table_8c.html#a20ca472aa5b2e0b3099b99b9254308fc">stack_offset</a>)</td></tr>
-<tr class="separator:a7f14bd9082a09f266d9b948e39e0b1fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa229164ce0c47b14bf75590e81d2c4f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#aa229164ce0c47b14bf75590e81d2c4f6">x86_enter_scope</a> (FILE *fp, <a class="el" href="structsymbol__table.html">symbol_table</a> *symtab)</td></tr>
+<tr class="separator:aa229164ce0c47b14bf75590e81d2c4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa34bee93aab11c12bfab43103780a493"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#aa34bee93aab11c12bfab43103780a493">x86_leave_scope</a> (FILE *fp)</td></tr>
+<tr class="separator:aa34bee93aab11c12bfab43103780a493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae12e0fe0b921d2ce6065b65108850627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#ae12e0fe0b921d2ce6065b65108850627">x86_load_variable</a> (FILE *fp, int r, char *identifier)</td></tr>
+<tr class="separator:ae12e0fe0b921d2ce6065b65108850627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd1485f143d83b4b7e5bb1161e2f8f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#aafd1485f143d83b4b7e5bb1161e2f8f5">x86_save_variable</a> (FILE *fp, int r, char *identifier)</td></tr>
+<tr class="separator:aafd1485f143d83b4b7e5bb1161e2f8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1636cc5592a7a9140f5d7e021dc4e2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#af1636cc5592a7a9140f5d7e021dc4e2b">x86_label</a> (FILE *fp, int label_index)</td></tr>
 <tr class="separator:af1636cc5592a7a9140f5d7e021dc4e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5902fb85d4392d240e0d7d0cb4d1d883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a5902fb85d4392d240e0d7d0cb4d1d883">x86_jump_to_label</a> (FILE *fp, int label_index)</td></tr>
@@ -113,6 +117,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a8e3c23a32a66707d7e494837b95bb59b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a8e3c23a32a66707d7e494837b95bb59b">symtab_stack</a></td></tr>
+<tr class="separator:a8e3c23a32a66707d7e494837b95bb59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66fb861a1c902ee4f4be20ff2fc19bc2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a66fb861a1c902ee4f4be20ff2fc19bc2">current_stack_offset</a> = 0</td></tr>
+<tr class="separator:a66fb861a1c902ee4f4be20ff2fc19bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a482a59b56f68befb00fa8e09dd8ecda9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#a482a59b56f68befb00fa8e09dd8ecda9">x86_register_names</a> [] = {&quot;%r8&quot;, &quot;%r9&quot;, &quot;%r10&quot;, &quot;%r11&quot;}</td></tr>
 <tr class="separator:a482a59b56f68befb00fa8e09dd8ecda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac24139b9cdbadafb6b092568b19cae14"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="x86_8c.html#ac24139b9cdbadafb6b092568b19cae14">x86_byte_register_names</a> [] = {&quot;%r8b&quot;, &quot;%r9b&quot;, &quot;%r10b&quot;, &quot;%r11b&quot;}</td></tr>
@@ -247,34 +255,18 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac001f6df973a2cb38fd4e5b638d53201" name="ac001f6df973a2cb38fd4e5b638d53201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac001f6df973a2cb38fd4e5b638d53201">&#9670;&nbsp;</a></span>x86_create_global_variable()</h2>
+<a id="a7a500b4ea15a9d8cf454b0bee7d2b7e8" name="a7a500b4ea15a9d8cf454b0bee7d2b7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a500b4ea15a9d8cf454b0bee7d2b7e8">&#9670;&nbsp;</a></span>x86_data_section()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void x86_create_global_variable </td>
+          <td class="memname">void x86_data_section </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>fp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>fp</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>identifier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -304,6 +296,34 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa229164ce0c47b14bf75590e81d2c4f6" name="aa229164ce0c47b14bf75590e81d2c4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa229164ce0c47b14bf75590e81d2c4f6">&#9670;&nbsp;</a></span>x86_enter_scope()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void x86_enter_scope </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td>
+          <td class="paramname"><em>symtab</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -371,40 +391,18 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a62937f6716d88be518e772e14a17394c" name="a62937f6716d88be518e772e14a17394c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62937f6716d88be518e772e14a17394c">&#9670;&nbsp;</a></span>x86_load_global_variable()</h2>
+<a id="aa34bee93aab11c12bfab43103780a493" name="aa34bee93aab11c12bfab43103780a493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa34bee93aab11c12bfab43103780a493">&#9670;&nbsp;</a></span>x86_leave_scope()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int x86_load_global_variable </td>
+          <td class="memname">void x86_leave_scope </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>fp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>fp</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>identifier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>stack_offset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -434,6 +432,40 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae12e0fe0b921d2ce6065b65108850627" name="ae12e0fe0b921d2ce6065b65108850627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12e0fe0b921d2ce6065b65108850627">&#9670;&nbsp;</a></span>x86_load_variable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void x86_load_variable </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>identifier</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -543,14 +575,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f14bd9082a09f266d9b948e39e0b1fc" name="a7f14bd9082a09f266d9b948e39e0b1fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f14bd9082a09f266d9b948e39e0b1fc">&#9670;&nbsp;</a></span>x86_save_global_variable()</h2>
+<a id="aafd1485f143d83b4b7e5bb1161e2f8f5" name="aafd1485f143d83b4b7e5bb1161e2f8f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd1485f143d83b4b7e5bb1161e2f8f5">&#9670;&nbsp;</a></span>x86_save_variable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int x86_save_global_variable </td>
+          <td class="memname">void x86_save_variable </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>fp</em>, </td>
@@ -565,13 +597,7 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>identifier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>stack_offset</em>&#160;</td>
+          <td class="paramname"><em>identifier</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -618,6 +644,28 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a66fb861a1c902ee4f4be20ff2fc19bc2" name="a66fb861a1c902ee4f4be20ff2fc19bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66fb861a1c902ee4f4be20ff2fc19bc2">&#9670;&nbsp;</a></span>current_stack_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int current_stack_offset = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5e79867e4f2a72c30ad880a018d6e6ed" name="a5e79867e4f2a72c30ad880a018d6e6ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e79867e4f2a72c30ad880a018d6e6ed">&#9670;&nbsp;</a></span>flag_setters</h2>
 
@@ -642,6 +690,28 @@ Variables</h2></td></tr>
           <td class="memname">char* jump_comparisons[] = {&quot;jle&quot;, &quot;jl&quot;, &quot;jge&quot;, &quot;jg&quot;, &quot;jne&quot;, &quot;je&quot;}</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e3c23a32a66707d7e494837b95bb59b" name="a8e3c23a32a66707d7e494837b95bb59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3c23a32a66707d7e494837b95bb59b">&#9670;&nbsp;</a></span>symtab_stack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsymbol__table.html">symbol_table</a>* symtab_stack</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

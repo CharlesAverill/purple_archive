@@ -88,8 +88,10 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a1a55a902169fd68ec967131b427bc12b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#a1a55a902169fd68ec967131b427bc12b">parse_binary_expression</a> (int previous_token_precedence)</td></tr>
 <tr class="separator:a1a55a902169fd68ec967131b427bc12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a7a7b64c6f8dd6fcb30e0be389a9e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#a13a7a7b64c6f8dd6fcb30e0be389a9e3">parse_compound_statement</a> (void)</td></tr>
-<tr class="separator:a13a7a7b64c6f8dd6fcb30e0be389a9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd806a2bf1b7a334640f754d3d890fe1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#acd806a2bf1b7a334640f754d3d890fe1">parse_statement</a> (<a class="el" href="structsymbol__table.html">symbol_table</a> *parent_table)</td></tr>
+<tr class="separator:acd806a2bf1b7a334640f754d3d890fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7b50b7880d07d61d0ac59d1339b8eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAST__Node.html">AST_Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8h.html#ab7b50b7880d07d61d0ac59d1339b8eea">parse_compound_statement</a> (<a class="el" href="structsymbol__table.html">symbol_table</a> *parent_table)</td></tr>
+<tr class="separator:ab7b50b7880d07d61d0ac59d1339b8eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Expression parsing headers. </p>
@@ -121,8 +123,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a13a7a7b64c6f8dd6fcb30e0be389a9e3" name="a13a7a7b64c6f8dd6fcb30e0be389a9e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13a7a7b64c6f8dd6fcb30e0be389a9e3">&#9670;&nbsp;</a></span>parse_compound_statement()</h2>
+<a id="ab7b50b7880d07d61d0ac59d1339b8eea" name="ab7b50b7880d07d61d0ac59d1339b8eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b50b7880d07d61d0ac59d1339b8eea">&#9670;&nbsp;</a></span>parse_compound_statement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,13 +132,31 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structAST__Node.html">AST_Node</a> * parse_compound_statement </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td>
+          <td class="paramname"><em>parent_table</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Parse a compound statement (anything between braces) and return its AST </p>
+
+</div>
+</div>
+<a id="acd806a2bf1b7a334640f754d3d890fe1" name="acd806a2bf1b7a334640f754d3d890fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd806a2bf1b7a334640f754d3d890fe1">&#9670;&nbsp;</a></span>parse_statement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAST__Node.html">AST_Node</a> * parse_statement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td>
+          <td class="paramname"><em>parent_table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

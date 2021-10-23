@@ -43,81 +43,91 @@
 \DoxyCodeLine{50     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a5f7c020be1b8580c81cc9f88b068516d}{T\_AS}},}
 \DoxyCodeLine{51     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ae108a2ed1b8ace8f3e62ddfe3b6ee02d}{T\_IF}},}
 \DoxyCodeLine{52     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa3624108e89b325c2bc7b7fe968182b8}{T\_ELSE}},}
-\DoxyCodeLine{53     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\_PRINT}},}
-\DoxyCodeLine{54     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\_WHILE}},}
-\DoxyCodeLine{55     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}{T\_WITH}},}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{comment}{// AST-\/specific Types}}
-\DoxyCodeLine{58     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\_AST\_LEFT\_VALUE\_IDENTIFIER}},}
-\DoxyCodeLine{60     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\_AST\_GLUE}},}
-\DoxyCodeLine{61 \} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}};}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{66 \textcolor{keyword}{static} \textcolor{keywordtype}{char} *\mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\_strings}}[] = \{\textcolor{stringliteral}{"{}EOF"{}},        \textcolor{stringliteral}{"{}+"{}},    \textcolor{stringliteral}{"{}-\/"{}},}
-\DoxyCodeLine{67                                 \textcolor{stringliteral}{"{}*"{}},          \textcolor{stringliteral}{"{}/"{}},    \textcolor{stringliteral}{"{}=="{}},}
-\DoxyCodeLine{68                                 \textcolor{stringliteral}{"{}!="{}},         \textcolor{stringliteral}{"{}<"{}},    \textcolor{stringliteral}{"{}>"{}},}
-\DoxyCodeLine{69                                 \textcolor{stringliteral}{"{}<="{}},         \textcolor{stringliteral}{"{}>="{}},   \textcolor{stringliteral}{"{}integer literal"{}},}
-\DoxyCodeLine{70                                 \textcolor{stringliteral}{"{};"{}},          \textcolor{stringliteral}{"{}="{}},    \textcolor{stringliteral}{"{}("{}},}
-\DoxyCodeLine{71                                 \textcolor{stringliteral}{"{})"{}},          \textcolor{stringliteral}{"{}\{"{}},    \textcolor{stringliteral}{"{}\}"{}},}
-\DoxyCodeLine{72                                 \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}},  \textcolor{stringliteral}{"{}as"{}},}
-\DoxyCodeLine{73                                 \textcolor{stringliteral}{"{}if"{}},         \textcolor{stringliteral}{"{}else"{}}, \textcolor{stringliteral}{"{}print"{}},}
-\DoxyCodeLine{74                                 \textcolor{stringliteral}{"{}while"{}},      \textcolor{stringliteral}{"{}with"{}}, \textcolor{stringliteral}{"{}LValue Identifier"{}},}
-\DoxyCodeLine{75                                 \textcolor{stringliteral}{"{}AST Glue"{}}\};}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{80 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\_precedence}}[] = \{}
-\DoxyCodeLine{81     0, \textcolor{comment}{// EOF}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83     11, \textcolor{comment}{// PLUS}}
-\DoxyCodeLine{84     11, \textcolor{comment}{// MINUS}}
-\DoxyCodeLine{85     12, \textcolor{comment}{// STAR}}
-\DoxyCodeLine{86     12, \textcolor{comment}{// SLASH}}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{88     8, \textcolor{comment}{// EQUALS}}
-\DoxyCodeLine{89     8, \textcolor{comment}{// NOT EQUALS}}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91     9, \textcolor{comment}{// LESS}}
-\DoxyCodeLine{92     9, \textcolor{comment}{// GREATER}}
-\DoxyCodeLine{93     9, \textcolor{comment}{// LESS EQUAL}}
-\DoxyCodeLine{94     9, \textcolor{comment}{// GREATER EQUAL}}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     0, \textcolor{comment}{// INTLIT}}
-\DoxyCodeLine{97 \};}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{103 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structtoken}{token}} \{}
-\DoxyCodeLine{105     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structtoken_a70a84af0938d09e699d4e9f6a708a4d7}{\_token}};}
-\DoxyCodeLine{107     \textcolor{keywordtype}{int} \mbox{\hyperlink{structtoken_a8e1604c6941ff51d782b681a3e4e313c}{value}};}
-\DoxyCodeLine{108 \} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}};}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{114 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} \{}
-\DoxyCodeLine{116     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{ttype}};}
-\DoxyCodeLine{118     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_aabe36c18b59c78413f0be425b87fa751}{left}};}
-\DoxyCodeLine{120     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a80f6f71fd0ee3e7603f16dde76a67339}{mid}};}
-\DoxyCodeLine{122     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a673b94630eaeac8e44b221fec58cbded}{right}};}
-\DoxyCodeLine{124     \textcolor{keyword}{union }\{}
-\DoxyCodeLine{125         \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_ad069e95d3dc2e199e2e3ffd392df7344}{value}};}
-\DoxyCodeLine{126         \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_a989f2aee0075db516d38f70264af0b95}{position}};}
-\DoxyCodeLine{127     \} \mbox{\hyperlink{structAST__Node_ab80248f89bb82ee6d3c78dabdf92055b}{v}};}
-\DoxyCodeLine{128 \} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\_Node}};}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{130 \textcolor{comment}{// Max symbol length in Purple is 63 characters and a null terminator}}
-\DoxyCodeLine{131 \textcolor{preprocessor}{\#define MAX\_SYMBOL\_LEN 63}}
-\DoxyCodeLine{132 }
-\DoxyCodeLine{137 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structsymbol}{symbol}} \{}
-\DoxyCodeLine{139     \textcolor{keywordtype}{char} \mbox{\hyperlink{structsymbol_a0f8d81b0fa92d41549e66ed99bcc0b4d}{name}}[\mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\_SYMBOL\_LEN}} + 1];}
-\DoxyCodeLine{141     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}{stack\_offset}};}
-\DoxyCodeLine{143     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol_aefd6c73a44b38bf92e92d7d608004f40}{size}};}
-\DoxyCodeLine{144 \} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}};}
-\DoxyCodeLine{145 }
-\DoxyCodeLine{147 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}} \{ \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a2c3799538a8fd6f41c1f80941893ad34}{CMP\_LT}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a695ce417b3c1809628af09f78a7382f2}{CMP\_LE}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a22ef88c128421baa3180f5ab29776103}{CMP\_GT}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a6079dfc4afa6793daf9ff9088f850171}{CMP\_GE}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}{CMP\_EQ}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}{CMP\_NE}} \} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}};}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{149 \textcolor{comment}{// Return NO\_REGISTER if PIR functions do not return a register}}
-\DoxyCodeLine{150 \textcolor{preprocessor}{\#define NO\_REGISTER -\/1}}
-\DoxyCodeLine{151 }
-\DoxyCodeLine{153 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\_Sizes}} \{}
-\DoxyCodeLine{154     \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}{SIZE\_INT}} = 4,}
-\DoxyCodeLine{155 \} \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\_Sizes}};}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157 \textcolor{keywordtype}{void} \mbox{\hyperlink{definitions_8h_a24e21ab6715200a0c1986e40c5acfa19}{shutdown}}(\textcolor{keywordtype}{int} exit\_code);}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a015a67f9192b6e93aefaad3ff8e4d534}{T\_FOR}},}
+\DoxyCodeLine{54     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa9d18789762367b48144de4ab345a73b}{T\_PRINT}},}
+\DoxyCodeLine{55     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a53ea0dd1b6eff99840e43263e461db90}{T\_WHILE}},}
+\DoxyCodeLine{56     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805aa56ab06f63b1462d9bbb5f9558196f84}{T\_WITH}},}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// AST-\/specific Types}}
+\DoxyCodeLine{59     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a0950177ec05140684996077e105c1c94}{T\_AST\_LEFT\_VALUE\_IDENTIFIER}},}
+\DoxyCodeLine{61     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805ab1647682cc68bc1ae29602d185992e7a}{T\_AST\_GLUE}},}
+\DoxyCodeLine{63     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805a6dcb240a45662619300d349d2de241ff}{T\_SCOPE}},}
+\DoxyCodeLine{64 \} \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{69 \textcolor{keyword}{static} \textcolor{keywordtype}{char} *\mbox{\hyperlink{definitions_8h_aac4b727eb90bfc1375ac629aa9e69398}{token\_strings}}[] = \{\textcolor{stringliteral}{"{}EOF"{}},      \textcolor{stringliteral}{"{}+"{}},     \textcolor{stringliteral}{"{}-\/"{}},          \textcolor{stringliteral}{"{}*"{}},}
+\DoxyCodeLine{70                                 \textcolor{stringliteral}{"{}/"{}},        \textcolor{stringliteral}{"{}=="{}},    \textcolor{stringliteral}{"{}!="{}},         \textcolor{stringliteral}{"{}<"{}},}
+\DoxyCodeLine{71                                 \textcolor{stringliteral}{"{}>"{}},        \textcolor{stringliteral}{"{}<="{}},    \textcolor{stringliteral}{"{}>="{}},         \textcolor{stringliteral}{"{}integer literal"{}},}
+\DoxyCodeLine{72                                 \textcolor{stringliteral}{"{};"{}},        \textcolor{stringliteral}{"{}="{}},     \textcolor{stringliteral}{"{}("{}},          \textcolor{stringliteral}{"{})"{}},}
+\DoxyCodeLine{73                                 \textcolor{stringliteral}{"{}\{"{}},        \textcolor{stringliteral}{"{}\}"{}},     \textcolor{stringliteral}{"{}identifier"{}}, \textcolor{stringliteral}{"{}int"{}},}
+\DoxyCodeLine{74                                 \textcolor{stringliteral}{"{}as"{}},       \textcolor{stringliteral}{"{}if"{}},    \textcolor{stringliteral}{"{}else"{}},       \textcolor{stringliteral}{"{}for"{}},}
+\DoxyCodeLine{75                                 \textcolor{stringliteral}{"{}print"{}},    \textcolor{stringliteral}{"{}while"{}}, \textcolor{stringliteral}{"{}with"{}},       \textcolor{stringliteral}{"{}LValue Identifier"{}},}
+\DoxyCodeLine{76                                 \textcolor{stringliteral}{"{}AST Glue"{}}, \textcolor{stringliteral}{"{}Scope"{}}\};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81 \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{definitions_8h_aaeafee1d3efeb28aee6fb93819aba2a6}{token\_precedence}}[] = \{}
+\DoxyCodeLine{82     0, \textcolor{comment}{// EOF}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     11, \textcolor{comment}{// PLUS}}
+\DoxyCodeLine{85     11, \textcolor{comment}{// MINUS}}
+\DoxyCodeLine{86     12, \textcolor{comment}{// STAR}}
+\DoxyCodeLine{87     12, \textcolor{comment}{// SLASH}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     8, \textcolor{comment}{// EQUALS}}
+\DoxyCodeLine{90     8, \textcolor{comment}{// NOT EQUALS}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     9, \textcolor{comment}{// LESS}}
+\DoxyCodeLine{93     9, \textcolor{comment}{// GREATER}}
+\DoxyCodeLine{94     9, \textcolor{comment}{// LESS EQUAL}}
+\DoxyCodeLine{95     9, \textcolor{comment}{// GREATER EQUAL}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     0, \textcolor{comment}{// INTLIT}}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{104 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structtoken}{token}} \{}
+\DoxyCodeLine{106     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structtoken_a70a84af0938d09e699d4e9f6a708a4d7}{\_token}};}
+\DoxyCodeLine{108     \textcolor{keywordtype}{int} \mbox{\hyperlink{structtoken_a8e1604c6941ff51d782b681a3e4e313c}{value}};}
+\DoxyCodeLine{109 \} \mbox{\hyperlink{definitions_8h_a771467edb1f9006944af9d56a7668da7}{token}};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{comment}{// Max symbol length in Purple is 63 characters and a null terminator}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define MAX\_SYMBOL\_LEN 63}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{118 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structsymbol}{symbol}} \{}
+\DoxyCodeLine{120     \textcolor{keywordtype}{char} \mbox{\hyperlink{structsymbol_a0f8d81b0fa92d41549e66ed99bcc0b4d}{name}}[\mbox{\hyperlink{definitions_8h_a8b28d62fc2727b12b5483f4b52232fb6}{MAX\_SYMBOL\_LEN}} + 1];}
+\DoxyCodeLine{123     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol_a7228e9a2f62ccd52e9f5a09054c9443a}{stack\_offset}};}
+\DoxyCodeLine{125     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol_aefd6c73a44b38bf92e92d7d608004f40}{size}};}
+\DoxyCodeLine{126 \} \mbox{\hyperlink{definitions_8h_ab2f49544a431c27c6519cdfacc979353}{symbol}};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structsymbol__table}{symbol\_table}} \{}
+\DoxyCodeLine{129     \mbox{\hyperlink{structsymbol}{symbol}} *\mbox{\hyperlink{structsymbol__table_aca2dfec795e5ec2f168d0a9d7ae1ea83}{symbols}};}
+\DoxyCodeLine{130     \textcolor{keyword}{struct }\mbox{\hyperlink{structsymbol__table}{symbol\_table}} *\mbox{\hyperlink{structsymbol__table_a40984675723930cff1d50defeb54cc0c}{parent}};}
+\DoxyCodeLine{131     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol__table_ae5bdc986f314a141fa231c2826a4f4b4}{max\_length}};}
+\DoxyCodeLine{132     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol__table_ae20fbfb91868b5c6e3c4dbe867f17b1c}{cur\_length}};}
+\DoxyCodeLine{133     \textcolor{comment}{//size of all of the elments of this symbol table in bytes}}
+\DoxyCodeLine{134     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsymbol__table_a394374fede9c24d8695e0289e1e030a0}{stack\_offset}};}
+\DoxyCodeLine{135 \} \mbox{\hyperlink{definitions_8h_ae53e5ab6dbb0344dbd7025bf1ad56e1f}{symbol\_table}};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{141 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} \{}
+\DoxyCodeLine{143     \mbox{\hyperlink{definitions_8h_a2e66bade4cb6bda81365ca377d98b805}{Token\_Type}} \mbox{\hyperlink{structAST__Node_a10fdcd68b9140de3a6c2ee0e9c10e3b7}{ttype}};}
+\DoxyCodeLine{145     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_aabe36c18b59c78413f0be425b87fa751}{left}};}
+\DoxyCodeLine{147     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a80f6f71fd0ee3e7603f16dde76a67339}{mid}};}
+\DoxyCodeLine{149     \textcolor{keyword}{struct }\mbox{\hyperlink{structAST__Node}{AST\_Node}} *\mbox{\hyperlink{structAST__Node_a673b94630eaeac8e44b221fec58cbded}{right}};}
+\DoxyCodeLine{151     \textcolor{keyword}{union }\{}
+\DoxyCodeLine{152         \textcolor{keywordtype}{int} \mbox{\hyperlink{structAST__Node_ad069e95d3dc2e199e2e3ffd392df7344}{value}};}
+\DoxyCodeLine{153         \textcolor{keywordtype}{char} *\mbox{\hyperlink{structAST__Node_af7e245813db5289ecf6b8c40fa068a39}{identifier}};}
+\DoxyCodeLine{154         \mbox{\hyperlink{structsymbol__table}{symbol\_table}} *\mbox{\hyperlink{structAST__Node_ae67835f9a88376c8f303128a71ac2183}{scope\_symbol\_table}};}
+\DoxyCodeLine{155     \} \mbox{\hyperlink{structAST__Node_ab80248f89bb82ee6d3c78dabdf92055b}{v}};}
+\DoxyCodeLine{156 \} \mbox{\hyperlink{definitions_8h_a6ee7975d5cc932491493b322a370a212}{AST\_Node}};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}} \{ \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a2c3799538a8fd6f41c1f80941893ad34}{CMP\_LT}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a695ce417b3c1809628af09f78a7382f2}{CMP\_LE}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a22ef88c128421baa3180f5ab29776103}{CMP\_GT}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a6079dfc4afa6793daf9ff9088f850171}{CMP\_GE}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09abe8a576137f0d798612f54c758b3be3a}{CMP\_EQ}}, \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09a06f2ef0c00e1c08e87527f9ab094586f}{CMP\_NE}} \} \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\_Mode}};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{// Return NO\_REGISTER if PIR functions do not return a register}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define NO\_REGISTER -\/1}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{165 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\_Sizes}} \{}
+\DoxyCodeLine{166     \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}{SIZE\_INT}} = 4,}
+\DoxyCodeLine{167 \} \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\_Sizes}};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{keywordtype}{void} \mbox{\hyperlink{definitions_8h_a24e21ab6715200a0c1986e40c5acfa19}{shutdown}}(\textcolor{keywordtype}{int} exit\_code);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
