@@ -18,7 +18,8 @@
  * @param  value               If Token_Type == T_INTLIT, then the value of the integer literal
  * @return       The pointer to a new AST Node with the provided values
  */
-AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *mid, AST_Node *right, long value)
+AST_Node *make_ast_node(Token_Type ttype, AST_Node *left, AST_Node *mid, AST_Node *right,
+                        long value)
 {
     AST_Node *out;
 

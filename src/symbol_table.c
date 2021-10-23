@@ -7,7 +7,6 @@
 
 #include "symbol_table.h"
 
-
 /**
  * Code to make a symbol table
  * If the symbol table is the root symbol table (i.e. the global symbol table) parent should be null
@@ -55,7 +54,6 @@ void print_symbol_table(symbol_table *table)
     }
     printf("-----END SYMBOL TABLE-----\n");
 }
-
 
 /**
  * Binary search implementation to find a given symbol in a symbol table
@@ -174,10 +172,12 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
  * @return             the symbol found
  */
 
-symbol* get_symbol(symbol_table *stack_top, char *name) {
-    while(stack_top != NULL) {
-        int position = _search(stack_top, 0, stack_top->cur_length-1, name);
-        if(position != -1) return &stack_top->symbols[position];
+symbol *get_symbol(symbol_table *stack_top, char *name)
+{
+    while (stack_top != NULL) {
+        int position = _search(stack_top, 0, stack_top->cur_length - 1, name);
+        if (position != -1)
+            return &stack_top->symbols[position];
         stack_top = stack_top->parent;
     }
     fprintf(stderr, "Unable to find symbol %s", name);

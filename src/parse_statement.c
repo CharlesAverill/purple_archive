@@ -51,9 +51,9 @@ static AST_Node *assignment_statement(void)
 
     int len = strlen(D_IDENTIFIER_BUFFER);
     char *identifier = malloc(len);
-    strncpy(identifier,D_IDENTIFIER_BUFFER,len);
+    strncpy(identifier, D_IDENTIFIER_BUFFER, len);
     // Build AST leaf for left value identifier
-    right = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, (long)  identifier);
+    right = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, (long)identifier);
 
     // Match for an equals token
     match(T_ASSIGNMENT);
