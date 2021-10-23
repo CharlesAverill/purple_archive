@@ -10,7 +10,11 @@
 
 #include <stdio.h>
 
+#include "data.h"
 #include "definitions.h"
+#include "symbol_table.h"
+
+void x86_data_section(FILE *fp);
 
 void x86_preamble(FILE *fp);
 void x86_postamble(FILE *fp);
@@ -30,8 +34,10 @@ int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int lab
 void x86_label(FILE *fp, int label_index);
 void x86_jump_to_label(FILE *fp, int label_index);
 
-void x86_create_global_variable(FILE *fp, char *identifier, int stack_size);
-int x86_load_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
-int x86_save_global_variable(FILE *fp, int r, char *identifier, int stack_offset);
+void x86_enter_scope(FILE *fp, symbol_table *symtab);
+void x86_leave_scope(FILE *fp);
+
+void x86_load_variable(FILE *fp, int r, char *identifier);
+void x86_save_variable(FILE *fp, int r, char *identifier);
 
 #endif

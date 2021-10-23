@@ -17,8 +17,7 @@ void variable_declaration(void)
     match(T_IDENTIFIER);
 
     // Add symbol name to table
-    int position = insert_global_symbol(D_IDENTIFIER_BUFFER, datatype);
-    pir_create_global(D_IDENTIFIER_BUFFER, D_GLOBAL_SYMBOL_TABLE[position].size);
+    int position = insert_symbol(D_GLOBAL_SYMBOL_TABLE, D_IDENTIFIER_BUFFER, datatype);
 
     // Ensure semicolon
     match(T_SEMICOLON);

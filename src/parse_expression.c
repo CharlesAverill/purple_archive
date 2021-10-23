@@ -41,18 +41,19 @@ static AST_Node *build_terminal_node(token t)
         out = make_ast_leaf(T_INTLIT, t.value);
         break;
     case T_IDENTIFIER:
-        printf("Checking if %s exists %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
-        position = global_symbol_exists(D_IDENTIFIER_BUFFER);
-        print_symbol_table();
+        position = symbol_exists(D_GLOBAL_SYMBOL_TABLE, D_IDENTIFIER_BUFFER);
         if (position == -1) {
             fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
             shutdown(1);
         }
-
-        out = make_ast_leaf(T_IDENTIFIER, position);
+        int len = strlen(D_IDENTIFIER_BUFFER);
+        char *identifier = malloc(len);
+        strncpy(identifier, D_IDENTIFIER_BUFFER, len);
+        out = make_ast_leaf(T_IDENTIFIER, (long)identifier);
         break;
     default:
-        fprintf(stderr, "Syntax error on line %d\n", D_LINE_NUMBER);
+        fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER,
+                token_strings[t._token]);
         shutdown(1);
     }
 
@@ -76,7 +77,8 @@ AST_Node *parse_binary_expression(int previous_token_precedence)
 
     // Check for EOF
     Token_Type current_ttype = GToken._token;
-    if (current_ttype == T_SEMICOLON || current_ttype == T_RIGHT_PARENTHESIS || current_ttype == T_AS) {
+    if (current_ttype == T_SEMICOLON || current_ttype == T_RIGHT_PARENTHESIS ||
+        current_ttype == T_AS) {
         return left;
     }
 
@@ -100,7 +102,8 @@ AST_Node *parse_binary_expression(int previous_token_precedence)
 
         // Update current_ttype and check for EOF
         current_ttype = GToken._token;
-        if (current_ttype == T_SEMICOLON || current_ttype == T_RIGHT_PARENTHESIS || current_ttype == T_AS) {
+        if (current_ttype == T_SEMICOLON || current_ttype == T_RIGHT_PARENTHESIS ||
+            current_ttype == T_AS) {
             break;
         }
     }

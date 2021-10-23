@@ -45,6 +45,8 @@ static Assembly_Mode current_asm_mode = -1;
  * @brief Struct containing pointers to the asm-generating functions used by the translator
  */
 typedef struct ASM_Generators {
+    /**ASM data section*/
+    void (*data_section)(FILE *fp);
     /**ASM preamble code*/
     void (*preamble)(FILE *fp);
     /**ASM postamble code*/
@@ -74,12 +76,16 @@ typedef struct ASM_Generators {
     /**Jump to a label*/
     void (*jump_to_label)(FILE *fp, int label_index);
 
-    /**Create a global variable*/
-    void (*create_global_variable)(FILE *fp, char *identifier, int stack_size);
-    /**Load a variable from the stack into a register*/
-    int (*load_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
-    /**Save a variable from a register onto the stack*/
-    int (*save_global_variable)(FILE *fp, int r, char *identifier, int stack_offset);
+    /**Enter a new scope and push its symbol table to the top of the stack*/
+    void (*enter_scope)(FILE *fp, symbol_table *symtab);
+    /**Leave the current scope and remove the symbol table*/
+    void (*leave_scope)(FILE *fp);
+
+    /**Load a variable from the into a register*/
+    void (*load_variable)(FILE *fp, int r, char *identifier);
+    /**Save a variable from a register */
+    void (*save_variable)(FILE *fp, int r, char *identifier);
+
 } ASM_Generators;
 
 /**Struct containing the ASM generator functions for the current compilation*/
@@ -91,6 +97,6 @@ void pir_print_int(int r);
 void pir_create_global(char *identifier, int size);
 
 int ast_to_pir(AST_Node *n, int r, Token_Type previous_operation);
-void generate_pir(void);
+void generate_pir(AST_Node *root);
 
 #endif
