@@ -46,8 +46,10 @@ static AST_Node *build_terminal_node(token t)
             fprintf(stderr, "Unknown variable %s on line %d\n", D_IDENTIFIER_BUFFER, D_LINE_NUMBER);
             shutdown(1);
         }
-
-        out = make_ast_leaf(T_IDENTIFIER, position);
+        int len = strlen(D_IDENTIFIER_BUFFER);
+        char *identifier = malloc(len);
+        strncpy(identifier,D_IDENTIFIER_BUFFER,len);
+        out = make_ast_leaf(T_IDENTIFIER, (long) identifier);
         break;
     default:
         fprintf(stderr, "Syntax error on line %d, token \"%s\"\n", D_LINE_NUMBER, token_strings[t._token]);

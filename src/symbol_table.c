@@ -7,8 +7,6 @@
 
 #include "symbol_table.h"
 
-/**Overall stack offset*/
-int stack_offset = 0;
 
 /**
  * Code to make a symbol table
@@ -28,6 +26,7 @@ symbol_table *make_symbol_table(symbol_table *parent)
         shutdown(1);
     }
     symtab->cur_length = 0;
+    symtab->stack_offset = 0;
     symtab->parent = parent;
     return symtab;
 }
@@ -56,6 +55,7 @@ void print_symbol_table(symbol_table *table)
     }
     printf("-----END SYMBOL TABLE-----\n");
 }
+
 
 /**
  * Binary search implementation to find a given symbol in a symbol table
@@ -150,7 +150,7 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
 
     // Set symbol data
     strcpy(symtab->symbols[position].name, name);
-    symtab->symbols[position].stack_offset = stack_offset;
+    symtab->symbols[position].stack_offset = symtab->stack_offset;
 
     int set_size;
     switch (datatype) {
@@ -161,7 +161,25 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
     symtab->symbols[position].size = set_size;
 
     // Update overall stack offset
-    stack_offset += set_size;
+    symtab->stack_offset += set_size;
 
     return position;
+}
+
+/**
+ * Get a symbol from the symbol table tree recursively. Return the first match found
+ * (i.e. the most specific scope a variable is declared in)
+ * @param  stack_top   top of the symbol table stack to traverse
+ * @param  name        the name of the symbol
+ * @return             the symbol found
+ */
+
+symbol* get_symbol(symbol_table *stack_top, char *name) {
+    while(stack_top != NULL) {
+        int position = _search(stack_top, 0, stack_top->cur_length-1, name);
+        if(position != -1) return &stack_top->symbols[position];
+        stack_top = stack_top->parent;
+    }
+    fprintf(stderr, "Unable to find symbol %s", name);
+    shutdown(1);
 }

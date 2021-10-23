@@ -15,8 +15,8 @@ void mips_data_section(FILE *fp)
           "newline:\t.asciiz\t\"\\n\"\n",
           fp);
 
-    for (int i = 0; i < global_symbol_table_len(); i++) {
-        symbol sym = D_GLOBAL_SYMBOL_TABLE[i];
+    for (int i = 0; i < D_GLOBAL_SYMBOL_TABLE->cur_length; i++) {
+        symbol sym = D_GLOBAL_SYMBOL_TABLE->symbols[i];
 
         if(sym.size <= 32){
             fprintf(fp, "%s:\t.word\t0", sym.name);

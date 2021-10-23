@@ -91,8 +91,6 @@ int main(int argc, char *argv[])
     // Parse program
     AST_Node *root = parse_compound_statement(NULL);
 
-    print_symbol_table(D_GLOBAL_SYMBOL_TABLE);
-
     // Generate ASM
     generate_pir(root);
 

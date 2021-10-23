@@ -6,6 +6,7 @@
 */
 
 #include "parse.h"
+#include "symbol_table.h"
 
 // Extern variables
 FILE *ASM_OUTPUT;
@@ -48,8 +49,11 @@ static AST_Node *assignment_statement(void)
         shutdown(1);
     }
 
+    int len = strlen(D_IDENTIFIER_BUFFER);
+    char *identifier = malloc(len);
+    strncpy(identifier,D_IDENTIFIER_BUFFER,len);
     // Build AST leaf for left value identifier
-    right = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, position);
+    right = make_ast_leaf(T_AST_LEFT_VALUE_IDENTIFIER, (long)  identifier);
 
     // Match for an equals token
     match(T_ASSIGNMENT);
@@ -284,8 +288,7 @@ AST_Node *parse_compound_statement(symbol_table *parent_table)
 
         if (GToken._token == T_RIGHT_BRACE) {
             match(T_RIGHT_BRACE);
-            left.v.scope_symbol_table = scope_symbol_table;
-            return left;
+            return make_ast_node(T_SCOPE, left, NULL, NULL, scope_symbol_table);
         }
     }
 }
