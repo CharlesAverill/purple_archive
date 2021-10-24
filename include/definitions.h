@@ -166,6 +166,12 @@ typedef enum Datatype_Sizes {
     SIZE_INT = 4,
 } Datatype_Sizes;
 
+/**Enum defining supported assembly modes*/
+typedef enum Assembly_Mode {
+    X86_64,
+    MIPS,
+} Assembly_Mode;
+
 void shutdown(int exit_code);
 
 #endif

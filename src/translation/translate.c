@@ -63,10 +63,10 @@ static void add_free_register(int r_index)
  */
 static void initialize_translator(void)
 {
-    current_asm_mode = args->forced_assembly_mode;
+    D_CURRENT_ASM_MODE = args->forced_assembly_mode;
 
-    switch (current_asm_mode) {
-    case X86:
+    switch (D_CURRENT_ASM_MODE) {
+    case X86_64:
         generators.data_section = x86_data_section;
 
         generators.preamble = x86_preamble;
@@ -486,5 +486,5 @@ void generate_pir(AST_Node *root)
 
     exit_translator();
 
-    printf("%s assembly written to %s\n", asm_mode_names[current_asm_mode], args->filenames[1]);
+    printf("%s assembly written to %s\n", asm_mode_names[D_CURRENT_ASM_MODE], args->filenames[1]);
 }

@@ -41,4 +41,7 @@ extern_ token GToken;
 /**Global symbol table, sorted by symbol name*/
 extern_ symbol_table *D_GLOBAL_SYMBOL_TABLE;
 
+/**Assembly mode to use during compilation*/
+extern_ Assembly_Mode D_CURRENT_ASM_MODE;
+
 #endif

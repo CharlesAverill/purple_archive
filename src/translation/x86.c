@@ -69,8 +69,12 @@ void x86_load_int(FILE *fp, int r, int value)
 
 void x86_print_int(FILE *fp, int r)
 {
-    fprintf(fp, "\tmovq\t%s, %%rdi\n", x86_register_names[r]);
-    fprintf(fp, "\tcall\tprint_int\n");
+    fprintf(fp,
+            "\n"
+            "\tmovq\t%s, %%rdi\n",
+            x86_register_names[r]);
+    fprintf(fp, "\tcall\tprint_int\n"
+                "\n");
 }
 
 int x86_add(FILE *fp, int r1, int r2)
@@ -122,6 +126,7 @@ int x86_compare_and_jump(FILE *fp, int r1, int r2, Comparison_Mode mode, int lab
 
 void x86_enter_scope(FILE *fp, symbol_table *symtab)
 {
+    fprintf(fp, "\tsubq\t$%d, %%rsp\n", get_symbol_aligned_stack_offset(symtab));
     if (symtab_stack == NULL) {
         symtab_stack = symtab;
         return;
@@ -130,13 +135,18 @@ void x86_enter_scope(FILE *fp, symbol_table *symtab)
         fprintf(stderr, "x86 enter scope which is not child of existing scope\n");
         shutdown(1);
     }
-    current_stack_offset += symtab->stack_offset;
+
+    current_stack_offset += get_symbol_aligned_stack_offset(symtab);
     symtab_stack = symtab;
 }
 
 void x86_leave_scope(FILE *fp)
 {
-    current_stack_offset -= symtab_stack->stack_offset;
+    int aligned_stack_offset = get_symbol_aligned_stack_offset(symtab_stack);
+    current_stack_offset -= aligned_stack_offset;
+
+    fprintf(fp, "\taddq\t$%d, %%rsp\n", aligned_stack_offset);
+
     symtab_stack = symtab_stack->parent;
 }
 
@@ -149,7 +159,7 @@ void x86_load_variable(FILE *fp, int r, char *identifier)
     }
     //local variable
     else {
-        fprintf(fp, "\tmovq\t-%d(\%%rbp), %s\n", symbol->stack_offset + current_stack_offset,
+        fprintf(fp, "\tmovq\t%d(\%%rbp), %s\n", -1 * (symbol->stack_offset + current_stack_offset),
                 x86_register_names[r]);
     }
 }
@@ -163,8 +173,8 @@ void x86_save_variable(FILE *fp, int r, char *identifier)
     }
     //local variable
     else {
-        fprintf(fp, "\tmovq\t%s, -%d(\%%rbp)\n", x86_register_names[r],
-                symbol->stack_offset + current_stack_offset);
+        fprintf(fp, "\tmovq\t%s, %d(\%%rbp)\n", x86_register_names[r],
+                -1 * (symbol->stack_offset + current_stack_offset));
     }
 }
 

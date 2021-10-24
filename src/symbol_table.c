@@ -156,6 +156,12 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
         set_size = SIZE_INT;
         break;
     }
+
+    // Check if our size is too small for 64-bit architectures
+    if (D_CURRENT_ASM_MODE == X86_64) {
+        set_size = get_64_bit_size(set_size);
+    }
+
     symtab->symbols[position].size = set_size;
 
     // Update overall stack offset
@@ -171,7 +177,6 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
  * @param  name        the name of the symbol
  * @return             the symbol found
  */
-
 symbol *get_symbol(symbol_table *stack_top, char *name)
 {
     while (stack_top != NULL) {
@@ -183,3 +188,21 @@ symbol *get_symbol(symbol_table *stack_top, char *name)
     fprintf(stderr, "Unable to find symbol %s", name);
     shutdown(1);
 }
+
+/**
+ * Get the stack offset of a symbol table, aligned to 16 bytes
+ * @param  symtab               The symbol table to get the size of
+ * @return        The aligned stack offset of the symbol table
+ */
+int get_symbol_aligned_stack_offset(symbol_table *symtab)
+{
+    return ((symtab->stack_offset + STACK_ALIGN - 1) / STACK_ALIGN) * STACK_ALIGN;
+}
+
+/**
+ * Some 64-bit architectures like x86_64 have a minimum operand size of 64 bits. This method
+ * returns the 64-bit size of a given symbol in bytes
+ * @param  sym               The size to resize
+ * @return     The proper 64-bit size of the input size
+ */
+int get_64_bit_size(int size) { return ((size + 7) / 8) * 8; }
