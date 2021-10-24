@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['x86_0',['X86',['../translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3',1,'translate.h']]],
-  ['x86_2ec_1',['x86.c',['../x86_8c.html',1,'']]],
-  ['x86_2eh_2',['x86.h',['../x86_8h.html',1,'']]],
+  ['x86_2ec_0',['x86.c',['../x86_8c.html',1,'']]],
+  ['x86_2eh_1',['x86.h',['../x86_8h.html',1,'']]],
+  ['x86_5f64_2',['X86_64',['../definitions_8h.html#a1a79efc86cd54f29203c2106df489c2bac0b790eb7ddc28e20f860b623a855408',1,'definitions.h']]],
   ['x86_5fadd_3',['x86_add',['../x86_8h.html#a07a4a1ca34e073736c965a7be5196d3b',1,'x86_add(FILE *fp, int r1, int r2):&#160;x86.c'],['../x86_8c.html#a07a4a1ca34e073736c965a7be5196d3b',1,'x86_add(FILE *fp, int r1, int r2):&#160;x86.c']]],
   ['x86_5fbyte_5fregister_5fnames_4',['x86_byte_register_names',['../x86_8c.html#ac24139b9cdbadafb6b092568b19cae14',1,'x86.c']]],
   ['x86_5fcompare_5',['x86_compare',['../x86_8h.html#a4ac6d8d9f90880651e8e22ebec4cba7e',1,'x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode):&#160;x86.c'],['../x86_8c.html#a4ac6d8d9f90880651e8e22ebec4cba7e',1,'x86_compare(FILE *fp, int r1, int r2, Comparison_Mode mode):&#160;x86.c']]],

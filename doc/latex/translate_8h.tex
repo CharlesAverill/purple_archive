@@ -28,16 +28,7 @@ struct \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef enum \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}{Assembly\+\_\+\+Mode}}
-\item 
 typedef struct \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{translate_8h_aea01806c9c00199f1e24df6f171ff7f5}{ASM\+\_\+\+Generators}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \{ \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3}{X86}}
-, \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}
- \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -59,9 +50,7 @@ FILE $\ast$ \mbox{\hyperlink{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}{ASM
 \item 
 static int \mbox{\hyperlink{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}{free\+\_\+registers}} \mbox{[}\mbox{\hyperlink{translate_8h_ad36c5a508277984c666476e859337196}{n\+\_\+registers}}\mbox{]}
 \item 
-static char $\ast$ \mbox{\hyperlink{translate_8h_adf76c673cdc54c77495cb3fecd6e0182}{asm\+\_\+mode\+\_\+names}} \mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}
-\item 
-static \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{translate_8h_ab3981274303b2799394e3088b463624c}{current\+\_\+asm\+\_\+mode}} = -\/1
+static char $\ast$ \mbox{\hyperlink{translate_8h_adf76c673cdc54c77495cb3fecd6e0182}{asm\+\_\+mode\+\_\+names}} \mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\+\_\+64\char`\"{}, \char`\"{}\mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}
 \item 
 \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{translate_8h_a174b62d940e7da9d15ca4305671bc59a}{generators}}
 \end{DoxyCompactItemize}
@@ -100,31 +89,6 @@ Charles\+Averill
 \doxysubsubsection{\texorpdfstring{ASM\_Generators}{ASM\_Generators}}
 {\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}} \mbox{\hyperlink{structASM__Generators}{ASM\+\_\+\+Generators}}}
 
-\mbox{\Hypertarget{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}\label{translate_8h_a8bd68feedc2386902ba6dafc3c71342f}} 
-\index{translate.h@{translate.h}!Assembly\_Mode@{Assembly\_Mode}}
-\index{Assembly\_Mode@{Assembly\_Mode}!translate.h@{translate.h}}
-\doxysubsubsection{\texorpdfstring{Assembly\_Mode}{Assembly\_Mode}}
-{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}}}
-
-Enum defining supported assembly modes 
-
-\doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{translate_8h_a1a79efc86cd54f29203c2106df489c2b}\label{translate_8h_a1a79efc86cd54f29203c2106df489c2b}} 
-\index{translate.h@{translate.h}!Assembly\_Mode@{Assembly\_Mode}}
-\index{Assembly\_Mode@{Assembly\_Mode}!translate.h@{translate.h}}
-\doxysubsubsection{\texorpdfstring{Assembly\_Mode}{Assembly\_Mode}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}}}
-
-Enum defining supported assembly modes \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{X86@{X86}!translate.h@{translate.h}}\index{translate.h@{translate.h}!X86@{X86}}}\mbox{\Hypertarget{translate_8h_a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3}\label{translate_8h_a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3}} 
-X86&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MIPS@{MIPS}!translate.h@{translate.h}}\index{translate.h@{translate.h}!MIPS@{MIPS}}}\mbox{\Hypertarget{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}\label{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}} 
-MIPS&\\
-\hline
-
-\end{DoxyEnumFields}
 
 
 \doxysubsection{Function Documentation}
@@ -182,7 +146,7 @@ PIR Print Int Logic
 \index{translate.h@{translate.h}!asm\_mode\_names@{asm\_mode\_names}}
 \index{asm\_mode\_names@{asm\_mode\_names}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{asm\_mode\_names}{asm\_mode\_names}}
-{\footnotesize\ttfamily char$\ast$ asm\+\_\+mode\+\_\+names\mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\char`\"{}, \char`\"{}\mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily char$\ast$ asm\+\_\+mode\+\_\+names\mbox{[}\mbox{\hyperlink{translate_8h_a13648bd0247dde89b66613af67f44ab2}{N\+\_\+\+SUPPORTED\+\_\+\+ASM\+\_\+\+MODES}}\mbox{]} = \{\char`\"{}x86\+\_\+64\char`\"{}, \char`\"{}\mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}\char`\"{}\}\hspace{0.3cm}{\ttfamily [static]}}
 
 Names of supported assembly modes \mbox{\Hypertarget{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}\label{translate_8h_a3e4e4c22290f59aecd7fc1f0b874a7df}} 
 \index{translate.h@{translate.h}!ASM\_OUTPUT@{ASM\_OUTPUT}}
@@ -190,13 +154,7 @@ Names of supported assembly modes \mbox{\Hypertarget{translate_8h_a3e4e4c22290f5
 \doxysubsubsection{\texorpdfstring{ASM\_OUTPUT}{ASM\_OUTPUT}}
 {\footnotesize\ttfamily FILE$\ast$ ASM\+\_\+\+OUTPUT\hspace{0.3cm}{\ttfamily [extern]}}
 
-The file pointer for the output assembly file \mbox{\Hypertarget{translate_8h_ab3981274303b2799394e3088b463624c}\label{translate_8h_ab3981274303b2799394e3088b463624c}} 
-\index{translate.h@{translate.h}!current\_asm\_mode@{current\_asm\_mode}}
-\index{current\_asm\_mode@{current\_asm\_mode}!translate.h@{translate.h}}
-\doxysubsubsection{\texorpdfstring{current\_asm\_mode}{current\_asm\_mode}}
-{\footnotesize\ttfamily \mbox{\hyperlink{translate_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} current\+\_\+asm\+\_\+mode = -\/1\hspace{0.3cm}{\ttfamily [static]}}
-
-Assembly mode to use during compilation \mbox{\Hypertarget{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}\label{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}} 
+The file pointer for the output assembly file \mbox{\Hypertarget{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}\label{translate_8h_a55433eb735bb85faa4b88ffe56024ffd}} 
 \index{translate.h@{translate.h}!free\_registers@{free\_registers}}
 \index{free\_registers@{free\_registers}!translate.h@{translate.h}}
 \doxysubsubsection{\texorpdfstring{free\_registers}{free\_registers}}

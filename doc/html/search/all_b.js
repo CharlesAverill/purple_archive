@@ -10,7 +10,7 @@ var searchData=
   ['max_5flength_7',['max_length',['../structsymbol__table.html#ae5bdc986f314a141fa231c2826a4f4b4',1,'symbol_table']]],
   ['max_5fsymbol_5flen_8',['MAX_SYMBOL_LEN',['../definitions_8h.html#a8b28d62fc2727b12b5483f4b52232fb6',1,'definitions.h']]],
   ['mid_9',['mid',['../structAST__Node.html#a80f6f71fd0ee3e7603f16dde76a67339',1,'AST_Node']]],
-  ['mips_10',['MIPS',['../translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05',1,'translate.h']]],
+  ['mips_10',['MIPS',['../definitions_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05',1,'definitions.h']]],
   ['mips_2ec_11',['mips.c',['../mips_8c.html',1,'']]],
   ['mips_2eh_12',['mips.h',['../mips_8h.html',1,'']]],
   ['mips_5fadd_13',['mips_add',['../mips_8h.html#ad49f277756cf0f661579fd2dde7d7a9e',1,'mips_add(FILE *fp, int r1, int r2):&#160;mips.c'],['../mips_8c.html#ad49f277756cf0f661579fd2dde7d7a9e',1,'mips_add(FILE *fp, int r1, int r2):&#160;mips.c']]],

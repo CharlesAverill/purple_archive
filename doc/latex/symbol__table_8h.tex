@@ -7,6 +7,11 @@ Function headers and definitions for Symbol Tables.
 
 {\ttfamily \#include \char`\"{}data.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}definitions.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{symbol__table_8h_a88839b8a36578f9480c960dbc381448b}{STACK\+\_\+\+ALIGN}}~16
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,6 +26,10 @@ int \mbox{\hyperlink{symbol__table_8h_a64104cac47d954ebf50953571f2e2de6}{insert\
 \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{symbol__table_8h_ad97acc2aa642bfd7f72b8cbf26e647a4}{get\+\_\+symbol}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$stack\+\_\+top, char $\ast$name)
 \item 
 void \mbox{\hyperlink{symbol__table_8h_a7716cc7f732654f66f3acc92f7bff1d1}{print\+\_\+symbol\+\_\+table}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab)
+\item 
+int \mbox{\hyperlink{symbol__table_8h_a8ba1922fc8513db1700344ca3e9a25ba}{get\+\_\+symbol\+\_\+aligned\+\_\+stack\+\_\+offset}} (\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$symtab)
+\item 
+int \mbox{\hyperlink{symbol__table_8h_a2e62b7cc5ecdde70a9ee07f04722ac5e}{get\+\_\+64\+\_\+bit\+\_\+size}} (int size)
 \end{DoxyCompactItemize}
 
 
@@ -35,7 +44,30 @@ Charles\+Averill
 \end{DoxyDate}
 
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{symbol__table_8h_a88839b8a36578f9480c960dbc381448b}\label{symbol__table_8h_a88839b8a36578f9480c960dbc381448b}} 
+\index{symbol\_table.h@{symbol\_table.h}!STACK\_ALIGN@{STACK\_ALIGN}}
+\index{STACK\_ALIGN@{STACK\_ALIGN}!symbol\_table.h@{symbol\_table.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_ALIGN}{STACK\_ALIGN}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+ALIGN~16}
+
+The stack pointer must always be a multiplier of this value 
+
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{symbol__table_8h_a2e62b7cc5ecdde70a9ee07f04722ac5e}\label{symbol__table_8h_a2e62b7cc5ecdde70a9ee07f04722ac5e}} 
+\index{symbol\_table.h@{symbol\_table.h}!get\_64\_bit\_size@{get\_64\_bit\_size}}
+\index{get\_64\_bit\_size@{get\_64\_bit\_size}!symbol\_table.h@{symbol\_table.h}}
+\doxysubsubsection{\texorpdfstring{get\_64\_bit\_size()}{get\_64\_bit\_size()}}
+{\footnotesize\ttfamily int get\+\_\+64\+\_\+bit\+\_\+size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+Some 64-\/bit architectures like x86\+\_\+64 have a minimum operand size of 64 bits. This method returns the 64-\/bit size of a given symbol in bytes 
+\begin{DoxyParams}{Parameters}
+{\em sym} & The size to resize \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The proper 64-\/bit size of the input size 
+\end{DoxyReturn}
 \mbox{\Hypertarget{symbol__table_8h_ad97acc2aa642bfd7f72b8cbf26e647a4}\label{symbol__table_8h_ad97acc2aa642bfd7f72b8cbf26e647a4}} 
 \index{symbol\_table.h@{symbol\_table.h}!get\_symbol@{get\_symbol}}
 \index{get\_symbol@{get\_symbol}!symbol\_table.h@{symbol\_table.h}}
@@ -51,6 +83,20 @@ Get a symbol from the symbol table tree recursively. Return the first match foun
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 the symbol found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{symbol__table_8h_a8ba1922fc8513db1700344ca3e9a25ba}\label{symbol__table_8h_a8ba1922fc8513db1700344ca3e9a25ba}} 
+\index{symbol\_table.h@{symbol\_table.h}!get\_symbol\_aligned\_stack\_offset@{get\_symbol\_aligned\_stack\_offset}}
+\index{get\_symbol\_aligned\_stack\_offset@{get\_symbol\_aligned\_stack\_offset}!symbol\_table.h@{symbol\_table.h}}
+\doxysubsubsection{\texorpdfstring{get\_symbol\_aligned\_stack\_offset()}{get\_symbol\_aligned\_stack\_offset()}}
+{\footnotesize\ttfamily int get\+\_\+symbol\+\_\+aligned\+\_\+stack\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsymbol__table}{symbol\+\_\+table}} $\ast$}]{symtab }\end{DoxyParamCaption})}
+
+Get the stack offset of a symbol table, aligned to 16 bytes 
+\begin{DoxyParams}{Parameters}
+{\em symtab} & The symbol table to get the size of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The aligned stack offset of the symbol table 
 \end{DoxyReturn}
 \mbox{\Hypertarget{symbol__table_8h_ab53d25812ab51fcee7c71ae8c76bec20}\label{symbol__table_8h_ab53d25812ab51fcee7c71ae8c76bec20}} 
 \index{symbol\_table.h@{symbol\_table.h}!init\_global\_symbol\_table@{init\_global\_symbol\_table}}

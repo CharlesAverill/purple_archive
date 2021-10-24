@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">symbol_table.h File Reference</div></div>
 </div><!--header-->
@@ -80,6 +81,11 @@ $(function() {
 </div>
 <p><a href="symbol__table_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a88839b8a36578f9480c960dbc381448b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symbol__table_8h.html#a88839b8a36578f9480c960dbc381448b">STACK_ALIGN</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a88839b8a36578f9480c960dbc381448b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab53d25812ab51fcee7c71ae8c76bec20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symbol__table_8h.html#ab53d25812ab51fcee7c71ae8c76bec20">init_global_symbol_table</a> (void)</td></tr>
@@ -94,12 +100,57 @@ Functions</h2></td></tr>
 <tr class="separator:ad97acc2aa642bfd7f72b8cbf26e647a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7716cc7f732654f66f3acc92f7bff1d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symbol__table_8h.html#a7716cc7f732654f66f3acc92f7bff1d1">print_symbol_table</a> (<a class="el" href="structsymbol__table.html">symbol_table</a> *symtab)</td></tr>
 <tr class="separator:a7716cc7f732654f66f3acc92f7bff1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba1922fc8513db1700344ca3e9a25ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symbol__table_8h.html#a8ba1922fc8513db1700344ca3e9a25ba">get_symbol_aligned_stack_offset</a> (<a class="el" href="structsymbol__table.html">symbol_table</a> *symtab)</td></tr>
+<tr class="separator:a8ba1922fc8513db1700344ca3e9a25ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e62b7cc5ecdde70a9ee07f04722ac5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="symbol__table_8h.html#a2e62b7cc5ecdde70a9ee07f04722ac5e">get_64_bit_size</a> (int size)</td></tr>
+<tr class="separator:a2e62b7cc5ecdde70a9ee07f04722ac5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Function headers and definitions for Symbol Tables. </p>
 <dl class="section author"><dt>Author</dt><dd>CharlesAverill </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>16-Oct-2021 </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a88839b8a36578f9480c960dbc381448b" name="a88839b8a36578f9480c960dbc381448b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88839b8a36578f9480c960dbc381448b">&#9670;&nbsp;</a></span>STACK_ALIGN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STACK_ALIGN&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The stack pointer must always be a multiplier of this value </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a2e62b7cc5ecdde70a9ee07f04722ac5e" name="a2e62b7cc5ecdde70a9ee07f04722ac5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e62b7cc5ecdde70a9ee07f04722ac5e">&#9670;&nbsp;</a></span>get_64_bit_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_64_bit_size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Some 64-bit architectures like x86_64 have a minimum operand size of 64 bits. This method returns the 64-bit size of a given symbol in bytes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sym</td><td>The size to resize </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The proper 64-bit size of the input size </dd></dl>
+
+</div>
+</div>
 <a id="ad97acc2aa642bfd7f72b8cbf26e647a4" name="ad97acc2aa642bfd7f72b8cbf26e647a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad97acc2aa642bfd7f72b8cbf26e647a4">&#9670;&nbsp;</a></span>get_symbol()</h2>
 
@@ -133,6 +184,31 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the symbol found </dd></dl>
+
+</div>
+</div>
+<a id="a8ba1922fc8513db1700344ca3e9a25ba" name="a8ba1922fc8513db1700344ca3e9a25ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba1922fc8513db1700344ca3e9a25ba">&#9670;&nbsp;</a></span>get_symbol_aligned_stack_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_symbol_aligned_stack_offset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsymbol__table.html">symbol_table</a> *&#160;</td>
+          <td class="paramname"><em>symtab</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get the stack offset of a symbol table, aligned to 16 bytes </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">symtab</td><td>The symbol table to get the size of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The aligned stack offset of the symbol table </dd></dl>
 
 </div>
 </div>

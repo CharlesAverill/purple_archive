@@ -39,6 +39,8 @@ typedef struct \mbox{\hyperlink{structAST__Node}{AST\+\_\+\+Node}} \mbox{\hyperl
 typedef enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparison\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a84f30e066439c6170eec169dc92b81cb}{Comparison\+\_\+\+Mode}}
 \item 
 typedef enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}} \mbox{\hyperlink{definitions_8h_a86557600aff296bf23917553c7cf25a8}{Datatype\+\_\+\+Sizes}}
+\item 
+typedef enum \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a8bd68feedc2386902ba6dafc3c71342f}{Assembly\+\_\+\+Mode}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -95,6 +97,10 @@ enum \mbox{\hyperlink{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}{Comparis
 \item 
 enum \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145e}{Datatype\+\_\+\+Sizes}} \{ \mbox{\hyperlink{definitions_8h_a58b84dbe028dd06b314b4033f8eb145ea0bf9ab585a974c92597f76f45792a0bb}{SIZE\+\_\+\+INT}} = 4
  \}
+\item 
+enum \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \{ \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2bac0b790eb7ddc28e20f860b623a855408}{X86\+\_\+64}}
+, \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}{MIPS}}
+ \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -137,7 +143,13 @@ Charles\+Averill
 
 
 \doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{definitions_8h_a6ee7975d5cc932491493b322a370a212}\label{definitions_8h_a6ee7975d5cc932491493b322a370a212}} 
+\mbox{\Hypertarget{definitions_8h_a8bd68feedc2386902ba6dafc3c71342f}\label{definitions_8h_a8bd68feedc2386902ba6dafc3c71342f}} 
+\index{definitions.h@{definitions.h}!Assembly\_Mode@{Assembly\_Mode}}
+\index{Assembly\_Mode@{Assembly\_Mode}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Assembly\_Mode}{Assembly\_Mode}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}} \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}}}
+
+Enum defining supported assembly modes \mbox{\Hypertarget{definitions_8h_a6ee7975d5cc932491493b322a370a212}\label{definitions_8h_a6ee7975d5cc932491493b322a370a212}} 
 \index{definitions.h@{definitions.h}!AST\_Node@{AST\_Node}}
 \index{AST\_Node@{AST\_Node}!definitions.h@{definitions.h}}
 \doxysubsubsection{\texorpdfstring{AST\_Node}{AST\_Node}}
@@ -182,6 +194,22 @@ Enum defining the size of each datatype \mbox{\Hypertarget{definitions_8h_ab2f49
 
 
 \doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}\label{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}} 
+\index{definitions.h@{definitions.h}!Assembly\_Mode@{Assembly\_Mode}}
+\index{Assembly\_Mode@{Assembly\_Mode}!definitions.h@{definitions.h}}
+\doxysubsubsection{\texorpdfstring{Assembly\_Mode}{Assembly\_Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{definitions_8h_a1a79efc86cd54f29203c2106df489c2b}{Assembly\+\_\+\+Mode}}}
+
+Enum defining supported assembly modes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X86\_64@{X86\_64}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!X86\_64@{X86\_64}}}\mbox{\Hypertarget{definitions_8h_a1a79efc86cd54f29203c2106df489c2bac0b790eb7ddc28e20f860b623a855408}\label{definitions_8h_a1a79efc86cd54f29203c2106df489c2bac0b790eb7ddc28e20f860b623a855408}} 
+X86\+\_\+64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIPS@{MIPS}!definitions.h@{definitions.h}}\index{definitions.h@{definitions.h}!MIPS@{MIPS}}}\mbox{\Hypertarget{definitions_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}\label{definitions_8h_a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05}} 
+MIPS&\\
+\hline
+
+\end{DoxyEnumFields}
 \mbox{\Hypertarget{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}\label{definitions_8h_ae4d9fc46a51491eeb28d238061165d09}} 
 \index{definitions.h@{definitions.h}!Comparison\_Mode@{Comparison\_Mode}}
 \index{Comparison\_Mode@{Comparison\_Mode}!definitions.h@{definitions.h}}

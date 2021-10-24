@@ -71,7 +71,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">translate.h File Reference</div></div>
@@ -106,17 +105,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a8bd68feedc2386902ba6dafc3c71342f"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a8bd68feedc2386902ba6dafc3c71342f">Assembly_Mode</a></td></tr>
-<tr class="separator:a8bd68feedc2386902ba6dafc3c71342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea01806c9c00199f1e24df6f171ff7f5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structASM__Generators.html">ASM_Generators</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#aea01806c9c00199f1e24df6f171ff7f5">ASM_Generators</a></td></tr>
 <tr class="separator:aea01806c9c00199f1e24df6f171ff7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a1a79efc86cd54f29203c2106df489c2b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a> { <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3">X86</a>
-, <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>
- }</td></tr>
-<tr class="separator:a1a79efc86cd54f29203c2106df489c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -137,10 +127,8 @@ Variables</h2></td></tr>
 <tr class="separator:a3e4e4c22290f59aecd7fc1f0b874a7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55433eb735bb85faa4b88ffe56024ffd"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a55433eb735bb85faa4b88ffe56024ffd">free_registers</a> [<a class="el" href="translate_8h.html#ad36c5a508277984c666476e859337196">n_registers</a>]</td></tr>
 <tr class="separator:a55433eb735bb85faa4b88ffe56024ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf76c673cdc54c77495cb3fecd6e0182"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#adf76c673cdc54c77495cb3fecd6e0182">asm_mode_names</a> [<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td></tr>
+<tr class="memitem:adf76c673cdc54c77495cb3fecd6e0182"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#adf76c673cdc54c77495cb3fecd6e0182">asm_mode_names</a> [<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86_64&quot;, &quot;<a class="el" href="definitions_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td></tr>
 <tr class="separator:adf76c673cdc54c77495cb3fecd6e0182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3981274303b2799394e3088b463624c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#ab3981274303b2799394e3088b463624c">current_asm_mode</a> = -1</td></tr>
-<tr class="separator:ab3981274303b2799394e3088b463624c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a174b62d940e7da9d15ca4305671bc59a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structASM__Generators.html">ASM_Generators</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="translate_8h.html#a174b62d940e7da9d15ca4305671bc59a">generators</a></td></tr>
 <tr class="separator:a174b62d940e7da9d15ca4305671bc59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -189,41 +177,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8bd68feedc2386902ba6dafc3c71342f" name="a8bd68feedc2386902ba6dafc3c71342f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bd68feedc2386902ba6dafc3c71342f">&#9670;&nbsp;</a></span>Assembly_Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a> <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Enum defining supported assembly modes </p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a1a79efc86cd54f29203c2106df489c2b" name="a1a79efc86cd54f29203c2106df489c2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a79efc86cd54f29203c2106df489c2b">&#9670;&nbsp;</a></span>Assembly_Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Enum defining supported assembly modes </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3" name="a1a79efc86cd54f29203c2106df489c2ba03b7f32fb426197602cbdf872eb289b3"></a>X86&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05" name="a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05"></a>MIPS&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 </div>
 </div>
@@ -372,7 +325,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char* asm_mode_names[<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86&quot;, &quot;<a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td>
+          <td class="memname">char* asm_mode_names[<a class="el" href="translate_8h.html#a13648bd0247dde89b66613af67f44ab2">N_SUPPORTED_ASM_MODES</a>] = {&quot;x86_64&quot;, &quot;<a class="el" href="definitions_8h.html#a1a79efc86cd54f29203c2106df489c2ba1a8f9b8e9f3c9da2c0936aba678e4b05">MIPS</a>&quot;}</td>
         </tr>
       </table>
   </td>
@@ -405,29 +358,6 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >The file pointer for the output assembly file </p>
-
-</div>
-</div>
-<a id="ab3981274303b2799394e3088b463624c" name="ab3981274303b2799394e3088b463624c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3981274303b2799394e3088b463624c">&#9670;&nbsp;</a></span>current_asm_mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="translate_8h.html#a1a79efc86cd54f29203c2106df489c2b">Assembly_Mode</a> current_asm_mode = -1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Assembly mode to use during compilation </p>
 
 </div>
 </div>
