@@ -69,8 +69,10 @@ void x86_load_int(FILE *fp, int r, int value)
 
 void x86_print_int(FILE *fp, int r)
 {
-    fprintf(fp, "\n"
-                "\tmovq\t%s, %%rdi\n", x86_register_names[r]);
+    fprintf(fp,
+            "\n"
+            "\tmovq\t%s, %%rdi\n",
+            x86_register_names[r]);
     fprintf(fp, "\tcall\tprint_int\n"
                 "\n");
 }

@@ -25,4 +25,6 @@ void print_symbol_table(symbol_table *symtab);
 
 int get_symbol_aligned_stack_offset(symbol_table *symtab);
 
+int get_64_bit_size(int size);
+
 #endif

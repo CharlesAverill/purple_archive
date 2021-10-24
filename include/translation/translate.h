@@ -27,18 +27,9 @@ extern FILE *ASM_OUTPUT;
 /**The array defining free registers. If free_registers[r1] == 1, r1 is free*/
 static int free_registers[n_registers];
 
-/**Enum defining supported assembly modes*/
-typedef enum Assembly_Mode {
-    X86,
-    MIPS,
-} Assembly_Mode;
-
 #define N_SUPPORTED_ASM_MODES 2
 /**Names of supported assembly modes*/
-static char *asm_mode_names[N_SUPPORTED_ASM_MODES] = {"x86", "MIPS"};
-
-/**Assembly mode to use during compilation*/
-static Assembly_Mode current_asm_mode = -1;
+static char *asm_mode_names[N_SUPPORTED_ASM_MODES] = {"x86_64", "MIPS"};
 
 /**
  * @struct ASM_Generators
