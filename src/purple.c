@@ -52,13 +52,11 @@ static void init(int argc, char *argv[])
 }
 
 /**
- * Free any memory, do any prep before the compiler stops, then exit
+ * Do any prep before the compiler stops, then exit
  */
 void shutdown(int exit_code)
 {
-    free(args);
-    free(D_GLOBAL_SYMBOL_TABLE);
-
+    fclose(D_INPUT_FILE);
     exit(exit_code);
 }
 
