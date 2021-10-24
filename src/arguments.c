@@ -26,6 +26,8 @@ error_t parse_opt(int key, char *arg, struct argp_state *state)
 {
     purple_args *arguments = state->input;
 
+    int found = 0;
+
     switch (key) {
     case 'q':
         arguments->quiet = 1;
@@ -37,7 +39,13 @@ error_t parse_opt(int key, char *arg, struct argp_state *state)
         for (int i = 0; i < N_SUPPORTED_ASM_MODES; i++) {
             if (!strcmp(asm_mode_names[i], arg)) {
                 arguments->forced_assembly_mode = i;
+                found = 1;
+                break;
             }
+        }
+        if(!found){
+            fprintf(stderr, "ASM mode %s not recognized, check the help menu for supported ASM modes\n", arg);
+            shutdown(1);
         }
     case ARGP_KEY_ARG:
         // Check for too many arguments
@@ -66,7 +74,7 @@ static struct argp argp = {options, parse_opt, args_doc, doc, 0, 0, 0};
 void parse_args(purple_args *args, int argc, char *argv[])
 {
     args->quiet = 0;
-    args->forced_assembly_mode = 0;
+    args->forced_assembly_mode = X86_64;
     args->filenames[1] = "a.s";
 
     argp_parse(&argp, argc, argv, 0, 0, args);
