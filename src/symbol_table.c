@@ -171,7 +171,6 @@ int insert_symbol(symbol_table *symtab, char *name, Token_Type datatype)
  * @param  name        the name of the symbol
  * @return             the symbol found
  */
-
 symbol *get_symbol(symbol_table *stack_top, char *name)
 {
     while (stack_top != NULL) {
@@ -182,4 +181,13 @@ symbol *get_symbol(symbol_table *stack_top, char *name)
     }
     fprintf(stderr, "Unable to find symbol %s", name);
     shutdown(1);
+}
+
+/**
+ * Get the stack offset of a symbol table, aligned to 16 bytes
+ * @param  symtab               The symbol table to get the size of
+ * @return        The aligned stack offset of the symbol table
+ */
+int get_symbol_aligned_stack_offset(symbol_table *symtab){
+    return ((symtab->stack_offset + STACK_ALIGN - 1) / STACK_ALIGN) * STACK_ALIGN;
 }
